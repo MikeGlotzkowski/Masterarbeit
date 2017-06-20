@@ -1,0 +1,8 @@
+Actually, you CAN get the whole Bitcoin trades history from Bitcoincharts in CSV format here : http://api.bitcoincharts.com/v1/csv/
+
+it is updated twice a day for active exchanges, and there is a few dead exchanges, too.
+
+EDIT: Since there are no column headers in the CSVs, here's what they are : column 1) the trade's timestamp, column 2) the price, column 3) the volume of the trade
+
+
+https://stackoverflow.com/questions/16143266/get-bitcoin-historical-data
