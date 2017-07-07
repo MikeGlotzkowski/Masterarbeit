@@ -1,0 +1,11 @@
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+          xlabel=Anzahl Threads,
+          ylabel=Laufzeit in Sekunden,
+          height=6.2cm,
+          ytick={100,200,300,400,500}]
+            \addplot table [y=t, x=T]{data/laufzeiten_parallel.dat};
+        \end{axis}
+    \end{tikzpicture}
+\end{center}

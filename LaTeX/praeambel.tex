@@ -1,0 +1,202 @@
+\documentclass[fontsize=12pt, paper=a4, headinclude, twoside=false, parskip=half+, pagesize=auto, numbers=noenddot, plainheadsepline, open=right, toc=listof, toc=bibliography, chapteratlists=0pt]{scrreprt}
+
+
+% Allgemeines
+\usepackage[automark]{scrpage2} % Kopf- und Fußzeilen
+\usepackage{amsmath,marvosym} % Mathesachen
+\usepackage[T1]{fontenc} % Ligaturen, richtige Umlaute im PDF
+\usepackage[utf8]{inputenc}% UTF8-Kodierung für Umlaute usw
+\usepackage{perpage} %the perpage package
+\MakePerPage{footnote} %the perpage package command
+%\usepackage{caption}
+\usepackage[Q=yes]{examplep}
+\usepackage{lipsum}
+
+% Schriften
+\usepackage{setspace} % Zeilenabstand
+\onehalfspacing % 1,5 Zeilen
+\usepackage{lmodern}
+
+% Schriften-Größen
+\setkomafont{chapter}{\Huge\rmfamily} % Überschrift der Ebene
+\setkomafont{section}{\Large\rmfamily}
+\setkomafont{subsection}{\large\rmfamily}
+\setkomafont{subsubsection}{\small\rmfamily}
+\setkomafont{chapterentry}{\large\rmfamily} % Überschrift der Ebene in Inhaltsverzeichnis
+\setkomafont{descriptionlabel}{\bfseries\rmfamily} % für description Umgebungen
+\setkomafont{captionlabel}{\small\bfseries}
+\setkomafont{caption}{\small}
+
+% Sprache: Deutsch
+\usepackage[ngerman]{babel} % Silbentrennung
+
+% PDF
+\usepackage[ngerman, breaklinks=true]{hyperref}
+\usepackage[final]{microtype} % mikrotypographische Optimierungen
+\usepackage{url}
+\usepackage{pdflscape} % einzelne Seiten drehen können
+
+% Tabellen
+\usepackage{multirow} % Tabellen-Zellen über mehrere Zeilen
+\usepackage{multicol} % mehre Spalten auf eine Seite
+\usepackage{tabularx} % Für Tabellen mit vorgegeben Größen
+\usepackage{longtable} % Tabellen über mehrere Seiten
+\usepackage{array}
+\usepackage{float}
+\usepackage{booktabs}
+
+% Diagramme
+\usepackage{tikz}
+\usepackage{pgfplotstable}
+\usepackage{pgfplots}
+\usetikzlibrary{trees}
+
+%  Bibliographie
+\usepackage{bibgerm} % Umlaute in BibTeX
+%\usepackage{cite}
+\usepackage[round]{natbib} 
+
+
+% Bilder
+\usepackage{graphicx} % Bilder
+\usepackage{color} % Farben
+\graphicspath{{images/}}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg} % bevorzuge pdf-Dateien
+\usepackage{subfigure} % mehrere Abbildungen nebeneinander/übereinander
+\newcommand{\subfigureautorefname}{\figurename} % um \autoref auch für subfigures benutzen
+\usepackage[all]{hypcap} % Beim Klicken auf Links zum Bild und nicht zu Caption gehen
+\usepackage{caption}
+
+% Bildunterschrift
+\usepackage{chngcntr}
+%\counterwithout{figure}{chapter}
+\setcapindent{0em} % kein Einrücken der Caption von Figures und Tabellen
+\setcapwidth[c]{0.9\textwidth}
+\setlength{\abovecaptionskip}{0.2cm} % Abstand der zwischen Bild- und Bildunterschrift
+
+% Quellcode
+\usepackage{listings} % für Formatierung in Quelltexten
+
+
+% Custom colors
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+\definecolor{grau}{rgb}{0.5,0.5,0.5}
+
+% Default fixed font does not support bold face
+\DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{10} % for bold
+\DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{10}  % for normal
+
+
+\lstset{
+    extendedchars=true,
+	numberbychapter=true,
+	basicstyle=\scriptsize\ttm,
+ 	frame=l,
+	captionpos=b,		
+	xleftmargin=5pt,
+	tabsize=2,
+    numbers=none,
+	numberstyle=\scriptsize,
+	numbersep=10pt,
+	breakautoindent  = true,
+	breaklines       = true,
+	breakatwhitespace = true,
+	prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}}
+}
+
+
+% Python environment
+\lstnewenvironment{python}[2][]
+{
+\vspace{10pt}
+\lstset{
+    caption=#1,
+    label=lst.#2,
+	language=Python,
+	commentstyle=\color{grau},
+	morekeywords={self}, % Add keywords here
+	deletekeywords=[2]{help}, 
+	keywordstyle=\ttb\color{deepblue},
+	stringstyle=\color{deepgreen},
+	showstringspaces=false,
+	}
+}
+{}
+
+
+	
+% linksbündige Fußboten
+\deffootnote{1.5em}{1em}{\makebox[1.5em][l]{\thefootnotemark}}
+
+
+\typearea{14} % typearea berechnet einen sinnvollen Satzspiegel (das heißt die Seitenränder) siehe auch http://www.ctan.org/pkg/typearea. Diese Berechnung befindet sich am Schluss, damit die Einstellungen oben berücksichtigt werden
+% für autoref von Gleichungen in itemize-Umgebungen
+\makeatletter
+\newcommand{\saved@equation}{}
+\let\saved@equation\equation
+\def\equation{\@hyper@itemfalse\saved@equation}
+\makeatother 
+
+
+
+% Eigene Befehle %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+% Matrix
+\newcommand{\mat}[1]{
+      {\textbf{#1}}
+}
+
+\newcommand{\todo}[1]{
+      {\colorbox{red}{ TODO: #1 }}
+}
+\newcommand{\todotext}[1]{
+      {\color{red} TODO: #1} \normalfont
+}
+\newcommand{\info}[1]{
+      {\colorbox{blue}{ (INFO: #1)}}
+}
+% Hinweis auf Programme in Datei
+\newcommand{\datei}[1]{
+      {\ttfamily{#1}}
+}
+\newcommand{\code}[1]{
+      {\ttfamily{#1}}
+}
+% bild mit defnierter Breite einfügen
+\newcommand{\bildF}[3]{
+  \begin{minipage}{\textwidth}
+    \centering
+      \vspace{1ex}
+      \includegraphics[#2]{images/#1}
+      \captionof{figure}{#3}\label{img.#1}      
+      \vspace{1ex}
+  \end{minipage}
+}
+
+% bild mit defnierter Breite einfügen
+\newcommand{\bild}[3]{
+  \begin{figure}[!h]
+    \centering
+      \vspace{1ex}
+      \includegraphics[#2]{images/#1}
+      \caption[#3]{#3}\label{img.#1}      
+      \vspace{1ex}
+  \end{figure}
+}
+
+\newcommand{\bildL}[2]{
+  \begin{figure}[!hbt]
+      \includegraphics[#2]{images/#1}
+      \protect\label{img.#1} 
+  \end{figure}
+}
+
+% thumbnail einfügen
+
+\newcommand{\bildthumb}[2]{
+ \begin{figure}[!hbt]
+	\hfill\includegraphics[#2]{images/#1}
+  \end{figure}	
+}
+
