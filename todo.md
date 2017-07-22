@@ -1,16 +1,23 @@
 # Aufgaben, Ideen, etc
 
 ## Todo
-Bitcoin Price Index BPI
-andere währungen? Japan, Russland, Euro etc.
+Bitcoin Price Index BPI  
+andere währungen? Japan, Russland, Euro etc.  
 
 ## Fragen
 
 ## Ideen
-* Feature Hashing für Wörter
-* Eher: Welche Eifnlüsse gibt es; Woher krieg ich die Daten
-[statista bbitcoin](https://de.statista.com/themen/2087/bitcoin/)
+* Feature Hashing für Wörter  
+* Eher: Welche Eifnlüsse gibt es; Woher krieg ich die Daten  
+[statista bbitcoin](https://de.statista.com/themen/2087/bitcoin/)  
+* Zeichung für Vorgehen: Welche Einflüsse --> Wie abbilden --> Woher --> Durchführen --> Schlüsse (so in etwa)  
+Dow Jones https://finance.yahoo.com/quote/%5EDJI/history?p=%5EDJI  
+Reddit überschriften (evtl. nur 1 jahr?) --> https://www.kaggle.com/aaron7sun/stocknews  
 
 ## Merke
-Statista, Google Scholar, Bib, **google trends**, **wikipedia trends** http://stats.grok.se/ ,
-Schmidt?
+Statista  
+Google Scholar  
+Bib  
+**google trends**  
+**wikipedia trends** http://stats.grok.se/   
+Schmidt?  
