@@ -1,10 +1,10 @@
-\chapter{Motivation}
+\chapter{Hinführung zum Thema}
 
 \section{Thema der Arbeit}
-In der vorliegenden Arbeit werden Einflussfaktoren auf den Kurs von ausgewählten Kryptowährungen gesucht und der Grad des Einflusses evaluiert. Dies geschieht mit dem Ziel herauszufinden, ob sich die Kursschwankungen der digitalen Währungen voraussagen lassen und wenn ja, in welchem Maße. Im nachfolgenden Kapitel wird auf die Gründe für die Analyse eingegangen. Das genaue Vorgehen und die Ziele werden wird in Abschnitt \ref{chapter:Vorgehen} erläutert.
+In der vorliegenden Arbeit werden Einflussfaktoren auf den Kurs von ausgewählten Kryptowährungen gesucht und der Grad des Einflusses evaluiert. Dies geschieht mit dem Ziel herauszufinden, ob sich die Kursschwankungen der digitalen Währungen voraussagen lassen und wenn ja, in welchem Maße. Im nachfolgenden Kapitel wird auf die Motivation hinter der Analyse eingegangen. Das genaue Vorgehen und die Ziele werden wird in Abschnitt \ref{chapter:Vorgehen} erläutert.
 
 \section{Bitcoin als Vorreiter der Krypotowährungen}
-Geld online von einem Teilnehmer direkt zu einem Anderen senden, ohne dabei (Transaktions-)Gebühren für einen zwischengelagerten Finanz-Dienstleister zahlen zu müssen, ist der Gedanke hinter dem "Peer-To-Peer Electronic Cash System"\citep{nakamoto_bitcoin:_2008} Bitcoin. Obwohl es Teilnehmern ohne Aufwand möglich ist, dem Netzwerk beizutreten oder es wieder zu verlassen, ist es solange unangreifbar, solange ein Angreifer nicht dauerhaft über mehr Rechenkapazität verfügt, als das komplette restliche Netzwerk.\citep{nakamoto_bitcoin:_2008} Ob das Bitcoinnetzwerk wirklich absolute Anonymität gewährt, wird stark kritisiert.\citep{reid_analysis_2013,androulaki_evaluating_2013}. In der Tat werden beim Nutzen des Netzwerk jedoch keine persönlichen Informationen an ein Kreditinstitut (wie PayPal, Paydirekt, ApplePay oder Masterpass) weitergegeben. Diese Argumente (Kostenreduktion, Sicherheit und Anonymität) sorgen für Interesse an der digitalen Währung (auch hier gibt es Kritiker, die den Bitcoin als Investition und nicht als Währung bezeichnen)\citep{baur_bitcoin:_2015}. Nicht zu vernachlässigen ist an dieser Stelle auch das Interesse der Industrie an "Smart Contracts", die beispielsweise im Bereich des Internet of Things Anwedung finden.\citep{christidis_blockchains_2016}\newline
+Geld online von einem Teilnehmer direkt zu einem Anderen senden, ohne dabei (Transaktions-)Gebühren für einen zwischengelagerten Finanz-Dienstleister zahlen zu müssen, ist der Gedanke hinter dem "Peer-To-Peer Electronic Cash System"\citep{nakamoto_bitcoin:_2008} Bitcoin. Obwohl es Teilnehmern ohne Aufwand möglich ist, dem Netzwerk beizutreten oder es wieder zu verlassen, ist es solange unangreifbar, solange ein Angreifer nicht dauerhaft über mehr Rechenkapazität verfügt, als das komplette restliche Netzwerk.\citep{nakamoto_bitcoin:_2008} Ob das Bitcoinnetzwerk wirklich absolute Anonymität gewährt, wird stark kritisiert.\citep{reid_analysis_2013,androulaki_evaluating_2013}. In der Tat werden beim Nutzen des Netzwerk jedoch keine persönlichen Informationen an ein Kreditinstitut (wie PayPal, Paydirekt, ApplePay oder Masterpass) weitergegeben. Diese Argumente (Kostenreduktion, Sicherheit und Anonymität) sorgen für Interesse an der digitalen Währung (auch hier gibt es Kritiker, die den Bitcoin als Investition und nicht als Währung bezeichnen)\citep{baur_bitcoin:_2015}. Nicht zu vernachlässigen ist an dieser Stelle auch das Interesse der Industrie an "Smart Contracts"\citep[S.~10]{dannen_introducing_2017}, die beispielsweise im Bereich des Internet of Things Anwedung finden.\citep{christidis_blockchains_2016}\newline
 Neben Bitcoin hat sich deshalb zusätzlich eine Vielzahl an anderen sogenannten Kryptowährungen entwickelt. Die Währungen mit dem größten Marktvolumen sind  Bitcoin(\ref{subsec:Bitcoin}) und Ethereum(\ref{subsec:Ethereum})\citep{wood_ethereum:_2014}.\citep{brandt_infografik:_2017, coinmarketcap_ranking_2017} Daneben gibt es noch sogenannte Altcoins (aus dem Englischen: alternative coin\citep{prableen_bajpai_altcoin_2014})(\ref{subsec:Altcoins}). Mittlerweile umfassen diese 664 Bitcoin-Alternativen.\citep{coindesk_anzahl_2017}. Obgleich die tatsächliche Nutzung der Krypowährungen sehr gering ist (1\% der Befragten in Deutschland\citep{tsys_kennen_2016}), steigt das Interesse an Kryptowährungen\citep{wikitrends_compare_2017,googletrends_googletrends_2017}.\newline
 \todo{irgendwas zu Technik später oder so?}
 
@@ -26,13 +26,32 @@ alternativen, warum hier nicht betrachtet; nur kopien...
 
 
 \section{Machine Learning, Data Mining, Data Analysis und Data Science}
-Die Begriffe Machine Learning, Data Mining, Data Analysis und Data Science stellen zwar verwandte Begriffe dar, sind jedoch alles eigene Themenfelder mit Berührungspunkten. \newline
-Machine Learning gehört zur Familie der Künstlichen Intelligenz in der Informatik und Mathematik.\multicitep{kim_matlab_2017, S.~2; swamynathan_mastering_2017, S.~54}. Es kann als "Sammlung Algorithmen und Techniken" verstanden werden, die "genutzt werden, um Computersysteme zu erstellen, die aus Daten lernen, um Vorhersagen zu machen" \citep[S.~53]{kim_matlab_2017}
+Die Themen Machine Learning, Data Mining, Data Analysis und Data Science stellen zwar verwandte Begriffe dar, sind jedoch alles eigene Felder. \newline
+Der Begriff Machine Learning gehört in der Informatik und Mathematik zur Familie der Künstlichen Intelligenz.\multicitep{kim_matlab_2017, S.~2; swamynathan_mastering_2017, S.~54}. Es kann als "Sammlung von Algorithmen und Techniken" verstanden werden, die "genutzt werden, um Computersysteme zu erstellen, die aus Daten lernen, um Vorhersagen zu erstellen".\citep[S.~53; eigene Übersetzung]{swamynathan_mastering_2017} Bekannte Anwendungen aus dem Alltag sind Empfehlungssysteme oder Spamerkennungen.\citep[S.~53]{swamynathan_mastering_2017}\newline
+Data Mining beschreibt den Prozess aus einer gewaltigen Menge an Daten die "richtigen Daten", zur "richtigen Zeit" für die "richtigen Entscheidungen"\citep[S.~61; eigene Übersetzung]{swamynathan_mastering_2017} zu gewinnen. Für diesen Prozess haben sich im Laufe Zeit drei Frameworks herauskristallisiert\citep[p.69]{swamynathan_mastering_2017}
+\begin{itemize}
+\item Knowledge Discovery Databases (KDD) process model
+\item CRoss Industrial Standard Process for Data Mining (CRISP – DM)
+\item Sample, Explore, Modify, Model and Assess (SEMMA)
+\end{itemize}
+Neben Schnittpunkten zu Künstlicher Intelligenz, Machine Learning und der Statistik, befasst sich Data Mining ebenfalls mit Datenbanksystemen.\citep[S.~4]{ramasubramanian_machine_2017} \newline
+Eng verwandt mit dem Data Mining ist die Datenanalyse (engl. Data Analysis; in der Industrie auch Business Analytics\citep[S.~58]{swamynathan_mastering_2017}). Sie wird benutzt um\citep[S.~2]{hertle_datenanalyse_2016}
+\begin{enumerate}
+\item Messdaten zu verstehen,
+\item Gesetzmäßigkeiten zu extrahieren und
+\item die Zukunft vorherzusagen.
+\end{enumerate}
+Dazu bedient sich sich der deskriptiven Statistik, der explorativen Datentenanalyse (engl. Explorative Data Analysis; EDA) und der Induktiven Statistik.\citep[S.~17]{hertle_datenanalyse_2016}\newline
+Um 
+\begin{itemize}
+\item den Anstieg der Datenmengen in der Datenanalyse,
+\item die Veränderung im Aussehen der Daten (unstrukturiert oder semi-strukturiert statt strukturiert) und
+\item die Wandlung Semantik der zugrundeliegenden Daten (Daten liegen in Markup-Sprachen vor und enthalten zusätzliche Informationen)
+\end{itemize}
+darzustellen, hat sich der Begriff Data Science entwickelt.\citep{dhar_data_2013} Er versucht die geänderten Anforderungen der heutigen Datenanalyse abzubilden.\newline
+Wie anfänglich erwähnt, sind alle genannten Begriffe miteinander verwandt. Das Gewinnen von Erkenntnissen aus Daten, um beispielsweise die Zukunft vorherzusagen, nennt sich Data Analysis. Werden die Daten aus verschiedensten Datenbanken oder Datawarehouses gewonnen, spricht man von Data Mining. Handelt es sich dabei um Informationen unterschiedlicher Struktur und große Datensätze, so befindet man sich im Bereich der Data Science. Der inhärente Erkenntnisgewinn dieser Verfahren kann von von menschlicher Seite kommen oder durch Machine Learning geschehen.\newline
+Projekte wie Googles DeepMind\citep{deepmind_technologies_limited_deepmind_2017}, IBMs Watson\citep{international_business_machines_corporation_ibm_ibm_2017} oder Sprachassistenten wie Siri, Alexa und Bixby zeigen, dass großes Interesse an Machine Learning und Data Science herrscht. Deshalb haben sich auch ganze Berufsfelder wie "machine learning engineer", "data engineer" oder "data scientist"\citep[S.~1]{ramasubramanian_machine_2017} gebildet.
 
-
-Was ist das; wozu nutzt man es; wo ist der Unterschied --> genaueres dann später
-
-viele daten; auswertung; automatisierung; hardware anforderungen
 
 
 \section{Cloud-Dienste und SaaS}
