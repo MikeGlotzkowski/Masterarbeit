@@ -41,7 +41,7 @@ Je größer ein Datensatz ist, umso wahrscheinlicher enthält der auch Inkonsist
 Der letzte Punkt, der beim Preprocessing betrachtet werden muss, ist der Zusammenhang der Daten und dem Erfassungszeitpunkt. So können im Laufe der Zeit sich die Messmethodik (z.B. andere Sensoren), die Messgenauigkeit (z.B. bessere Sensoren) oder die Abstände der Messungen verändern.
 
 \subsubsection{Transformation}
-Der letzte Schritt vor dem eigentlichen Data Mining ist die Transformation. In diesem Prozessschritt geht es darum, "mit Dimensionsreduktions- oder -transformationsmethonden die effektive Anzahl an Variablen [...] zu reduzieren"\citep[S.~42; eigene Übersetzung]{fayyad_data_1996}. In diesem Schritt geht es darum, invariante Variablen zu identifizieren und zu eliminieren. Ebenfalls wird versucht, solche Variablen zu finden, die mehrere Andere repräsentieren. Anschaulich dargestellt an einem Beispiel:
+Der letzte Schritt vor dem eigentlichen Data Mining ist die Transformation. In diesem Prozessschritt geht es darum, "mit Dimensionsreduktions- oder -transformationsmethonden die effektive Anzahl an Variablen [...] zu reduzieren"\citep[S.~42; eigene Übersetzung]{fayyad_data_1996}. Dies geschieht beispielsweise durch das identifizieren und eliminieren invarianter Variablen. Ebenfalls wird versucht, solche Variablen zu finden, die mehrere Andere repräsentieren. Anschaulich dargestellt an einem Beispiel:
 \begin{table}
 \begin{tabular}{rrrrrrr}
   \hline
@@ -70,16 +70,18 @@ Führt man eine Regression (\ref{list:Regression1}) für den Datensatz durch (mi
   \hline
  & Estimate & Std. Error & t value & Pr($>$||) \\ 
   \hline
-(Intercept) & 40000.0000 & 0.0000 & 2827667776379022.00 & 0.0000 \\ 
-  Studium & 300.0000 & 0.0000 & 580659943804207.12 & 0.0000 \\ 
-  ErfahrungExtern & 850.0000 & 0.0000 & 1763103113756617.75 & 0.0000 \\ 
-  ErfahrungIntern & 950.0000 & 0.0000 & 1506009525690195.75 & 0.0000 \\ 
-  Alter & 0.0000 & 0.0000 & 0.25 & 0.8201 \\ 
+(Intercept) & 40000 & 1.415e-11 & 2827667776379022.00 & <2e-16 *** \\ 
+  Studium & 300 & 5.167e-13 & 580659943804207.12 & <2e-16 *** \\ 
+  ErfahrungExtern & 850 & 4.821e-13 & 1763103113756617.75 & <2e-16 *** \\ 
+  ErfahrungIntern & 950 & 6.308e-13 & 1506009525690195.75 & <2e-16 *** \\ 
+  Alter & 2.010e-13 & 8.103e-13 & 0.82 \\ 
    \hline
 \end{tabular}
 \caption{Output der einer einfachen Regression mit allen Variablen}
 \label{tab:Regression1:output}
 \end{table}
+
+Ohne weiter auf die genauen 
 
 \todo{hier weiter: ohne an dieser Stelle genauer auf die werte einzugehen, zeigt sich, dass...}
 \todo{andere beispiele für trasnformation...smoothing, aggregation..."außer dem gerade verwendeten...blablabla" --> python buch}
