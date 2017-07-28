@@ -1,6 +1,6 @@
 # Aufgaben, Ideen, etc
 http://www.acatech.de/fileadmin/user_upload/Baumstruktur_nach_Website/Acatech/root/de/Publikationen/Projektberichte/acatech_STUDIE_FutureBusinessClouds_WEB.pdf
-https://de.statista.com/statistik/daten/studie/545908/umfrage/einsatz-verschiedener-saas-loesungen-in-der-public-cloud-in-deutschen-unternehmen/
+
 
 ## Todo
 Bitcoin Price Index BPI  

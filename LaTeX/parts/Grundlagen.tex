@@ -32,7 +32,8 @@ Ein Ausreißer (engl. outliner) kann beispielsweise ein "Extremer Wert in einer 
 Auch in einem Datensatz, der auf Ausreißer untersucht wurde, befinden sich immer noch unbekannte, unvollständige, falsche und fehlende Werte ("attribute noise"). Zusätzlich können Datenklassen falsch gekennzeichnet sein ("class noise"). Ist ein Datensatz von diesen Problemen betroffen, spricht man von "noisy data". Auf die Lösung dieses Problems wird an dieser Stelle nicht weiter eingegangen. 
 
 \paragraph{Identifying duplicated values}\mbox{} \\
-Wie oben angesprochen, wird der zu analysierende Datensatz aus mehreren Quellen zusammengeführt. Durch diesen Schritt können Datensätze doppelt (oder noch öfter) vorkommen. Das wird deutlich, wenn man folgendes Beispiel betrachtet: Über eine Kundenkarte werden Daten von Kunden eines Supermarkets je Filiale gespeichert. Bei einer überregionalen Kundenanalyse tauchen Kunden mehrfach auf, die in verschiedenen Filialen eingekauft haben. Hier ist anzumerken, dass doppelte Werte nicht zwangsläufig gelöscht werden müssen, sie sollten jedoch bei der Analyse bedacht werden.
+Wie oben angesprochen, wird der zu analysierende Datensatz aus mehreren Quellen zusammengeführt. Durch diesen Schritt können Datensätze doppelt (oder noch öfter) vorkommen. Das wird deutlich, wenn man folgendes Beispiel betrachtet: \newline
+Über eine Kundenkarte werden Daten von Kunden eines Supermarkets je Filiale gespeichert. Bei einer überregionalen Kundenanalyse tauchen Kunden mehrfach auf, die in verschiedenen Filialen eingekauft haben. Hier ist anzumerken, dass doppelte Werte nicht zwangsläufig gelöscht werden müssen, sie sollten jedoch bei der Analyse bedacht werden.
 
 \paragraph{Check for inconsistency}\mbox{} \\
 Je größer ein Datensatz ist, umso wahrscheinlicher enthält der auch Inkonsistenzen \todo{quelle hierfür?}. Dies wird ebenfalls durch die Fusion von mehreren Quellen verstärkt (Beispiel: unterschiedliches Alter für einen Kundenstammsatz). Auch hier muss geprüft werden, wie mit diesen Werten umzugehen ist. Eventuell können Regeln festgelegt werden wie "immer der neuste Datenpunk ist der richtige".
@@ -41,8 +42,8 @@ Je größer ein Datensatz ist, umso wahrscheinlicher enthält der auch Inkonsist
 Der letzte Punkt, der beim Preprocessing betrachtet werden muss, ist der Zusammenhang der Daten und dem Erfassungszeitpunkt. So können im Laufe der Zeit sich die Messmethodik (z.B. andere Sensoren), die Messgenauigkeit (z.B. bessere Sensoren) oder die Abstände der Messungen verändern.
 
 \subsubsection{Transformation}
-Der letzte Schritt vor dem eigentlichen Data Mining ist die Transformation. In diesem Prozessschritt geht es darum, "mit Dimensionsreduktions- oder -transformationsmethonden die effektive Anzahl an Variablen [...] zu reduzieren"\citep[S.~42; eigene Übersetzung]{fayyad_data_1996}. Dies geschieht beispielsweise durch das identifizieren und eliminieren invarianter Variablen. Ebenfalls wird versucht, solche Variablen zu finden, die mehrere Andere repräsentieren. Anschaulich dargestellt an einem Beispiel:
-\begin{table}
+Der letzte Schritt vor dem eigentlichen Data Mining ist die Transformation. In diesem Prozessschritt geht es darum, "mit Dimensionsreduktions- oder -transformationsmethonden die effektive Anzahl an Variablen [...] zu reduzieren"\citep[S.~42; eigene Übersetzung]{fayyad_data_1996}. Dies geschieht beispielsweise durch das identifizieren und eliminieren invarianter Variablen. Ebenfalls wird versucht, solche Variablen zu finden, die mehrere Andere repräsentieren. Anschaulich dargestellt an einem Beispiel:\newline
+\begin{table}[h!]
 \begin{tabular}{rrrrrrr}
   \hline
  & Person & Studium & ErfahrungExtern & ErfahrungIntern & Alter & Gehalt \\ 
@@ -60,31 +61,73 @@ Der letzte Schritt vor dem eigentlichen Data Mining ist die Transformation. In d
 \caption{Einfacher Datensatz mit Berufserfahrung und Gehalt}
 \label{tab:Beispiel_Berufserfahrung_R_output_simpleData}
 \end{table}
-Die Tabelle \ref{tab:Beispiel_Berufserfahrung_R_output_simpleData} zeigt einen einfachen Datensatz, in dem das Personal einer Firma und sein Gehalt festgehalten ist. "Studium" beschreibt Anzahl der Halbjahre im Studium. Analog dazu "ErfahrungExtern" und "ErfahrungIntern" die Berufserfahrung in Halbjahren. Zusätzlich ist das Alter der Personen gegeben.\newline
-Führt man eine Regression (\ref{list:Regression1}) für den Datensatz durch (mit Studium, ErfahrungExtern, ErfahrungIntern, Alter als unabhängige und Gehalt als abhängige Variable), ergibt sich das Ergebnis in Tabelle \ref{tab:Regression1:output}.
+Tabelle \ref{tab:Beispiel_Berufserfahrung_R_output_simpleData} zeigt einen einfachen Datensatz, in dem das Personal einer Firma und die zugehörigen Gehälter festgehalten ist. "Studium" beschreibt Anzahl der Halbjahre im Studium. Analog dazu "ErfahrungExtern" und "ErfahrungIntern" die Berufserfahrung in Halbjahren. Zusätzlich ist das Alter der Personen gegeben.\newline
+Führt man eine Regression (Listing \ref{list:Regression1}) für den Datensatz durch (mit Studium, ErfahrungExtern, ErfahrungIntern, Alter als unabhängige und Gehalt als abhängige Variable), ergibt sich das Ergebnis in Tabelle \ref{tab:Regression1:output}.
 
-\lstinputlisting[label=list:Regression1, caption=Einfache Regression mit allen Faktoren]{../R/Beispiel_Berufserfahrung/Regression1.R}
+\lstinputlisting[caption=Regression mit allen Faktoren,label=list:Regression1]{../R/Beispiel_Berufserfahrung/Regression1.R}
 
-\begin{table}
+\begin{table}[h!]
 \begin{tabular}{rrrrr}
   \hline
  & Estimate & Std. Error & t value & Pr($>$||) \\ 
   \hline
-(Intercept) & 40000 & 1.415e-11 & 2827667776379022.00 & <2e-16 *** \\ 
-  Studium & 300 & 5.167e-13 & 580659943804207.12 & <2e-16 *** \\ 
-  ErfahrungExtern & 850 & 4.821e-13 & 1763103113756617.75 & <2e-16 *** \\ 
-  ErfahrungIntern & 950 & 6.308e-13 & 1506009525690195.75 & <2e-16 *** \\ 
-  Alter & 2.010e-13 & 8.103e-13 & 0.82 \\ 
-   \hline
+(Intercept) & 40000 & 1.415e-11 & 2.828e+15 & <2e-16 *** \\ 
+  Studium & 300 & 5.167e-13 & 5.807e+14 & <2e-16 *** \\ 
+  ErfahrungExtern & 850 & 4.821e-13 & 1.763e+15  & <2e-16 *** \\ 
+  ErfahrungIntern & 950 & 6.308e-13 & 1.506e+15 & <2e-16 *** \\ 
+  Alter & 2.010e-13 & 8.103e-13 & 2.480e-01 & 0.82 \\ 
+\hline
 \end{tabular}
-\caption{Output der einer einfachen Regression mit allen Variablen}
+\caption{Output der einer Regression mit allen Variablen}
 \label{tab:Regression1:output}
 \end{table}
 
-Ohne weiter auf die genauen 
+Ohne weiter auf die genauen Beizeichnungen einzugehen, gibt die Sternnotation von R an, dass die unabhängigen Variablen Studium, ErfahrungIntern und ErfahrungExtern signifikant sind. Das Alter hingegen nicht. Die Regression hat ein adjustiertes Bestimmtheitsmaß ($R^2$; engl. adjusted R-squared) von 1. Das Bedeutet, dass das das Gehalt 100\% durch die Variablen erklärt werden kann (dies wird in der Realität jedoch nie erreicht).
 
-\todo{hier weiter: ohne an dieser Stelle genauer auf die werte einzugehen, zeigt sich, dass...}
-\todo{andere beispiele für trasnformation...smoothing, aggregation..."außer dem gerade verwendeten...blablabla" --> python buch}
+\lstinputlisting[caption=Regression ohne Alter,label=list:Regression2]{../R/Beispiel_Berufserfahrung/Regression2.R}
+\begin{table}[h!]
+\begin{tabular}{rrrrr}
+  \hline
+ & Estimate & Std. Error & t value & Pr($>$||) \\ 
+  \hline
+(Intercept) & 40000 & 2.393e-12 & 1.671e+16 & <2e-16 *** \\ 
+  Studium & 300 & 2.948e-13 & 1.018e+15 & <2e-16 *** \\ 
+  ErfahrungExtern & 850 & 8.948e-14 & 9.500e+15 & <2e-16 *** \\ 
+  ErfahrungIntern & 950 & 1.642e-13 & 5.787e+15.75 & <2e-16 *** \\ 
+\hline
+\end{tabular}
+\caption{Output der einer Regression mit allen Variablen}
+\label{tab:Regression2:output}
+\end{table}
+Führt man die Regression nun ohne das Alter durch (Listing \ref{list:Regression2} und Tabelle \ref{tab:Regression2:output}) bleibt $R^2$ gleich. Der Datensatz wurde also bereits um eine Variable reduziert, ohne das Ergebnis der Regression zu verschlechtern.\newline
+Betrachtet man die Faktoren ErfahrungExtern und ErfahrungIntern, so fällt auf, dass sie einen ähnlichen Einfluss auf das Gehalte erzielen (850 und 950). 
+\lstinputlisting[caption=Regression mit zusammengefassten Werten,label=list:Regression3]{../R/Beispiel_Berufserfahrung/Regression3.R}
+Fasst man beide Variablen zusammen (Listing \ref{list:Regression3}), zeigt sich im Ergebnis (Tabelle \ref{tab:Regression3:output}), dass $R^2$ bei 0,9988 liegt. Die Güte der Regression hat sich also nur minimal verschlechtert.
+\begin{table}[h!]
+\begin{tabular}{rrrrr}
+  \hline
+ & Estimate & Std. Error & t value & Pr($>$||) \\ 
+  \hline
+(Intercept) & 40107.10 & 528.87 & 75.83 & 7.55e-09 *** \\
+ErfahrungGesamt & 876.69 & 15.86 & 55.26 & 3.67e-08 ***\\ 
+Studium & 327.17 & 64.27 & 5.09 & 0.0038 **\\ 
+\hline
+\end{tabular}
+\caption{Output der einer Regression mit zusammengefassten Werten}
+\label{tab:Regression3:output}
+\end{table}
+Zusammenfassend lässt sich für dieses Beispiel sagen, dass die Variablen im Datensatz um die Hälfte reduziert wurden, ohne die Aussagekraft deutlich zu verschlechtern. In einem realen Datensatz ist diese Arbeit zwar nicht so trivial und offensichtlich, jedoch gelten die gleichen Prinzipien.\newline
+Nach \citep[S.~71; veränderte Version]{swamynathan_mastering_2017} gibt es zur Transformation folgende Möglichkeiten:
+\begin{itemize}
+\item Smoothing (binning, clustering, regression, etc.)
+\item Aggregation (im Beispiel: das Zusammenfassen der Berufserfahrung)
+\item Generalization (Ersetzen von primitiven Datenobjekten durch höherstufige Konzepte)
+\item Normalization (min-max-scaling oder z-score)
+\item Feature construction aus bereits bestehenden Attributen durch Techniken wie die Hauptkomponentenanalyse (engl. principal components analysis; PCA), Multidimensional scaling (MDS) oder Locally-linear embedding (LLE)
+\item Compression (zum Beispiel wavelets, PCA, clustering etc.)
+\item andere Datenreduzierungstechniken bei denen das Datenvolumen sinkt, ohne die Integrität der Originaldaten zu verletzten
+\end{itemize}
+
 \todo{weitere schritte aus Fayyad paper dann...}
 
 \subsubsection{Data Mining}
