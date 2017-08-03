@@ -1,7 +1,6 @@
 # Aufgaben, Ideen, etc
 http://www.acatech.de/fileadmin/user_upload/Baumstruktur_nach_Website/Acatech/root/de/Publikationen/Projektberichte/acatech_STUDIE_FutureBusinessClouds_WEB.pdf
 
-differenziert man zwischen den services in Abbildung 1 --> Tabelle 1
 
 ## Todo
 Bitcoin Price Index BPI  
