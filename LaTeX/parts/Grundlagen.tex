@@ -140,8 +140,12 @@ Eine genauere Beschreibung der Methoden (und der zugehörigen Algorithmen) im Ko
 Anschließend erfolgt das (automatische) Mining der Daten. Je besser die vorhergehenden Schritte durchgeführt wurden, desto potenter ist das Ergebnis.\citep[S.~42]{fayyad_data_1996} Aus diesem Grund ist es auch jederzeit möglich, zu einem vorangegangen Prozessschritt zu springen, um neu erlangte Einsichten einfließen zu lassen (siehe zurückspringender grauer Pfeil in Abbildung \ref{fig:kddprocess}).
 
 \subsubsection{Interpretation/Evaluation}
-Eighth is interpreting mined patterns
-Ninth is acting on the discovered knowledge:
+Zuletzt werden die gefundenen Muster und trainierten Modelle interpretiert. Ein Muster macht Aussagen über jeden Datenpunkt im betrachteten Raum (zum Beispiel bei einem einfachen linearen Model: $y = m \times x + t$). Ein Muster (engl. pattern) beschreibt dagegen nur eine kleine "lokale Struktur", die "nur über einen begrenzen Bereich" Aussagen macht.\citep[S.~71; eigene Übersetzung]{swamynathan_mastering_2017} In dem Fall eines linearen Model, wäre es eine bestimmte Gleichung, zum Beispiel $y = 2 \times x + 5$.\citep{kraker_towards_2013} "Fayyad et al. benutzt patterns und models synonym".\citep{kraker_towards_2013}\newline
+Das Interpretieren der Ergebnisse beinhaltet ebenfalls das Zusammenfassen der Erkenntnisse und gegebenenfalls das Visualisieren.\citep[S.~71]{swamynathan_mastering_2017} Als Evaluieren wird das Eingliedern der Resultate in andere Systeme (zur Weiterverarbeitung oder Verbreitung), das Prüfen auf (und Lösen von) Konflikten mit anderen Untersuchungen und nicht zuletzt das Dokumentieren der Befunde bezeichnet.\citep[S.~42]{fayyad_data_1996} \newline
+\todo{Befund nur medizinisch?; synonym)}
+An dieser Stelle sei erneut angemerkt, dass das erste Ergebnis des KDD-Prozesses nicht das Endergebnis sein muss. Es kann durchaus viele Iterationen geben, die auch "loops between any two steps" beinhalten können.\citep[S.~42]{fayyad_data_1996}
+
+
 
 
 \subsection{CRoss Industrial Standard Process for Data Mining (CRISP – DM)}
