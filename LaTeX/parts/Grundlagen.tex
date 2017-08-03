@@ -14,7 +14,7 @@ Die Bezeichung Knowledge Discovery in Databases wurde hauptsächlich von \citep{
 
 
 \subsubsection{Selection}
-Bevor der erste eigentliche Schritt, die Selektion der Daten, erfolgen kann, ist es unabdingbar, ein "Verständnis für das Anwendungsgebiet zu entwickeln".\citep[S.~42; eigene Übersetzung]{fayyad_data_1996} Ist das Verständnis hergestellt, kann ein "target data set"\citep[S.~42]{fayyad_data_1996} hergestellt werden. Dabei werden zuerst Daten aus unterschiedlichen - oft heterogenen - Quellen zusammengeführt und dann hinsichtlich des Ziels verdichtet.\citep[S.~70]{swamynathan_mastering_2017}
+Bevor der erste eigentliche Schritt, die Selektion der Daten, erfolgen kann, ist es unabdingbar, ein "Verständnis für das Anwendungsgebiet zu entwickeln".\citep[S.~42; eigene Übersetzung]{fayyad_data_1996} Dies inkludiert auch, Ziele zu setzen und Fragen zu formulieren, die durch das spätere Data Mining (Schritt \ref{subsubsec:DataMining}) beantwortet werden sollen. \todo{wirklich "Ziele setzten"?} Ist das Verständnis hergestellt, kann ein "target data set"\citep[S.~42]{fayyad_data_1996} hergestellt werden. Dabei werden zuerst Daten aus unterschiedlichen - oft heterogenen - Quellen zusammengeführt und dann hinsichtlich des Ziels verdichtet.\citep[S.~70]{swamynathan_mastering_2017}
 
 \subsubsection{Preprocessing}
 Die verbleibende Teilmenge der ursprünglichen Daten muss nun noch gesäubert und für die nächsten Schritte vorbereitet werden. Dies geschieht, da unbereinigte Daten sowohl den Data Mining-Prozess verschlechtern können (unverlässliche oder falsche Ergebnisse), als auch die Zeit für das Mining deutlich verlängern können.\citep[S.~70]{swamynathan_mastering_2017}
@@ -128,12 +128,16 @@ Nach \citep[S.~71; veränderte Version]{swamynathan_mastering_2017} gibt es zur 
 \item andere Datenreduzierungstechniken bei denen das Datenvolumen sinkt, ohne die Integrität der Originaldaten zu verletzten
 \end{itemize}
 
-\todo{weitere schritte aus Fayyad paper dann...}
 
-\subsubsection{Data Mining}
-Fifth is matching the goals of the KDD process (step 1)
-Sixth is exploratory analysis and model and hypothesis selection
-Seventh is data mining
+\subsubsection{Data Mining}\label{subsubsec:DataMining}
+Ist der Datensatz präpariert, so findet das eigentliche Data Mining statt. Dabei muss sich der Anwender für eine oder auch mehrere Methoden für das Mining entscheiden, um die anfänglichen Ziele zu erreichen und die Fragestellungen zu beantworten. Zur Auswahl stehen beispielsweise\multicitep{fayyad_data_1996, S.~42; swamynathan_mastering_2017, S.~71}:
+\begin{itemize}
+\item zusammenfassende und beschreibende Methoden: Mittelwert (arithmetisches Mittel), Median, Modus, Standardabweichung, Klassen-und Konzeptbeschreibungen, grafische Plots,
+\item Vorhersagende Modelle (engl. predictive models): Klassifikationen und Regressionen und
+\item Cluster-Analysen.
+\end{itemize}
+Eine genauere Beschreibung der Methoden (und der zugehörigen Algorithmen) im Kontext des Machine Learning befindet sich in Abschnitt \ref{sec:MachineLearning}. Je nach Beschaffenheit der zugrundeliegenden Daten und der gewählten Methode, muss ein passender Algorithmus gewählt und dieser korrekt parametrisiert werden. Zum Data Mining gehört auch, Hypothesen zu formulieren und das Ergebnis im Auge zu behalten: Ist der Endnutzer der Analyse an einem vorhersagenden Model interessiert (zum Beispiel für Wartungsarbeiten) oder an einem Jetzt-bezogenen (zum Beispiel für eine strategische Ausrichtung nach den aktuellen Kundensegmenten)?\newline
+Anschließend erfolgt das (automatische) Mining der Daten. Je besser die vorhergehenden Schritte durchgeführt wurden, desto potenter ist das Ergebnis.\citep[S.~42]{fayyad_data_1996} Aus diesem Grund ist es auch jederzeit möglich, zu einem vorangegangen Prozessschritt zu springen, um neu erlangte Einsichten einfließen zu lassen (siehe zurückspringender grauer Pfeil in Abbildung \ref{fig:kddprocess}).
 
 \subsubsection{Interpretation/Evaluation}
 Eighth is interpreting mined patterns
@@ -145,18 +149,7 @@ Ninth is acting on the discovered knowledge:
 \subsection{Auswahl}
 
 
-
-
-\section{Data Mining (Prozess)}
-Data mining Prozess beschreiben und die Stufen von Zeile etc. Bis zur Interpretation 
-\subsection{Ziele}
-\subsection{Datenauswahl}
-\subsection{Datenbereinigung}
-\subsection{Datenreduktion (Transformaton)}
-\subsection{Modellauswahl}
-\subsection{Data-Mining (Datenanalyse)}
-\subsection{Interpretation}
-\section{Machine Learning } 
+\section{Machine Learning}\label{sec:MachineLearning} 
 \subsection{Supervised...}
 Man weiß, nach was man sucht…
 \subsubsection{Decision Tree}
