@@ -39,7 +39,7 @@ Wie oben angesprochen, wird der zu analysierende Datensatz aus mehreren Quellen 
 Je größer ein Datensatz ist, umso wahrscheinlicher enthält der auch Inkonsistenzen \todo{quelle hierfür?}. Dies wird ebenfalls durch die Fusion von mehreren Quellen verstärkt (Beispiel: unterschiedliches Alter für einen Kundenstammsatz). Auch hier muss geprüft werden, wie mit diesen Werten umzugehen ist. Eventuell können Regeln festgelegt werden wie "immer der neuste Datenpunk ist der richtige".
 
 \paragraph{Time series and changes}\mbox{} \\
-Der letzte Punkt, der beim Preprocessing betrachtet werden muss, ist der Zusammenhang der Daten und dem Erfassungszeitpunkt. So können im Laufe der Zeit sich die Messmethodik (z.B. andere Sensoren), die Messgenauigkeit (z.B. bessere Sensoren) oder die Abstände der Messungen verändern.
+Der letzte Punkt, der beim Preprocessing betrachtet werden muss, ist der Zusammenhang der Daten und dem Erfassungszeitpunkt. So können sich im Laufe der Zeit die Messmethodik (z.B. andere Sensoren), die Messgenauigkeit (z.B. bessere Sensoren) oder die Abstände der Messungen verändern. \todo{warum ist das schlecht: ungleich verteilte Datensätze/inkonsistente Genauigkeit}
 
 \subsubsection{Transformation}
 Der letzte Schritt vor dem eigentlichen Data Mining ist die Transformation. In diesem Prozessschritt geht es darum, "mit Dimensionsreduktions- oder -transformationsmethonden die effektive Anzahl an Variablen [...] zu reduzieren"\citep[S.~42; eigene Übersetzung]{fayyad_data_1996}. Dies geschieht beispielsweise durch das identifizieren und eliminieren invarianter Variablen. Ebenfalls wird versucht, solche Variablen zu finden, die mehrere Andere repräsentieren. Anschaulich dargestellt an einem Beispiel:\newline
@@ -61,8 +61,8 @@ Der letzte Schritt vor dem eigentlichen Data Mining ist die Transformation. In d
 \caption{Einfacher Datensatz mit Berufserfahrung und Gehalt}
 \label{tab:Beispiel_Berufserfahrung_R_output_simpleData}
 \end{table}
-Tabelle \ref{tab:Beispiel_Berufserfahrung_R_output_simpleData} zeigt einen einfachen Datensatz, in dem das Personal einer Firma und die zugehörigen Gehälter festgehalten ist. "Studium" beschreibt Anzahl der Halbjahre im Studium. Analog dazu "ErfahrungExtern" und "ErfahrungIntern" die Berufserfahrung in Halbjahren. Zusätzlich ist das Alter der Personen gegeben.\newline
-Führt man eine Regression (Listing \ref{list:Regression1}) für den Datensatz durch (mit Studium, ErfahrungExtern, ErfahrungIntern, Alter als unabhängige und Gehalt als abhängige Variable), ergibt sich das Ergebnis in Tabelle \ref{tab:Regression1:output}.
+Tabelle \ref{tab:Beispiel_Berufserfahrung_R_output_simpleData} zeigt einen einfachen Datensatz, in dem die Mitarbeiter einer Firma und die zugehörigen Gehälter festgehalten sind. "Studium" beschreibt die Anzahl der Halbjahre im Studium. Analog dazu "ErfahrungExtern" und "ErfahrungIntern" die Berufserfahrung in Halbjahren außerhalb und innerhalb der Firma. Zusätzlich ist das Alter der Personen gegeben.\newline
+Führt man eine Regression (Listing \ref{list:Regression1}) für den Datensatz durch (mit Studium, ErfahrungExtern, ErfahrungIntern, Alter als unabhängige und Gehalt als abhängige Variablen), ergibt sich das Ergebnis in Tabelle \ref{tab:Regression1:output}.
 
 \lstinputlisting[caption=Regression mit allen Faktoren,label=list:Regression1]{../R/Beispiel_Berufserfahrung/Regression1.R}
 
@@ -82,7 +82,7 @@ Führt man eine Regression (Listing \ref{list:Regression1}) für den Datensatz d
 \label{tab:Regression1:output}
 \end{table}
 
-Ohne weiter auf die genauen Beizeichnungen einzugehen, gibt die Sternnotation von R an, dass die unabhängigen Variablen Studium, ErfahrungIntern und ErfahrungExtern signifikant sind. Das Alter hingegen nicht. Die Regression hat ein adjustiertes Bestimmtheitsmaß ($R^2$; engl. adjusted R-squared) von 1. Das Bedeutet, dass das das Gehalt 100\% durch die Variablen erklärt werden kann (dies wird in der Realität jedoch nie erreicht).
+Ohne weiter auf die genauen Beizeichnungen einzugehen, gibt die Sternnotation von R an, dass die unabhängigen Variablen Studium, ErfahrungIntern und ErfahrungExtern signifikant sind. Das Alter hingegen nicht. Die Regression hat ein adjustiertes Bestimmtheitsmaß ($R^2$; engl. adjusted R-squared) von 1. Das Bedeutet, dass das Gehalt vollständig durch die gegebenen Variablen erklärt werden kann (dies wird in der Realität jedoch nie erreicht).
 
 \lstinputlisting[caption=Regression ohne Alter,label=list:Regression2]{../R/Beispiel_Berufserfahrung/Regression2.R}
 \begin{table}[h!]
@@ -140,7 +140,7 @@ Eine genauere Beschreibung der Methoden (und der zugehörigen Algorithmen) im Ko
 Anschließend erfolgt das (automatische) Mining der Daten. Je besser die vorhergehenden Schritte durchgeführt wurden, desto potenter ist das Ergebnis.\citep[S.~42]{fayyad_data_1996} Aus diesem Grund ist es auch jederzeit möglich, zu einem vorangegangen Prozessschritt zu springen, um neu erlangte Einsichten einfließen zu lassen (siehe zurückspringender grauer Pfeil in Abbildung \ref{fig:kddprocess}).
 
 \subsubsection{Interpretation/Evaluation}
-Zuletzt werden die gefundenen Muster und trainierten Modelle interpretiert. Ein Muster macht Aussagen über jeden Datenpunkt im betrachteten Raum (zum Beispiel bei einem einfachen linearen Model: $y = m \times x + t$). Ein Muster (engl. pattern) beschreibt dagegen nur eine kleine "lokale Struktur", die "nur über einen begrenzen Bereich" Aussagen macht.\citep[S.~71; eigene Übersetzung]{swamynathan_mastering_2017} In dem Fall eines linearen Model, wäre es eine bestimmte Gleichung, zum Beispiel $y = 2 \times x + 5$.\citep{kraker_towards_2013} "Fayyad et al. benutzt patterns und models synonym".\citep{kraker_towards_2013}\newline
+Zuletzt werden die gefundenen Muster und trainierten Modelle interpretiert. Ein Muster macht Aussagen über jeden Datenpunkt im betrachteten Raum (zum Beispiel bei einem einfachen linearen Model: $y = m \times x + t$ oder in obigem Beispiel $Gehalt = Studium \times 327,17 + ErfahrungGesamt \times 876,69 + 40107,10$). Ein Muster (engl. pattern) beschreibt dagegen nur eine kleine "lokale Struktur", die "nur über einen begrenzen Bereich" Aussagen macht.\citep[S.~71; eigene Übersetzung]{swamynathan_mastering_2017} In dem Fall eines linearen Model, wäre es eine bestimmte Gleichung, zum Beispiel $y = 2 \times x + 5$ oder $ 6 \times 327,17 + 5 \times 876,69 + 40107,10 =  46453.57$.\citep{kraker_towards_2013} "Fayyad et al. benutzt patterns und models synonym".\citep{kraker_towards_2013}\newline
 Das Interpretieren der Ergebnisse beinhaltet ebenfalls das Zusammenfassen der Erkenntnisse und gegebenenfalls das Visualisieren.\citep[S.~71]{swamynathan_mastering_2017} Als Evaluieren wird das Eingliedern der Resultate in andere Systeme (zur Weiterverarbeitung oder Verbreitung), das Prüfen auf (und Lösen von) Konflikten mit anderen Untersuchungen und nicht zuletzt das Dokumentieren der Befunde bezeichnet.\citep[S.~42]{fayyad_data_1996} \newline
 \todo{Befund nur medizinisch?; synonym)}
 An dieser Stelle sei erneut angemerkt, dass das erste Ergebnis des KDD-Prozesses nicht das Endergebnis sein muss. Es kann durchaus viele Iterationen geben, die auch "loops between any two steps" beinhalten können.\citep[S.~42]{fayyad_data_1996}
@@ -154,6 +154,8 @@ An dieser Stelle sei erneut angemerkt, dass das erste Ergebnis des KDD-Prozesses
 
 
 \section{Machine Learning}\label{sec:MachineLearning} 
+
+\todo{semi supervised etc.}
 \subsection{Supervised...}
 Man weiß, nach was man sucht…
 \subsubsection{Decision Tree}
@@ -166,9 +168,15 @@ Man weiß, nach was man sucht…
 \subsubsection{Neuronal networks}
 \subsubsection{...}
 Man sucht nur cluster/gruppen/etc
+
+
+
+
 \section{Krypotwährung(en)}
 Bitcoin,ethereum, litecoin, dogecoin; auswahl hier nur 1/2
-\section{Saas}
+
+
+\section{SaaS}
 \section{Microsoft Azure ML Studio}
 \subsection{Allgemeine Beschreibung}
 \subsection{Aufbau }
