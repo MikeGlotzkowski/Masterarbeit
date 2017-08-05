@@ -1,0 +1,14 @@
+\begin{tabular}{rrrrrrr}
+  \hline
+ & Person & Studium & ErfahrungExtern & ErfahrungIntern & Alter & Gehalt \\ 
+  \hline
+1 &   1 &   6 &   1 &   4 &  24 & 46450 \\ 
+  2 &   2 &  18 &  30 &  15 &  55 & 85150 \\ 
+  3 &   3 &  11 &   7 &   7 &  31 & 55900 \\ 
+  4 &   4 &  11 &  15 &   8 &  36 & 63650 \\ 
+  5 &   5 &  10 &   1 &  16 &  33 & 59050 \\ 
+  6 &   6 &   6 &  25 &   6 &  38 & 68750 \\ 
+  7 &   7 &  10 &  20 &  20 &  50 & 79000 \\ 
+  8 &   8 &   7 &   0 &   1 &  23 & 43050 \\ 
+   \hline
+\end{tabular}
