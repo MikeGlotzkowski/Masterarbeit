@@ -160,15 +160,56 @@ Bei CRoss Industrial Standard Process for Data Mining handelt es sich - wie bei 
 \centering
 \end{figure}
 
-Wie in Abbildung \ref{fig:CRISP_DM} zu sehen ist, umfasst das Referenzmodell sechs Phasen. Genau wie beim KDD-Prozessmodell handelt es sich nicht um ein lineares Modell, sondern um eines, das Rückschritte und Iterationen erlaubt.
+Wie in Abbildung \ref{fig:CRISP_DM} zu sehen ist, umfasst das Referenzmodell sechs Phasen. Genau wie beim KDD-Prozessmodell handelt es sich nicht um ein lineares Modell, sondern um eines, das Rückschritte und Iterationen erlaubt. Im Nachfolgenden werden die Prozessschritte und ihre Unterschritte kurz vorgestellt. Als Referenz dient unter anderem Abbildung \ref{fig:CRISP_DM_detailed}, die zusätzlich den Output der einzelnen Schritte zeigt.
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{images/crisp_dm_detailed}
+\caption{Generische Aufgaben (bold) und Output (italic) des CRISP-DM Referenzmodells \citep[S.~12]{chapman_crisp-dm_2000}}
+\label{fig:CRISP_DM_detailed}
+\centering
+\end{figure}
 
 \subsubsection{Business Understanding}
-\subsubsection{Data Understanding}
-\subsubsection{Data Preparation}
-\subsubsection{Modeling}
-\subsubsection{Evaluation}
-\subsubsection{Deployment}
+Die erste und vielleicht wichtigste Phase\citep[S.~14]{shearer_crisp-dm_2000} des CRISP-DM Prozesses ist das "Business Understandin", oder auch "Research Understanding"\citep[Punkt 1.4.1.1]{larose_discovering_2014}. Die Aufgabe dieser Phase ist, die "Ziele und Erwartungen"\citep[S.~73]{swamynathan_mastering_2017} des Projektes zu verstehen, dieses "Wissen in eine Machine Learning Problem Definition zu übersetzen" und schließlich einen "Vorläufigen Plan"\citep[S.~14]{shearer_crisp-dm_2000} aufzustellen. 
+\paragraph{Determine the Business Objectives}\mbox{} \\
+Dieser Teilschritt soll hauptsächlich die Frage beantworten, warum die Analyse durchgeführt wird. Dies hat direkten Einfluss auf die Zeile des Projekts und soll verhindern, dass "viel Aufwand für das Finden von richtigen Antworten auf die falschen Fragen"\citep[S.~14]{chapman_crisp-dm_2000} verschwendet wird.
+\paragraph{Assess the Situation}\mbox{} \\
+Um das Ziel der Analyse so genau wie möglich zu treffen, muss genau nachgeforscht werden, welche Ressourcen verfügbar sind, welchen Zwängen und Grenzen die Analyse unterlegen ist und unter welchen Annahmen sie stattfindet.\citep[S.~14]{chapman_crisp-dm_2000} Vereinfacht lässt sich sagen, dass hier die Fragen aus dem vorhergehenden Schritt detaillierter betrachtet werden.
+\paragraph{Determine the Data Mining Goals}\mbox{} \\
+Die gefundenen Ziele sind meist in Geschäftssprache formuliert. Für die Analyse müssen die Ziele jedoch im Terminus technicus des Data Mining formuliert sein. Ein Beispiel dazu ist die Übersetzung von "Increase catalog sales to existing customers." in "Predict how many widgets a customer will buy, given their purchases over the
+past three years, demographic information (age, salary, city, etc.), and the price of the item."\citep[S.~16]{chapman_crisp-dm_2000}
 
+\paragraph{Produce a Project Plan}\mbox{} \\
+
+\subsubsection{Data Understanding}
+
+\paragraph{Collect the Initial Data}\mbox{} \\
+\paragraph{Describe the Data}\mbox{} \\
+\paragraph{Explore the Data}\mbox{} \\
+\paragraph{Verify Data Quality}\mbox{} \\
+\subsubsection{Data Preparation}
+\paragraph{Select Data}\mbox{} \\
+\paragraph{Clean Data}\mbox{} \\
+\paragraph{Construct Data}\mbox{} \\
+\paragraph{Integrate Data}\mbox{} \\
+\paragraph{Format Data}\mbox{} \\
+\subsubsection{Modeling}
+\paragraph{Select the Modeling Technique}\mbox{} \\
+\paragraph{Generate Test Design}\mbox{} \\
+\paragraph{Build the Model}\mbox{} \\
+\paragraph{Assess the Model}\mbox{} \\
+
+
+\subsubsection{Evaluation}
+\paragraph{Evaluate Results}\mbox{} \\
+\paragraph{Review Process}\mbox{} \\
+\paragraph{Determine Next Steps}\mbox{} \\
+
+\subsubsection{Deployment}
+\paragraph{Plan Deployment}\mbox{} \\
+\paragraph{Plan Monitoring and Maintenance}\mbox{} \\
+\paragraph{Produce Final Report}\mbox{} \\
+\paragraph{Review Project}\mbox{} \\
 
 \subsection{Sample, Explore, Modify, Model and Assess (SEMMA)}
 \subsection{Auswahl}
