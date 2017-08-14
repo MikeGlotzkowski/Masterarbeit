@@ -78,7 +78,7 @@ Führt man eine Regression (Listing \ref{list:Regression1}) für den Datensatz d
   Alter & 2.010e-13 & 8.103e-13 & 2.480e-01 & 0.82 \\ 
 \hline
 \end{tabular}
-\caption{Output der einer Regression mit allen Variablen}
+\caption{Output der Regression mit allen Variablen}
 \label{tab:Regression1:output}
 \end{table}
 
@@ -96,7 +96,7 @@ Ohne weiter auf die genauen Beizeichnungen einzugehen, gibt die Sternnotation vo
   ErfahrungIntern & 950 & 1.642e-13 & 5.787e+15.75 & <2e-16 *** \\ 
 \hline
 \end{tabular}
-\caption{Output der einer Regression mit allen Variablen}
+\caption{Output der Regression ohne Alters-Variable}
 \label{tab:Regression2:output}
 \end{table}
 Führt man die Regression nun ohne das Alter durch (Listing \ref{list:Regression2} und Tabelle \ref{tab:Regression2:output}) bleibt $R^2$ gleich. Der Datensatz wurde also bereits um eine Variable reduziert, ohne das Ergebnis der Regression zu verschlechtern.\newline
@@ -113,7 +113,7 @@ ErfahrungGesamt & 876.69 & 15.86 & 55.26 & 3.67e-08 ***\\
 Studium & 327.17 & 64.27 & 5.09 & 0.0038 **\\ 
 \hline
 \end{tabular}
-\caption{Output der einer Regression mit zusammengefassten Werten}
+\caption{Output der Regression mit zusammengefassten Werten}
 \label{tab:Regression3:output}
 \end{table}
 Zusammenfassend lässt sich für dieses Beispiel sagen, dass die Variablen im Datensatz um die Hälfte reduziert wurden, ohne die Aussagekraft deutlich zu verschlechtern. In einem realen Datensatz ist diese Arbeit zwar nicht so trivial und offensichtlich, jedoch gelten die gleichen Prinzipien.\newline
@@ -150,6 +150,26 @@ An dieser Stelle sei erneut angemerkt, dass das erste Ergebnis des KDD-Prozesses
 
 
 \subsection{CRoss Industrial Standard Process for Data Mining (CRISP – DM)}
+Bei CRoss Industrial Standard Process for Data Mining handelt es sich - wie bei KDD - um ein Referenzmodell für Data Mining. Das Modell wurde von einem 1996 gegründetem Konsortium aus "Daimler-Benz (now DaimlerChrysler), Integral Solutions Ltd. (ISL) [jetzt SPSS], NCR, and OHRA"\citep[S.~13]{shearer_crisp-dm_2000} erarbeitet. Die Version 1.0 wurde 2000 vorgestellt.\citep[S.~13]{shearer_crisp-dm_2000} In Umfragen (1999, 2002, 2004, 2007) wird das Modell als führend in Bereich von "data mining/predictive analytics projects"\citep[S.~72]{swamynathan_mastering_2017} bezeichnet. Das Modell ist "nicht-properitär, dokumnetiert und frei verfügbar"\citep[S.~13; eigene Übersetzung]{shearer_crisp-dm_2000}. Es ist ebenfalls in vielen Bereichen nutzbar, da es weder Industriesektor-, Werkzeugs- noch Anwendungsspezifisch ist. Grundsätzlich bekräftigt das Modell best practices und soll zu besseren und schnelleren Ergebnissen führen.\citep[S.~13; eigene Übersetzung]{shearer_crisp-dm_2000} \todo{evtl. bessere Bezeichnung}\newline 
+
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{images/CRISP_DM}
+\caption{Phasen des CRISP-DM Referenzmodells nach \citep[S.~10]{chapman_crisp-dm_2000}}
+\label{fig:CRISP_DM}
+\centering
+\end{figure}
+
+Wie in Abbildung \ref{fig:CRISP_DM} zu sehen ist, umfasst das Referenzmodell sechs Phasen. Genau wie beim KDD-Prozessmodell handelt es sich nicht um ein lineares Modell, sondern um eines, das Rückschritte und Iterationen erlaubt.
+
+\subsubsection{Business Understanding}
+\subsubsection{Data Understanding}
+\subsubsection{Data Preparation}
+\subsubsection{Modeling}
+\subsubsection{Evaluation}
+\subsubsection{Deployment}
+
+
 \subsection{Sample, Explore, Modify, Model and Assess (SEMMA)}
 \subsection{Auswahl}
 
