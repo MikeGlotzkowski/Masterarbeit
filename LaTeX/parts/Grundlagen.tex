@@ -160,7 +160,7 @@ Bei CRoss Industrial Standard Process for Data Mining handelt es sich - wie bei 
 \centering
 \end{figure}
 
-Wie in Abbildung \ref{fig:CRISP_DM} zu sehen ist, umfasst das Referenzmodell sechs Phasen. Genau wie beim KDD-Prozessmodell handelt es sich nicht um ein lineares Modell, sondern um eines, das Rückschritte und Iterationen erlaubt. Im Nachfolgenden werden die Prozessschritte und ihre Unterschritte kurz vorgestellt. Als Referenz dient unter anderem Abbildung \ref{fig:CRISP_DM_detailed}, die zusätzlich den Output der einzelnen Schritte zeigt.
+Wie in Abbildung \ref{fig:CRISP_DM} zu sehen ist, umfasst das Referenzmodell sechs Phasen. Genau wie beim KDD-Prozessmodell handelt es sich nicht um ein lineares Modell, sondern um eines, das Rückschritte und Iterationen erlaubt. Im Nachfolgenden wird zuerst immer ein Prozessschritt kurz vorgestellt und darunter detaillierter betrachtet. Als Referenz dient unter anderem Abbildung \ref{fig:CRISP_DM_detailed}, die zusätzlich den Output der einzelnen Schritte zeigt.
 
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{images/crisp_dm_detailed}
@@ -170,24 +170,87 @@ Wie in Abbildung \ref{fig:CRISP_DM} zu sehen ist, umfasst das Referenzmodell sec
 \end{figure}
 
 \subsubsection{Business Understanding}
-Die erste und vielleicht wichtigste Phase\citep[S.~14]{shearer_crisp-dm_2000} des CRISP-DM Prozesses ist das "Business Understandin", oder auch "Research Understanding"\citep[Punkt 1.4.1.1]{larose_discovering_2014}. Die Aufgabe dieser Phase ist, die "Ziele und Erwartungen"\citep[S.~73]{swamynathan_mastering_2017} des Projektes zu verstehen, dieses "Wissen in eine Machine Learning Problem Definition zu übersetzen" und schließlich einen "Vorläufigen Plan"\citep[S.~14]{shearer_crisp-dm_2000} aufzustellen. 
+Die erste und vielleicht wichtigste Phase\citep[S.~14]{shearer_crisp-dm_2000} des CRISP-DM Prozesses ist das "Business Understanding", oder auch "Research Understanding"\citep[Punkt 1.4.1.1]{larose_discovering_2014}. Die Aufgabe dieser Phase ist, die "Ziele und Erwartungen"\citep[S.~73]{swamynathan_mastering_2017} des Projektes zu verstehen, dieses "Wissen in eine Machine Learning Problem Definition zu übersetzen" und schließlich einen "Vorläufigen Plan"\citep[S.~14]{shearer_crisp-dm_2000} aufzustellen: 
 \paragraph{Determine the Business Objectives}\mbox{} \\
-Dieser Teilschritt soll hauptsächlich die Frage beantworten, warum die Analyse durchgeführt wird. Dies hat direkten Einfluss auf die Zeile des Projekts und soll verhindern, dass "viel Aufwand für das Finden von richtigen Antworten auf die falschen Fragen"\citep[S.~14]{chapman_crisp-dm_2000} verschwendet wird.
+Dieser Teilschritt soll hauptsächlich die Frage beantworten, warum die Analyse durchgeführt wird. Dies hat direkten Einfluss auf die Zeile des Projekts und soll verhindern, dass "viel Aufwand für das Finden von richtigen Antworten auf falsche Fragen"\citep[S.~14]{chapman_crisp-dm_2000} verschwendet wird.
 \paragraph{Assess the Situation}\mbox{} \\
 Um das Ziel der Analyse so genau wie möglich zu treffen, muss genau nachgeforscht werden, welche Ressourcen verfügbar sind, welchen Zwängen und Grenzen die Analyse unterlegen ist und unter welchen Annahmen sie stattfindet.\citep[S.~14]{chapman_crisp-dm_2000} Vereinfacht lässt sich sagen, dass hier die Fragen aus dem vorhergehenden Schritt detaillierter betrachtet werden.
 \paragraph{Determine the Data Mining Goals}\mbox{} \\
 Die gefundenen Ziele sind meist in Geschäftssprache formuliert. Für die Analyse müssen die Ziele jedoch im Terminus technicus des Data Mining formuliert sein. Ein Beispiel dazu ist die Übersetzung von "Increase catalog sales to existing customers." in "Predict how many widgets a customer will buy, given their purchases over the
 past three years, demographic information (age, salary, city, etc.), and the price of the item."\citep[S.~16]{chapman_crisp-dm_2000}
-
 \paragraph{Produce a Project Plan}\mbox{} \\
+Der Projektplan (engl. Project Plan) liefert einen konkreten Plan, wie die gesetzten Ziele zu erreichen sind. Nach \citep[S.~15]{shearer_crisp-dm_2000} beinhaltet er:
+\begin{itemize}
+\item Die Schritte, die nacheinander durchzuführen sind.
+\item Eine Timeline \todo{richtiges Wort?} für die Durchführung.
+\item Eine Auflistung potentieller Risiken im Projektverlauf.
+\item Eine Aufstellung der zu nutzenden Werkzeuge und Techniken \citep[S.~16]{chapman_crisp-dm_2000}
+\end{itemize}
+
 
 \subsubsection{Data Understanding}
+In der vorhergegangenen Phase wurde festgelegt, welche Daten zum erreichen der Ziele benötigt werden. Nun werden diese Daten gesammelt und untersucht. Im Fokus der Untersuchung liegt dabei\citep[S.~73]{swamynathan_mastering_2017}
+\begin{itemize}
+\item Datenlücken finden,
+\item die Relevanz der erfassten Daten (hinsichtlich der Ziele) zu klären,
+\item die allgemeine Datenqualität festzustellen und
+\item "erste Einblicke in Daten" zu erhalten, um "geeignete Hypothesen"\citep[S.~73; eigene Übersetzung]{swamynathan_mastering_2017} zu formulieren.
+\end{itemize}
+Im Zuge dessen können auch bereits "subsets" isoliert werden, die "actionable patters"\citep[Punkt 1.4.1.2.d]{larose_discovering_2014} (etwa: verfolgbare Muster) enthalten könnten. Mit jedem Fortschritt in dieser Phase ist es eventuell nötig, das Ergebnis der Business Understanding-Phase zu adjustieren. Durch dieses Vorgehen, entsteht ein iterativer Prozess.\citep[S.~73]{swamynathan_mastering_2017} \citep[Punkt 1.4.1.2.b]{larose_discovering_2014} empfiehlt den Einsatz von explorativer Datenanalyse (siehe Abschnitt \ref{sec:DataMining}). Eine 
+
 
 \paragraph{Collect the Initial Data}\mbox{} \\
+Die Hauptaufgabe dieses Schrittes ist, die benötigten Daten zu beziehen. Dabei kann auch entweder der direkte Zugriff auf die Daten gemeint sein oder nur das Erhalten der Zugangsinformationen. Eventuell werden die Datensätze gleich in Systeme oder Werkzeuge geladen, die zur späteren Weiterverarbeitung genutzt werden. Die Integration inhomogener Daten (unterschiedliche Strukturen/Formate etc.) kann bereits hier erfolgen oder in der Data Preperation (siehe Punkt \ref{subsubsec:DataPreperation}). \citep[S.~18]{chapman_crisp-dm_2000}
+
+Sollten in diesem Schritt Probleme auftauchen, sollten sie - wenn möglich mit Lösung - gut dokumentiert werden, um den Projektverlauf reproduzierbar zu gestalten. Ein Beispiel können lange Antwortzeiten einiger Datenquellen sein.\citep[S.~15]{shearer_crisp-dm_2000}
+
+-wenn man auf probleme stößt, dokumentieren und antworten finden (zb. lange antwortzeiten)
+
 \paragraph{Describe the Data}\mbox{} \\
+
+
+Anhand des nachfolgenden Beispiels (Datensatz von \citep[Case Lasagne Test.xlsx]{hertle_datenanalyse_2016}) werden die Schritte "Collect the Initial Data" und "Describe the Data" kurz visualisiert. Zuerst werden die Daten eingelesen (Listing \ref{list:LasagneHead}) und anschließend oberflächlich betrachtet (Struktur in Tabellen \ref{tab:LasagneHead:output} und Datentypen in Abbildung \ref{fig:Lasagne_RStudio}).
+\lstinputlisting[caption=Einlesen aller Daten und Betrachten des "Kopfes" ,label=list:LasagneHead]{../R/Beispiel_Head_Lasagne/head_lasagne.R}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{p{1cm}p{0.7cm}p{1.1cm}p{1.8cm}p{1.6cm}p{1.6cm}p{3.6cm}p{1.8cm}}
+  \hline
+Person & Alter & Gewicht & Einkommen & Angestellt & Wert.Auto & Umsatz.Kreditkarte &Geschlecht \\ 
+  \hline
+1 &  48 &  65 & 91700 & nein & 2190 & 3510 & m\\ 
+2 &  33 &  75 & 40740 & nein & 2110 & 740& w\\ 
+3 &  51 &  70 & 45080 & ja & 5140 & 910 & m\\ 
+4 &  56 &  91 & 26600 & nein & 700 & 1620 & w\\ 
+5 &  28 &  81 & 113960 & ja & 26620 & 600 & m\\ 
+6 &  51 &  65 & 102200 & ja & 24520 & 950 & w\\ 
+\hline
+\end{tabular}
+\begin{tabular}{p{2cm}p{2cm}p{5.7cm}p{3cm}}
+alleinstehend & Wohnung & Supermarkt.besuche.pro.Monat & Lasagne.probiert\\ 
+  \hline
+nein & Haus &   7 & nein\\ 
+nein & Wohnung &   4 & ja\\ 
+nein & Wohnung &   1 & nein\\ 
+nein & Haus &   3 & nein\\ 
+nein & Appartement &   3 & ja\\ 
+nein & Wohnung &   2 & nein\\ 
+   \hline
+\end{tabular}
+\caption{Aufruf des head()-Befehls zum Betrachten der Daten}
+\label{tab:LasagneHead:output1}
+\end{table}
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{images/Lasagne_data}
+\caption{Betrachten der Datentypen des Datensatzes in RStudio}
+\label{fig:Lasagne_RStudio}
+\centering
+\end{figure}
+
 \paragraph{Explore the Data}\mbox{} \\
 \paragraph{Verify Data Quality}\mbox{} \\
-\subsubsection{Data Preparation}
+\subsubsection{Data Preparation}\label{subsubsec:DataPreperation}
 \paragraph{Select Data}\mbox{} \\
 \paragraph{Clean Data}\mbox{} \\
 \paragraph{Construct Data}\mbox{} \\
@@ -210,6 +273,16 @@ past three years, demographic information (age, salary, city, etc.), and the pri
 \paragraph{Plan Monitoring and Maintenance}\mbox{} \\
 \paragraph{Produce Final Report}\mbox{} \\
 \paragraph{Review Project}\mbox{} \\
+
+\begin{figure}[h]
+\includegraphics[width=\textwidth]{images/ProjektphasenInProzent_DRISP_DM}
+\caption{Durchschnittlicher prozentualer Anteil der CRISP-DM-Projektphase am Gesamtprojekt nach \citep[S.~15; eigene Darstellung]{shearer_crisp-dm_2000}}
+\label{fig:CRISP_DM_percent}
+\centering
+\end{figure}
+
+
+
 
 \subsection{Sample, Explore, Modify, Model and Assess (SEMMA)}
 \subsection{Auswahl}
