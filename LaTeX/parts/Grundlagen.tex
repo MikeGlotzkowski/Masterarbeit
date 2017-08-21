@@ -200,18 +200,23 @@ Im Zuge dessen können auch bereits "subsets" isoliert werden, die "actionable p
 
 
 \paragraph{Collect the Initial Data}\mbox{} \\
-Die Hauptaufgabe dieses Schrittes ist, die benötigten Daten zu beziehen. Dabei kann auch entweder der direkte Zugriff auf die Daten gemeint sein oder nur das Erhalten der Zugangsinformationen. Eventuell werden die Datensätze gleich in Systeme oder Werkzeuge geladen, die zur späteren Weiterverarbeitung genutzt werden. Die Integration inhomogener Daten (unterschiedliche Strukturen/Formate etc.) kann bereits hier erfolgen oder in der Data Preperation (siehe Punkt \ref{subsubsec:DataPreperation}). \citep[S.~18]{chapman_crisp-dm_2000}
+Die Hauptaufgabe dieses ersten Schrittes ist, die benötigten Daten zu beziehen. Dabei kann auch entweder der direkte Zugriff auf die Daten gemeint sein oder nur das Erhalten der Zugangsinformationen. Eventuell werden die Datensätze gleich in Systeme oder Werkzeuge geladen, die zur späteren Weiterverarbeitung genutzt werden. Die Integration inhomogener Daten (unterschiedliche Strukturen/Formate etc.) kann bereits hier erfolgen oder in der Data Preperation (siehe Punkt \ref{subsubsec:DataPreperation}). \citep[S.~18]{chapman_crisp-dm_2000}
 
 Sollten in diesem Schritt Probleme auftauchen, sollten sie - wenn möglich mit Lösung - gut dokumentiert werden, um den Projektverlauf reproduzierbar zu gestalten. Ein Beispiel können lange Antwortzeiten einiger Datenquellen sein.\citep[S.~15]{shearer_crisp-dm_2000}
 
--wenn man auf probleme stößt, dokumentieren und antworten finden (zb. lange antwortzeiten)
-
 \paragraph{Describe the Data}\mbox{} \\
+Im Schritt "Describe the Data" werden die beschafften Daten dann oberflächlich beschrieben.\citep[S.~18]{chapman_crisp-dm_2000} Dabei wird unter anderem auf 
+\begin{itemize}
+\item das Format der Daten,
+\item die Größe des Datensatzes,
+\item die Anzahl der Beobachtungen und Einträge in den Daten und 
+\item die Beschaffenheit der Einträge
+\end{itemize}
+geachtet. Dabei soll einerseits die Frage geklärt werden, ob die vorhandenen Daten alle relevanten Daten für die Ziele des Data Mining enthalten. Andererseits wird das Verständnis der Daten geschärft.\citep[S.~15]{shearer_crisp-dm_2000}
 
-
-Anhand des nachfolgenden Beispiels (Datensatz von \citep[Case Lasagne Test.xlsx]{hertle_datenanalyse_2016}) werden die Schritte "Collect the Initial Data" und "Describe the Data" kurz visualisiert. Zuerst werden die Daten eingelesen (Listing \ref{list:LasagneHead}) und anschließend oberflächlich betrachtet (Struktur in Tabellen \ref{tab:LasagneHead:output} und Datentypen in Abbildung \ref{fig:Lasagne_RStudio}).
+Anhand des nachfolgenden Beispiels (Datensatz von \citep[Case Lasagne Test.xlsx]{hertle_datenanalyse_2016}) werden die Schritte "Collect the Initial Data" und "Describe the Data" kurz visualisiert. Zuerst werden die Daten eingelesen (Listing \ref{list:LasagneHead}) und anschließend oberflächlich betrachtet.
 \lstinputlisting[caption=Einlesen aller Daten und Betrachten des "Kopfes" ,label=list:LasagneHead]{../R/Beispiel_Head_Lasagne/head_lasagne.R}
-
+Aus Tabelle \ref{tab:LasagneHead:output} kann abgelesen werden, dass es sich um einen Datensatz mit 12 Variablen handelt. 
 \begin{table}[h!]
 \centering
 \begin{tabular}{p{1cm}p{0.7cm}p{1.1cm}p{1.8cm}p{1.6cm}p{1.6cm}p{3.6cm}p{1.8cm}}
@@ -238,18 +243,37 @@ nein & Wohnung &   2 & nein\\
    \hline
 \end{tabular}
 \caption{Aufruf des head()-Befehls zum Betrachten der Daten}
-\label{tab:LasagneHead:output1}
+\label{tab:LasagneHead:output}
 \end{table}
-
+Ebenfalls entnommen werden kann, dass es sich um demographische Angaben über Personen handelt. Zusätzlich wurde zu jeder Person erfasst ob sie Lasagne probiert hat. In Abbildung \ref{fig:Lasagne_RStudio} wird der Datensatz schließlich in RStudio betrachtet.
 \begin{figure}[h]
 \includegraphics[width=\textwidth]{images/Lasagne_data}
 \caption{Betrachten der Datentypen des Datensatzes in RStudio}
 \label{fig:Lasagne_RStudio}
 \centering
 \end{figure}
+Zu sehen ist hier, dass es sich um einen Datensatz mit 13 Variablen und 856 Beobachtungen handelt (hier scheint ein falscher Zeichensatz vorzuliegen oder Ähnliches, da eine zusätzliche leere Spalte "X" angezeigt wird \todo{was hier tun?}). Zusätzlich können die vorgeschlagenen Datentypen von R betrachtet werden. Bei den meisten Spalten handelt es sich um Ganzzahlen (int) oder Factoren (manchmal auch als Enums bezeichnet).
 
 \paragraph{Explore the Data}\mbox{} \\
+Ist die grobe Sichtung der Daten abgeschlossen, wird näher an der Fragestellung des Data Mining gearbeitet. Dazu werden "Abfrage-, Visualisierungs- und Reporting[-Techniken]"\citep[S.~16; eigene Übersetzung]{shearer_crisp-dm_2000} eingesetzt. Um der Antwort auf die ursprüngliche Fragestellung näher zu kommen oder die Fragestellung zu verfeinern, werden beispielsweise folgende Eigenschaften betrachtet\citep[S.~18; eigene Übersetzung]{chapman_crisp-dm_2000}:
+\begin{itemize}
+\item Die Verteilung der Schlüsselattribute (zum Beispiel der Zielvariablen bei einer Vorhersage).
+\item Die Beziehungen zwischen Wertepaaren oder kleinen Attributgruppen.
+\item Die Ergebnisse einfacher Aggregationen.
+\item Die Beschaffenheit von aussagekräftigen Teilgruppen von Werten.
+\item Die Ergebnisse einfacher statistischer Analysen.
+\end{itemize}
+
 \paragraph{Verify Data Quality}\mbox{} \\
+Der letzte Schritt der zweiten Phase evaluiert die Qualität der Daten. \citep[S.19]{chapman_crisp-dm_2000} nutzen die Zielfragen: 
+\begin{itemize}
+\item "Is the data complete (does it cover all the cases required)?"
+\item "Is it correct, or does it contain errors and, if there are errors, how common are they?"
+\item "Are there missing values in the data?"
+\item "If so, how are they represented, where do they occur, and how common
+are they?"
+\end{itemize}
+\citep[S.~16]{shearer_crisp-dm_2000} empfiehlt zusätzlich noch, zu prüfen, ob die Werte plausibel sind, wie die Schreibweisen sind, ob Attribute mit unterschiedlichen Werten aber gleicher Bedeutung vorhanden sind und schließlich ob es einen "conflict with common sense" ,wie "teenagers with high income"\citep[S.~16]{shearer_crisp-dm_2000} gibt. 
 \subsubsection{Data Preparation}\label{subsubsec:DataPreperation}
 \paragraph{Select Data}\mbox{} \\
 \paragraph{Clean Data}\mbox{} \\
