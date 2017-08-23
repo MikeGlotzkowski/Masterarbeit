@@ -5,8 +5,9 @@ Wie in Abschnitt \ref{sec:DataMining} bereits erwähnt, haben sich um das Data M
 
 \subsection{Knowledge Discovery in Databases (KDD) process model}
 Die Bezeichung Knowledge Discovery in Databases wurde hauptsächlich von \citep{fayyad_data_1996} geprägt. Sie beschreiben in ihrer Arbeit ein Problem der 1990er Jahre. Wie auch heute noch, stieg damals die Masse der gespeicherten Daten exponentiell \todo{wirklich "exponentiell"?} an. Die Manuelle Auswertung dieser Datensätze erforderte mehr Arbeitskraft als vorhanden war. \citep[S.~38]{fayyad_data_1996} beschreiben es als "data overload". Deswegen versuchte man, die Prozesse zur Findung von Erkenntnissen zu automatisieren. Daraus hat sich ein Standardvorgehen entwickelt, dass das KDD-Prozessmodell darstellt.
-\begin{figure}[h]
-\includegraphics[width=\textwidth]{images/kddprocess}
+\begin{figure}[H]
+\frame{
+\includegraphics[width=\textwidth]{images/kddprocess}}
 \caption{Ein Überblick über die Schritte des KDD Prozesses nach \citep[S.~41]{fayyad_data_1996}}
 \label{fig:kddprocess}
 \centering
@@ -43,11 +44,11 @@ Der letzte Punkt, der beim Preprocessing betrachtet werden muss, ist der Zusamme
 
 \subsubsection{Transformation}
 Der letzte Schritt vor dem eigentlichen Data Mining ist die Transformation. In diesem Prozessschritt geht es darum, "mit Dimensionsreduktions- oder -transformationsmethonden die effektive Anzahl an Variablen [...] zu reduzieren"\citep[S.~42; eigene Übersetzung]{fayyad_data_1996}. Dies geschieht beispielsweise durch das identifizieren und eliminieren invarianter Variablen. Ebenfalls wird versucht, solche Variablen zu finden, die mehrere Andere repräsentieren. Anschaulich dargestellt an einem Beispiel:\newline
-\begin{table}[h!]
-\begin{tabular}{rrrrrrr}
+\begin{table}[H]
+\begin{tabular}{|rrrrrrr|}
   \hline
- & Person & Studium & ErfahrungExtern & ErfahrungIntern & Alter & Gehalt \\ 
-  \hline
+ & \textbf{Person} & \textbf{Studium} & \textbf{ErfahrungExtern} & \textbf{ErfahrungIntern} & \textbf{Alter} & \textbf{Gehalt} \\ 
+\hhline{=======}
 1 &   1 &   6 &   1 &   4 &  24 & 46450 \\ 
   2 &   2 &  18 &  30 &  15 &  55 & 85150 \\ 
   3 &   3 &  11 &   7 &   7 &  31 & 55900 \\ 
@@ -66,11 +67,11 @@ Führt man eine Regression (Listing \ref{list:Regression1}) für den Datensatz d
 
 \lstinputlisting[caption=Regression mit allen Faktoren,label=list:Regression1]{../R/Beispiel_Berufserfahrung/Regression1.R}
 
-\begin{table}[h!]
-\begin{tabular}{rrrrr}
+\begin{table}[H]
+\begin{tabular}{|rrrrr|}
   \hline
- & Estimate & Std. Error & t value & Pr($>$||) \\ 
-  \hline
+ & \textbf{Estimate} & \textbf{Std. Error} & \textbf{t value} & \textbf{Pr($>$||)} \\ 
+  \hhline{=====}
 (Intercept) & 40000 & 1.415e-11 & 2.828e+15 & <2e-16 *** \\ 
   Studium & 300 & 5.167e-13 & 5.807e+14 & <2e-16 *** \\ 
   ErfahrungExtern & 850 & 4.821e-13 & 1.763e+15  & <2e-16 *** \\ 
@@ -85,10 +86,10 @@ Führt man eine Regression (Listing \ref{list:Regression1}) für den Datensatz d
 Ohne weiter auf die genauen Beizeichnungen einzugehen, gibt die Sternnotation von R an, dass die unabhängigen Variablen Studium, ErfahrungIntern und ErfahrungExtern signifikant sind. Das Alter hingegen nicht. Die Regression hat ein adjustiertes Bestimmtheitsmaß ($R^2$; engl. adjusted R-squared) von 1. Das Bedeutet, dass das Gehalt vollständig durch die gegebenen Variablen erklärt werden kann (dies wird in der Realität jedoch nie erreicht).
 
 \lstinputlisting[caption=Regression ohne Alter,label=list:Regression2]{../R/Beispiel_Berufserfahrung/Regression2.R}
-\begin{table}[h!]
-\begin{tabular}{rrrrr}
-  \hline
- & Estimate & Std. Error & t value & Pr($>$||) \\ 
+\begin{table}[H]
+\begin{tabular}{|rrrrr|}
+  \hhline{=====}
+ & \textbf{Estimate} & \textbf{Std. Error} & \textbf{t value} & \textbf{Pr($>$||)} \\
   \hline
 (Intercept) & 40000 & 2.393e-12 & 1.671e+16 & <2e-16 *** \\ 
   Studium & 300 & 2.948e-13 & 1.018e+15 & <2e-16 *** \\ 
@@ -103,11 +104,11 @@ Führt man die Regression nun ohne das Alter durch (Listing \ref{list:Regression
 Betrachtet man die Faktoren ErfahrungExtern und ErfahrungIntern, so fällt auf, dass sie einen ähnlichen Einfluss auf das Gehalte erzielen (850 und 950). 
 \lstinputlisting[caption=Regression mit zusammengefassten Werten,label=list:Regression3]{../R/Beispiel_Berufserfahrung/Regression3.R}
 Fasst man beide Variablen zusammen (Listing \ref{list:Regression3}), zeigt sich im Ergebnis (Tabelle \ref{tab:Regression3:output}), dass $R^2$ bei 0,9988 liegt. Die Güte der Regression hat sich also nur minimal verschlechtert.
-\begin{table}[h!]
-\begin{tabular}{rrrrr}
+\begin{table}[H]
+\begin{tabular}{|rrrrr|}
   \hline
- & Estimate & Std. Error & t value & Pr($>$||) \\ 
-  \hline
+ & \textbf{Estimate} & \textbf{Std. Error} & \textbf{t value} & \textbf{Pr($>$||)} \\
+  \hhline{=====}
 (Intercept) & 40107.10 & 528.87 & 75.83 & 7.55e-09 *** \\
 ErfahrungGesamt & 876.69 & 15.86 & 55.26 & 3.67e-08 ***\\ 
 Studium & 327.17 & 64.27 & 5.09 & 0.0038 **\\ 
@@ -153,8 +154,9 @@ An dieser Stelle sei erneut angemerkt, dass das erste Ergebnis des KDD-Prozesses
 Bei CRoss Industrial Standard Process for Data Mining handelt es sich - wie bei KDD - um ein Referenzmodell für Data Mining. Das Modell wurde von einem 1996 gegründeten Konsortium aus "Daimler-Benz (now DaimlerChrysler), Integral Solutions Ltd. (ISL) [jetzt SPSS], NCR, and OHRA"\citep[S.~13]{shearer_crisp-dm_2000} erarbeitet. Die Version 1.0 wurde 2000 vorgestellt.\citep[S.~13]{shearer_crisp-dm_2000} In Umfragen (1999, 2002, 2004, 2007) wird das Modell als führend in Bereich von "data mining/predictive analytics projects"\citep[S.~72]{swamynathan_mastering_2017} bezeichnet. Das Modell ist "nicht-properitär, dokumnetiert und frei verfügbar"\citep[S.~13; eigene Übersetzung]{shearer_crisp-dm_2000}. Es ist ebenfalls in vielen Bereichen nutzbar, da es weder Industriesektor-, Werkzeugs- noch Anwendungsspezifisch ist. Grundsätzlich bekräftigt das Modell best practices und soll zu besseren und schnelleren Ergebnissen führen.\citep[S.~13; eigene Übersetzung]{shearer_crisp-dm_2000} \todo{evtl. bessere Bezeichnung}\newline 
 
 
-\begin{figure}[h]
-\includegraphics[width=\textwidth]{images/CRISP_DM}
+\begin{figure}[H]
+\frame{
+\includegraphics[width=\textwidth]{images/CRISP_DM}}
 \caption{Phasen des CRISP-DM Referenzmodells nach \citep[S.~10]{chapman_crisp-dm_2000}}
 \label{fig:CRISP_DM}
 \centering
@@ -162,8 +164,9 @@ Bei CRoss Industrial Standard Process for Data Mining handelt es sich - wie bei 
 
 Wie in Abbildung \ref{fig:CRISP_DM} zu sehen ist, umfasst das Referenzmodell sechs Phasen. Genau wie beim KDD-Prozessmodell handelt es sich nicht um ein lineares Modell, sondern um eines, das Rückschritte und Iterationen erlaubt. Im Nachfolgenden wird zuerst immer ein Prozessschritt kurz vorgestellt und darunter detaillierter betrachtet. Als Referenz dient unter anderem Abbildung \ref{fig:CRISP_DM_detailed}, die zusätzlich den Output der einzelnen Schritte zeigt.
 
-\begin{figure}[h]
-\includegraphics[width=\textwidth]{images/crisp_dm_detailed}
+\begin{figure}[H]
+\frame{
+\includegraphics[width=\textwidth]{images/crisp_dm_detailed}}
 \caption{Generische Aufgaben (bold) und Output (italic) des CRISP-DM Referenzmodells \citep[S.~12]{chapman_crisp-dm_2000}}
 \label{fig:CRISP_DM_detailed}
 \centering
@@ -217,12 +220,12 @@ geachtet. Dabei soll einerseits die Frage geklärt werden, ob die vorhandenen Da
 Anhand des nachfolgenden Beispiels (Datensatz von \citep[Case Lasagne Test.xlsx]{hertle_datenanalyse_2016}) werden die Schritte "Collect the Initial Data" und "Describe the Data" kurz visualisiert. Zuerst werden die Daten eingelesen (Listing \ref{list:LasagneHead}) und anschließend oberflächlich betrachtet.
 \lstinputlisting[caption=Einlesen aller Daten und Betrachten des "Kopfes" ,label=list:LasagneHead]{../R/Beispiel_Head_Lasagne/head_lasagne.R}
 Aus Tabelle \ref{tab:LasagneHead:output} kann abgelesen werden, dass es sich um einen Datensatz mit 12 Variablen handelt. 
-\begin{table}[h!]
+\begin{table}[H]
 \centering
-\begin{tabular}{p{1cm}p{0.7cm}p{1.1cm}p{1.8cm}p{1.6cm}p{1.6cm}p{3.6cm}p{1.8cm}}
+\begin{tabular}{|p{1cm}p{0.7cm}p{1.2cm}p{1.9cm}p{1.6cm}p{1.7cm}p{3.5cm}p{1.8cm}|}
   \hline
-Person & Alter & Gewicht & Einkommen & Angestellt & Wert.Auto & Umsatz.Kreditkarte &Geschlecht \\ 
-  \hline
+\textbf{Person} & \textbf{Alter} & \textbf{Gewicht} & \textbf{Einkommen} & \textbf{Angestellt} & \textbf{Wert.Auto} & \textbf{Umsatz.Kreditkarte} & \textbf{Geschlecht} \\ 
+  \hhline{========}
 1 &  48 &  65 & 91700 & nein & 2190 & 3510 & m\\ 
 2 &  33 &  75 & 40740 & nein & 2110 & 740& w\\ 
 3 &  51 &  70 & 45080 & ja & 5140 & 910 & m\\ 
@@ -231,9 +234,9 @@ Person & Alter & Gewicht & Einkommen & Angestellt & Wert.Auto & Umsatz.Kreditkar
 6 &  51 &  65 & 102200 & ja & 24520 & 950 & w\\ 
 \hline
 \end{tabular}
-\begin{tabular}{p{2cm}p{2cm}p{5.7cm}p{3cm}}
-alleinstehend & Wohnung & Supermarkt.besuche.pro.Monat & Lasagne.probiert\\ 
-  \hline
+\begin{tabular}{|p{2.2cm}p{2.1cm}p{5.8cm}p{3cm}|}
+\textbf{alleinstehend} & \textbf{Wohnung} & \textbf{Supermarkt.besuche.pro.Monat} & \textbf{Lasagne.probiert}\\ 
+  \hhline{====}
 nein & Haus &   7 & nein\\ 
 nein & Wohnung &   4 & ja\\ 
 nein & Wohnung &   1 & nein\\ 
@@ -246,8 +249,9 @@ nein & Wohnung &   2 & nein\\
 \label{tab:LasagneHead:output}
 \end{table}
 Ebenfalls entnommen werden kann, dass es sich um demographische Angaben über Personen handelt. Zusätzlich wurde zu jeder Person erfasst ob sie Lasagne probiert hat. In Abbildung \ref{fig:Lasagne_RStudio} wird der Datensatz schließlich in RStudio betrachtet.
-\begin{figure}[h]
-\includegraphics[width=\textwidth]{images/Lasagne_data}
+\begin{figure}[H]
+\frame{
+\includegraphics[width=\textwidth]{images/Lasagne_data}}
 \caption{Betrachten der Datentypen des Datensatzes in RStudio}
 \label{fig:Lasagne_RStudio}
 \centering
@@ -275,11 +279,71 @@ are they?"
 \end{itemize}
 \citep[S.~16]{shearer_crisp-dm_2000} empfiehlt zusätzlich noch, zu prüfen, ob die Werte plausibel sind, wie die Schreibweisen sind, ob Attribute mit unterschiedlichen Werten aber gleicher Bedeutung vorhanden sind und schließlich ob es einen "conflict with common sense" ,wie "teenagers with high income"\citep[S.~16]{shearer_crisp-dm_2000} gibt. 
 \subsubsection{Data Preparation}\label{subsubsec:DataPreperation}
+In der aufwendigsten Phase des ganzen Prozesses (siehe Abbildung \ref{fig:CRISP_DM_percent}) wird das "final data set"\multicitep{larose_discovering_2014, Punkt 1.4.1.3.a; shearer_crisp-dm_2000, S.~16} erzeugt. Dies geschieht durch\citep[S.~73]{swamynathan_mastering_2017}
+\begin{itemize}
+\item generelle Transformationen,
+\item Füllen der Datenlücken, die in vorhergehenden Schritten aufgedeckt wurden,
+\item Befassen mit fehlenden Werten,
+\item Herausarbeiten, welche Features des Datensatzes die größte Relevanz haben und welche neuen Features sinnvoll wären.
+\end{itemize}
+Wie bereits erwähnt, handelt es sich nicht nur um die Phase, die den meisten Aufwand erfordert, sondern auch um die, von der die Genauigkeit des Endresultates zu großen Stücken abhängt.\citep[S.~73]{swamynathan_mastering_2017}
+
 \paragraph{Select Data}\mbox{} \\
+Genauer wird dabei im ersten Schritt ausgewählt, welche Daten Teil der Analyse bleiben und welche exkludiert werden. Kriterien sind dabei, die Relevanz hinsichtlich der Ziele, die Qualität der Daten und technische Grenzen\citep[S.~16]{shearer_crisp-dm_2000} (wie "data volume or data types"\citep[S.~21]{chapman_crisp-dm_2000}). Zusätzlich kann überlegt werden, ob einige Attribute wichtiger sind als andere. So kann beispielsweise bei einer landesweiten Kundenanalyse die Postleitzahl der Kunden ausreichen und Straße und Hausnummer vernachlässigt werden.\citep[S.~16]{shearer_crisp-dm_2000} \citep[S.21]{chapman_crisp-dm_2000} merken an, dass diese Phase sowohl "attributes (columns)", als auch "records (rows)" umfasst. Wie bereits in den vorhergehenden Schritten muss auch hier erklärt werden, warum Entscheidungen getroffen wurden und eine Dokumentation angefertigt werden.\citep[S.~16]{shearer_crisp-dm_2000}
+
 \paragraph{Clean Data}\mbox{} \\
+Im Schritt "Verify Data Quality" wurde herausgearbeitet, wie die Qualität der Daten ist \todo{bessere Formulierung} und wie mängelbehaftet sie sind. Jetzt werden Maßnahmen dagegen ergriffen. Neben trivialen Vorgehen wie "Auswahl von reinen Untermengen" oder "Einfügen von passenden Standardwerten" können "anspruchsvollere Techniken wie das Schätzen von fehlenden Werten"\citep[S.21; eigene Übersetzung]{chapman_crisp-dm_2000} zum Zuge kommen.
+
 \paragraph{Construct Data}\mbox{} \\
+Die gereinigten Daten sind noch nicht fertig für die Modeling-Phase. Manchmal ist es notwendig, einem Datensatz neue Zeilen hinzuzufügen. Betrachtet man wieder eine Kundenanalyse, so ist es vielleicht nötig, für einen Kunden, der in einem Quartal keinen Einkauf getätigt hat, einen leeren Einkauf (null Euro) anzulegen, falls der eingesetzte Algorithmus dies erfordert.\citep[S.~22]{chapman_crisp-dm_2000} Er kann auch verlangen, dass abgeleitete  statt der Ursprungswerte benötigt werden. Dabei gibt es nach \citep[S.~16]{shearer_crisp-dm_2000} zwei Fälle:
+\begin{enumerate}
+\item Wenn zu einem Kunden ein Bewegungsprofil vorhanden ist (in welchem Geschäft er einkaufen war), so ist möglicherweise sinnvoll, nicht das gesamte Profil zu betrachten, sondern lediglich die Fläche zu betrachten, in der er sich bewegt hat.
+\item Ebenfalls zielführend kann eine "single-attribute transformation" sein. Dabei wird beispielsweise das genaue alter der Kunden in Altersspannen umgewandelt oder sprechende Werte wie "("definitely yes," "yes," "don't know," "no")" in numerische Werte übersetzt.
+\end{enumerate}
+\citep[S.~16; eigene Übersetzung]{shearer_crisp-dm_2000} merkt aber auch an, dass es nicht immer sinnvoll ist dies zu tun, auf jeden Fall "nicht nur um die Anzahl der Inputattribute zu reduzieren."
+
 \paragraph{Integrate Data}\mbox{} \\
+Der vorletzte Schritt der Data Pereperation ist das Zusammenführen von mehren Quellen oder Tabellen mit dem gleichen Thema. Dadurch können "neue Beobachtungen oder Werte"\citep[S.~22]{chapman_crisp-dm_2000} gewonnen werden. In Tabelle \ref{tab:integrateData} werden die zwei Hauptaufgaben\citep[S.~17]{shearer_crisp-dm_2000} genauer erläutert.
+\begin{table}[H]
+\begin{tabular}{|p{2cm}|p{3.5cm}|p{10cm}|}
+\hline
+\textbf{Aufgabe} & \textbf{Erläuterung} & \textbf{Beispiel}\\
+\hhline{===}
+Join & Mehrere Tabellen zum gleichen Thema werden zusammengeführt. & Die drei Ausgangstabellen
+\begin{itemize}
+\item "information about each store’s general characteristics (e.g., floor space, type of mall)"
+\item "summarized sales data (e.g., profit, percent change in sales from previous year)"
+\item "information about the demographics of the surrounding area"
+\end{itemize}
+werden in 
+\begin{itemize}
+\item "a new table with one record for each store, combining fields from the source tables"\citep[S.~16]{shearer_crisp-dm_2000}
+\end{itemize}
+zusammengeführt. \\ \hline
+Aggregation &  Errechnen neuer Werte aus Informationen verschiedener Tabellen. & Das Überführen von einer
+\begin{itemize}
+\item "table of customer purchases, where there is one record for each purchase"
+\end{itemize}
+in eine 
+\begin{itemize}
+\item "new table where there is one record for each customer"
+\end{itemize}
+mit den Feldern 
+\begin{itemize}
+\item "number of purchases, the average purchase amount, the percent of orders charged to credit cards, the
+percent of items under promotion, etc".\citep[S.~17]{shearer_crisp-dm_2000}
+\end{itemize}
+\\
+   \hline
+\end{tabular}
+\caption{Die zwei Hauptaufgaben des Schrittes Integrate Data}
+\label{tab:integrateData}
+\end{table}
+
 \paragraph{Format Data}\mbox{} \\
+Die Datenformatierung umfasst "hauptsächlich syntaktische Abänderungen" und "verändert nicht die Bedeutung"\citep[S.~22; eigene Übersetzung]{chapman_crisp-dm_2000} der Daten. Das kann kann zum Beispiel das "Entfernen von unerlaubten Zeichen in Zeichenketten"\citep[S.~17; eigene Übersetzung]{shearer_crisp-dm_2000} sein.\newline
+Mit diesem Schritt ist die Data Preperation abgeschlossen und es kann mit dem Modeling begonnen werden.
+
 \subsubsection{Modeling}
 \paragraph{Select the Modeling Technique}\mbox{} \\
 \paragraph{Generate Test Design}\mbox{} \\
@@ -298,8 +362,9 @@ are they?"
 \paragraph{Produce Final Report}\mbox{} \\
 \paragraph{Review Project}\mbox{} \\
 
-\begin{figure}[h]
-\includegraphics[width=\textwidth]{images/ProjektphasenInProzent_DRISP_DM}
+\begin{figure}[H]
+\frame{
+\includegraphics[width=\textwidth]{images/ProjektphasenInProzent_DRISP_DM}}
 \caption{Durchschnittlicher prozentualer Anteil der CRISP-DM-Projektphase am Gesamtprojekt nach \citep[S.~15; eigene Darstellung]{shearer_crisp-dm_2000}}
 \label{fig:CRISP_DM_percent}
 \centering
