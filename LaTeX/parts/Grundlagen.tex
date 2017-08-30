@@ -235,6 +235,7 @@ Aus Tabelle \ref{tab:LasagneHead:output} kann abgelesen werden, dass es sich um 
 \hline
 \end{tabular}
 \begin{tabular}{|p{2.2cm}p{2.1cm}p{5.8cm}p{3cm}|}
+  \hline
 \textbf{alleinstehend} & \textbf{Wohnung} & \textbf{Supermarkt.besuche.pro.Monat} & \textbf{Lasagne.probiert}\\ 
   \hhline{====}
 nein & Haus &   7 & nein\\ 
@@ -368,16 +369,16 @@ In diesem Schritt werden die Modelle ein erstes Mal interpretiert. \todo{bessere
 
 
 \subsubsection{Evaluation}
-Die Tatsache, dass es sich beim CRISP-DM-Referenzmodell um einen Prozess handelt und nicht um strikt getrennte Einzelschritte, wird besonders in der Evaluations-Phase deutlich. Erstens wird das Ranking aus dem vorherigen Schritt wird in in einem "Benchmarking" über die "odels mit einer hohen Genauigkeit"\citep[S.~73; eigene Übersetzung]{swamynathan_mastering_2017} verfeinert. Zweitens werden die Models erneut mit frischen Daten (nicht aus Schritt "Generate Test Design") verifiziert und gegen Business-Anforderungen aus Phase 1 geprüft.\citep[S.~73]{swamynathan_mastering_2017} Ziel dieser Phase ist vor allem, dem Projektleiter genug Wissen an die Hand zu geben, um zu Entscheiden, wie mit den Ergebnissen des ganzen Prozesse weiter verfahren wird. 
+Die Tatsache, dass es sich beim CRISP-DM-Referenzmodell um einen Prozess handelt und nicht um strikt getrennte Einzelschritte, wird besonders in der Evaluations-Phase deutlich. Erstens wird das Ranking aus dem vorherigen Schritt in in einem "Benchmarking" über die "Models mit einer hohen Genauigkeit"\citep[S.~73; eigene Übersetzung]{swamynathan_mastering_2017} verfeinert. Zweitens werden die Models erneut mit frischen Daten (nicht aus Schritt "Generate Test Design") verifiziert und gegen die Business-Anforderungen aus Phase 1 geprüft.\citep[S.~73]{swamynathan_mastering_2017} Ziel dieser Phase ist vor allem, dem Projektleiter genug Wissen an die Hand zu geben, um zu Entscheiden, wie mit den Ergebnissen des ganzen Prozesse weiter verfahren wird. 
 
 \paragraph{Evaluate Results}\mbox{} \\
 Während sich bisher hauptsächlich um die "Genauigkeit und Allgemeingültigkeit" der Modelle gekümmert wurde, wird jetzt auch betrachtet, ob es "irgendwelche Businessgründe gibt", durch die das Model "mangelhaft"\citep[S.~18; eigene Übersetzung]{shearer_crisp-dm_2000} wird. Falls "time und budget"\citep[S.~26]{chapman_crisp-dm_2000} es erlauben, können die Ergebnisse bereits in echte Systeme in Testumgebungen implementiert werden. Wie bereits angemerkt, werden in dieser Phase auch andere "findings" evaluiert, die beispielsweise auf zukünftige Herausforderungen hinweisen.\citep[S.~18]{shearer_crisp-dm_2000} Ist dies geschehen, "fasst der Data Analyst die Bewertungen der Ergebnisse hinsichtlich der geschäftlichen Erfolgskriterien zusammen" und gibt seine Wertung ab, "ob das Projekt bereits die initialen geschäftlichen Ziele erreicht"\citep[S.~18; eigene Übersetzung]{shearer_crisp-dm_2000}.
 
 \paragraph{Review Process}\mbox{} \\
-Im Review wird abgesichert, dass kein Faktor unbeachtet geblieben ist und keine Aufgabe vergessen wurde. Ebenfalls wird die Qualität gesichert (zum Beispiel Bugs in Software-Komponenten) und rechtliche Überlegungen angestellt ("Dürfen wir diese Kundendaten produktiv hierzu benutzen?").\multicitep{shearer_crisp-dm_2000, S.~18; chapman_crisp-dm_2000, S.~27}
+Im Review wird abgesichert, dass kein Faktor unbeachtet geblieben ist und keine Aufgabe vergessen wurde. Ebenfalls wird die Qualität gesichert (zum Beispiel Bugs in Softwarekomponenten gesucht) und rechtliche Überlegungen angestellt ("Dürfen wir diese Kundendaten produktiv für diese Analyse benutzen?").\multicitep{shearer_crisp-dm_2000, S.~18; chapman_crisp-dm_2000, S.~27}
 
 \paragraph{Determine Next Steps}\mbox{} \\
-Schließlich werden alle Bewertungen bis hierher genutzt, um zu Entscheiden, ob eine weitere Prozessiteration durchlaufen wird, oder ob in die Deployment-Phase übergegangen wird. Laut \citep[S.~18]{shearer_crisp-dm_2000} trifft diese Entscheidung der Projektleiter. \citep[S.~17]{chapman_crisp-dm_2000} sind der Meinung, dass das ganze Projektteam entscheiden sollte.
+Schließlich werden alle Bewertungen bis hierher genutzt, um zu entscheiden, ob eine weitere Prozessiteration durchlaufen wird, oder, ob in die Deployment-Phase übergegangen wird. Laut \citep[S.~18]{shearer_crisp-dm_2000} trifft diese Entscheidung der Projektleiter. \citep[S.~17]{chapman_crisp-dm_2000} sind der Meinung, dass das ganze Projektteam entscheiden sollte.
 
 \subsubsection{Deployment}
 \paragraph{Plan Deployment}\mbox{} \\
