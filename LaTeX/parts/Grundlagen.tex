@@ -289,6 +289,14 @@ In der aufwendigsten Phase des ganzen Prozesses (siehe Abbildung \ref{fig:CRISP_
 \end{itemize}
 Wie bereits erwähnt, handelt es sich nicht nur um die Phase, die den meisten Aufwand erfordert, sondern auch um die, von der die Genauigkeit des Endresultates zu großen Stücken abhängt.\citep[S.~73]{swamynathan_mastering_2017}
 
+\begin{figure}[H]
+\frame{
+\includegraphics[width=\textwidth]{images/ProjektphasenInProzent_DRISP_DM}}
+\caption{Durchschnittlicher prozentualer Anteil der CRISP-DM-Projektphase am Gesamtprojekt nach \citep[S.~15; eigene Darstellung]{shearer_crisp-dm_2000}}
+\label{fig:CRISP_DM_percent}
+\centering
+\end{figure}
+
 \paragraph{Select Data}\mbox{} \\
 Genauer wird dabei im ersten Schritt ausgewählt, welche Daten Teil der Analyse bleiben und welche exkludiert werden. Kriterien sind dabei, die Relevanz hinsichtlich der Ziele, die Qualität der Daten und technische Grenzen\citep[S.~16]{shearer_crisp-dm_2000} (wie "data volume or data types"\citep[S.~21]{chapman_crisp-dm_2000}). Zusätzlich kann überlegt werden, ob einige Attribute wichtiger sind als andere. So kann beispielsweise bei einer landesweiten Kundenanalyse die Postleitzahl der Kunden ausreichen und Straße und Hausnummer vernachlässigt werden.\citep[S.~16]{shearer_crisp-dm_2000} \citep[S.21]{chapman_crisp-dm_2000} merken an, dass diese Phase sowohl "attributes (columns)", als auch "records (rows)" umfasst. Wie bereits in den vorhergehenden Schritten muss auch hier erklärt werden, warum Entscheidungen getroffen wurden und eine Dokumentation angefertigt werden.\citep[S.~16]{shearer_crisp-dm_2000}
 
@@ -381,18 +389,28 @@ Im Review wird abgesichert, dass kein Faktor unbeachtet geblieben ist und keine 
 Schließlich werden alle Bewertungen bis hierher genutzt, um zu entscheiden, ob eine weitere Prozessiteration durchlaufen wird, oder, ob in die Deployment-Phase übergegangen wird. Laut \citep[S.~18]{shearer_crisp-dm_2000} trifft diese Entscheidung der Projektleiter. \citep[S.~17]{chapman_crisp-dm_2000} sind der Meinung, dass das ganze Projektteam entscheiden sollte.
 
 \subsubsection{Deployment}
-\paragraph{Plan Deployment}\mbox{} \\
-\paragraph{Plan Monitoring and Maintenance}\mbox{} \\
-\paragraph{Produce Final Report}\mbox{} \\
-\paragraph{Review Project}\mbox{} \\
+Ist die Entscheidung für das Deployment gefallen, wird die letzte Phase initiiert. Zu Beginn des CRISP-DM-Prozesses wurden Ziele festgelegt, die begründen, weshalb das Data Mining durchgeführt werden soll. 
+Eine einfache Implementierung wäre das Erstellen eines Reports, eine Komplexere dagegen, den Data Mining Prozess in eine andere Abteilung zu portieren\citep[Punkte 1.4.1.6.b und c]{larose_discovering_2014} oder "Echtzeit-Personalisierung von Webseiten"\citep[S.~18; eigene Übersetzung]{shearer_crisp-dm_2000} durchzuführen.\newline
+Die Implementierung des Models in die produktiven Systeme befriedigt diese Ziele nicht alleine. Auch das Training jener Personen, die das Wissen im Geschäftsprozess anwenden, muss durchgeführt werden. Dies beinhaltet sowohl die Fähigkeit, die Ergebnisse zu interpretieren, als auch zu verstehen, wie sie die Entscheidungsfindung unterstützen können.\citep[S.~73]{swamynathan_mastering_2017} \newline
 
-\begin{figure}[H]
-\frame{
-\includegraphics[width=\textwidth]{images/ProjektphasenInProzent_DRISP_DM}}
-\caption{Durchschnittlicher prozentualer Anteil der CRISP-DM-Projektphase am Gesamtprojekt nach \citep[S.~15; eigene Darstellung]{shearer_crisp-dm_2000}}
-\label{fig:CRISP_DM_percent}
-\centering
-\end{figure}
+Da die weiteren Aufgaben oft nicht vom Data Analyst durchgeführt werden \citep[Punkt 1.4.1.6.d]{larose_discovering_2014}, muss der Anwender die Pflege eines Machine Learning-Models verstehen und übernehmen (z.B. in welchen Intervallen das Model trainiert wird).\citep[S.~74]{swamynathan_mastering_2017}
+
+\paragraph{Plan Deployment}\mbox{} \\
+Der Erste Schritt  der Deploymentphase ist die Auswahl und Dokumentation einer geeigneten Strategie für den Einsatz oder das Rollout in die Geschäftsumgebung.\multicitep{shearer_crisp-dm_2000, S.~18; chapman_crisp-dm_2000, S.~28} \todo{Formulierung}. 
+
+\paragraph{Plan Monitoring and Maintenance}\mbox{} \\
+Zusätzlich zum Rollout, muss die Überwachung und Wartung bedacht und geplant werden. Das soll der Fehlbenutzung der Data Mining-Ergebnisse vorbeugen.\multicitep{shearer_crisp-dm_2000, S.~18; chapman_crisp-dm_2000, S.~29}
+
+
+\paragraph{Produce Final Report}\mbox{} \\
+Ein nicht unbedingt Data-Mining-spezifischer Schritt, ist das erstellen eines Abschlussberichts. Dieser kann sich je nach Projekttyp unterscheiden. Er kann die Form einer Zusammenfassung haben oder eine ausgedehnte und detaillierte Präsentation sein.\multicitep{shearer_crisp-dm_2000, S.~18; chapman_crisp-dm_2000, S.~29} \citep[Punkt 1.4.1.1]{larose_discovering_2014} merkt an, dass es sich auch um Forschungsprojekte handeln kann. In diesem Fall ist der Report möglicherweise \todo{Wort} eine Veröffentlichung der Ergebnisse. Der Abschlussbericht "enthält alle bisher erzeugten Auslieferungsgegenstände und fasst [...] die Ergebnisse zusammen."\citep[S~18; eigene Übersetzung]{shearer_crisp-dm_2000}
+
+\paragraph{Review Project}\mbox{} \\
+Den Schlussstrich zieht das Review des Projekes. Hier wird festgehalten, was im Projektverlauf gut und schlecht lief. Zusätzlich soll das Wissen konserviert werden, wie der Prozess verbessert werden könnte.\multicitep{shearer_crisp-dm_2000, S.~18; chapman_crisp-dm_2000, S.~29} \todo{Formulierung...}  \newline
+\citep[S.~18; eigene Übersetzung]{shearer_crisp-dm_2000} empfiehlt "Interviews mit allen wichtigen Projektteilnehmern". In "idealen Projekten" umfasst da Review "alle Reports, die in vorhergehenden Projektphasen [...] verfasst wurden."\citep[S.~29; eigene Übersetzung]{chapman_crisp-dm_2000}
+
+
+
 
 
 
