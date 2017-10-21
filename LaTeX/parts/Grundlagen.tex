@@ -518,18 +518,22 @@ Text mining algorithms & Automatic summarization\\
 \label{tab:SebjectiveGrouping}
 \end{table}
 
-azure macht so, deswegen hier diese Kategorisierung;
-im verlauf dieses Kapitels sehr viele algorithem in der literatur für spezielle fälle zB.
-da analyse mit azure ml --> nur die algorithen, die auch vorkommen \todo{+ honorable mentions??}
-englische Namen, da hauptsächlich genutzt
+Da der Artikel "How to choose algorithms for Microsoft Azure Machine Learning" von \citep{ericson_microsoft_2017} nach "Supervised", "Unsupervised" und "Reinforcement learning" zurückgreift, wird nachfolgend diese Gliederung genutzt und um "Semi-supervised Learning" erweitert. Anzumerken ist, dass nur Algorithmen beschrieben werden, die zum Zeitpunkt der Arbeit in "Microsoft Azure Machine Learning Studio" verfügbar sind.
 
-\subsection{Supervised Learing}
-Man weiß, nach was man sucht… (training data mit input und korrektem output)
-• E.g. spam filtering, machine translation, face recognition, etc.
+\subsection{Supervised Learning}
+Die möglicherweise am einfachsten nachvollziehbare Gruppe des Machine Learning ist das Supervised Learning, da es "sehr ähnlich zu dem Prozess ist, in dem Menschen Dinge lernen"\citep[S.~13; eigene Übersetzung]{kim_matlab_2017}. Es existiert ein Datensatz, bei dem für jeden Input ein Output vorhanden ist. Ein Beispiel können Patientendaten sein, die als Output eine Variable besitzen, die angibt, ob ein Patient an Krebs erkrankt ist oder nicht.\citep[S.~222]{ramasubramanian_machine_2017} Diese "response variable" (Krebs oder nicht Krebs) wird als "label"\citep[S.~222]{ramasubramanian_machine_2017} bezeichnet. Die Aufgabe des Learning Prozesses ist es dann, einen Zusammenhang zwischen dem Input (Patientendaten) und dem Label (Krebs oder nicht Krebs) herzustellen. Dies geschieht mit sogenannten "training sets"\citep[S.~5]{paluszek_matlab_2017} Der zweite Schritt ist dann das Überprüfen des entstandenen Models. Dabei wird das Model auf ein zweites gelabeltes "test set"\citep[S.~5]{paluszek_matlab_2017} angewandt und das Ergebnis überprüft%%.\newline
+Die Algorithmen des Supervised Learning lassen sich erneut aufteilen:
+
 \subsubsection{Classification}
-\paragraph{Two-class Classification}
-auch "binomial classification"\citep{ericson_how_2017} genannt
-\paragraph{Multi-class Classification}
+Betrachtet man die Labels und stellt fest, dass sie die Datensätze in Kategorien unterteilen (Krebs oder nicht Krebs) oder eine Wahrscheinlichkeit angeben (Person zu 89\% Max Mustermann bei einer Gesichtserkennung), handelt es sich um eine Klassifikation (engl. Classification).\citep[S.~67]{swamynathan_mastering_2017} \citep[S.~5]{kauchak_zoterovoll2.pdf_2016} nennt als Beispiele
+\begin{itemize}
+\item biometrische Erkennungen (Gesicht, Iris, Unterschrift etc.),
+\item Buchstabenerkennung,
+\item Spamfilter und
+\item medizinische Diagnosen.
+\end{itemize}
+Weiterhin kann zwischen Klassifikationen mit nur zwei Labels ("two-class or binomial classification"\citep{ericson_how_2017}) oder mehr als zwei Labels ("multi-class classification"\citep{ericson_how_2017}) unterschieden werden.
+
 \subsubsection{Regression}
 \subsubsection{Anomaly detection}
 
