@@ -532,8 +532,14 @@ Betrachtet man die Labels und stellt fest, dass sie die Datensätze in Kategorie
 \item Spamfilter und
 \item medizinische Diagnosen.
 \end{itemize}
-Weiterhin kann zwischen Klassifikationen mit nur zwei Labels ("two-class or binomial classification"\citep{ericson_how_2017}) oder mehr als zwei Labels ("multi-class classification"\citep{ericson_how_2017}) unterschieden werden.
-
+Weiterhin kann zwischen Klassifikationen mit nur zwei Labels ("two-class or binomial classification"\citep{ericson_how_2017}) (siehe Abbildung \ref{fig:classification}) oder mehr als zwei Labels ("multi-class classification"\citep{ericson_how_2017}) unterschieden werden.
+\begin{figure}[H]
+\frame{
+\includegraphics[width=\textwidth]{images/classification}}
+\caption{Beispiel für eine Klassifikation aus \citep[S.~8]{suthaharan_machine_2016}}
+\label{fig:classification}
+\centering
+\end{figure}
 \subsubsection{Regression}
 Wenn eine Unterteilung in Kategorien wie gerade genannt nicht möglich ist und die Output variable ein fortlaufender \todo{Wort} Wert ist, werden Regressionen benutzt. Dabei liegt der "Hauptfokus [...] darin, einen Zusammenhang zwischen einer abhängigen Variablen und einer oder mehreren unabhängigen [...] Variablen herzustellen"\citep[S.~60; eigene Übersetzung]{swamynathan_mastering_2017}. Neben dem bekanntesten Beispiel
 \begin{itemize}
@@ -556,15 +562,32 @@ Die Anomaly detection kann für folgende Szenarien genutzt werden\citep[S.~15:2]
 \item Anwendungen in "der Welt des Internet der Dinge"[S.~68]\citep{swamynathan_mastering_2017}
 \end{itemize}
 
-
 \subsection{Unsupervised Learning}
-Man sucht nur cluster/gruppen/etc
-Sometimes, we don’t have access to any
-output value o, we simply have a
-collection of input examples i
-• In this case, what we try to do is to learn
-the underlying patterns of our data
+Der "Glücksfall" \todo{kann man das so sagen?}, dass der vorhandene Datensatz Label besitzt, ist unter realen Umständen häufig nicht der Fall. Um aus diesen Daten trotzdem Schlüsse zu ziehen, werden Methoden des Unsupervised Learning herangezogen. Hier liegt der Fokus auf dem "Entdecken von aufschlussreichen Eigenschaften der verfügbaren Daten"\citep[S.277; eigene Übersetzung]{kubat_introduction_2017} und der "Untersuchung der Charakteristik der Daten"\citep[S.~13; eigene Übersetzung]{kim_matlab_2017}. Dies kann das Ziel haben komplexe und vielschichtige Daten zu vereinfachen und zu strukturieren\citep{ericson_how_2017} oder die Daten in Gruppen aufzuteilen\citep[S.~22]{lison_introduction_2012}. Um diese Gruppen ähnlicher Daten - sogenannte Cluster - geht es im nächsten Abschnitt.\newline
+Supervised Learning findet man nach \citep[S.~223]{ramasubramanian_machine_2017}
+\begin{itemize}
+\item bei der Aufteilung von Kundendaten in Segmente,
+\item in Analysen von sozialen Netzwerken,
+\item in der Klimatologie,
+\item bei der Bildkompression und
+\item in der Bioinformatik.\citep[S.~6]{kauchak_zoterovoll2.pdf_2016}
+\end{itemize}
+
 \subsubsection{Clustering}
+Beim angesprochenen Clustering handelt es sich um das "Identifizieren von distinkten Gruppen [...] basierend auf irgendeiner Art der Ähnlichkeit innerhalb des vorliegden Datensatzes"\citep[S.~195; eigene Übersetzung]{swamynathan_mastering_2017}. Damit die Objekte der gebildeten Cluster "aussagekräftig und sinnvoll" sind, sollen "die Objekte innerhalb eines Clusters [...] homogen sein" und "zu Objekten anderer Cluster"\citep[S.~337; eigene Übersetzung]{ramasubramanian_machine_2017} heterogen (sie Abbildung \ref{fig:clustering}). Es kann jedoch auch sein, dass Objekte zu mehreren Clustern gehören. Dies nennt sich "Soft Clustering" - im Gegensatz zum "Hard Clustering"\citep[S.~339]{ramasubramanian_machine_2017}. Die Metrik für die Ähnlichkeit ist nicht festgelegt. Möglich sind 
+\begin{itemize}
+\item die "Distanz [...] zwischen Beobachtungen", 
+\item die "Entfernung vom Mittelwert jeder Beobachtung/des Clusters",
+\item die "Signifikanz [einer] statistischen Verteilung" oder
+\item die "Dichte im Datenraum"\citep[S.~338; eigene Übersetzung]{ramasubramanian_machine_2017}.
+\end{itemize}
+\begin{figure}[H]
+\frame{
+\includegraphics[width=\textwidth]{images/clustering}}
+\caption{Beispiel für zwei Cluster \citep[S.~9]{suthaharan_machine_2016}}
+\label{fig:clustering}
+\centering
+\end{figure}
 
 
 \subsection{Semi-supervised Learning}
