@@ -535,8 +535,26 @@ Betrachtet man die Labels und stellt fest, dass sie die Datensätze in Kategorie
 Weiterhin kann zwischen Klassifikationen mit nur zwei Labels ("two-class or binomial classification"\citep{ericson_how_2017}) oder mehr als zwei Labels ("multi-class classification"\citep{ericson_how_2017}) unterschieden werden.
 
 \subsubsection{Regression}
-\subsubsection{Anomaly detection}
+Wenn eine Unterteilung in Kategorien wie gerade genannt nicht möglich ist und die Output variable ein fortlaufender \todo{Wort} Wert ist, werden Regressionen benutzt. Dabei liegt der "Hauptfokus [...] darin, einen Zusammenhang zwischen einer abhängigen Variablen und einer oder mehreren unabhängigen [...] Variablen herzustellen"\citep[S.~60; eigene Übersetzung]{swamynathan_mastering_2017}. Neben dem bekanntesten Beispiel
+\begin{itemize}
+\item einen Kurs an der Börse vorherzusagen \multicitep{kauchak_zoterovoll2.pdf_2016, S.~5; kubat_introduction_2017, S.~207; ericson_how_2017}, gibt es Anwendungsfälle in
+\item der Epidemiologie,
+\item der Auto- und Flugzeugnavigation und
+\item Analysen im zeitlichen Verlauf (Wetterveränderung im Verlauf der Zeit)\citep[S.~5]{kauchak_zoterovoll2.pdf_2016}.
+\end{itemize}
 
+\subsubsection{Anomaly detection}
+Im bereits mehrfach zitierten Artikel "How to choose algorithms for Microsoft Azure Machine Learning" von \citep{ericson_how_2017} wird noch eine zusätzliche Kategorie genannte: Anomaly detection. Bei \citep[S.~68]{swamynathan_mastering_2017} ist die Anomaly detection dem Unsupervised Learning zugeordnet. Dies rührt daher, dass es darauf ankommt, ob eine Outputvariable ("Label") vorhanden ist, oder nicht. Tatsächlich ist es so, dass es sowohl Szenarien für Supervised und Unsupervised Anomaly detection gibt, als auch für das später noch beschriebene Semi-supervised Learning.\citep[S.~15:10]{chandola_anomaly_2009}
+Unabhängig davon beschreibt Anomaly detection das Finden von Mustern in Daten, die vom erwarteten Verhalten abweichen. Diese Pattern werden meist als Anomalität (engl. anomaly) oder Ausreißer (engl. outliner) bezeichnet.\citep[S.~15:1]{chandola_anomaly_2009}
+Die Anomaly detection kann für folgende Szenarien genutzt werden\citep[S.~15:2]{chandola_anomaly_2009}:
+\begin{itemize}
+\item Kreditkartenbetrugserkennung
+\item Versicherungsbetrugserkennung
+\item Gesundheitsprüfungen
+\item Intrusion Detection
+\item Militärische Überwachungen
+\item Anwendungen in "der Welt des Internet der Dinge"[S.~68]\citep{swamynathan_mastering_2017}
+\end{itemize}
 
 
 \subsection{Unsupervised Learning}
