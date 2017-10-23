@@ -522,7 +522,7 @@ Da der Artikel "How to choose algorithms for Microsoft Azure Machine Learning" v
 \todo{raus?:} Anzumerken ist, dass nur Algorithmen beschrieben werden, die zum Zeitpunkt der Arbeit in "Microsoft Azure Machine Learning Studio" verfügbar sind.
 
 \subsection{Supervised Learning}
-Die möglicherweise am einfachsten nachvollziehbare Gruppe des Machine Learning ist das Supervised Learning, da es "sehr ähnlich zu dem Prozess ist, in dem Menschen Dinge lernen"\citep[S.~13; eigene Übersetzung]{kim_matlab_2017}. Es existiert ein Datensatz, bei dem für jeden Input ein Output vorhanden ist. Ein Beispiel können Patientendaten sein, die als Output eine Variable besitzen, die angibt, ob ein Patient an Krebs erkrankt ist oder nicht.\citep[S.~222]{ramasubramanian_machine_2017} Diese "response variable" (Krebs oder nicht Krebs) wird als "label"\citep[S.~222]{ramasubramanian_machine_2017} bezeichnet. Die Aufgabe des Learning Prozesses ist es dann, einen Zusammenhang zwischen dem Input (Patientendaten) und dem Label (Krebs oder nicht Krebs) herzustellen. Dies geschieht mit sogenannten "training sets"\citep[S.~5]{paluszek_matlab_2017} Der zweite Schritt ist dann das Überprüfen des entstandenen Models. Dabei wird das Model auf ein zweites gelabeltes "test set"\citep[S.~5]{paluszek_matlab_2017} angewandt und das Ergebnis überprüft%%.\newline
+Die möglicherweise am einfachsten nachvollziehbare Gruppe des Machine Learning ist das Supervised Learning, da es "sehr ähnlich zu dem Prozess ist, in dem Menschen Dinge lernen"\citep[S.~13; eigene Übersetzung]{kim_matlab_2017}. Es existiert ein Datensatz, bei dem für jeden Input ein Output vorhanden ist. Ein Beispiel können Patientendaten sein, die als Output eine Variable besitzen, die angibt, ob ein Patient an Krebs erkrankt ist oder nicht.\citep[S.~222]{ramasubramanian_machine_2017} Diese "response variable" (Krebs oder nicht Krebs) wird als "label"\citep[S.~222]{ramasubramanian_machine_2017} bezeichnet. Die Aufgabe des Learning Prozesses ist es dann, einen Zusammenhang zwischen dem Input (Patientendaten) und dem Label (Krebs oder nicht Krebs) herzustellen. Dies geschieht mit sogenannten "training sets"\citep[S.~5]{paluszek_matlab_2017} Der zweite Schritt ist dann das Überprüfen des entstandenen Models. Dabei wird das Model auf ein zweites gelabeltes "test set"\citep[S.~5]{paluszek_matlab_2017} angewandt und das Ergebnis überprüft.\newline
 Die Algorithmen des Supervised Learning lassen sich erneut aufteilen:
 
 \subsubsection{Classification}
@@ -592,25 +592,29 @@ Beim angesprochenen Clustering handelt es sich um das "Identifizieren von distin
 
 \subsection{Semi-supervised Learning}
 \todo{hier so oft "label...":}\newline
-Bis jetzt wurden zwei Extremfälle beschrieben: entweder es gibt keine Labels oder alle Daten sind gelabelt. Es existieren jedoch auch Fälle dazwischen. Besitzen die meisten Daten ein Label, so ist es eventuell möglich, die Datensätze ohne Label für das Learning zu entfernen und ein Model aus dem Supervised Learning heranzuziehen. Tritt aber ein Problem auf, bei dem nur sehr wenige Daten gelabelt sind, empfiehlt sich ein Vorgehen aus dem Semi-supervised Learning. Methoden dieser Familie des Machine Learning beruhen auf der Annahme, dass "die Daten wichtige Informationen über die Gruppenzugehörigkeit beinhalten", "obwohl die Gruppenzugehörigkeit [...] unbekannt ist"\citep[S.~223; eigene Übersetzung]{ramasubramanian_machine_2017}. Als umfassendes Werk für Semi-supervised Learning ist an dieser Stelle \citep{chapelle_semi-supervised_2006} zu empfehlen.
+Bis jetzt wurden zwei Extremfälle beschrieben: entweder es gibt keine Labels oder alle Daten sind gelabelt. Es existieren jedoch auch Fälle dazwischen. Besitzen die meisten Daten ein Label, so ist es eventuell möglich, die Datensätze ohne Label für das Learning zu entfernen und ein Model aus dem Supervised Learning heranzuziehen. Tritt aber ein Problem auf, bei dem nur sehr wenige Daten gelabelt sind, empfiehlt sich ein Vorgehen aus dem Semi-supervised Learning. Methoden dieser Familie des Machine Learning beruhen auf der Annahme, dass "die Daten wichtige Informationen über die Gruppenzugehörigkeit beinhalten", "obwohl die Gruppenzugehörigkeit [...] unbekannt ist"\citep[S.~223; eigene Übersetzung]{ramasubramanian_machine_2017}. Als umfassendes Werk für Semi-supervised Learning ist an dieser Stelle \citep{chapelle_semi-supervised_2006} zu empfehlen. \newline
+Zur Anwendung kommt Semi-supervised Learning seit den 1990er Jahre in "natural language problems" und "text classification"\citep[S.~4]{chapelle_semi-supervised_2006}.
 
 \subsection{Active Learning}
-Ein Sonderfall des Semi-Supervised Learning ist das Active Learning. Hier wird davon ausgegangen, dass nur wenige oder keine Labels vorhanden sind, diese jedoch durch einen "Menschen mit umfangreichem Wissen im Themengebiet"\citep[S.~i; eigene Übersetzung]{olsson_literature_2009} hinzugefügt werden können. Alle Daten mit einem Label zu versehen wäre jedoch zu "schwer, zeitaufwendig oder zu teuer"\citep[Abstract; eigene Übersetzung]{settles_active_2010}. Mit dem Ziel an den Menschen nur so wenig Anfragen (engl. Queries) wie nötig zu stellen\citep[Abstract]{olsson_literature_2009}, werden Algorithmen entworfen, die selbst wählen könne, welche Datensätze gelabet werden.\citep[Abstract]{settles_active_2010}
+Ein Sonderfall des Semi-Supervised Learning ist das Active Learning. Hier wird davon ausgegangen, dass nur wenige oder keine Labels vorhanden sind, diese jedoch durch einen "Menschen mit umfangreichem Wissen im Themengebiet"\citep[S.~i; eigene Übersetzung]{olsson_literature_2009} hinzugefügt werden können. Alle Daten mit einem Label zu versehen wäre jedoch zu "schwer, zeitaufwendig oder zu teuer"\citep[Abstract; eigene Übersetzung]{settles_active_2010}. Mit dem Ziel an den Menschen nur so wenig Anfragen (engl. Queries) wie nötig zu stellen\citep[Abstract]{olsson_literature_2009}, werden Algorithmen entworfen, die selbst wählen könne, welche Datensätze gelabet werden.\citep[Abstract]{settles_active_2010}\newline
+Nach \citep[S.~4]{settles_active_2010} wird Active Learning beispielsweise in
+\begin{itemize}
+\item der Spracherkennung,
+\item der Informationsextraktion oder in
+\item der Klassifikation oder dem Filtern von Dokumenten oder Mediendateien eingesetzt
+\end{itemize}
 
 \subsection{Reinforcement Learning}
-richtig oder falsch kommt erst noch
-
-Sometimes we have no direct access to the
-«correct» output, but we can get some
-measure of the quality of an output o
-following input i
-
-But we can get a measure of «how good/
-bad» an output is
-
-oft in robotic oder so, aber noch nicht in azure ml
-
-
+"Beim Reinforcement Learning interagiert der Lerner" - also ein Programm - "mit seiner Umwelt"\citep[S.~45; eigene Übersetzung]{settles_active_2010}. Er "experimentiert" dabei um eine Lösung auf das gestellte Problem zu finden und erhält je nach Ausgang seiner Aktion eine Belohnung oder eine Bestrafung.\citep[S.~331]{kubat_introduction_2017} Es wird also nicht direkt mit einem Output (Label) gearbeitet, sondern lediglich die Qualität des Outputs bewertet. Das Ziel ist, durch ein iteratives Vorgehen (siehe Abbildung \ref{fig:reinforcementLearning}), ein maximales Endergebnis (größer Reward) zu erreichen.\citep[S.~69]{swamynathan_mastering_2017}
+\begin{figure}[H]
+\frame{
+\includegraphics[width=\textwidth]{images/reinforcementLearning}}
+\caption{Iterativer Reinforcement Learning Prozess aus \citep[S.~25]{lison_introduction_2012}}
+\label{fig:reinforcementLearning}
+\centering
+\end{figure}
+Reinforcement Learning kommt in Szenarien zum Einsatz, in denen noch keine Daten zum Lernen zur Verfügung stehen oder erst nach und nach aktualisiert werden.\citep[S.~223]{ramasubramanian_machine_2017}\newline
+Ein prominentes Beispiel für ein System mit Reinforcement Learning ist Google DeepMinds AlphaGo. Es handelt sich dabei um einen Go (asiatisches Brettspiel) spielendes Computersystem, dass seine Spielstärke durch spielen gegen sich selbst erreichte.\citep{silver_mastering_2017}
 
 \section{Krypotwährung(en)}
 Bitcoin,ethereum, litecoin, dogecoin; auswahl hier nur 1/2
