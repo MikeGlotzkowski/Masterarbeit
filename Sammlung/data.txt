@@ -6,3 +6,15 @@ EDIT: Since there are no column headers in the CSVs, here's what they are : colu
 
 
 https://stackoverflow.com/questions/16143266/get-bitcoin-historical-data
+
+______
+
+https://coinmetrics.io/data-downloads/
+https://coinmetrics.io/data-downloads/
+https://coinmetrics.io/data-downloads/
+https://coinmetrics.io/data-downloads/
+https://coinmetrics.io/data-downloads/
+https://coinmetrics.io/data-downloads/
+https://coinmetrics.io/data-downloads/
+https://coinmetrics.io/data-downloads/
+https://coinmetrics.io/data-downloads/
