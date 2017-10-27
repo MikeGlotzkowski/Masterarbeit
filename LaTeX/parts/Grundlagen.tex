@@ -435,7 +435,6 @@ Diese unterschiedlichen Gliederungen erklären \citep[S.~222]{ramasubramanian_ma
 \centering
 \end{figure}
 
-
 \begin{table}[H]
 \tiny
 \begin{tabular}{|l|l|}
@@ -617,20 +616,55 @@ Reinforcement Learning kommt in Szenarien zum Einsatz, in denen noch keine Daten
 Ein prominentes Beispiel für ein System mit Reinforcement Learning ist Google DeepMinds AlphaGo. Es handelt sich dabei um einen Go (asiatisches Brettspiel) spielendes Computersystem, dass seine Spielstärke durch spielen gegen sich selbst erreichte.\citep{silver_mastering_2017}
 
 \section{Krypotwährung(en)}
-Bitcoin,ethereum, litecoin, dogecoin; auswahl hier nur 1/2
+In der Motivation (siehe Abschnitt \ref{sec:cryptocurrency}) wurde bereits auf Kryptowährungen allgemein und auf Bitcoin im Speziellen eingegangen. Es wurde ebenfalls angemerkt, dass die zwei Währungen mit dem größten Marktvolumen Bitcoin (BTC) und Etherium (ETH) sind. Aus diesem Grund werden nur die Kurse dieser beiden Währungen analysiert. In diesem Abschnitt wird darauf verzichtet, weiter auf die Technik hinter BTC und ETH einzugehen. Es ist jedoch nicht ausgeschlossen, dass zu einem spätern Zeitpunk Teile des Mining- oder Handelsprozesses genauer betrachtet werden, sollte es dazu beitragen, die Analyse zu verbessern. \todo{so schreiben?}
 
-
-\section{SaaS}
 \section{Microsoft Azure ML Studio}
+Im nun folgenden Abschnitt der Arbeit wird das Microsoft Azure ML Studio in drei Schritten erklärt:
+\begin{enumerate}
+\item Zuerst erfolgt eine allgemeine Beschreibung des Machine Learning Studios.
+\item Dann wird der Aufbau eines Projektes beschrieben und
+\item zuletzt die vorgefertigten Module vorgestellt.
+\end{enumerate}
+Es sollte in diesem Teil beachtet werden, dass die Quellen hauptsächlich Microsoft-eigen sind, da außer einigen Blockartikeln wenig externe Literatur oder Meinungen verfügbar sind.
 \subsection{Allgemeine Beschreibung}
-\subsection{Aufbau }
-\subsubsection{Projects}
-\subsubsection{Experiments}
-\subsubsection{Web Services}
-\subsubsection{Notebooks}
-\subsubsection{Datasets}
-\subsubsection{Trained Models}
-\subsubsection{Settings}
+Zum Ende des Abschnittest \ref{sec:SaaS} wurde die \textbf{S}oftware \textbf{a}s \textbf{a} \textbf{S}ervice (SaaS) Microsoft Azure Machine Learning Studio bereits angesprochen. Es handelt sich dabei um eine Cloud-basierte Web-IDE (\textbf{I}ntegrated \textbf{D}evelopment \textbf{E}nvironment). Der Kern der Anwendung ist ein "drag and-drop tool", das genutzt wird um "predictive analytics solutions" zu entwerfen und bereitzustellen.\citep{ericson_what_2017} Es können sowohl vorgefertigte Bausteine genutzt werden, als auch selbst entworfene Scripte (in R und/oder Python).
+\subsection{Aufbau}
+\todo{evtl. visualisieren!}\newline
+Die strukturellen Hauptkomponenten sind Tabelle \ref{tab:azuremlcomponents} zu entnehmen. Die Tabelle basiert auf dem Artikel "What is Azure Machine Learning Studio?" von \citep{ericson_what_2017} und dem Machine Learning Studio selbst (https://studio.azureml.net/Home).
+\begin{longtable}[H]{|p{2,5cm}|p{14cm}|}
+\hline
+\textbf{Komponente} & \textbf{Beschreibung}\\ 
+\hhline{==}
+Settings & Hier finden sich Einstellmöglichkeiten zur Benutzerverwaltung (für kollaborative Arbeit im Studio), das Preismodell (10GB Workspace Storage sind in der kostenfreien Version enthalten) und zu den Authorisierungstoken. Die Settings sind in diesem Kontext nicht weiter interessant. \\
+\hline
+Notebooks & Die Notebooks sind Verknüpfungen auf Jupyter Notebooks. Diese wiederum sind "Webanwendungen", die genutzt werden um "Dokumente, die live code, Gleichungen, Virtualisierungen und erzählenden Text" enthalten "zu erstellen und zu teilen". Genutzt werden sie unter andrem für 
+\begin{itemize}
+\item "data cleaning",
+\item "transformation,
+\item numerical simulation,
+\item statistical modeling,
+\item data visualization" und
+\item "machine learning"\citep{noauthor_jupyter_2017}.
+\end{itemize}
+Project Jupyter ist non-profit und open-source.\citep{noauthor_about_2014} \\
+\hline
+Experiments & Experimente sind das Kernelemente des Azure ML Studios. Sie stellen den Rahmen für das erproben verschiedener Problemlösungen. Experimente sollten dabei mindestens ein Datenset (dazu gleich mehr) und ein Modul enthalten. Ist ein Experiment ausgereift, kann der Status von "training" to "predictive" geändert werden und als Web Service bereit gestellt werden (dazu ebenfalls nachfolgend Mehr).\\
+\hline
+Datasets & Für das Experimentieren benötige Datensätze (z.B. .csv-, .tsv-, .arff-, .txt-, .zip-, oder .RData-Dateine) können in die Web-IDE geladen und als Datasets abgespeichert werden. So können die Dateien ohne erneutes hochladen wiederverwendet werden. Eine andere Möglichkeit Daten im Studio zu benutzen, ist das Experiment Item "Import Data", das unter anderem auf Daten aus Azure Blob Storage, Azure Table Storage, Azure DocumentDB, Azure SQL Datenbanken, Hive Queries oder HTTP-Quellen zugreifen kann.\\
+\hline
+Experiment Items & Die Sammlung aller drag-and-drop Elemente im Studio werden Experiment Items genannt. Die umfassen Elemente für alle Prozessschritte, wie Input, Transformation, Selection, Machine Learning Module, Visualisierung, Scoring etc.\\
+\hline
+Trained Models & Fertigtrainierte Machine Learning Module können als eigenständige Komponenten genutzt werden. Ein Beispiel dafür wäre die Wiederverwendung in einem anderen Experiment mit neuen Daten oder der Vergleich zweier fertiger Modelle.\\
+\hline
+Web Services & Ist ein Experiment auf dem Status "predictive" können die Input- und Output-Felder in Web Services umgewandelt werden, um sie in andere Anwendungen oder Systeme zu integrieren.\\
+\hline
+Projects & Projects dienen als Organisatorisches Strukturelement. Durch sie können Experimente, Datasets, Notebooks etc. gruppiert werden. \\
+\hline
+\caption{Hauptkomponenten des Azure Machine Learning Studios}
+\label{tab:azuremlcomponents}
+\end{longtable}
+
+
 \subsection{Elemente}
 relevate auswählen
 \subsubsection{Saved Datasets}
