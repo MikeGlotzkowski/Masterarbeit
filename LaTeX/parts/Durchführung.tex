@@ -1,3 +1,124 @@
-\chapter{Durchführung}
+\chapter{Durchführung der Analyse}
 
-von Ziele bis Interpretation
+
+\section{Business Understanding}
+\subsection{Determine the Business Objectives}
+Ziel: Warum wird die Analyse durchgeführt
+--> zu sehen, ob irgendetwas sich vorhersagen lässt/etwas auffällig ist 
+--> azure ml funktionsweise kennen zu lernen (know-how gewinn)
+
+\subsection{Assess the Situation}
+Ziel: Frage detaillieren; welche Ressourcen zur verfügbar sind; grenzen der analyse; annahmen
+--> kann durchaus sein, dass bei der analyse nichts herauskommt
+--> kann sein, dass es mit anderen werkzeugen (tenser flow etc.) einfacher/besser geht, aber das nicht ziel
+--> ressourcen knapp; eine person, umfang masterarbeit
+
++! --> Welche Daten kommen in Frage?
+________________________________________
+aus paper und mehr suchen
+
+welchen einluss hier; im nächsten teil dann:
+wie kann man das repräsentieren, welche daten gibt es da und kann man das abbilden?
+
+beispiele:
+regierungen und regionen (usa, china, EU) --> Gesetze
+
+bitcoin-eigene dinge (volumen, umschlag, miner? etc.)
+
+öffentlichkeit (twitter, zeitungen, blogs, domains im web)
+
+natürliche Ressourcen (Öl, Gold, Silber, Diamanten w/e)
+
+Financial Stress Index (FSI)
+
+
+HIER PAPER NOCHMAL:
+* Economic Drivers
+* Transaction Drivers
+* Technical Drivers
+* Interest
+* Safe Haven
+* Influence of China
+____________________________________________
+
+\subsection{Determine the Data Mining Goals}
+Ziel: technische Beschreibung der Ziele
+--> Find any Patterns, correlations, trends etc. in crypto data (1: de-/increase; 2: dollar exchange rate)
+
+\subsection{Produce a Project Plan}
+Ziel: Projektplan erstellen
+--> Schritte, die durchgeführt werden (Gliederung hier ca)
+--> Timeline (wie verältnis; evtl. auslassen?)
+--> Risiken (gar nichts finden; Daten Fehlen; techn. Probleme mit Azure...)
+--> Werkzeuge und Techniken (R, RStudio, Jupyter Notebooks, Azure ML, Excel)
+
+\section{Data Understanding}
+\subsection{Collect the Initial Data}
+Ziel: daten beschaffen
+--> oben, welche Sachen hätte ich gerne; hier dann richtige Daten und schon in azure laden!
+
+\subsection{Describe the Data}
+Ziel: Format, größe, Anzahl der Beobachtungen; Beschaffenheit
+-->
+--> sind die Daten okay? 
+
+\subsection{Explore the Data}
+Ziel: Einfache Analyse der Zielvariablen 
+--> (steigend, fallend, preis?)
+
+\subsection{Verify Data Quality}
+Ziel: Qualität sichern; common sense
+--> alle preise in usd; zeit in ttmmyyyy oder so
+--> daten vollständig für die sachen?
+--> kommas und punkte richtig?
+
+\section{Data Preperation}
+\subsection{Select Data}
+Ziel: Welche Daten sind wichtig für die Analyse?
+--> Vlt Daten wochenweise aggregieren
+--> 
+
+\subsection{Clean Data}
+Ziel: Sachen aus "Verfiy Data Quality" aufgreifen;
+--> Lücken füllen, Preise, Datum
+
+\subsection{Construct Data}
+Ziel: Daten so umbauen, dass sie in algorithmus passen
+--> neue Zeilen hinzufügen; Verdoppeln w/e
+
+\subsection{Integrate Data}
+Ziel: Daten zusammenführen
+--> die fertigen Datensätze, die ich gefunden habe in die BTC-, ETH-Kursdaten überführen
+
+\subsection{Format Data}
+evtl. auspassen
+
+\section{Modeling}
+\subsection{Select the Modeling Technique}
+Ziel: Auswahl der Algorithmen
+--> Supervised (Continous value --> wert; two-class (hoch/runter))
+
+\subsection{Generate Test Design}
+Ziel: Training und error rates betrachten
+--> azure split data experiment item!
+
+\subsection{Build the Model}
+Ziel: Models bauen
+--> "azure ml run"
+
+\subsection{Assess the Model}
+
+
+\section{Evaluation}
+\subsection{Evaluate Results}
+\subsection{Review Process}
+\subsection{Determine Next Steps}
+
+
+\section{Deployment}
+\subsection{Plan Deployment}
+\subsection{Plan Monitoring and Maintenance}
+\subsection{Produce Final Report}
+\subsection{Review Project}
+
+
