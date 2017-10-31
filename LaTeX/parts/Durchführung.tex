@@ -1,8 +1,46 @@
 \chapter{Durchführung der Analyse}
-
-
+Nachdem in den vorhergegangen Abschnitten alle Aspekte des Themas "Kursanalyse von Kryptowährungen mit Azure Machine Learning" betrachtet wurden, widmet sich dieser Abschnitt der praktischen Umsetzung. Jeder Themenblock hat seinen Teil zum Erstellen eines Kontextes beigetragen, in dem die Analyse durchgeführt werden kann (siehe Tabelle \ref{tab:themeblocks}).
+\begin{table}[H]
+\begin{tabular}{|p{3,5cm}|p{6cm}|p{7cm}|}
+\hline
+\textbf{Themenblock} & \textbf{Inhalt} & \textbf{Ziel}\\ 
+\hhline{===}
+Data Mining Frameworks (\ref{sec:DataMiningFrameworks}) & Beschreibung der bekanntesten Frameworks des Data Mining Prozesses und Auswahl eines Frameworks für die vorliegende Arbeit & Detailliertes Beschreiben des nachfolgenden Prozessmodells\\
+\hline
+Machine Learning (\ref{sec:MachineLearning}) & Vorstellung einer Möglichkeit zur Einordnung von Machine Learning Typen und Algorithmen & Verständnisaufbau für die Analyse in diesem Teil der Arbeit\\
+\hline
+Kryptowährungen (\ref{sec:cryptocurrency2}) & Hintergrundwissen zu Kryptowährungen & Für eine Analyse ist Hintergrundwissen wichtig. Dieses sogenannte "Domain"-Wissen ist essentieller Bestandteil einer Analyse mit CRISP-DM\\
+\hline
+Microsoft Azure Machine Learning Studio (\ref{sec:msmls}) & Allgemeine Beschreibunng und Aufbau des Werkzeugs & Das Studio soll als Werkzeug zur Analyse eingesetzt werden.\\
+\hline
+\end{tabular}
+\caption{Behandelte theoretische Abschnitte im Kontext der Arbeit}
+\label{tab:themeblocks}
+\end{table}
+Wie in Punkt \ref{sec:crispdmdec} angesprochen, wird als Hilfe für das Prozessmodell CRISP-DM der zugehörige User Guide \citep[S.~30-56]{chapman_crisp-dm_2000} herangezogen. Die, im Guide genannten, Outputs jedes Prozessschritts werden nachfolgend speziell hervorgehoben.
+ 
 \section{Business Understanding}
 \subsection{Determine the Business Objectives}
+Das CRISP-DM Prozessmodell ist sehr generisch gehalten. Dies ist beispielsweise daran zu erkennen, dass das Modell in vier übereinander liegende Abstraktionsschichten gegliedert ist.\citep[S.~6]{chapman_crisp-dm_2000} Dies dient der Anpassungsfähigkeit an viele heterogene Projekte. Diese Anpassungsfähigkeit wird gleich im ersten Schritt genutzt.\newline
+In  gewöhnlichen Industrie- oder Forschungsprojekten ist es wichtig, die Stakeholder (vor allem Geldgeber) und den Reifegrad und die Akzeptanz des Data Mining im Projektumfeld zu analysieren. Dies Rückt im vorliegenden Fall in den Hintergrund. Die Anderen Outputs sind jedoch ebenso wichtig.
+
+\begin{table}[H]
+\begin{tabular}{|p{6,5cm}|p{10}|}
+\hline
+\textbf{Output} & \textbf{Beschreibung} \\ 
+\hhline{===}
+Background & xxx \\
+\hline
+Business objectives & xxx \\
+\hline
+Business success criteria & xxx \\
+\hline
+\end{tabular}
+\caption{Output des Schrittes "Determine the Business Objectives"}
+\end{table}
+
+
+
 Ziel: Warum wird die Analyse durchgeführt
 --> zu sehen, ob irgendetwas sich vorhersagen lässt/etwas auffällig ist 
 --> azure ml funktionsweise kennen zu lernen (know-how gewinn)
@@ -14,7 +52,8 @@ Ziel: Frage detaillieren; welche Ressourcen zur verfügbar sind; grenzen der ana
 --> ressourcen knapp; eine person, umfang masterarbeit
 
 +! --> Welche Daten kommen in Frage?
-________________________________________
+
+--------
 aus paper und mehr suchen
 
 welchen einluss hier; im nächsten teil dann:
@@ -39,7 +78,7 @@ HIER PAPER NOCHMAL:
 * Interest
 * Safe Haven
 * Influence of China
-____________________________________________
+------
 
 \subsection{Determine the Data Mining Goals}
 Ziel: technische Beschreibung der Ziele
