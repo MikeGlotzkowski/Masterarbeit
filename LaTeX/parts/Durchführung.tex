@@ -24,20 +24,18 @@ Wie in Punkt \ref{sec:crispdmdec} angesprochen, wird als Hilfe für das Prozessm
 Das CRISP-DM Prozessmodell ist sehr generisch gehalten. Dies ist beispielsweise daran zu erkennen, dass das Modell in vier übereinander liegende Abstraktionsschichten gegliedert ist.\citep[S.~6]{chapman_crisp-dm_2000} Dies dient der Anpassungsfähigkeit an viele heterogene Projekte. Diese Anpassungsfähigkeit wird gleich im ersten Schritt genutzt.\newline
 In  gewöhnlichen Industrie- oder Forschungsprojekten ist es wichtig, die Stakeholder (vor allem Geldgeber) und den Reifegrad und die Akzeptanz des Data Mining im Projektumfeld zu analysieren. Dies Rückt im vorliegenden Fall in den Hintergrund. Die Anderen Outputs sind jedoch ebenso wichtig.
 
-\begin{table}[H]
-\begin{tabular}{|p{4,5cm}|p{12cm}|}
+\begin{longtable}[H]{|p{4,5cm}|p{12cm}|}
 \hline
 \textbf{Output} & \textbf{Beschreibung} \\ 
 \hhline{==}
 Background & Die Analyse wird im Rahmen einer Masterarbeit durchgeführt. Nur eine Person ist daran beteiligt. \\
 \hline
-Business objectives & Die Untersuchung hat zwei Hauptziele. Das eine ist die Analyse der Cryptowährungen an sich. Es soll herausgefunden werden, ob Kursschwankungen mit Hilfe der Isolation von Einflussfaktoren und den Mitteln des Machine Learning vorausgesagt werden können oder anderweitige Auffälligkeiten beobachtet werden können. Das andere Ziel ist die Einarbeitung in das Werkzeug Azure Machine Learning. \\
+Business objectives & Die Untersuchung hat zwei Hauptziele. Das eine ist die Analyse der Cryptowährungen an sich. Es soll herausgefunden werden, ob Kursschwankungen mit Hilfe der Isolation von Einflussfaktoren und den Mitteln des Machine Learning vorausgesagt werden können oder anderweitige Auffälligkeiten zu beobachten sind. Das andere Ziel ist die Einarbeitung in das Werkzeug Azure Machine Learning. \\
 \hline
 Business success criteria & Die Erkenntnis, dass eine Vorhersage nicht möglich ist, oder dass wichtige Einflüsse nicht gefunden wurden, ist durchaus möglich und bedeutet keinesfalls ein Scheitern des Projekts. Hinsichtlich des Werkzeugs Azure ML, ist es beispielsweise interessant, welchen Restriktionen das Tool unterlegen ist. Das Betrifft sowohl Funktionen, die (noch) nicht vorhanden sind, oder technische Limitationen, wie Geschwindigkeit, Volumenbegrenzungen etc..\\
 \hline
-\end{tabular}
 \caption{Output des Schrittes "Determine the Business Objectives"}
-\end{table}
+\end{longtable}
 
 \subsection{Assess the Situation}
 Dieser Teil befasst sich vor allem damit, welche Ressourcen zur Verfügung stehen (Hardware, Software, personell) und welche sonstigen Bedingungen erfüllt sein müssen oder das Projekt begrenzen. Dazu zählt auch das Finden von Daten, die für die Modellierung genutzt werden können. Anzumerken ist hierbei, dass es hier noch nicht um das tatsächliche Laden der Daten im Sinne von Dateien geht, sondern um das Finden von potentiellen Quellen für diese Daten. Zusätzlich sollen noch eine Risiko- und eine Kosten-Nutzen-Analyse durchgeführt werden. Das Hauptaugenmerk liegt jedoch auf der Erschließung der Daten. \newline
@@ -84,14 +82,35 @@ HIER PAPER NOCHMAL:
 * Influence of China
 ------
 
-\begin{table}[H]
-\begin{tabular}{|p{6,5cm}|p{10cm}|}
+\begin{longtable}[H]{|p{6,5cm}|p{10cm}|}
 \hline
 \textbf{Output} & \textbf{Beschreibung} \\ 
 \hhline{==}
-Inventory of resources & Personal, Hardware, Software, Data \\
+Inventory of resources & Personal
+\begin{itemize}
+\item 1 Person mit Zugang zu den Recherche Ressourcen der Hochschule München (OPAC, DBIS, ZDB etc.\citep{noauthor_hochschule_2017})
+\end{itemize}
+Hardware
+\begin{itemize}
+\item 1 PC (CPU: AMD Ryzen 5 1600 Sechskern; RAM: 8GB; GPU: NVIDIA GeForce GTX 1060 (6GB VRAM); Windows 10 Education Build 15063.674)
+\end{itemize}
+Software
+\begin{itemize}
+\item 1 "Free"-Account Microsoft Azure Machine Learning Studio mit Workspace in "South Central US"
+\item Version des Juypter Notebooks 5.1.0
+\item Auf dem PC: R Version 3.4.1
+\item Auf dem PC: RStudio Version 1.0.153
+\end{itemize}
+Daten
+\begin{itemize}
+\item DS 1
+\item DS 2
+\end{itemize}
+\\
 \hline
-Requirements, assumptions, and constraints & yyy \\
+Requirements, assumptions, and constraints &  Zu Bedenken ist, dass bei einer kostenlosen Subscription im Azure ML Studio nur 10GB Storage verfügbar sind. Zusätzlich müssen Daten, die analysiert werden sollen in das Tool geladen werden. Bei einem Upload vom PC, wird das durch die Upload-Bandbreite limitiert. Eventuell müssen Daten im Projektverlauf auch öfter Hochgeladen werden, was zu Verzögerungen führen könnte. Außerdem lässt sich in der freien Version nur jeweils ein Experiment gleichzeitig ausführen. Das parallele Trainieren von Modellen ist somit nicht möglich.\newline 
+Obwohl zur Hilfe neben der Web-IDE auch RStudio genutzt werden kann, soll die Untersuchung hauptsächlich mit den Azure ML Studio Bordmitteln durchgeführt werden.\newline
+Schließlich sollen nur solche Daten genutzt werden, die entweder frei verfügbar sind oder mit dem Hochschulzugang zu beschaffen sind. Das schließt präparierte Datensätze von Bezahlseiten aus.\\
 \hline
 Risks and contingencies & yyy \\
 \hline
@@ -99,9 +118,8 @@ Terminology & yyy \\
 \hline
 Costs and benefits & yyy \\
 \hline
-\end{tabular}
 \caption{Output des Schrittes "Assess the Situation"}
-\end{table}
+\end{longtable}
 
 
 \subsection{Determine the Data Mining Goals}
