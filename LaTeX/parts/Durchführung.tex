@@ -17,12 +17,11 @@ Microsoft Azure Machine Learning Studio (\ref{sec:msmls}) & Allgemeine Beschreib
 \caption{Behandelte theoretische Abschnitte im Kontext der Arbeit}
 \label{tab:themeblocks}
 \end{table}
-Wie in Punkt \ref{sec:crispdmdec} angesprochen, wird als Hilfe für das Prozessmodell CRISP-DM der zugehörige User Guide \citep[S.~30-56]{chapman_crisp-dm_2000} herangezogen. Die, im Guide genannten, Outputs jedes Prozessschritts werden nachfolgend speziell hervorgehoben.
+Wie in Punkt \ref{sec:crispdmdec} angesprochen, wird als Hilfe für das Prozessmodell CRISP-DM der zugehörige User Guide \citep[S.~30-56]{chapman_crisp-dm_2000} herangezogen. Die, im Guide genannten, Outputs jedes Prozessschritts werden nachfolgend speziell hervorgehoben. Das CRISP-DM Prozessmodell ist sehr generisch gehalten. Dies ist beispielsweise daran zu erkennen, dass das Modell in vier übereinander liegende Abstraktionsschichten gegliedert ist.\citep[S.~6]{chapman_crisp-dm_2000} Dies dient der Anpassungsfähigkeit an viele heterogene Projekte. Diese Anpassungsfähigkeit wird gleich im ersten Schritt genutzt.\newline
  
 \section{Business Understanding}
 \subsection{Determine the Business Objectives}
-Das CRISP-DM Prozessmodell ist sehr generisch gehalten. Dies ist beispielsweise daran zu erkennen, dass das Modell in vier übereinander liegende Abstraktionsschichten gegliedert ist.\citep[S.~6]{chapman_crisp-dm_2000} Dies dient der Anpassungsfähigkeit an viele heterogene Projekte. Diese Anpassungsfähigkeit wird gleich im ersten Schritt genutzt.\newline
-In  gewöhnlichen Industrie- oder Forschungsprojekten ist es wichtig, die Stakeholder (vor allem Geldgeber) und den Reifegrad und die Akzeptanz des Data Mining im Projektumfeld zu analysieren. Dies Rückt im vorliegenden Fall in den Hintergrund. Die Anderen Outputs sind jedoch ebenso wichtig.
+In  gewöhnlichen Industrie- oder Forschungsprojekten ist es wichtig, die Stakeholder (vor allem Geldgeber) und den Reifegrad und die Akzeptanz des Data Mining im Projektumfeld zu analysieren. Dies rückt im vorliegenden Fall in den Hintergrund. Die Anderen Outputs sind jedoch ebenso wichtig.
 
 \begin{longtable}[H]{|p{4,5cm}|p{12cm}|}
 \hline
@@ -39,48 +38,72 @@ Business success criteria & Die Erkenntnis, dass eine Vorhersage nicht möglich 
 
 \subsection{Assess the Situation}
 Dieser Teil befasst sich vor allem damit, welche Ressourcen zur Verfügung stehen (Hardware, Software, personell) und welche sonstigen Bedingungen erfüllt sein müssen oder das Projekt begrenzen. Dazu zählt auch das Finden von Daten, die für die Modellierung genutzt werden können. Anzumerken ist hierbei, dass es hier noch nicht um das tatsächliche Laden der Daten im Sinne von Dateien geht, sondern um das Finden von potentiellen Quellen für diese Daten. Zusätzlich sollen noch eine Risiko- und eine Kosten-Nutzen-Analyse durchgeführt werden. Das Hauptaugenmerk liegt jedoch auf der Erschließung der Daten. \newline
+An Stelle einer vollständigen Risikoanalyse (Kontext herstellen, Risiken identifizieren, analysieren, evaluieren, managen\citep[S.~43]{sowa_management_2017}), tritt an diese Stelle eine Aufzählung der 3 Hauptrisiken. Dies geschieht einerseits aus Gründen der Verhältnismäßigkeit, andererseits liegt der Fokus der Arbeit auf einem anderen Thema. Ähnlich verhält es sich mit der Kosten-Nutzen-Analyse. Sie wird zur Bewertung der Wirtschaftlichkeit herangezogen, was in diesem Kontext nicht relevant ist. Deswegen wird hier darauf verzichtet.\newline
 
 
 
 
+aufwändigster teil dieses schrittes --> suchen von daten/datenquellen für die analyse. dazu einerseits historische daten für btc und eth, andererseits eifnlussfaktoren
 
+bei historischen daten: an untersdchiedl. börsen gehandelt; aber relativ gleich; eine suchen, die lange gibt und hohes handelsvolumen hat; mit anderen vergleichen
+am einfachsten btc/usd und eth/usd; 
 
+einflussfaktoren: aus paper gliederung + zusätzliches finden
 
-Kosten-Nutzen-Analyse
+Bitcoin-eigene Faktoren
+-volumen
+-umschlag
+-schwierigkeit
+-mining
 
-Risiko-Analyse
+Interest
+-google trends
+-wikipedia trends
+-twitter
+-zeitungen
+-blogs
+-domains
 
-Ziel: Frage detaillieren; welche Ressourcen zur verfügbar sind; grenzen der analyse; annahmen
---> kann sein, dass es mit anderen werkzeugen (tenser flow etc.) einfacher/besser geht, aber das nicht ziel
---> ressourcen knapp; eine person, umfang masterarbeit
---> Welche Daten kommen in Frage?
-
+Aktienindizes
+top 10
+Dow 30	
+S\&P 500	 
+Nasdaq	 
+SmallCap 
+S\&P 500 VIX	
+S\&P/TSX	 
+TR Canada  
+Bovespa		 
+IPC
+DAX		 
 --------
-aus paper und mehr suchen
 
-welchen einluss hier; im nächsten teil dann:
-wie kann man das repräsentieren, welche daten gibt es da und kann man das abbilden?
+währungen
+- usd keinen sinn
+-größte volkswirtschaften nach BIP
+- USA (dollar keinen sinn)
+- china
+- japan
+- deutschland
+- großbrit
+- fr
+- indien
+- brasilien
 
+
+natürliche Ressourcen
+-goldpreis usd
+-silberpreis usd
+-ölusd
 beispiele:
-regierungen und regionen (usa, china, EU) --> Gesetze
 
-bitcoin-eigene dinge (volumen, umschlag, miner? etc.)
-
-öffentlichkeit (twitter, zeitungen, blogs, domains im web)
-
-natürliche Ressourcen (Öl, Gold, Silber, Diamanten w/e)
-
-Financial Stress Index (FSI)
+sonstige
+-financial stress index
 
 
-HIER PAPER NOCHMAL:
-* Economic Drivers
-* Transaction Drivers
-* Technical Drivers
-* Interest
-* Safe Haven
-* Influence of China
-------
+
+
+
 
 \begin{longtable}[H]{|p{6,5cm}|p{10cm}|}
 \hline
@@ -108,15 +131,20 @@ Daten
 \end{itemize}
 \\
 \hline
-Requirements, assumptions, and constraints &  Zu Bedenken ist, dass bei einer kostenlosen Subscription im Azure ML Studio nur 10GB Storage verfügbar sind. Zusätzlich müssen Daten, die analysiert werden sollen in das Tool geladen werden. Bei einem Upload vom PC, wird das durch die Upload-Bandbreite limitiert. Eventuell müssen Daten im Projektverlauf auch öfter Hochgeladen werden, was zu Verzögerungen führen könnte. Außerdem lässt sich in der freien Version nur jeweils ein Experiment gleichzeitig ausführen. Das parallele Trainieren von Modellen ist somit nicht möglich.\newline 
-Obwohl zur Hilfe neben der Web-IDE auch RStudio genutzt werden kann, soll die Untersuchung hauptsächlich mit den Azure ML Studio Bordmitteln durchgeführt werden.\newline
+Requirements, assumptions, and constraints &  Zu Bedenken ist, dass bei einer kostenlosen Subscription im Azure ML Studio nur 10GB Storage verfügbar sind. Zusätzlich müssen Daten, die analysiert werden sollen, in das Tool geladen werden. Bei einem Upload vom PC wird das durch die Upload-Bandbreite limitiert. Eventuell müssen Daten im Projektverlauf auch öfter Hochgeladen werden, was zu Verzögerungen führen könnte. Außerdem lässt sich in der freien Version nur jeweils ein Experiment gleichzeitig ausführen. Das parallele Trainieren von Modellen ist somit nicht möglich.\newline 
+Obwohl zur Hilfe neben der Web-IDE auch RStudio genutzt werden kann, soll die Untersuchung hauptsächlich mit den Azure ML Studio Bordmitteln durchgeführt werden. \newline
 Schließlich sollen nur solche Daten genutzt werden, die entweder frei verfügbar sind oder mit dem Hochschulzugang zu beschaffen sind. Das schließt präparierte Datensätze von Bezahlseiten aus.\\
 \hline
-Risks and contingencies & yyy \\
+Risks and contingencies & \begin{itemize}
+\item keinen Zugriff auf Azure ML Studio (Server-seitige Probleme; Ablauf der Free-Subscription)
+\item benötigte Daten nicht verfügbar
+\item 
+\item
+\end{itemize} \\
 \hline
-Terminology & yyy \\
+Terminology & Als Glossar dient das Abkürzungsverzeichnis zu Beginn der Arbeit. \\
 \hline
-Costs and benefits & yyy \\
+Costs and benefits & --- \\
 \hline
 \caption{Output des Schrittes "Assess the Situation"}
 \end{longtable}
