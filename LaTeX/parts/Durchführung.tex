@@ -37,73 +37,75 @@ Business success criteria & Die Erkenntnis, dass eine Vorhersage nicht möglich 
 \end{longtable}
 
 \subsection{Assess the Situation}
-Dieser Teil befasst sich vor allem damit, welche Ressourcen zur Verfügung stehen (Hardware, Software, personell) und welche sonstigen Bedingungen erfüllt sein müssen oder das Projekt begrenzen. Dazu zählt auch das Finden von Daten, die für die Modellierung genutzt werden können. Anzumerken ist hierbei, dass es hier noch nicht um das tatsächliche Laden der Daten im Sinne von Dateien geht, sondern um das Finden von potentiellen Quellen für diese Daten. Zusätzlich sollen noch eine Risiko- und eine Kosten-Nutzen-Analyse durchgeführt werden. Das Hauptaugenmerk liegt jedoch auf der Erschließung der Daten. \newline
-An Stelle einer vollständigen Risikoanalyse (Kontext herstellen, Risiken identifizieren, analysieren, evaluieren, managen\citep[S.~43]{sowa_management_2017}), tritt an diese Stelle eine Aufzählung der 3 Hauptrisiken. Dies geschieht einerseits aus Gründen der Verhältnismäßigkeit, andererseits liegt der Fokus der Arbeit auf einem anderen Thema. Ähnlich verhält es sich mit der Kosten-Nutzen-Analyse. Sie wird zur Bewertung der Wirtschaftlichkeit herangezogen, was in diesem Kontext nicht relevant ist. Deswegen wird hier darauf verzichtet.\newline
+Dieser Teil befasst sich vor allem damit, welche Ressourcen zur Verfügung stehen (Hardware, Software, personell) und welche sonstigen Bedingungen erfüllt sein müssen oder das Projekt begrenzen. Dazu zählt auch das Finden von Daten, die für die Modellierung genutzt werden können. Anzumerken ist hierbei, dass es noch nicht um das tatsächliche Laden der Daten im Sinne von Dateien geht, sondern um das Finden von potentiellen Quellen für Daten. Zusätzlich sollen noch eine Risiko- und eine Kosten-Nutzen-Analyse durchgeführt werden. Das Hauptaugenmerk liegt jedoch auf der Erschließung der Daten. \newline
+An Stelle einer vollständigen Risikoanalyse (Kontext herstellen, Risiken identifizieren, analysieren, evaluieren, managen\citep[S.~43]{sowa_management_2017}), tritt eine Aufzählung der 3 Hauptrisiken. Dies geschieht einerseits aus Gründen der Verhältnismäßigkeit, andererseits liegt der Fokus der Arbeit auf einem anderen Thema. Ähnlich verhält es sich mit der Kosten-Nutzen-Analyse. Sie wird zur Bewertung der Wirtschaftlichkeit herangezogen, was in diesem Kontext nicht relevant ist. Deswegen wird auf diese vollständig verzichtet.\newline
+Die schwerste Aufgabe dieses Teils, ist das Finden von Daten, die Einfluss auf den Kurs von Kryptowährungen haben (könnten). Forschungen in diesem Bereich identifizierten einerseits öffentliches Interesse (soziale Medien, Google Suchanfragen, etc.)\multicitep{kristoufek_bitcoin_2013; garcia_digital_2014} und andererseits auch wirtschaftliche Faktoren ("standard economic theory", also Angebot und Nachfrage, Investoren)\citep{kristoufek_what_2015} als Haupteinflussfaktoren. Anhand den Aussagen dieser Paper und zusätzlichen Überlegungen ergeben sich folgende Faktoren, die bei der Analyse bedacht werden (Tabelle \ref{tab:dataToAnalyse}).\newline Darüber hinaus wird die Quelle aufgeführt, über die die Daten bezogen werden. Bei monetären Strömen oder Kursen, wird immer der Kurs in USD herangezogen.
+\todo{Quellen, dann zweite Spalte woher}
 
-
-
-
-aufwändigster teil dieses schrittes --> suchen von daten/datenquellen für die analyse. dazu einerseits historische daten für btc und eth, andererseits eifnlussfaktoren
-
-bei historischen daten: an untersdchiedl. börsen gehandelt; aber relativ gleich; eine suchen, die lange gibt und hohes handelsvolumen hat; mit anderen vergleichen
-am einfachsten btc/usd und eth/usd; 
-
-einflussfaktoren: aus paper gliederung + zusätzliches finden
-
-Bitcoin-eigene Faktoren
--volumen
--umschlag
--schwierigkeit
--mining
-
-Interest
--google trends
--wikipedia trends
--twitter
--zeitungen
--blogs
--domains
-
-Aktienindizes
-top 10
-Dow 30	
-S\&P 500	 
-Nasdaq	 
-SmallCap 
-S\&P 500 VIX	
-S\&P/TSX	 
-TR Canada  
-Bovespa		 
-IPC
-DAX		 
---------
-
-währungen
-- usd keinen sinn
--größte volkswirtschaften nach BIP
-- USA (dollar keinen sinn)
-- china
-- japan
-- deutschland
-- großbrit
-- fr
-- indien
-- brasilien
-
-
+\begin{longtable}[H]{|p{16,5cm}|}
+\hline
+Cryptowährungs-eigene Faktoren
+\begin{itemize}
+\item Volumen
+\item Mining-Schwierigkeit \todo{Erklärung}
+\item Mining an sich \todo{kp} GPU Preise?
+\item Umschlag \todo{genauer}
+\end{itemize}
+\\
+\hline
+Öffentliches Interesse
+\begin{itemize}
+\item Google Suchanfragen
+\item Wikipedia Trends
+\item Tweets (Twitter Nachrichten)
+\item Zeitungsartikel/-Überschriften
+\item Blogartikel
+\item (Web-)Domains
+\end{itemize}
+\\
+\hline
+(Aktien)indizes
+\begin{itemize}
+\item Dow 30	
+\item S\&P 500	 
+\item Nasdaq	 
+\item SmallCap 
+\item S\&P 500 VIX	
+\item S\&P/TSX	 
+\item TR Canada  
+\item Bovespa		 
+\item IPC
+\item DAX	
+\item Financial Stress Index
+\end{itemize}
+\\
+\hline
+Währungen der größten Volkswirtschaften (nach BIP)
+\begin{itemize}
+\item USA 
+\item China
+\item Japan
+\item Deutschland
+\item Großbritannien
+\item Frankreich
+\item Indien
+\item Brasilien
+\end{itemize}
+\\
+\hline
 natürliche Ressourcen
--goldpreis usd
--silberpreis usd
--ölusd
-beispiele:
+\begin{itemize}
+\item Goldpreis
+\item Silberpreis
+\item Ölpreis
+\end{itemize}
+\\
+\hline
+\caption{Mögliche Einflussfaktoren auf den Kurs von Kryptowährungen}
+\label{tab:dataToAnalyse}
+\end{longtable}
 
-sonstige
--financial stress index
-
-
-
-
-
+Damit eine Analyse der Cryptowährungen möglich ist, müssen zu diesen historische Kursdaten beschafft werden. Dieser, auf den ersten Blick simpel wirkende Schritt, ist in Wirklichkeit \todo{formulierung} nicht trivial. Cryptowährungen werden an dutzenden Portalen gleichzeitig gehandelt. Dabei erscheinen genauso neue Börsen, wie alte verschwinden. Auch das Handelsvolumen und die Handelswährung unterscheidet sich. Hinzu kommt, dass an Bitcoin-Handelsportalen meist 24 Stunden täglich gehandelt werden kann. \todo{schlussfolgerung davon}
 
 \begin{longtable}[H]{|p{6,5cm}|p{10cm}|}
 \hline
@@ -123,11 +125,12 @@ Software
 \item Version des Juypter Notebooks 5.1.0
 \item Auf dem PC: R Version 3.4.1
 \item Auf dem PC: RStudio Version 1.0.153
+\item \todo{excel und notepad++}
 \end{itemize}
 Daten
 \begin{itemize}
-\item DS 1
-\item DS 2
+\item in Tabelle \ref{tab:dataToAnalyse} genannte Daten
+\item Kurse BTC/USD und ETH/USD
 \end{itemize}
 \\
 \hline
