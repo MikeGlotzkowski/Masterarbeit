@@ -37,27 +37,32 @@ Business success criteria & Die Erkenntnis, dass eine Vorhersage nicht möglich 
 \end{longtable}
 
 \subsection{Assess the Situation}
-Dieser Teil befasst sich vor allem damit, welche Ressourcen zur Verfügung stehen (Hardware, Software, personell) und welche sonstigen Bedingungen erfüllt sein müssen oder das Projekt begrenzen. Dazu zählt auch das Finden von Daten, die für die Modellierung genutzt werden können. Anzumerken ist hierbei, dass es noch nicht um das tatsächliche Laden der Daten im Sinne von Dateien geht, sondern um das Finden von potentiellen Quellen für Daten. Zusätzlich sollen noch eine Risiko- und eine Kosten-Nutzen-Analyse durchgeführt werden. Das Hauptaugenmerk liegt jedoch auf der Erschließung der Daten. \newline
-An Stelle einer vollständigen Risikoanalyse (Kontext herstellen, Risiken identifizieren, analysieren, evaluieren, managen\citep[S.~43]{sowa_management_2017}), tritt eine Aufzählung der 3 Hauptrisiken. Dies geschieht einerseits aus Gründen der Verhältnismäßigkeit, andererseits liegt der Fokus der Arbeit auf einem anderen Thema. Ähnlich verhält es sich mit der Kosten-Nutzen-Analyse. Sie wird zur Bewertung der Wirtschaftlichkeit herangezogen, was in diesem Kontext nicht relevant ist. Deswegen wird auf diese vollständig verzichtet.\newline
-Die schwerste Aufgabe dieses Teils, ist das Finden von Daten, die Einfluss auf den Kurs von Kryptowährungen haben (könnten). Forschungen in diesem Bereich identifizierten einerseits öffentliches Interesse (soziale Medien, Google Suchanfragen, etc.)\multicitep{kristoufek_bitcoin_2013; garcia_digital_2014} und andererseits auch wirtschaftliche Faktoren ("standard economic theory", also Angebot und Nachfrage, Investoren)\citep{kristoufek_what_2015} als Haupteinflussfaktoren. Anhand den Aussagen dieser Paper und zusätzlichen Überlegungen ergeben sich folgende Faktoren, die bei der Analyse bedacht werden (Tabelle \ref{tab:dataToAnalyse}).\newline Darüber hinaus wird die Quelle aufgeführt, über die die Daten bezogen werden. Bei monetären Strömen oder Kursen, wird immer der Kurs in USD herangezogen. Problem, seite woher genau, hier zb okcoin zumachen
-\todo{Quellen, dann zweite Spalte woher}
+Dieser Teil befasst sich vor allem damit, welche Ressourcen zur Verfügung stehen (Hardware, Software, personell) und welche sonstigen Bedingungen erfüllt sein müssen oder das Projekt begrenzen. Dazu zählt auch das Finden von Daten, die für die Modellierung genutzt werden können. Anzumerken ist hierbei, dass es noch nicht um das tatsächliche Laden der Daten im Sinne von Dateien geht, sondern um das Finden von potentiellen Quellen für Daten. Zusätzlich sollen noch eine Risiko- und eine Kosten-Nutzen-Analyse durchgeführt werden. Das Hauptaugenmerk liegt jedoch auf der Erschließung der Daten. 
+\newline
+An Stelle einer vollständigen Risikoanalyse (Kontext herstellen, Risiken identifizieren, analysieren, evaluieren, managen\citep[S.~43]{sowa_management_2017}), tritt eine Aufzählung der 3 Hauptrisiken. Dies geschieht einerseits aus Gründen der Verhältnismäßigkeit, andererseits liegt der Fokus der Arbeit auf einem anderen Thema. Ähnlich verhält es sich mit der Kosten-Nutzen-Analyse. Sie wird zur Bewertung der Wirtschaftlichkeit herangezogen, was in diesem Kontext nicht relevant ist. Deswegen wird auf sie vollständig verzichtet.
+\newline
+Die schwerste Aufgabe dieses Teils ist das Finden von Daten, die Einfluss auf den Kurs von Kryptowährungen haben (könnten). Forschungen in diesem Bereich identifizierten einerseits öffentliches Interesse (soziale Medien, Google Suchanfragen, etc.)\multicitep{kristoufek_bitcoin_2013; garcia_digital_2014} und andererseits auch wirtschaftliche Faktoren ("standard economic theory", also Angebot und Nachfrage, Investoren)\citep{kristoufek_what_2015} als Haupteinflussfaktoren. Anhand den Aussagen dieser Paper und zusätzlichen Überlegungen ergeben sich folgende Faktoren, die bei der Analyse bedacht werden (Tabelle \ref{tab:dataToAnalyse}).\newline Darüber hinaus wird die Quelle aufgeführt, über die die Daten bezogen werden. Bei monetären Strömen oder Kursen, wird immer der Kurs in USD herangezogen. 
+\newline
+Damit eine Analyse der Cryptowährungen möglich ist, müssen zu diesen historische Kursdaten beschafft werden. Dieser, auf den ersten Blick simpel wirkende Schritt, ist in Wirklichkeit \todo{formulierung} nicht trivial. Cryptowährungen werden an dutzenden Portalen gleichzeitig gehandelt. Dabei erscheinen genauso schnell neue Börsen, wie alte verschwinden. Auch das Handelsvolumen und die Handelswährung unterscheidet sich. Hinzu kommt, dass an Bitcoin- oder Ethereum-Handelsportalen meist 24 Stunden täglich gehandelt werden kann. Aus diesem Grund sind solche Datenquellen ausgewählt worden, die entweder ihre Daten direkt von der Blockchain erhalten oder einen gewichteten Mittelwert über die größten Handelsplatformen berechnen.
 
 \begin{longtable}[H]{|p{6,5cm}|p{5cm}|p{5cm}|}
 \multicolumn{3}{c}{\textit{Cryptowährungs-eigene Faktoren}}\\ \hline
 \textbf{Daten} & \textbf{für BTC} & \textbf{für ETH} \\
 \hhline{===}
 Handelsvolumen & ja, von https://bitcoincharts.com/ &  ja, von https://coinmarketcap.com/ \\ \hline
-Coin Volumen & ja, von https://blockchain.info/ & ja, von https://etherscan.io \\ \hline
-Mining-Schwierigkeit \todo{Erklärung} & ja, von https://data.bitcoinity.org & ja, von https://etherscan.io/ \\ \hline
-Mining an sich \todo{kp} GPU Preise? & nope & nope \\ \hline
-Anzahl der Transaktionen & ja, von https://blockchain.info & ja, von https://etherscan.io/ \\ \hline
+Coin Volumen (Gesamtanzhal der vorhandenen Bitcoins/des Ethers) & ja, von https://blockchain.info/ & ja, von https://etherscan.io/ \\ \hline
+Mining-Schwierigkeit \todo{Erklärung} & ja, von https://data.bitcoinity.org/ & ja, von https://etherscan.io/ \\ \hline
+Anzahl der Transaktionen & ja, von https://blockchain.info/ & ja, von https://etherscan.io/ \\ \hline
+Hashrate & ja, von https://www.kaggle.com/ & ja, von https://www.kaggle.com/ \\ \hline
+Marktkapitalisierung & ja, von https://www.kaggle.com/ & ja, von https://www.kaggle.com/ \\ \hline
 \multicolumn{3}{c}{\textit{Öffentliches Interesse}}\\ \hline
 \textbf{Daten} & \textbf{für BTC} & \textbf{für ETH} \\
 \hhline{===}
-Google Suchanfragen & aaa & bbb \\ \hline
-Wikipedia Trends & aaa & bbb \\ \hline
-Tweets (Twitter Nachrichten) & aaa & bbb \\ \hline
-Zeitungsartikel/-Überschriften & aaa & bbb \\ \hline
+Google Websuchen & ja, von https://trends.google.de/trends/ & ja, von https://trends.google.de/trends/ \\ \hline
+Google News-Suchen & ja, von https://trends.google.de/trends/ & ja, von https://trends.google.de/trends/ \\ \hline
+Wikipedia Seitenaufrufe & ja, von https://wikimedia.org/api/rest_v1/ (nur von 01.07.2015) & ja, von https://wikimedia.org/api/rest_v1/ (nur von 01.07.2015) \\ \hline
+Tweets (Twitter Nachrichten) & \multicolumn{2}{c}{nein, nicht kostenlos verfügbar} \\ \hline
+Zeitungsartikel/-Überschriften & \multicolumn{2}{c}{ja, von https://www.kaggle.com/sunnysai12345/news-summary}\\ \hline
 Blogartikel & aaa & bbb \\ \hline
 (Web-)Domains & aaa & bbb \\ \hline
 \multicolumn{3}{c}{\textit{(Aktien)indizes}}\\ \hline
@@ -95,7 +100,10 @@ Silberpreis & aaa & bbb \\ \hline
 \label{tab:dataToAnalyse}
 \end{longtable}
 
-Damit eine Analyse der Cryptowährungen möglich ist, müssen zu diesen historische Kursdaten beschafft werden. Dieser, auf den ersten Blick simpel wirkende Schritt, ist in Wirklichkeit \todo{formulierung} nicht trivial. Cryptowährungen werden an dutzenden Portalen gleichzeitig gehandelt. Dabei erscheinen genauso neue Börsen, wie alte verschwinden. Auch das Handelsvolumen und die Handelswährung unterscheidet sich. Hinzu kommt, dass an Bitcoin-Handelsportalen meist 24 Stunden täglich gehandelt werden kann. \todo{schlussfolgerung davon}
+
+
+
+\todo{schlussfolgerung davon}
 
 \begin{longtable}[H]{|p{6,5cm}|p{10cm}|}
 \hline
@@ -115,12 +123,14 @@ Software
 \item Version des Juypter Notebooks 5.1.0
 \item Auf dem PC: R Version 3.4.1
 \item Auf dem PC: RStudio Version 1.0.153
-\item \todo{excel und notepad++}
+\item Excel 2016 (Microsoft Office 365 ProPlus) Version 1710
+\item Notepad++ Version 7.5.1
 \end{itemize}
 Daten
 \begin{itemize}
 \item in Tabelle \ref{tab:dataToAnalyse} genannte Daten
 \item Kurse BTC/USD und ETH/USD
+\item Zusätzliche Eigenschaften von Bitcoin und Ethereum. \citep{srk_cryptocurrency_2017} stellt unter der 'CC0: Public Domain'-Lizenz einen Datensatz zur Verfügung, der besondere Eigenschaften der Währungen enthält. Beispiele für Bitcoin sind die "Anzahl der einzigartigen Adressen" in der "Bitcoin Blockchain"; oder die "Anzahl der uncles pro Tag"\citep[eigene Übersetzung]{srk_cryptocurrency_2017} für Ethereum.
 \end{itemize}
 \\
 \hline
@@ -131,8 +141,8 @@ Schließlich sollen nur solche Daten genutzt werden, die entweder frei verfügba
 Risks and contingencies & \begin{itemize}
 \item keinen Zugriff auf Azure ML Studio (Server-seitige Probleme; Ablauf der Free-Subscription)
 \item benötigte Daten nicht verfügbar
-\item 
-\item
+\item \todo{todo}
+\item\todo{todo}
 \end{itemize} \\
 \hline
 Terminology & Als Glossar dient das Abkürzungsverzeichnis zu Beginn der Arbeit. \\
