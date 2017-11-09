@@ -44,8 +44,10 @@ An Stelle einer vollständigen Risikoanalyse (Kontext herstellen, Risiken identi
 Die schwerste Aufgabe dieses Teils ist das Finden von Daten, die Einfluss auf den Kurs von Kryptowährungen haben (könnten). Forschungen in diesem Bereich identifizierten einerseits öffentliches Interesse (soziale Medien, Google Suchanfragen, etc.)\multicitep{kristoufek_bitcoin_2013; garcia_digital_2014} und andererseits auch wirtschaftliche Faktoren ("standard economic theory", also Angebot und Nachfrage, Investoren)\citep{kristoufek_what_2015} als Haupteinflussfaktoren. Anhand den Aussagen dieser Paper und zusätzlichen Überlegungen ergeben sich folgende Faktoren, die bei der Analyse bedacht werden (Tabelle \ref{tab:dataToAnalyse}).\newline Darüber hinaus wird die Quelle aufgeführt, über die die Daten bezogen werden. Bei monetären Strömen oder Kursen, wird immer der Kurs in USD herangezogen. 
 \newline
 Damit eine Analyse der Cryptowährungen möglich ist, müssen zu diesen historische Kursdaten beschafft werden. Dieser, auf den ersten Blick simpel wirkende Schritt, ist in Wirklichkeit \todo{formulierung} nicht trivial. Cryptowährungen werden an dutzenden Portalen gleichzeitig gehandelt. Dabei erscheinen genauso schnell neue Börsen, wie alte verschwinden. Auch das Handelsvolumen und die Handelswährung unterscheidet sich. Hinzu kommt, dass an Bitcoin- oder Ethereum-Handelsportalen meist 24 Stunden täglich gehandelt werden kann. Aus diesem Grund sind solche Datenquellen ausgewählt worden, die entweder ihre Daten direkt von der Blockchain erhalten oder einen gewichteten Mittelwert über die größten Handelsplatformen berechnen.
+\newline
+Die nächste Schwierigkeit ist die Auswahl der Aktienindizes, die für die Analyse herangezogen werden. Es existiert keine allgemein gültige oder anerkannte Liste mit 'den wichtigsten Aktienindizes'. Aus diesem Grund wurden die Indices ausgewählt, die die Website investing.com als "major world indices" deklariert.\citep{fusion_media_limited_major_2017} Es liegt dabei eine große Überschneidung mir anderen Stock Market-Seiten vor.\multicitep{liveindex.org_live_2017; noauthor_major_2017; noauthor_major_2017-1}
 
-\begin{longtable}[H]{|p{6,5cm}|p{5cm}|p{5cm}|}
+\begin{longtable}[H]{|p{4,5cm}|p{6cm}|p{6cm}|}
 \multicolumn{3}{c}{\textit{Cryptowährungs-eigene Faktoren}}\\ \hline
 \textbf{Daten} & \textbf{für BTC} & \textbf{für ETH} \\
 \hhline{===}
@@ -60,7 +62,7 @@ Marktkapitalisierung & ja, von https://www.kaggle.com/ & ja, von https://www.kag
 \hhline{===}
 Google Websuchen & ja, von https://trends.google.de/trends/ & ja, von https://trends.google.de/trends/ \\ \hline
 Google News-Suchen & ja, von https://trends.google.de/trends/ & ja, von https://trends.google.de/trends/ \\ \hline
-Wikipedia Seitenaufrufe & ja, von https://wikimedia.org/api/rest_v1/ (nur von 01.07.2015) & ja, von https://wikimedia.org/api/rest_v1/ (nur von 01.07.2015) \\ \hline
+Wikipedia Seitenaufrufe & ja, von https://wikimedia.org/api/rest\_v1/ & ja, von https://wikimedia.org/api/rest\_v1/ \\ \hline
 Tweets (Twitter Nachrichten) & \multicolumn{2}{c}{nein, nicht kostenlos verfügbar} \\ \hline
 Zeitungsartikel/-Überschriften & \multicolumn{2}{c}{ja, von https://www.kaggle.com/sunnysai12345/news-summary}\\ \hline
 Blogartikel & aaa & bbb \\ \hline
@@ -68,17 +70,57 @@ Blogartikel & aaa & bbb \\ \hline
 \multicolumn{3}{c}{\textit{(Aktien)indizes}}\\ \hline
 \textbf{Daten} & \textbf{für BTC} & \textbf{für ETH} \\
 \hhline{===}
-Dow 30	& aaa & bbb \\ \hline
-S\&P 500	& aaa & bbb \\ \hline 
-Nasdaq	 & aaa & bbb \\ \hline
-SmallCap & aaa & bbb \\ \hline
-S\&P 500 VIX& aaa & bbb \\ \hline	
-S\&P/TSX	& aaa & bbb \\ \hline 
-TR Canada  & aaa & bbb \\ \hline
-Bovespa	& aaa & bbb \\ \hline	 
-IPC & aaa & bbb \\ \hline
-DAX	& aaa & bbb \\ \hline
-Financial Stress Index & aaa & bbb \\ \hline
+Dow 30	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+S\&P 500	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+Nasdaq	 & \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+SmallCap & \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+S\&P 500 VIX& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+S\&P/TSX	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+TR Canada  & \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+Bovespa	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+IPC & \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+DAX	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+FTSE 100		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+CAC 40	 	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+Euro Stoxx 	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+AEX		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+IBEX 	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+FTSE MIB	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline	
+SMI		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+PSI 	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+BEL 	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline	 
+ATX		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+OMXS30		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+OMXC20	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline	
+MICEX		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+RTSI	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline	
+WIG20		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+Budapest SE		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+BIST 100	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline	
+TA 35		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline	 
+Tadawul All Share	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+Nikkei 225		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+S\&P/ASX 200		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+DJ New Zealand		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+Shanghai	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+SZSE Component		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+China A50		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+DJ Shanghai	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+Hang Seng		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+Taiwan Weighted		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+SET		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+KOSPI	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+IDX Composite	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+Nifty 	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+BSE Sensex	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+PSEi Composite	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+STI Index	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+Karachi	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+HNX 30	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+CSE All-Share	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+
+
+Financial Stress Index & \multicolumn{2}{c}{xxx}\\ \hline
 \multicolumn{3}{c}{\textit{Währungen der größten Volkswirtschaften (nach BIP)}}\\ \hline
 \textbf{Daten} & \textbf{für BTC} & \textbf{für ETH} \\
 \hhline{===}
