@@ -2,8 +2,8 @@ BTC_difficulty_daily_full from https://data.bitcoinity.org/bitcoin/difficulty/5y
 BTC_price_multiple_daily from https://data.bitcoinity.org/markets/price/all/USD?c=e&r=day&t=l
 BTC_price_volume_full_daily from https://bitcoincharts.com/charts/bitstampUSD#igDailyztgSzm1g10zm2g25zv
 BTC_transaction_number_fully_daily from https://blockchain.info/de/charts/n-transactions?timespan=all
+BTC_total_volume_daily_full from https://blockchain.info/de/charts/total-bitcoins?timespan=all
 ETH_difficuly_daily_full from https://etherscan.io/chart/difficulty
 ETH_total_volume_daily_full from https://etherscan.io
-BTC_total_volume_daily_full from https://blockchain.info/de/charts/total-bitcoins?timespan=all
 ETH_transaction_number_fully_daily from https://etherscan.io/chart/tx
 ETH_price_volume_full_daily from https://coinmarketcap.com/currencies/ethereum/historical-data/?start=20130428&end=20171106

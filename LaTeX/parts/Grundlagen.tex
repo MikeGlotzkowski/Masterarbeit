@@ -524,7 +524,7 @@ Da der Artikel "How to choose algorithms for Microsoft Azure Machine Learning" v
 Die möglicherweise am einfachsten nachvollziehbare Gruppe des Machine Learning ist das Supervised Learning, da es "sehr ähnlich zu dem Prozess ist, in dem Menschen Dinge lernen"\citep[S.~13; eigene Übersetzung]{kim_matlab_2017}. Es existiert ein Datensatz, bei dem für jeden Input ein Output vorhanden ist. Ein Beispiel können Patientendaten sein, die als Output eine Variable besitzen, die angibt, ob ein Patient an Krebs erkrankt ist oder nicht.\citep[S.~222]{ramasubramanian_machine_2017} Diese "response variable" (Krebs oder nicht Krebs) wird als "label"\citep[S.~222]{ramasubramanian_machine_2017} bezeichnet. Die Aufgabe des Learning Prozesses ist es dann, einen Zusammenhang zwischen dem Input (Patientendaten) und dem Label (Krebs oder nicht Krebs) herzustellen. Dies geschieht mit sogenannten "training sets"\citep[S.~5]{paluszek_matlab_2017} Der zweite Schritt ist dann das Überprüfen des entstandenen Models. Dabei wird das Model auf ein zweites gelabeltes "test set"\citep[S.~5]{paluszek_matlab_2017} angewandt und das Ergebnis überprüft.\newline
 Die Algorithmen des Supervised Learning lassen sich erneut aufteilen:
 
-\subsubsection{Classification}
+\subsubsection{Classification} \label{subsubsec:classification}
 Betrachtet man die Labels und stellt fest, dass sie die Datensätze in Kategorien unterteilen (Krebs oder nicht Krebs) oder eine Wahrscheinlichkeit angeben (Person zu 89\% Max Mustermann bei einer Gesichtserkennung), handelt es sich um eine Klassifikation (engl. Classification).\citep[S.~67]{swamynathan_mastering_2017} \citep[S.~5]{kauchak_zoterovoll2.pdf_2016} nennt als Beispiele
 \begin{itemize}
 \item biometrische Erkennungen (Gesicht, Iris, Unterschrift etc.),
@@ -540,7 +540,7 @@ Weiterhin kann zwischen Klassifikationen mit nur zwei Labels ("two-class or bino
 \label{fig:classification}
 \centering
 \end{figure}
-\subsubsection{Regression}
+\subsubsection{Regression}\label{subsubsec:regression}
 Wenn eine Unterteilung in Kategorien wie gerade genannt nicht möglich ist und die Output variable ein fortlaufender \todo{Wort} Wert ist, werden Regressionen benutzt. Dabei liegt der "Hauptfokus [...] darin, einen Zusammenhang zwischen einer abhängigen Variablen und einer oder mehreren unabhängigen [...] Variablen herzustellen"\citep[S.~60; eigene Übersetzung]{swamynathan_mastering_2017}. Neben dem bekanntesten Beispiel
 \begin{itemize}
 \item einen Kurs an der Börse vorherzusagen \multicitep{kauchak_zoterovoll2.pdf_2016, S.~5; kubat_introduction_2017, S.~207; ericson_how_2017}, gibt es Anwendungsfälle in

@@ -43,11 +43,13 @@ An Stelle einer vollständigen Risikoanalyse (Kontext herstellen, Risiken identi
 \newline
 Die schwerste Aufgabe dieses Teils ist das Finden von Daten, die Einfluss auf den Kurs von Kryptowährungen haben (könnten). Forschungen in diesem Bereich identifizierten einerseits öffentliches Interesse (soziale Medien, Google Suchanfragen, etc.)\multicitep{kristoufek_bitcoin_2013; garcia_digital_2014} und andererseits auch wirtschaftliche Faktoren ("standard economic theory", also Angebot und Nachfrage, Investoren)\citep{kristoufek_what_2015} als Haupteinflussfaktoren. Anhand den Aussagen dieser Paper und zusätzlichen Überlegungen ergeben sich folgende Faktoren, die bei der Analyse bedacht werden (Tabelle \ref{tab:dataToAnalyse}).\newline Darüber hinaus wird die Quelle aufgeführt, über die die Daten bezogen werden. Bei monetären Strömen oder Kursen, wird immer der Kurs in USD herangezogen. 
 \newline
-Damit eine Analyse der Cryptowährungen möglich ist, müssen zu diesen historische Kursdaten beschafft werden. Dieser, auf den ersten Blick simpel wirkende Schritt, ist in Wirklichkeit \todo{formulierung} nicht trivial. Cryptowährungen werden an dutzenden Portalen gleichzeitig gehandelt. Dabei erscheinen genauso schnell neue Börsen, wie alte verschwinden. Auch das Handelsvolumen und die Handelswährung unterscheidet sich. Hinzu kommt, dass an Bitcoin- oder Ethereum-Handelsportalen meist 24 Stunden täglich gehandelt werden kann. Aus diesem Grund sind solche Datenquellen ausgewählt worden, die entweder ihre Daten direkt von der Blockchain erhalten oder einen gewichteten Mittelwert über die größten Handelsplatformen berechnen.
+Damit eine Analyse der Kryptowährungen möglich ist, müssen zu diesen historische Kursdaten beschafft werden. Dieser, auf den ersten Blick simpel wirkende Schritt, ist in Wirklichkeit \todo{formulierung} nicht trivial. Kryptowährungen werden an dutzenden Portalen gleichzeitig gehandelt. Dabei erscheinen genauso schnell neue Börsen, wie alte verschwinden. Auch das Handelsvolumen und die Handelswährung unterscheidet sich. Hinzu kommt, dass an Bitcoin- oder Ethereum-Handelsportalen meist 24 Stunden täglich gehandelt werden kann. Aus diesem Grund sind solche Datenquellen ausgewählt worden, die entweder ihre Daten direkt von der Blockchain erhalten oder einen gewichteten Mittelwert über die größten Handelsplatformen berechnen.
 \newline
-Die nächste Schwierigkeit ist die Auswahl der Aktienindizes, die für die Analyse herangezogen werden. Es existiert keine allgemein gültige oder anerkannte Liste mit 'den wichtigsten Aktienindizes'. Aus diesem Grund wurden die Indices ausgewählt, die die Website investing.com als "major world indices" deklariert.\citep{fusion_media_limited_major_2017} Es liegt dabei eine große Überschneidung mir anderen Stock Market-Seiten vor.\multicitep{liveindex.org_live_2017; noauthor_major_2017; noauthor_major_2017-1}
+Die nächste Schwierigkeit ist die Auswahl der Aktienindizes, die für die Analyse herangezogen werden. Es existiert keine allgemein gültige oder anerkannte Liste mit 'den wichtigsten Aktienindizes'. Aus diesem Grund wurden die Indices ausgewählt, die die Website investing.com als "major world indices" deklariert.\citep{fusion_media_limited_major_2017} Es liegt dabei eine große Überschneidung mir anderen Stock Market-Seiten vor.\multicitep{liveindex.org_live_2017; yahoo_finance_major_2017; yahoo_finance_major_2017-1} Zusätzlich zu den Aktienindices wird ein Financial Stress Index (FSI) herangezogen. Ein solcher "index misst die aktuelle Belastung in einem finanzwirtschaftlichen System"\citep[S.~1;eigene Übersetzung]{vermeulen_financial_2014} In diesem Fall ist es der St. Louis Fed Financial Stress Index, der 18 Einzelfaktoren aus drei Kategorien bündelt.\citep{federal_reserve_bank_of_st._louis_st._2017}
+\newline
+Ferner werden die Währungen der acht größten Volkswirtschaften\citep{the_international_monetary_fund_world_2017} und die Kurse für Gold, Silber und Rohöl mit einbezogen. Es werden die Wechselkurse zum Dollar betrachtet, sprich Fremdwährung/USD. Bei den Ölkursen wird Brent, das wichtigste Rohöl für den europäischen Markt \citep{noauthor_brent_2016}, und West Texas Intermediate (WTI), das Pondon für den US-Markt, betrachtet\citep{noauthor_west_2017}.
 
-\begin{longtable}[H]{|p{4,5cm}|p{6cm}|p{6cm}|}
+\begin{longtable}[H]{|p{4cm}|p{6,25cm}|p{6,25cm}|}
 \multicolumn{3}{c}{\textit{Cryptowährungs-eigene Faktoren}}\\ \hline
 \textbf{Daten} & \textbf{für BTC} & \textbf{für ETH} \\
 \hhline{===}
@@ -65,8 +67,8 @@ Google News-Suchen & ja, von https://trends.google.de/trends/ & ja, von https://
 Wikipedia Seitenaufrufe & ja, von https://wikimedia.org/api/rest\_v1/ & ja, von https://wikimedia.org/api/rest\_v1/ \\ \hline
 Tweets (Twitter Nachrichten) & \multicolumn{2}{c}{nein, nicht kostenlos verfügbar} \\ \hline
 Zeitungsartikel/-Überschriften & \multicolumn{2}{c}{ja, von https://www.kaggle.com/sunnysai12345/news-summary}\\ \hline
-Blogartikel & aaa & bbb \\ \hline
-(Web-)Domains & aaa & bbb \\ \hline
+Blogartikel & \todo{???} & \todo{???} \\ \hline
+(Web-)Domains & \todo{???} & \todo{???} \\ \hline
 \multicolumn{3}{c}{\textit{(Aktien)indizes}}\\ \hline
 \textbf{Daten} & \textbf{für BTC} & \textbf{für ETH} \\
 \hhline{===}
@@ -120,32 +122,27 @@ HNX 30	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
 CSE All-Share	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
 
 
-Financial Stress Index & \multicolumn{2}{c}{xxx}\\ \hline
+St. Louis Fed Financial Stress Index (STLFSI) & \multicolumn{2}{c}{ja, von https://fred.stlouisfed.org/series/STLFSI}\\ \hline
 \multicolumn{3}{c}{\textit{Währungen der größten Volkswirtschaften (nach BIP)}}\\ \hline
 \textbf{Daten} & \textbf{für BTC} & \textbf{für ETH} \\
 \hhline{===}
-USA & aaa & bbb \\ \hline
-China& aaa & bbb \\ \hline
-Japan& aaa & bbb \\ \hline
-Deutschland & aaa & bbb \\ \hline
-Großbritannien & aaa & bbb \\ \hline
-Frankreich & aaa & bbb \\ \hline
-Indien & aaa & bbb \\ \hline
-Brasilien & aaa & bbb \\ \hline
+China (CNY) & \multicolumn{2}{c}{ja, von https://www.investing.com/currencies/single-currency-crosses}\\ \hline
+Japan (JPY)& \multicolumn{2}{c}{ja, von https://www.investing.com/currencies/single-currency-crosses}\\ \hline
+Deutschland (EUR) & \multicolumn{2}{c}{ja, von https://www.investing.com/currencies/single-currency-crosses}\\ \hline
+Großbritannien  (GBP) & \multicolumn{2}{c}{ja, von https://www.investing.com/currencies/single-currency-crosses}\\ \hline
+Frankreich (EUR) & \multicolumn{2}{c}{ja, von https://www.investing.com/currencies/single-currency-crosses}\\ \hline
+Indien (INR) & \multicolumn{2}{c}{ja, von https://www.investing.com/currencies/single-currency-crosses}\\ \hline
+Brasilien (BRL) & \multicolumn{2}{c}{ja, von https://www.investing.com/currencies/single-currency-crosses}\\ \hline
 \multicolumn{3}{c}{\textit{natürliche Ressourcen}}\\ \hline
 \textbf{Daten} & \textbf{für BTC} & \textbf{für ETH} \\
 \hhline{===}
-Goldpreis & aaa & bbb \\ \hline
-Silberpreis & aaa & bbb \\ \hline
-Ölpreis & aaa & bbb \\ \hline
+Goldpreis & \multicolumn{2}{c}{ja, von https://www.investing.com/commodities/}\\ \hline
+Silberpreis & \multicolumn{2}{c}{ja, von https://www.investing.com/commodities/}\\ \hline
+Brent (Rohöl Europa) & \multicolumn{2}{c}{ja, von https://www.investing.com/commodities/}\\ \hline
+WTI (Rohöl USA) & \multicolumn{2}{c}{ja, von https://www.investing.com/commodities/}\\ \hline
 \caption{Mögliche Einflussfaktoren auf den Kurs von Kryptowährungen}
 \label{tab:dataToAnalyse}
 \end{longtable}
-
-
-
-
-\todo{schlussfolgerung davon}
 
 \begin{longtable}[H]{|p{6,5cm}|p{10cm}|}
 \hline
@@ -176,7 +173,7 @@ Daten
 \end{itemize}
 \\
 \hline
-Requirements, assumptions, and constraints &  Zu Bedenken ist, dass bei einer kostenlosen Subscription im Azure ML Studio nur 10GB Storage verfügbar sind. Zusätzlich müssen Daten, die analysiert werden sollen, in das Tool geladen werden. Bei einem Upload vom PC wird das durch die Upload-Bandbreite limitiert. Eventuell müssen Daten im Projektverlauf auch öfter Hochgeladen werden, was zu Verzögerungen führen könnte. Außerdem lässt sich in der freien Version nur jeweils ein Experiment gleichzeitig ausführen. Das parallele Trainieren von Modellen ist somit nicht möglich.\newline 
+Requirements, assumptions, and constraints & Zu Bedenken ist, dass bei einer kostenlosen Subscription im Azure ML Studio nur 10GB Storage verfügbar sind. Zusätzlich müssen Daten, die analysiert werden sollen, in das Tool geladen werden. Bei einem Upload vom PC wird das durch die Upload-Bandbreite limitiert. Eventuell müssen Daten im Projektverlauf auch öfter Hochgeladen werden, was zu Verzögerungen führen könnte. Außerdem lässt sich in der freien Version nur jeweils ein Experiment gleichzeitig ausführen. Das parallele Trainieren von Modellen ist somit nicht möglich.\newline 
 Obwohl zur Hilfe neben der Web-IDE auch RStudio genutzt werden kann, soll die Untersuchung hauptsächlich mit den Azure ML Studio Bordmitteln durchgeführt werden. \newline
 Schließlich sollen nur solche Daten genutzt werden, die entweder frei verfügbar sind oder mit dem Hochschulzugang zu beschaffen sind. Das schließt präparierte Datensätze von Bezahlseiten aus.\\
 \hline
@@ -196,6 +193,53 @@ Costs and benefits & --- \\
 
 
 \subsection{Determine the Data Mining Goals}
+
+
+\begin{longtable}[!h]{|p{4,5cm}|p{12cm}|}
+\hline
+\textbf{Output} & \textbf{Beschreibung} \\ 
+\hhline{==}
+Data mining goals & Es sollen mit Hilfe von Azure Machine Learning Studio mehrere Machine Learning Models erzeugt werden. Sie sollen folgende Sachverhalte \todo{Wort} vorhersagen:
+\begin{itemize}
+\item Steigt der Kurs innerhalb eines 24-Stunden Zyklus über das Hoch des vorhergehenden 24-Stunden Zyklus? (Mögliche Antworten sind $ja := 1$ und $nein := 0$) 
+\item Fällt der Kurs innerhalb eines 24-Stunden Zyklus unter das Tief des vorhergehenden 24-Stunden Zyklus? (Mögliche Antworten sind $ja := 1$ und $nein := 0$)
+\item Wie hoch ist das Hoch des nächsten 24-Stunden Zyklus? (Antwort: Preis eines Bitcoins/Ethers in USD)
+\item Wie niedrig ist das Tief des nächsten 24-Stunden Zyklus? (Antwort: Preis eines Bitcoins/Ethers in USD)
+\end{itemize} 
+Bei den ersten beiden Fällen handelt es sich um eine two-class classification (siehe \ref{subsubsec:classification}). Die letzten beiden Fragen fallen in das Gebiet der Regressionen (siehe \ref{subsubsec:regression}). \\
+\hline
+Data mining success criteria & Die Klassifikationen werden bewertet anhand:
+\begin{itemize}
+\item Accuracy: $ \frac{t_{p} + t_{n}}{t_{p} + t_{n} + f_{p} + f_{n}}$ (Anteil der insgesamt richtig vorhergesagten Werte)
+\item Precision: $ \frac{t_{p}}{t_{p} + f_{p}}$ (Anteil der richtig vorhergesagten true-Werte)
+\item Recall: $ \frac{t_{p}}{t_{p} + f_{n}}$ (Anteil der richtig vorhergesagten true-Werte an allen eigentlich richtigen true-Werten)
+\item F1-score: $ 2 \times \frac{Precision \times Recall}{Precision + Recall}$ (Harmonisches Mittel aus Precision und Recall; Bester Wert = 1)
+\item AUC: Fläche unter der Receiver Operating Characteristics (ROC) Kurve; "Je besser die Klassifizierungsfähigkeit des Klassifikators desto höher ist der AUC-Wert"\citep[ROC-Kurve]{lohninger_grundlagen_2013} 
+\end{itemize} 
+$ t_{p} : true \quad positive $ \newline
+$ t_{n} : true \quad negative $ \newline
+$ f_{p} : false \quad positive $ \newline
+$ f_{n} : false \quad negative $ \newline
+\\
+& Die Regressionen werden bewertet anhand:
+\begin{itemize}
+\item Mean absolute error (MAE): Unterschied von vorhergesagten und tatsächlichen Werten; je kleiner desto besser\citep{mircosoft_evaluate_2017}
+\item Root mean squared error (RMSE): Macht eine Aussage darüber, "wie gut eine Funktionskurve an vorliegende Daten angepasst ist"; "je größer der RMSE [...], desto schlechter"\citep{statista_root_nodate}
+\item Relative absolute error (RAE), Relative squared error (RSE): Ähnlich dem RMSE, aber für den Vergleich von Regressionen mit unterschiedlichen Maßeinheiten geeignet.\citep{dr._sayad_model_2017} Im vorliegenden Fall können die anderen Größen herangezogen werden, da alle Modelle die gleiche Einheit für die vorhergesagten Werte nutzen.
+\item Coefficient of determination: Gütemaß für die Aussagekraft der Regression; 
+\newline
+$Regression \quad passt \quad perfekt := 1$ 
+\newline 
+$Regression \quad erklärt \quad nichts := 0$;
+\newline 
+kleine Werte sind normal, große  sollten misstrauisch machen\citep{mircosoft_evaluate_2017}
+\end{itemize}
+\\
+\hline
+\caption{Output des Schrittes "Determine the Data Mining Goals"}
+\end{longtable}
+
+
 Ziel: technische Beschreibung der Ziele
 --> Find any Patterns, correlations, trends etc. in crypto data (1: de-/increase; 2: dollar exchange rate)
 
