@@ -240,15 +240,61 @@ kleine Werte sind normal, große  sollten misstrauisch machen\citep{mircosoft_ev
 \end{longtable}
 
 
-Ziel: technische Beschreibung der Ziele
---> Find any Patterns, correlations, trends etc. in crypto data (1: de-/increase; 2: dollar exchange rate)
+\todo{welche werte bedeuten was} \newline
+\todo{bessere beschreibungen} \newline
+\todo{was zu den quellen sagen}
 
 \subsection{Produce a Project Plan}
-Ziel: Projektplan erstellen
---> Schritte, die durchgeführt werden (Gliederung hier ca)
---> Timeline (wie verältnis; evtl. auslassen?)
---> Risiken (gar nichts finden; Daten Fehlen; techn. Probleme mit Azure...)
---> Werkzeuge und Techniken (R, RStudio, Jupyter Notebooks, Azure ML, Excel)
+Nach diesem sehr Daten-orientierten Teilschritt, befasst sich der nachfolgende Schritt einerseits mit der (groben) Planung des weiteren Projekts und andererseits mit einer anfänglichen Betrachtung der eingesetzten Werkzeuge. Grundsätzlich orientiert sich der Projektplan am Referenzmodell CRISP-DM. In einem komplexeren Projekt mit mehreren kollaborativ arbeitenden Personen, kommt diesem Schritt eine größere Rolle zu als im vorliegenden Fall. Wichtige Meilensteine, die zu bestimmten Zeitpunkten fertig vorliegen müssen, um einen unterbrechungsfreien Projektverlauf zu gewährleisten, stellen die Outputs jedes Prozessschrittes dar. Eine genauere zeitliche Einschätzung ist dem Output "Project Plan" in Tabelle \ref{tab:projectPlan} zu entnehmen. Zu sehen ist dort, die geschätzte Arbeitszeit in Tagen für jeden Schritt und der Anteil am Gesamtprojekt. Anzumerken ist hier, dass die Angaben durch Rückschritte in frühere Phasen verzerrt werden können.\newline
+Bei der initialen Betrachtung der Werkzeuge werden laut Prozessmodell verschiedene alternativen gegeneinander abgewogen und ihr Zweck im Projekt festgelegt. Da das Werkzeug Azure Machine Learning Studio bereits vorgegeben ist, wird hier nur der Zweck der Werkzeuge im Projektverlauf betrachtet. Wird das Werkzeug R (bzw. RStudio) eingesetzt, so erhält es den Vorzug gegenüber seiner Konkurrenz (z.b. Python) aufgrund der Erfahrung des Entwicklers.
+
+
+\begin{longtable}[!h]{|p{4cm}|p{4cm}|p{4cm}|}
+\hline
+\textbf{Prozessschritt} & \textbf{geschätze Zeit in Tagen} & \textbf{Prozentualer Anteil} \\
+\hhline{===}
+Collect initial data & 2 & 20\% \\ \hline
+Describe data & 2 & 20\% \\ \hline
+Explore data & 2 & 20\% \\ \hline
+Verify data quality & 2 & 20\% \\ \hline
+Data understanding gesamt & $\sum 2$ &  $\sum 2 \%$ \\ \hline
+Select data & 2 & 20\% \\ \hline
+Clean data & 2 & 20\% \\ \hline
+Construct data & 2 & 20\% \\ \hline
+Integrate data & 2 & 20\% \\ \hline
+Format data  & 2 & 20\% \\ \hline
+Data preparation gesamt & $\sum 2$ &  $\sum 2 \%$ \\ \hline
+Select modeling technique & 2 & 20\% \\ \hline
+Generate test design & 2 & 20\% \\ \hline
+Build model & 2 & 20\% \\ \hline
+Assess model & 2 & 20\% \\ \hline
+Modeling gesamt & $\sum 2$ &  $\sum 2 \%$ \\ \hline
+Evaluate results & 2 & 20\% \\ \hline
+Review process & 2 & 20\% \\ \hline
+Determine next steps & 2 & 20\% \\ \hline
+Evaluation gesamt & $\sum 2$ &  $\sum 2 \%$ \\ \hline
+Plan deployment & 2 & 20\% \\ \hline
+Plan monitoring and maintenance & 2 & 20\% \\ \hline
+Produce final report & 2 & 20\% \\ \hline
+Review project & 2 & 20\% \\ \hline
+\caption{Output "Project Plan" des Schrittes "Produce a Project Plan"}
+\label{tab:projectPlan}
+\end{longtable}
+
+\begin{longtable}[!h]{|p{4cm}|p{11cm}|}
+\hline
+\textbf{Werkzeug} & \textbf{Zweck im Projekt}\\ 
+\hhline{==}
+Microsoft Azure Machine Learning Studio & Vorgabe im Projekt; soll in jeder Phase genutzt werden, wo es möglich ist \\ \hline
+Juypter Notebooks & Integriert in Azure ML Studio; für R Code, der in der Cloud ausgeführt werden soll \\ \hline
+R & zur Nutzung in Situationen für die Azure ML keine vorgefertigten Experiment Items bereitstellt \\ \hline
+RStudio & zum lokalen entwerfen von Scripten vor der Ausführung in der Cloud und zur Vorbereitung der Datensätze \\ \hline
+Excel & zur Betrachtung, Vorbereitung und Konvertierung von Daten vor dem Upload in die Cloud \\ \hline
+Notepad++ & zur Betrachtung, Vorbereitung und Konvertierung von Daten vor dem Upload in die Cloud \\ \hline
+\caption{Output "Initial assessment of tools and techniques" des Schrittes "Produce a Project Plan"}
+\label{tab:projectPlan}
+\end{longtable}
+
 
 \section{Data Understanding}
 \subsection{Collect the Initial Data}
