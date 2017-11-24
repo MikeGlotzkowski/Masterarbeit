@@ -36,7 +36,7 @@ Business success criteria & Die Erkenntnis, dass eine Vorhersage nicht möglich 
 \caption{Output des Schrittes "Determine the Business Objectives"}
 \end{longtable}
 
-\subsection{Assess the Situation}
+\subsection{Assess the Situation} \label{subsec:assesTheSituation}
 Dieser Teil befasst sich vor allem damit, welche Ressourcen zur Verfügung stehen (Hardware, Software, personell) und welche sonstigen Bedingungen erfüllt sein müssen oder das Projekt begrenzen. Dazu zählt auch das Finden von Daten, die für die Modellierung genutzt werden können. Anzumerken ist hierbei, dass es noch nicht um das tatsächliche Laden der Daten im Sinne von Dateien geht, sondern um das Finden von potentiellen Quellen für Daten. Zusätzlich sollen noch eine Risiko- und eine Kosten-Nutzen-Analyse durchgeführt werden. Das Hauptaugenmerk liegt jedoch auf der Erschließung der Daten. 
 \newline
 An Stelle einer vollständigen Risikoanalyse (Kontext herstellen, Risiken identifizieren, analysieren, evaluieren, managen\citep[S.~43]{sowa_management_2017}), tritt eine Aufzählung der 3 Hauptrisiken. Dies geschieht einerseits aus Gründen der Verhältnismäßigkeit, andererseits liegt der Fokus der Arbeit auf einem anderen Thema. Ähnlich verhält es sich mit der Kosten-Nutzen-Analyse. Sie wird zur Bewertung der Wirtschaftlichkeit herangezogen, was in diesem Kontext nicht relevant ist. Deswegen wird auf sie vollständig verzichtet.
@@ -298,8 +298,30 @@ Notepad++ & zur Betrachtung, Vorbereitung und Konvertierung von Daten vor dem Up
 
 \section{Data Understanding}
 \subsection{Collect the Initial Data}
-Ziel: daten beschaffen
---> oben, welche Sachen hätte ich gerne; hier dann richtige Daten und schon in azure laden!
+In Schritt \ref{subsec:assesTheSituation} wurden Einflussfaktoren auf den Kurs festgehalten. Zusätzlich wurden bereits Quellen für Daten zu diesen Faktoren gesucht. In diesem Schritt werden nun die Daten tatsächlich (im Sinne von 'echten' Dateien) bezogen und bereits in Azure Machine Learning geladen. Ebenfalls Teil dieses Schrittes ist es, die Daten grob zu beschreiben. Im vorliegen Fall wird die Datenspanne und weitere relevante Merkmale beschrieben. So enthalten die Daten einiger Quellen den prozentualen Anstieg eines Kurses zum Vortag. Ob diese zusätzliche Information ihren Weg in die abschließende Analyse findet, ist an dieser Stelle noch nicht zu klären.
+Die Herkunft der Daten ist nicht weiter beschrieben, da dies bereits in \ref{subsec:assesTheSituation} abgehandelt wurde. \newline
+
+Alle gesammelten Daten enthalten Header-Informationen (Preis, Kurs, Datum etc.). Azure ML Studio kann diese Header auslesen und nutzt sie für einfache Select- oder Join-Befehle. Damit dies möglich ist, müssen die Daten als 'Genereic CSV File with a header (.csv)' oder 'Generic TSV File with a header (.tsv)' vorliegen. In manchen Fällen ist es möglich, dass Microsoft Excel beim Speichern einer Datei als '.csv' statt Kommas, Strichpunkte zum Trennen nutzt. Hier ist darauf zu achten, dass tatsächlich Kommas als Trennzeichen genutzt werden, da Azure ML Studio diese sonst nicht interpretieren kann. Die Datei-Endung '.tsv' ist nicht zwingend erforderlich. Ein 'Tab seperated values'-File kann auch mit der Endung '.txt' hochgeladen und richtig interpretiert werden. Dies ist wichtig, da Excel als Endung für diese Dateien nicht '.tsv' sondern '.txt' wählt.\newline
+
+Azure ML Studio bietet die Möglichkeit, mehrere Dateien gezippt in das Tool zu laden. Dies bietet sich an, wenn viele einzelne Dateien hochgeladen werden sollen. Leider kann das Zip-File pro Experiment nur einmal verwendet werden und nur eine Datei daraus kann entpackt werden .Dadurch ist diese Option im Falle dieser Arbeit nicht praktikabel. Es müssen also alle Dateien einzeln geladen werden.
+
+\begin{longtable}[!h]{|p{6cm}|p{4cm}|p{5cm}|}
+\hline
+\textbf{Datensatz} & \textbf{Reichweite} & \textbf{Besonderheiten}\\ 
+\hhline{===}
+\multicolumn{3}{|c|}{Cryptowährungs-eigene Faktoren}\\ \hline
+BTC\_total\_volume\_daily\_full.csv & 3.1.2009 bis 5.11.2017 & teilweise kein Anstieg des Volumens im Datensatz; Lücken im Datensatz \\ \hline
+BTC\_difficulty\_daily\_full.csv & 6.11.2012 bis 5.11.2017 & Zeit in UTC \\ \hline
+\multicolumn{3}{|c|}{Öffentliches Interesse}\\ \hline
+\multicolumn{3}{|c|}{(Aktien)indizes}\\ \hline
+\multicolumn{3}{|c|}{Währungen der größten Volkswirtschaften (nach BIP)}\\ \hline
+\multicolumn{3}{|c|}{natürliche Ressourcen}\\ \hline
+\multicolumn{3}{|c|}{ETH/USD-Kurs}\\ \hline
+\multicolumn{3}{|c|}{BTC/USD-Kurs}\\ \hline
+\multicolumn{3}{|c|}{zusätzliche Eigenschaften}\\ \hline
+
+\caption{Output "Initial data collection report" des Schrittes "Collect the Initial Data"}
+\end{longtable}
 
 \subsection{Describe the Data}
 Ziel: Format, größe, Anzahl der Beobachtungen; Beschaffenheit
