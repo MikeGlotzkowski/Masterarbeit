@@ -298,26 +298,27 @@ Notepad++ & zur Betrachtung, Vorbereitung und Konvertierung von Daten vor dem Up
 
 \section{Data Understanding}
 \subsection{Collect the Initial Data}
-In Schritt \ref{subsec:assesTheSituation} wurden Einflussfaktoren auf den Kurs festgehalten. Zusätzlich wurden bereits Quellen für Daten zu diesen Faktoren gesucht. In diesem Schritt werden nun die Daten tatsächlich (im Sinne von 'echten' Dateien) bezogen und bereits in Azure Machine Learning geladen. Ebenfalls Teil dieses Schrittes ist es, die Daten grob zu beschreiben. Im vorliegen Fall wird die Datenspanne und weitere offensichtliche Merkmale beschrieben. Die Daten einiger Quellen enthalten bereits Berechnungen, wie den prozentualen Anstieg eines Kurses zum Vortag. Ob diese zusätzliche Information ihren Weg in die abschließende Analyse findet, ist an dieser Stelle noch nicht zu klären. \newline
+In Schritt \ref{subsec:assesTheSituation} wurden Einflussfaktoren auf den Kurs festgehalten. Zusätzlich wurden bereits Quellen für Daten zu diesen Faktoren gesucht. In diesem Schritt werden nun die Daten tatsächlich (im Sinne von 'echten' Dateien) bezogen und bereits in Azure Machine Learning geladen. Ebenfalls Teil dieses Schrittes ist es, die Daten grob zu beschreiben. Im vorliegen Fall wird die Datenspanne und weitere offensichtliche Merkmale beschrieben. \newline
 
 Die Herkunft der Daten ist nicht weiter beschrieben, da dies bereits in \ref{subsec:assesTheSituation} abgehandelt wurde. \newline
 
 Alle gesammelten Daten enthalten Header-Informationen (Preis, Kurs, Datum etc.). Azure ML Studio kann diese Header auslesen und nutzt sie für einfache Select- oder Join-Befehle. Damit dies möglich ist, müssen die Daten als 'Genereic CSV File with a header (.csv)' oder 'Generic TSV File with a header (.tsv)' vorliegen. In manchen Fällen ist es möglich, dass Microsoft Excel beim Speichern einer Datei als '.csv' statt Kommas, Strichpunkte zum Trennen nutzt. Hier ist darauf zu achten, dass tatsächlich Kommas als Trennzeichen genutzt werden, da Azure ML Studio diese sonst nicht interpretieren kann. Die Datei-Endung '.tsv' ist nicht zwingend erforderlich. Ein 'Tab seperated values'-File kann auch mit der Endung '.txt' hochgeladen und richtig interpretiert werden. Dies ist wichtig, da Excel als Endung für diese Dateien nicht '.tsv' sondern '.txt' wählt.\newline
 
-Azure ML Studio bietet die Möglichkeit, mehrere Dateien gezippt in das Tool zu laden. Dies bietet sich an, wenn viele einzelne Dateien hochgeladen werden sollen. Leider kann das Zip-File pro Experiment nur einmal verwendet werden und nur eine Datei daraus kann entpackt werden .Dadurch ist diese Option im Falle dieser Arbeit nicht praktikabel. Es müssen also alle Dateien einzeln geladen werden.
+Azure ML Studio bietet die Möglichkeit, mehrere Dateien gezippt in das Tool zu laden. Dies bietet sich an, wenn viele einzelne Dateien hochgeladen werden sollen. Leider kann das Zip-File pro Experiment nur einmal verwendet werden und nur eine Datei daraus kann entpackt werden. Dadurch ist diese Option im Falle dieser Arbeit nicht praktikabel. Es müssen also alle Dateien einzeln geladen werden.
 
 \begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
 \hline
 \multicolumn{3}{|c|}{Cryptowährungs-eigene Faktoren}\\ \hline
 \textbf{Datensatz} & \textbf{Reichweite} & \textbf{Besonderheiten}\\ 
 \hhline{===}
-BTCTotalVolumeDailyFull & 3.1.2009 bis 5.11.2017 & teilweise kein Anstieg des Volumens im Datensatz; Lücken im Datensatz \\ \hline
+BTCTotalVolumeDailyFull & 3.1.2009 bis 5.11.2017 & teilweise kein Anstieg des Volumens im Datensatz; große Lücken im Datensatz (2012-2016)\\ \hline
 BTCDifficultyDailyFull & 6.11.2012 bis 5.11.2017 & Zeit in UTC \\ \hline
 BTCTransactionNumberFullyDaily & 3.1.2009 bis 5.11.2017 & \\ \hline
 BTCPriceMultipleDaily & 17.7.2010 bis 5.11.2017 & Zeit in UTC; sehr Lückenhaft, da erst ab 2016 alle enthaltenen Börsen operieren \\ \hline
 ETHTotalVolumeDailyFull & 30.7.2015 bis 5.11.2017 & Zeit in UTC und UnixTimeStamp \\ \hline
 ETHDifficulyDailyFull & 30.7.2015 bis 5.11.2017 & Zeit in UTC und UnixTimeStamp \\ \hline
-ETHTransactionNumberFullyDaily &  30.7.2015 bis 5.11.2017 & Zeit in UTC und UnixTimeStamp; ganz am Anfang einige 0-Werte \\ \hline
+ETHTransactionNumberFullyDaily &  30.7.2015 bis 5.11.2017 & Zeit in UTC und UnixTimeStamp; ganz am Anfang einige 0-Werte \\ \hhline{===}
+
 \multicolumn{3}{|c|}{Öffentliches Interesse}\\ \hline
 \textbf{Datensatz} & \textbf{Reichweite} & \textbf{Besonderheiten}\\ 
 \hhline{===}
@@ -327,7 +328,7 @@ googleTrendsBTCNewssearch & 01.2009 bis 11.2017 & Daten im Abstand von 1 Monat; 
 googleTrendsETHNewssearch & 01.2011 bis 11.2017 & Daten im Abstand von 1 Monat; auf einer Scala von 0-100; erster nicht-null-Wert bei 07.2014 \\ \hline
 WikiPageViewsBTC & 1.7.2015 bis 7.11.2017 & Enthält Datum als zusammengesetzte Zahl im Format yyyyddmm00; enthält 7 Features, von denen 5 für jede Zeile gleich sind \\ \hline
 WikiPageViewsETH & 1.7.2015 bis 7.11.2017 & Enthält Datum als zusammengesetzte Zahl im Format yyyyddmm00; enthält 7 Features, von denen 5 für jede Zeile gleich sind \\ \hline
-abcnewsDateText & 19.2.2003 bis 30.9.2017 & großer Datensatz; viel Text; kann von Excel nicht komplett geöffnet werden \\ \hline
+abcnewsDateText & 19.2.2003 bis 30.9.2017 & großer Datensatz; viel Text; kann von Excel nicht komplett geöffnet werden \\ \hhline{===}
 
 \multicolumn{3}{|c|}{(Aktien)indizes}\\ \hline
 \textbf{Datensatz} & \textbf{Reichweite} & \textbf{Besonderheiten}\\ 
@@ -347,48 +348,265 @@ PSI 20 (PSI20)\_history.txt & 25.4.2010 bis 9.11.2017 & \\ \hline
 SET Index (SETI)\_history.txt & 18.3.2011 bis 9.11.2017 & \\ \hline
 SZSE Component (SZSC1)\_history.txt & 14.9.2012 bis 9.11.2017 & \\ \hline
 Taiwan Weighted (TWII)\_history.txt & 17.3.2011 bis 9.11.2017 & \\ \hline
-STLFSI\_history.csv & 2.1.2009 bis 27.10.2017 & Zeilen im Abstand einer Woche; Index kann positive und negative Werte annehmen \\ \hline 
-\multicolumn{3}{|c|}{Währungen der größten Volkswirtschaften (nach BIP)}\\ \hline
+STLFSI\_history.csv & 2.1.2009 bis 27.10.2017 & Zeilen im Abstand einer Woche; Index kann positive und negative Werte annehmen \\ \hhline{===} 
+\multicolumn{3}{|c|}{Währungen der größten Volkswirtschaften}\\ \hline
 \textbf{Datensatz} & \textbf{Reichweite} & \textbf{Besonderheiten}\\
 \hhline{===}
 CNY\_USD\_history & 1.1.2009 bis 13.11.2017 & Datum in einem Format mit Text (!); Lücken an Wochenenden und Feiertagen \\ \hline
 JPY\_USD\_history & 1.1.2009 bis 13.11.2017 & Datum in einem Format mit Text (!); Lücken an Wochenenden und Feiertagen \\ \hline
 EUR\_USD\_history & 1.1.2009 bis 13.11.2017 & Datum in einem Format mit Text (!); Lücken an Wochenenden und Feiertagen \\ \hline
 GBP\_USD\_history & 1.1.2009 bis 13.11.2017 & Datum in einem Format mit Text (!); Lücken an Wochenenden und Feiertagen \\ \hline
-INR\_USD\_history & 1.1.2009 bis 13.11.2017 & Datum in einem Format mit Text (!); Lücken an Wochenenden und Feiertagen \\ \hline
-BRL\_USD\_history & 1.1.2009 bis 13.11.2017 & Datum in einem Format mit Text (!); Lücken an Wochenenden und Feiertagen \\ \hline
+INR\_USD\_history & 09.09.2014 bis 13.11.2017 & Datum in einem Format mit Text (!); Fehlende Daten vor dem 09.09.2014 Lücken an Wochenenden und Feiertagen \\ \hline
+BRL\_USD\_history & 1.1.2009 bis 13.11.2017 & Datum in einem Format mit Text (!); Lücken an Wochenenden und Feiertagen \\ \hhline{===}
 \multicolumn{3}{|c|}{natürliche Ressourcen}\\ \hline
 \textbf{Datensatz} & \textbf{Reichweite} & \textbf{Besonderheiten}\\ 
 \hhline{===}
 gold\_history & 1.1.2009 bis 13.11.2017 & Datum in einem Format mit Text (!); Lücken an Wochenenden und Feiertagen \\ \hline
 silver\_history  & 1.1.2009 bis 13.11.2017 & Datum in einem Format mit Text (!); Lücken an Wochenenden und Feiertagen \\ \hline
 oil\_brent\_history  & 1.1.2009 bis 13.11.2017 & Datum in einem Format mit Text (!); Lücken an Wochenenden und Feiertagen \\ \hline
-oil\_wti\_history  & 1.1.2009 bis 13.11.2017 & Datum in einem Format mit Text (!); Lücken an Wochenenden und Feiertagen \\ \hline
+oil\_wti\_history  & 1.1.2009 bis 13.11.2017 & Datum in einem Format mit Text (!); Lücken an Wochenenden und Feiertagen \\ \hhline{===}
 \multicolumn{3}{|c|}{ETH/USD-Kurs}\\ \hline
 \textbf{Datensatz} & \textbf{Reichweite} & \textbf{Besonderheiten}\\ 
 \hhline{===}
-ETHPriceVolumeFullDaily & 7.8.2015 bis 5.11.2017 & historische Kursdaten für ETC (Preis und Volumen); Datum in einem Format mit Text (!) \\ \hline
+ETHPriceVolumeFullDaily & 7.8.2015 bis 5.11.2017 & historische Kursdaten für ETC (Preis und Volumen); Datum in einem Format mit Text (!) \\ \hhline{===}
 \multicolumn{3}{|c|}{BTC/USD-Kurs}\\ \hline
 \textbf{Datensatz} & \textbf{Reichweite} & \textbf{Besonderheiten}\\ 
 \hhline{===}
-BTCPriceVolumeFullDaily & 13.9.2011 bis 6.11.2017 & historische Kursdaten für BTC (Preis und Volumen);  \\ \hline
+BTCPriceVolumeFullDaily & 13.9.2011 bis 6.11.2017 & historische Kursdaten für BTC (Preis und Volumen);  \\ \hhline{===}
 \multicolumn{3}{|c|}{zusätzliche Eigenschaften}\\ \hline
 \textbf{Datensatz} & \textbf{Reichweite} & \textbf{Besonderheiten}\\ 
 \hhline{===}
 bitcoinDataset & 6.10.2009 bis 30.10.2017 & sehr detaillierte Bitcoin Eigenschaften; 24 Features, z.B. Anzahl der einzigartigen Adressen im Netztwerk oder Kosten pro Transaktion \\ \hline
 ethereumDataset & 30.7.2017 bis 3.10.2017 & sehr detaillierte Ethereum Eigenschaften; 18 Features, z.B. Anzahl der Adressen im Ethereum-Netzwerk oder Anzahl der Blocks und Uncles \\ \hline
 \caption{Output "Initial data collection report" des Schrittes "Collect the Initial Data"}
+\label{tab:initialDataCollectionReport}
 \end{longtable}
+
+Wie in Tabelle \ref{tab:initialDataCollectionReport} zu sehen ist, umfassen die Daten verschiedene Zeitspannen. Einige Aktienindices, vor allem ATX und HNX30, existieren noch nicht so lange, wie die historischen Daten des Bitcoins. Es gibt mehrere Wege, um damit umzugehen. Da auch ohne diese noch über 30 andere Indices zur Verfügung stehen, fließen sie nicht weiter in die Untersuchung ein.\\newline
+Einige der Datensätze beinhalten nicht nur rohe Daten, sondern bereits Brechungen, wie den prozentualen Anstieg eines Kurses zum Vortag. Obwohl die Features des Datensatzes erst im nachfolgenden Schritt beschrieben werden, kann hier schon festgehalten werden, dass diese 'Zusatzinformationen' von der Analyse ausgeschlossen werden. Es handelt sich dabei lediglich um eine - für den menschlichen Betrachter einfach zu verstehende - andere Schreibweise für die Daten in einer Zeitreihe und nicht um zusätzliche Informationen. \newline
 
 \subsection{Describe the Data}
 Ziel: Format, größe, Anzahl der Beobachtungen; Beschaffenheit
 -->
 --> sind die Daten okay? 
+numerisch; Ganzhal
+Float, Kommazahl
+
+Eine detaillierte Beschreibung der oben genannten Datensätze erfolgt nun. Für jeden Satz, bzw. jede homogene Gruppe (wie die Aktienindices), werden die Anzahl der Spalten (Features), die Anzahl der Reihen (Observations) und die Dateigröße (in Kilobyte; KB) angegeben. Außerdem werden für die Features genauer erläutert.
+
+\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\hline
+Datensatz & \multicolumn{2}{l|}{BTCTotalVolumeDailyFull} \\ \hline
+Observations & \multicolumn{2}{l|}{1615} \\ \hline
+Features & \multicolumn{2}{l|}{2} \\ \hline
+Dateigröße & \multicolumn{2}{l|}{32} \\ \hline
+\hhline{===}
+\textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
+\hhline{===}
+Date & Datum im Format dd/mm/yyyy HH:MM & HH:MM unbenutzt \\ \hline
+Volume & numerisch (Gleitkommazahl) mit einer Nachkommastelle & extrem große Lücke zwischen 20.9.2012 und 9.7.2016; eventuell nicht zu gebrauchen; zwischen 50.0 und 16665662.5 \\ \hline 
+\caption{Data description report für BTCTotalVolumeDailyFull}
+\end{longtable}
+
+\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\hline
+Datensatz & \multicolumn{2}{l|}{BTCDifficultyDailyFull} \\ \hline
+Observations & \multicolumn{2}{l|}{1826} \\ \hline
+Features & \multicolumn{2}{l|}{2} \\ \hline
+Dateigröße & \multicolumn{2}{l|}{78} \\ \hline
+\hhline{===}
+\textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
+\hhline{===}
+Date & Datum im Format yyyy-mm-dd HH:MM:SS UTC & HH:MM:SS unbenutzt \\ \hline
+Difficulty & numerisch (Gleitkommazahl) mit zwei Nachkommastelle & Inkonsistenzen in der Difficulty, teilweise um Faktor 100 unterschiedliche Werte in aufeinanderfolgenden Zeilen; manche mit Nachkommastellen, manche ohne \\ \hline 
+\caption{Data description report für BTCDifficultyDailyFull}
+\end{longtable}
+
+\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\hline
+Datensatz & \multicolumn{2}{l|}{BTCTransactionNumberFullyDaily} \\ \hline
+Observations & \multicolumn{2}{l|}{1615} \\ \hline
+Features & \multicolumn{2}{l|}{2} \\ \hline
+Dateigröße & \multicolumn{2}{l|}{46} \\ \hline
+\hhline{===}
+\textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
+\hhline{===}
+Date & Datum im Format dd/mm/yy HH:MM & HH:MM:SS unbenutzt \\ \hline
+Transactions & numerisch (Ganzzahl) &   \\ \hline 
+\caption{Data description report für BTCTransactionNumberFullyDaily}
+\end{longtable}
+
+\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\hline
+Datensatz & \multicolumn{2}{l|}{BTCPriceMultipleDaily} \\ \hline
+Observations & \multicolumn{2}{l|}{2669} \\ \hline
+Features & \multicolumn{2}{l|}{11} \\ \hline
+Dateigröße & \multicolumn{2}{l|}{279} \\ \hline
+\hhline{===}
+\textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
+\hhline{===}
+Time & Datum im Format dd/mm/yy HH:MM & HH:MM:SS unbenutzt \\ \hline
+bit-x & numerisch (Gleitkommazahl) & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
+bitbay & numerisch (Gleitkommazahl) & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
+cex.io & numerisch (Gleitkommazahl) & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
+coinbase & numerisch (Gleitkommazahl) & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
+exmo & numerisch (Gleitkommazahl) & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
+gemini & numerisch (Gleitkommazahl) & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
+hitbtc & numerisch (Gleitkommazahl) & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
+itbit & numerisch (Gleitkommazahl) & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
+kraken & numerisch (Gleitkommazahl) & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
+others & numerisch (Gleitkommazahl) & Wert eines Bitcoins in USD an anderen Börsen; ohne Lücken \\ \hline
+\caption{Data description report für BTCPriceMultipleDaily}
+\end{longtable}
+
+\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\hline
+Datensatz & \multicolumn{2}{l|}{ETHTotalVolumeDailyFull} \\ \hline
+Observations & \multicolumn{2}{l|}{830} \\ \hline
+Features & \multicolumn{2}{l|}{3} \\ \hline
+Dateigröße & \multicolumn{2}{l|}{33} \\ \hline
+\hhline{===}
+\textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
+\hhline{===}
+Date(UTC) & Datum im Format m/dd/yyyy &  \\ \hline
+UnixTimeStamp & numerisch (Ganzzahl) & zusätzliches Datum als Unix Timestamp \\ \hline 
+Value & numerisch (Ganzzahl) & von 7204930659375 (min) bis 9554710634375 (max) \\ \hline 
+\caption{Data description report für ETHTotalVolumeDailyFull}
+\end{longtable}
+
+\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\hline
+Datensatz & \multicolumn{2}{l|}{ETHDifficulyDailyFull} \\ \hline
+Observations & \multicolumn{2}{l|}{830} \\ \hline
+Features & \multicolumn{2}{l|}{3} \\ \hline
+Dateigröße & \multicolumn{2}{l|}{32} \\ \hline
+\hhline{===}
+\textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
+\hhline{===}
+Date(UTC) & Datum im Format m/dd/yyyy &  \\ \hline
+UnixTimeStamp & numerisch (Ganzzahl) & zusätzliches Datum als Unix Timestamp \\ \hline 
+Value & numerisch (Ganzzahl) & \\ \hline 
+\caption{Data description report für ETHDifficulyDailyFull}
+\end{longtable}
+
+\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\hline
+Datensatz & \multicolumn{2}{l|}{ETHTransactionNumberFullyDaily} \\ \hline
+Observations & \multicolumn{2}{l|}{830} \\ \hline
+Features & \multicolumn{2}{l|}{3} \\ \hline
+Dateigröße & \multicolumn{2}{l|}{31} \\ \hline
+\hhline{===}
+\textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
+\hhline{===}
+Date(UTC) & Datum im Format m/dd/yyyy &  \\ \hline
+UnixTimeStamp & numerisch (Ganzzahl) & zusätzliches Datum als Unix Timestamp \\ \hline 
+Value & numerisch (Ganzzahl) & \\ \hline 
+\caption{Data description report für ETHTransactionNumberFullyDaily}
+\end{longtable}
+
+\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\hline
+Datensatz & \multicolumn{2}{l|}{googleTrendsBTCNewssearch und googleTrendsBTCWebsearch} \\ \hline
+Observations & \multicolumn{2}{l|}{107} \\ \hline
+Features & \multicolumn{2}{l|}{2} \\ \hline
+Dateigröße & \multicolumn{2}{l|}{2} \\ \hline
+\hhline{===}
+\textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
+\hhline{===}
+Monat & Datum im Format yyyy-mm & keine Stelle für 'Tag' \\ \hline
+bitcoin: (Weltweit) & numerisch (Ganzzahl) & Scala von 0 bis 100 \\ \hline
+\caption{Data description report für googleTrendsBTCNewssearch und googleTrendsBTCWebsearch}
+\end{longtable}
+
+\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\hline
+Datensatz & \multicolumn{2}{l|}{googleTrendsETHNewssearch und googleTrendsETHWebsearch} \\ \hline
+Observations & \multicolumn{2}{l|}{83} \\ \hline
+Features & \multicolumn{2}{l|}{2} \\ \hline
+Dateigröße & \multicolumn{2}{l|}{1} \\ \hline
+\hhline{===}
+\textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
+\hhline{===}
+Monat & Datum im Format yyyy-mm & keine Stelle für 'Tag' \\ \hline
+Ethereum: (Weltweit) & numerisch (Ganzzahl) & Scala von 0 bis 100 \\ \hline
+\caption{Data description report für googleTrendsETHNewssearch und googleTrendsETHWebsearch}
+\end{longtable}
 
 
+\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\hline
+Datensatz & \multicolumn{2}{l|}{WikiPageViewsBTC} \\ \hline
+Observations & \multicolumn{2}{l|}{861} \\ \hline
+Features & \multicolumn{2}{l|}{7} \\ \hline
+Dateigröße & \multicolumn{2}{l|}{57} \\ \hline
+\hhline{===}
+\textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
+\hhline{===}
+project & text & immer 'en.wikipedia' \\ \hline
+article & text & immer 'Bitcoin' \\ \hline
+granularity & text & immer 'daily' \\ \hline
+timestamp & Datum im Format yyyymmdd00 & \\ \hline
+access & text & immer 'all-access' \\ \hline
+agents & text & immer 'all-agents' \\ \hline
+views & numerisch (Ganzzahl) & \\ \hline
+\caption{Data description report für WikiPageViewsBTC}
+\end{longtable}
 
+\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\hline
+Datensatz & \multicolumn{2}{l|}{WikiPageViewsETH} \\ \hline
+Observations & \multicolumn{2}{l|}{861} \\ \hline
+Features & \multicolumn{2}{l|}{7} \\ \hline
+Dateigröße & \multicolumn{2}{l|}{57} \\ \hline
+\hhline{===}
+\textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
+\hhline{===}
+project & text & immer 'en.wikipedia' \\ \hline
+article & text & immer 'Ethereum' \\ \hline
+granularity & text & immer 'daily' \\ \hline
+timestamp & Datum im Format yyyymmdd00 & \\ \hline
+access & text & immer 'all-access' \\ \hline
+agents & text & immer 'all-agents' \\ \hline
+views & numerisch (Ganzzahl) & \\ \hline
+\caption{Data description report für WikiPageViewsETH}
+\end{longtable}
 
+\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\hline
+Datensatz & \multicolumn{2}{l|}{alle Aktienindices} \\ \hline
+Observations & \multicolumn{2}{l|}{unterschiedlich; bei vollständigen (1.1.2009 bis 5.11.2017) ca. 2230} \\ \hline
+Features & \multicolumn{2}{l|}{7} \\ \hline
+Dateigröße & \multicolumn{2}{l|}{bei vollständigen (1.1.2009 bis 5.11.2017) 253 bis 102} \\ \hline
+\hhline{===}
+\textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
+\hhline{===}
+Date & Datum im Format 'mmm dd, yyyy' (mmm als Text) & Monat als Text (z.B. 'Jan 02, 2009') \\ \hline
+Price & numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt; Tausender durch Komma \\ \hline 
+Open &  numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt; Tausender durch Komma \\ \hline 
+High &  numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt; Tausender durch Komma \\ \hline 
+Low &  numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt; Tausender durch Komma \\ \hline 
+Vol. & Mischform aus Zahl und Text & Werte mit 'K' für Tausend (Kilo), 'M' für Millionen (engl. Millions) und 'B' für Milliarden (engl. Billions); Fehlende Werte mit Strich (-) gekennzeichnet \\ \hline
+Change \% & Prozentzahl mit Prozentzeichen (\%) & negative und positive Werte \\ \hline
+\caption{Data description report für alle Aktienindices}
+\end{longtable}
 
+\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\hline
+Datensatz & \multicolumn{2}{l|}{alle Währungen} \\ \hline
+Observations & \multicolumn{2}{p{9cm}|}{unterschiedlich; INR: 996, BRL: 2314, JPY: 2314, CNY: 2314, GBP: 2316, EUR: 2323}\\ \hline
+Features & \multicolumn{2}{l|}{6} \\ \hline
+Dateigröße & \multicolumn{2}{l|}{INR: 51; BRL, CNY, GBP, JPY: 110; EUR: 111 } \\ \hline
+\hhline{===}
+\textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
+\hhline{===}
+Date & Datum im Format 'mmm dd, yyyy' (mmm als Text) & Monat als Text (z.B. 'Jan 02, 2009') \\ \hline
+Price & numerisch (Gleitkommazahl) mit bis zu vier Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+Open &  numerisch (Gleitkommazahl) mit bis zu vier Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+High &  numerisch (Gleitkommazahl) mit bis zu vier Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+Low &  numerisch (Gleitkommazahl) mit bis zu vier Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+Change \% & Prozentzahl mit Prozentzeichen (\%) & negative und positive Werte \\ \hline
+\caption{Data description report für alle Währungen}
+\end{longtable}
 
 \subsection{Explore the Data}
 Ziel: Einfache Analyse der Zielvariablen 
