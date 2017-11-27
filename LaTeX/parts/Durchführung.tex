@@ -368,11 +368,11 @@ oil\_wti\_history  & 1.1.2009 bis 13.11.2017 & Datum in einem Format mit Text (!
 \multicolumn{3}{|c|}{ETH/USD-Kurs}\\ \hline
 \textbf{Datensatz} & \textbf{Reichweite} & \textbf{Besonderheiten}\\ 
 \hhline{===}
-ETHPriceVolumeFullDaily & 7.8.2015 bis 5.11.2017 & historische Kursdaten für ETC (Preis und Volumen); Datum in einem Format mit Text (!) \\ \hhline{===}
+ETHPriceVolumeFullDaily & 7.8.2015 bis 5.11.2017 & historische Kursdaten für ETC (Preis und Volumen); Datum in einem Format mit Text (!); chronologisch absteigend sortiert (ältestes Datum zum Schluss) \\ \hhline{===}
 \multicolumn{3}{|c|}{BTC/USD-Kurs}\\ \hline
 \textbf{Datensatz} & \textbf{Reichweite} & \textbf{Besonderheiten}\\ 
 \hhline{===}
-BTCPriceVolumeFullDaily & 13.9.2011 bis 6.11.2017 & historische Kursdaten für BTC (Preis und Volumen);  \\ \hhline{===}
+BTCPriceVolumeFullDaily & 13.9.2011 bis 6.11.2017 & historische Kursdaten für BTC (Preis und Volumen); am Anfang einige Lücken  \\ \hhline{===}
 \multicolumn{3}{|c|}{zusätzliche Eigenschaften}\\ \hline
 \textbf{Datensatz} & \textbf{Reichweite} & \textbf{Besonderheiten}\\ 
 \hhline{===}
@@ -606,6 +606,102 @@ High &  numerisch (Gleitkommazahl) mit bis zu vier Nachkommastellen & Nachkommas
 Low &  numerisch (Gleitkommazahl) mit bis zu vier Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
 Change \% & Prozentzahl mit Prozentzeichen (\%) & negative und positive Werte \\ \hline
 \caption{Data description report für alle Währungen}
+\end{longtable}
+
+\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\hline
+Datensatz & \multicolumn{2}{l|}{alle natürlichen Ressourcen} \\ \hline
+Observations & \multicolumn{2}{p{9cm}|}{unterschiedlich; Gold und Silber: 2289, Brent: 2290, WTI: 2283}\\ \hline
+Features & \multicolumn{2}{l|}{7} \\ \hline
+Dateigröße & \multicolumn{2}{l|}{unterschiedlich; Gold und Silber: 139, Brent: 121, WTI: 118} \\ \hline
+\hhline{===}
+\textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
+\hhline{===}
+Date & Datum im Format 'mmm dd, yyyy' (mmm als Text) & Monat als Text (z.B. 'Jan 02, 2009') \\ \hline
+Price & numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+Open &  numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+High &  numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+Low &  numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+Change \% & Prozentzahl mit Prozentzeichen (\%) & negative und positive Werte \\ \hline
+\caption{Data description report für alle natürlichen Ressourcen}
+\end{longtable}
+
+\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\hline
+Datensatz & \multicolumn{2}{l|}{ETHPriceVolumeFullDaily} \\ \hline
+Observations & \multicolumn{2}{p{9cm}|}{822}\\ \hline
+Features & \multicolumn{2}{l|}{7} \\ \hline
+Dateigröße & \multicolumn{2}{l|}{51} \\ \hline
+\hhline{===}
+\textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
+\hhline{===}
+Date & Datum im Format 'mmm dd, yyyy' (mmm als Text) & Monat als Text (z.B. 'Jan 02, 2009') \\ \hline
+Open &  numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+High &  numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+Low &  numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+Close &  numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+Volume &  numerisch (Ganzzahl) & Kommas zwischen Tausendern \\ \hline 
+Market Cap &  numerisch (Ganzzahl) & Kommas zwischen Tausendern \\ \hline 
+\caption{Data description report für ETHPriceVolumeFullDaily}
+\end{longtable}
+
+\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\hline
+Datensatz & \multicolumn{2}{l|}{BTCPriceVolumeFullDaily} \\ \hline
+Observations & \multicolumn{2}{p{9cm}|}{2247}\\ \hline
+Features & \multicolumn{2}{l|}{8} \\ \hline
+Dateigröße & \multicolumn{2}{l|}{148} \\ \hline
+\hhline{===}
+\textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
+\hhline{===}
+Date & Datum im Format 'dd/mm/yyyy HH:MM' & HH:MM ungenutzt \\ \hline
+Open &  numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+High &  numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+Low &  numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+Close &  numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+Volume (BTC) &  numerisch (Ganzzahl) & Kommas zwischen Tausendern \\ \hline 
+Volume (Currency) &  numerisch (Ganzzahl) & Kommas zwischen Tausendern \\ \hline 
+Weighted Price &  numerisch (Ganzzahl) & Kommas zwischen Tausendern \\ \hline 
+\caption{Data description report für BTCPriceVolumeFullDaily}
+\end{longtable}
+
+
+\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\hline
+Datensatz & \multicolumn{2}{l|}{bitcoinDataset} \\ \hline
+Observations & \multicolumn{2}{p{9cm}|}{2920}\\ \hline
+Features & \multicolumn{2}{l|}{24} \\ \hline
+Dateigröße & \multicolumn{2}{l|}{728} \\ \hline
+\hhline{===}
+\textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
+\hhline{===}
+Date & Datum im Format 'dd/mm/yyyy HH:MM' & HH:MM ungenutzt \\ \hline
+btc\_market\_price & numerisch (Gleitkommazahl) mit bis zu neun Nachkommastellen & \\ \hline
+btc\_total\_bitcoins & numerisch (Gleitkommazahl) mit einer Nachkommastelle & eigentlich nur ganzzahlige Werte (immer '.0' am Ende) \\ \hline
+btc\_market\_cap & numerisch (Gleitkommazahl) mit bis zu vier Nachkommastellen & \\ \hline
+btc\_trade\_volume & aaa & bbb \\ \hline
+btc\_blocks\_size & aaa & bbb \\ \hline
+btc\_avg\_block\_size & aaa & bbb \\ \hline
+btc\_n\_orphaned\_blocks & aaa & bbb \\ \hline
+btc\_n\_transactions\_per\_block & aaa & bbb \\ \hline
+btc\_median\_confirmation\_time & aaa & bbb \\ \hline
+btc\_hash\_rate & aaa & bbb \\ \hline
+btc\_difficulty & aaa & bbb \\ \hline
+btc\_miners\_revenue & aaa & bbb \\ \hline
+btc\_transaction\_fees & aaa & bbb \\ \hline
+btc\_cost\_per\_transaction\_percent & aaa & bbb \\ \hline
+btc\_cost\_per\_transaction & aaa & bbb \\ \hline
+btc\_n\_unique\_addresses & aaa & bbb \\ \hline
+btc\_n\_transactions & aaa & bbb \\ \hline
+btc\_n\_transactions\_total & aaa & bbb \\ \hline
+btc\_n\_transactions\_excluding\_popular & aaa & bbb \\ \hline
+btc\_n\_transactions\_excluding\_chains\_longer\_than\_100 & aaa & bbb \\ \hline
+btc\_output\_volume & aaa & bbb \\ \hline
+btc\_estimated\_transaction\_volume & aaa & bbb \\ \hline
+btc\_estimated\_transaction\_volume\_usd & aaa & bbb \\ \hline
+
+
+\caption{Data description report für bitcoinDataset}
 \end{longtable}
 
 \subsection{Explore the Data}
