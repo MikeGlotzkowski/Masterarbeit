@@ -66,7 +66,7 @@ Google Websuchen & ja, von https://trends.google.de/trends/ & ja, von https://tr
 Google News-Suchen & ja, von https://trends.google.de/trends/ & ja, von https://trends.google.de/trends/ \\ \hline
 Wikipedia Seitenaufrufe & ja, von https://wikimedia.org/api/rest\_v1/ & ja, von https://wikimedia.org/api/rest\_v1/ \\ \hline
 Tweets (Twitter Nachrichten) & \multicolumn{2}{c}{nein, nicht kostenlos verfügbar} \\ \hline
-Zeitungsartikel/-Überschriften & \multicolumn{2}{c}{ja, von https://www.kaggle.com/sunnysai12345/news-summary}\\ \hline
+Zeitungsartikel/-Überschriften & \multicolumn{2}{c}{ja, von https://www.kaggle.com/therohk/million-headlines/data/}\\ \hline
 Blogartikel & \todo{???} & \todo{???} \\ \hline
 (Web-)Domains & \todo{???} & \todo{???} \\ \hline
 \multicolumn{3}{c}{\textit{(Aktien)indizes}}\\ \hline
@@ -298,28 +298,85 @@ Notepad++ & zur Betrachtung, Vorbereitung und Konvertierung von Daten vor dem Up
 
 \section{Data Understanding}
 \subsection{Collect the Initial Data}
-In Schritt \ref{subsec:assesTheSituation} wurden Einflussfaktoren auf den Kurs festgehalten. Zusätzlich wurden bereits Quellen für Daten zu diesen Faktoren gesucht. In diesem Schritt werden nun die Daten tatsächlich (im Sinne von 'echten' Dateien) bezogen und bereits in Azure Machine Learning geladen. Ebenfalls Teil dieses Schrittes ist es, die Daten grob zu beschreiben. Im vorliegen Fall wird die Datenspanne und weitere relevante Merkmale beschrieben. So enthalten die Daten einiger Quellen den prozentualen Anstieg eines Kurses zum Vortag. Ob diese zusätzliche Information ihren Weg in die abschließende Analyse findet, ist an dieser Stelle noch nicht zu klären.
+In Schritt \ref{subsec:assesTheSituation} wurden Einflussfaktoren auf den Kurs festgehalten. Zusätzlich wurden bereits Quellen für Daten zu diesen Faktoren gesucht. In diesem Schritt werden nun die Daten tatsächlich (im Sinne von 'echten' Dateien) bezogen und bereits in Azure Machine Learning geladen. Ebenfalls Teil dieses Schrittes ist es, die Daten grob zu beschreiben. Im vorliegen Fall wird die Datenspanne und weitere offensichtliche Merkmale beschrieben. Die Daten einiger Quellen enthalten bereits Berechnungen, wie den prozentualen Anstieg eines Kurses zum Vortag. Ob diese zusätzliche Information ihren Weg in die abschließende Analyse findet, ist an dieser Stelle noch nicht zu klären. \newline
+
 Die Herkunft der Daten ist nicht weiter beschrieben, da dies bereits in \ref{subsec:assesTheSituation} abgehandelt wurde. \newline
 
 Alle gesammelten Daten enthalten Header-Informationen (Preis, Kurs, Datum etc.). Azure ML Studio kann diese Header auslesen und nutzt sie für einfache Select- oder Join-Befehle. Damit dies möglich ist, müssen die Daten als 'Genereic CSV File with a header (.csv)' oder 'Generic TSV File with a header (.tsv)' vorliegen. In manchen Fällen ist es möglich, dass Microsoft Excel beim Speichern einer Datei als '.csv' statt Kommas, Strichpunkte zum Trennen nutzt. Hier ist darauf zu achten, dass tatsächlich Kommas als Trennzeichen genutzt werden, da Azure ML Studio diese sonst nicht interpretieren kann. Die Datei-Endung '.tsv' ist nicht zwingend erforderlich. Ein 'Tab seperated values'-File kann auch mit der Endung '.txt' hochgeladen und richtig interpretiert werden. Dies ist wichtig, da Excel als Endung für diese Dateien nicht '.tsv' sondern '.txt' wählt.\newline
 
 Azure ML Studio bietet die Möglichkeit, mehrere Dateien gezippt in das Tool zu laden. Dies bietet sich an, wenn viele einzelne Dateien hochgeladen werden sollen. Leider kann das Zip-File pro Experiment nur einmal verwendet werden und nur eine Datei daraus kann entpackt werden .Dadurch ist diese Option im Falle dieser Arbeit nicht praktikabel. Es müssen also alle Dateien einzeln geladen werden.
 
-\begin{longtable}[!h]{|p{6cm}|p{4cm}|p{5cm}|}
+\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
 \hline
+\multicolumn{3}{|c|}{Cryptowährungs-eigene Faktoren}\\ \hline
 \textbf{Datensatz} & \textbf{Reichweite} & \textbf{Besonderheiten}\\ 
 \hhline{===}
-\multicolumn{3}{|c|}{Cryptowährungs-eigene Faktoren}\\ \hline
-BTC\_total\_volume\_daily\_full.csv & 3.1.2009 bis 5.11.2017 & teilweise kein Anstieg des Volumens im Datensatz; Lücken im Datensatz \\ \hline
-BTC\_difficulty\_daily\_full.csv & 6.11.2012 bis 5.11.2017 & Zeit in UTC \\ \hline
+BTCTotalVolumeDailyFull & 3.1.2009 bis 5.11.2017 & teilweise kein Anstieg des Volumens im Datensatz; Lücken im Datensatz \\ \hline
+BTCDifficultyDailyFull & 6.11.2012 bis 5.11.2017 & Zeit in UTC \\ \hline
+BTCTransactionNumberFullyDaily & 3.1.2009 bis 5.11.2017 & \\ \hline
+BTCPriceMultipleDaily & 17.7.2010 bis 5.11.2017 & Zeit in UTC; sehr Lückenhaft, da erst ab 2016 alle enthaltenen Börsen operieren \\ \hline
+ETHTotalVolumeDailyFull & 30.7.2015 bis 5.11.2017 & Zeit in UTC und UnixTimeStamp \\ \hline
+ETHDifficulyDailyFull & 30.7.2015 bis 5.11.2017 & Zeit in UTC und UnixTimeStamp \\ \hline
+ETHTransactionNumberFullyDaily &  30.7.2015 bis 5.11.2017 & Zeit in UTC und UnixTimeStamp; ganz am Anfang einige 0-Werte \\ \hline
 \multicolumn{3}{|c|}{Öffentliches Interesse}\\ \hline
-\multicolumn{3}{|c|}{(Aktien)indizes}\\ \hline
-\multicolumn{3}{|c|}{Währungen der größten Volkswirtschaften (nach BIP)}\\ \hline
-\multicolumn{3}{|c|}{natürliche Ressourcen}\\ \hline
-\multicolumn{3}{|c|}{ETH/USD-Kurs}\\ \hline
-\multicolumn{3}{|c|}{BTC/USD-Kurs}\\ \hline
-\multicolumn{3}{|c|}{zusätzliche Eigenschaften}\\ \hline
+\textbf{Datensatz} & \textbf{Reichweite} & \textbf{Besonderheiten}\\ 
+\hhline{===}
+googleTrendsBTCWebsearch & 01.2009 bis 11.2017 & Daten im Abstand von 1 Monat; auf einer Scala von 0-100; erster nicht-null-Wert bei 05.2011 \\ \hline
+googleTrendsETHWebsearch & 01.2011 bis 11.2017 & Daten im Abstand von 1 Monat; auf einer Scala von 0-100; erster nicht-null-Wert bei 08.2014 \\ \hline
+googleTrendsBTCNewssearch & 01.2009 bis 11.2017 & Daten im Abstand von 1 Monat; auf einer Scala von 0-100; erster nicht-null-Wert bei 04.2011 \\ \hline
+googleTrendsETHNewssearch & 01.2011 bis 11.2017 & Daten im Abstand von 1 Monat; auf einer Scala von 0-100; erster nicht-null-Wert bei 07.2014 \\ \hline
+WikiPageViewsBTC & 1.7.2015 bis 7.11.2017 & Enthält Datum als zusammengesetzte Zahl im Format yyyyddmm00; enthält 7 Features, von denen 5 für jede Zeile gleich sind \\ \hline
+WikiPageViewsETH & 1.7.2015 bis 7.11.2017 & Enthält Datum als zusammengesetzte Zahl im Format yyyyddmm00; enthält 7 Features, von denen 5 für jede Zeile gleich sind \\ \hline
+abcnewsDateText & 19.2.2003 bis 30.9.2017 & großer Datensatz; viel Text; kann von Excel nicht komplett geöffnet werden \\ \hline
 
+\multicolumn{3}{|c|}{(Aktien)indizes}\\ \hline
+\textbf{Datensatz} & \textbf{Reichweite} & \textbf{Besonderheiten}\\ 
+\hhline{===}
+AEX, BFX, XU100, BVSP, VIX, CSE, GDAXI, DJI, FTSE, FTMIB, HSI, IBEX, MXX, JKSE, KSE, KS11, MCX, IXIC, NSEI, N225, OMXC20, OMXS30, IRTS, SPX, AXJO, GSPTSE, SSEC, SSMI, TA35, TASI, TRX50CAP, US2000, WIG20 & 1.1.2009 bis 9.11.2017 & alle Indices enthalten Lücken für Wochenenden und Feiertage; Datum in einem Format mit Text (!); gilt auch für nachfolgende Datensätze mit anderen Zeitspannen \\ \hline
+ATX (ATX)\_history.txt & 23.3.2015 bis 9.11.2017 & verhältnismäßig kurze Zeitspanne \\ \hline
+BSE Sensex 30 (BSESN)\_history.txt & 24.2.2011 bis 9.11.2017 & \\ \hline
+Budapest SE (BUX)\_history.txt & 7.3.2011 bis 9.11.2017 & \\ \hline
+Dow Jones New Zealand (NZDOW)\_history.txt & 25.8.2011 bis 9.11.2017 & \\ \hline
+Dow Jones Shanghai (DJSH)\_history.txt & 6.3.2011 bis 9.11.2017 & \\ \hline
+Euro Stoxx 50 (STOXX50E)\_history.txt & 15.8.2011 bis 9.11.2017 & \\ \hline
+FTSE China A50 (FTXIN9)\_history.txt & 19.3.2010 bis 9.11.2017 & \\ \hline
+FTSE Straits Times Singapore (STI)\_history.txt  & 7.3.2011 bis 9.11.2017 & \\ \hline
+HNX 30 (HNX30)\_history.txt & 4.11.2014 bis 9.11.2017 & verhältnismäßig kurze Zeitspanne \\ \hline
+PSEi Composite (PSI)\_history.txt & 3.11.2011 bis 9.11.2017 & \\ \hline
+PSI 20 (PSI20)\_history.txt & 25.4.2010 bis 9.11.2017 & \\ \hline
+SET Index (SETI)\_history.txt & 18.3.2011 bis 9.11.2017 & \\ \hline
+SZSE Component (SZSC1)\_history.txt & 14.9.2012 bis 9.11.2017 & \\ \hline
+Taiwan Weighted (TWII)\_history.txt & 17.3.2011 bis 9.11.2017 & \\ \hline
+STLFSI\_history.csv & 2.1.2009 bis 27.10.2017 & Zeilen im Abstand einer Woche; Index kann positive und negative Werte annehmen \\ \hline 
+\multicolumn{3}{|c|}{Währungen der größten Volkswirtschaften (nach BIP)}\\ \hline
+\textbf{Datensatz} & \textbf{Reichweite} & \textbf{Besonderheiten}\\
+\hhline{===}
+CNY\_USD\_history & 1.1.2009 bis 13.11.2017 & Datum in einem Format mit Text (!); Lücken an Wochenenden und Feiertagen \\ \hline
+JPY\_USD\_history & 1.1.2009 bis 13.11.2017 & Datum in einem Format mit Text (!); Lücken an Wochenenden und Feiertagen \\ \hline
+EUR\_USD\_history & 1.1.2009 bis 13.11.2017 & Datum in einem Format mit Text (!); Lücken an Wochenenden und Feiertagen \\ \hline
+GBP\_USD\_history & 1.1.2009 bis 13.11.2017 & Datum in einem Format mit Text (!); Lücken an Wochenenden und Feiertagen \\ \hline
+INR\_USD\_history & 1.1.2009 bis 13.11.2017 & Datum in einem Format mit Text (!); Lücken an Wochenenden und Feiertagen \\ \hline
+BRL\_USD\_history & 1.1.2009 bis 13.11.2017 & Datum in einem Format mit Text (!); Lücken an Wochenenden und Feiertagen \\ \hline
+\multicolumn{3}{|c|}{natürliche Ressourcen}\\ \hline
+\textbf{Datensatz} & \textbf{Reichweite} & \textbf{Besonderheiten}\\ 
+\hhline{===}
+gold\_history & 1.1.2009 bis 13.11.2017 & Datum in einem Format mit Text (!); Lücken an Wochenenden und Feiertagen \\ \hline
+silver\_history  & 1.1.2009 bis 13.11.2017 & Datum in einem Format mit Text (!); Lücken an Wochenenden und Feiertagen \\ \hline
+oil\_brent\_history  & 1.1.2009 bis 13.11.2017 & Datum in einem Format mit Text (!); Lücken an Wochenenden und Feiertagen \\ \hline
+oil\_wti\_history  & 1.1.2009 bis 13.11.2017 & Datum in einem Format mit Text (!); Lücken an Wochenenden und Feiertagen \\ \hline
+\multicolumn{3}{|c|}{ETH/USD-Kurs}\\ \hline
+\textbf{Datensatz} & \textbf{Reichweite} & \textbf{Besonderheiten}\\ 
+\hhline{===}
+ETHPriceVolumeFullDaily & 7.8.2015 bis 5.11.2017 & historische Kursdaten für ETC (Preis und Volumen); Datum in einem Format mit Text (!) \\ \hline
+\multicolumn{3}{|c|}{BTC/USD-Kurs}\\ \hline
+\textbf{Datensatz} & \textbf{Reichweite} & \textbf{Besonderheiten}\\ 
+\hhline{===}
+BTCPriceVolumeFullDaily & 13.9.2011 bis 6.11.2017 & historische Kursdaten für BTC (Preis und Volumen);  \\ \hline
+\multicolumn{3}{|c|}{zusätzliche Eigenschaften}\\ \hline
+\textbf{Datensatz} & \textbf{Reichweite} & \textbf{Besonderheiten}\\ 
+\hhline{===}
+bitcoinDataset & 6.10.2009 bis 30.10.2017 & sehr detaillierte Bitcoin Eigenschaften; 24 Features, z.B. Anzahl der einzigartigen Adressen im Netztwerk oder Kosten pro Transaktion \\ \hline
+ethereumDataset & 30.7.2017 bis 3.10.2017 & sehr detaillierte Ethereum Eigenschaften; 18 Features, z.B. Anzahl der Adressen im Ethereum-Netzwerk oder Anzahl der Blocks und Uncles \\ \hline
 \caption{Output "Initial data collection report" des Schrittes "Collect the Initial Data"}
 \end{longtable}
 
@@ -327,6 +384,11 @@ BTC\_difficulty\_daily\_full.csv & 6.11.2012 bis 5.11.2017 & Zeit in UTC \\ \hli
 Ziel: Format, größe, Anzahl der Beobachtungen; Beschaffenheit
 -->
 --> sind die Daten okay? 
+
+
+
+
+
 
 \subsection{Explore the Data}
 Ziel: Einfache Analyse der Zielvariablen 
