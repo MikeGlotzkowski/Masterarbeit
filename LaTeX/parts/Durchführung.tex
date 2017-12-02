@@ -762,21 +762,38 @@ eth \textunderscore ens \textunderscore register & numerisch (Ganzzahl) & von 30
 \label{tab:ETHextraData}
 \end{longtable}
 
+
+
+
+
+
+
 \subsection{Explore the Data}
 Ziel: Einfache Analyse der Zielvariablen 
 --> (steigend, fallend, preis?)
 
+Kann man über die ersten Zeit immer was sagen? V.A bei bitcoin? einfahc zu unbekannt, als das faktoren relevant wären (common sense...); für nacher festhalten, dass eine analyse mit ganzem satz und eine erst am aa.bb.cccc
+
 \subsection{Verify Data Quality}
 Ziel: Qualität sichern; common sense
 --> alle preise in usd; zeit in ttmmyyyy oder so
---> daten vollständig für die sachen?
---> kommas und punkte richtig?
+--> einige lücken
+--> kommas und punkte nicht immer richtig; erstezen
+--> fehler bei difficult? oder einfacher um am anfang initial zu schürfen?!
+
+
+hier aufzählen alles und bei select dann reduzieren und bei clean dann lücken etc.
+bei construict dann bis zu azure zusammenbauen 
+
+hierher zurück und fehler in den daten beschriebn, wenn welche auftauchen!
 
 \section{Data Preperation}
 \subsection{Select Data}
 Ziel: Welche Daten sind wichtig für die Analyse?
---> Vlt Daten wochenweise aggregieren
---> 
+--> textding überführen in 1 und 0
+--> paar indices killen
+--> teilweise doppelte sachen wie difficulty, dann überprüfen, ob gleich und dann 1 killen
+--> aggregieren in super
 
 \subsection{Clean Data}
 Ziel: Sachen aus "Verfiy Data Quality" aufgreifen;
@@ -784,11 +801,12 @@ Ziel: Sachen aus "Verfiy Data Quality" aufgreifen;
 
 \subsection{Construct Data}
 Ziel: Daten so umbauen, dass sie in algorithmus passen
---> neue Zeilen hinzufügen; Verdoppeln w/e
+--> aggregieren in super-datensätze für katheogien wegen azure
 
 \subsection{Integrate Data}
 Ziel: Daten zusammenführen
 --> die fertigen Datensätze, die ich gefunden habe in die BTC-, ETH-Kursdaten überführen
+--> in azure machen mit join
 
 \subsection{Format Data}
 evtl. auspassen
