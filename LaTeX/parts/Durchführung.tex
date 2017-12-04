@@ -297,7 +297,7 @@ Notepad++ & zur Betrachtung, Vorbereitung und Konvertierung von Daten vor dem Up
 
 
 \section{Data Understanding}
-\subsection{Collect the Initial Data}
+\subsection{Collect the Initial Data} \label{subsec:collection}
 In Schritt \ref{subsec:assesTheSituation} wurden Einflussfaktoren auf den Kurs festgehalten. Zusätzlich wurden bereits Quellen für Daten zu diesen Faktoren gesucht. In diesem Schritt werden nun die Daten tatsächlich (im Sinne von 'echten' Dateien) bezogen und bereits in Azure Machine Learning geladen. Ebenfalls Teil dieses Schrittes ist es, die Daten grob zu beschreiben. Im vorliegen Fall wird die Datenspanne und weitere offensichtliche Merkmale beschrieben. \newline
 
 Die Herkunft der Daten ist nicht weiter beschrieben, da dies bereits in \ref{subsec:assesTheSituation} abgehandelt wurde. \newline
@@ -727,6 +727,7 @@ btc \textunderscore n \textunderscore transactions \textunderscore excluding \te
 btc \textunderscore output \textunderscore volume & numerisch (Gleitkommazahl) mit bis zu sieben Nachkommastellen & viele Anfangswerte sind glatte Zehner \\ \hline
 btc \textunderscore estimated \textunderscore transaction \textunderscore volume & numerisch (Gleitkommazahl) mit bis zu sechs Nachkommastellen & Nachkommastellen erst ab 20.4.2016 \\ \hline
 btc \textunderscore estimated \textunderscore transaction \textunderscore volume \textunderscore usd & numerisch (Gleitkommazahl) mit bis zu vier Nachkommastellen & Nachkommastellen erst ab 20.4.2016 \\ \hline
+\caption{Data description report für bitcoinDataset}
 \label{tab:BTCextraData}
 \end{longtable}
 
@@ -756,21 +757,28 @@ eth \textunderscore blocktime & numerisch (Gleitkommazahl) mit bis zu zwei Nachk
 eth \textunderscore gasprice & numerisch (Ganzzahl) & \\ \hline
 eth \textunderscore gaslimit & numerisch (Ganzzahl) & vermutlich stufenhafter Anstieg/Abfall \\ \hline
 eth \textunderscore gasused & numerisch (Ganzzahl) & \\ \hline
-eth \textunderscore ethersupply & numerisch (Gleitkommazahl) mit bis zu fünf Nachkommastellen & bbb \\ \hline
+eth \textunderscore ethersupply & numerisch (Gleitkommazahl) mit bis zu fünf Nachkommastellen & \\ \hline
 eth \textunderscore ens \textunderscore register & numerisch (Ganzzahl) & von 30.7.2015 bis 3.5.2017 keine Daten; von 4.5.2017 bis 8.5.2017 immer Nullwerte \\ \hline
 \caption{Data description report für ethereumDataset}
 \label{tab:ETHextraData}
 \end{longtable}
 
-
-
-
-
-
+Obwohl die Qualität der Daten erst in einem nachfolgenden Schritt genauer betrachtet wird, können nach den Data description reports schon potentielle Stolperfallen \todo{darf man das so schreiben?} identifiziert werden. Diesen Herausforderungen muss sich angenommen werden:
+\begin{itemize}
+\item Die Formate des Datums sind unterschiedlich. Auch sind für einige Datensätze sieben Observations pro Woche verfügbar (z.B. für den Bitcoin-Kurs), für Andere nur 5 (z.B. für den Dow Jones Industrial Average). Daraus ergibt sich das Problem, wie die Daten am besten aneinander gesetzt (gejoint) werden.
+\item In den Daten befinden sich Lücken. Obwohl diese in der Regel im Verhältnis zum gesamten Datensatz klein sind, gibt es auch größere Lücken (z.B. die Anzahl der Registrierungen beim Ethereal Name Service pro Tag).
+\item Es tauchen Attribute doppelt auf. So beinhaltet sowohl der Datensatz BTC \textunderscore Difficulty \textunderscore Daily \textunderscore Full das Schwierigkeitsmaß für das Mininen, als auch der Datensatz bitcoinDataset. 
+\item Ein besonderen Fall stellt abcnews \textunderscore Date \textunderscore Text dar. Hierbei handelt es sich einerseits um einen Datensatz, der zu groß ist, um komplett in einem Programm geöffnet zu werden, andererseits beinhaltet er Informationen (Überschriften) als 'Klartext'. \todo{Klartext}
+\item Am Ende von Abschnitt \ref{subsec:collection} wurde bereits angesprochen, dass das Feature 'Change' (z.B. bei den Aktienindices) keinen Mehrwert für die Analyse bietet.
+\end{itemize}
 
 \subsection{Explore the Data}
 Ziel: Einfache Analyse der Zielvariablen 
 --> (steigend, fallend, preis?)
+
+wiki search/google plotten und sagen, dass bekannt erst ab xyz
+
+
 
 Kann man über die ersten Zeit immer was sagen? V.A bei bitcoin? einfahc zu unbekannt, als das faktoren relevant wären (common sense...); für nacher festhalten, dass eine analyse mit ganzem satz und eine erst am aa.bb.cccc
 
@@ -780,6 +788,8 @@ Ziel: Qualität sichern; common sense
 --> einige lücken
 --> kommas und punkte nicht immer richtig; erstezen
 --> fehler bei difficult? oder einfacher um am anfang initial zu schürfen?!
+
+Problem|Lösung tabelle
 
 
 hier aufzählen alles und bei select dann reduzieren und bei clean dann lücken etc.
@@ -792,16 +802,23 @@ hierher zurück und fehler in den daten beschriebn, wenn welche auftauchen!
 Ziel: Welche Daten sind wichtig für die Analyse?
 --> textding überführen in 1 und 0
 --> paar indices killen
+--> einige features killen: prozentualer ansteig zB
 --> teilweise doppelte sachen wie difficulty, dann überprüfen, ob gleich und dann 1 killen
---> aggregieren in super
+
 
 \subsection{Clean Data}
 Ziel: Sachen aus "Verfiy Data Quality" aufgreifen;
 --> Lücken füllen, Preise, Datum
 
+evtl. was könnte noch ein problem werden?
+
 \subsection{Construct Data}
 Ziel: Daten so umbauen, dass sie in algorithmus passen
+umfasst evtl. abgeleitete attribute; hier aber nicht. eig schon, da indices v.a stfl sehr starkt zusammenfassende dinge sind
+
 --> aggregieren in super-datensätze für katheogien wegen azure
+output: aggregierte, saubere daten
+
 
 \subsection{Integrate Data}
 Ziel: Daten zusammenführen
@@ -809,7 +826,12 @@ Ziel: Daten zusammenführen
 --> in azure machen mit join
 
 \subsection{Format Data}
-evtl. auspassen
+mal sehen, ob es auch so geht; evtl. namen der sachen ändern, damit die sachen nicht gleich heißen! (vorgreifen in construct/integrate)
+
+
+
+
+
 
 \section{Modeling}
 \subsection{Select the Modeling Technique}
