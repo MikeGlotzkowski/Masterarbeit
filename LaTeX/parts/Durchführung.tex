@@ -773,14 +773,41 @@ Obwohl die Qualität der Daten erst in einem nachfolgenden Schritt genauer betra
 \end{itemize}
 
 \subsection{Explore the Data}
-Ziel: Einfache Analyse der Zielvariablen 
---> (steigend, fallend, preis?)
+Der User Guide empfielt, um die bekannten Daten weiter zu untersuchen, "Abfrage-, Visualisierungs- und Reportingtechniken anzuwenden"\citep[S.~40; eigene Übersetzung]{chapman_crisp-dm_2000}. Es ist sicherlich aufschlussreich, alle Features auf einen Graphen mit dem Kryptowärhungskurs zu plotten. Da dies jedoch sehr aufwendig ist, werden hier nur einige Daten betrachtet. Außerdem ist es wahrscheinlich, dass komplexere Zusammenhänge nicht trivial visuell erkennbar sind.\newline
 
+Betrachtet man das Interesse am Bitcoin (Google Websuchen und Google Newssuchen) mit dem R Statement in Listing \ref{list:PublicInterestBTC}, so zeigt sich, dass der erste Ausschlag Mitte 2011 zu erkennen ist und der Nächste erst Anfang 2013 (Abbildung \ref{fig:PublicInterestBTC}). 
+\lstinputlisting[caption=Google Websuchen und Newssuchen für "Bitcoin" im zeitlichen Verlauf in R,label=list:PublicInterestBTC]{../R/punlicInterestPlots/PublicInterestBTC.R}
+\begin{figure}[H]
+\frame{
+\includegraphics[width=\textwidth]{images/BTCpublicWithoutPrice}}
+\caption{Google Websuchen und Newssuchen für "Bitcoin" im zeitlichen Verlauf}
+\label{fig:PublicInterestBTC}
+\centering
+\end{figure}
+Interpretiert man die Googlesuchen als Indikator für den Bekanntheitsgrad des Bitcoins, so lässt sich daraus schließen, dass die Währung bis 2011 sehr unbekannt und erst nach 2013 wirklich bekannt war. Zieht man nun den Bitcoinkurs heran (Listing \ref{list:PublicInterestBTC2}), so lässt sich ein Zusammenhang erkennen (Abbildung \ref{fig:PublicInterestBTC2}). 
+\lstinputlisting[caption=Google Websuchen und Newssuchen für "Bitcoin" und Bitcoinkurs im zeitlichen Verlauf in R,label=list:PublicInterestBTC2]{../R/punlicInterestPlots/PublicInterestBTC2.R}
+\begin{figure}[H]
+\frame{
+\includegraphics[width=\textwidth]{images/BTCpublicWithPrice}}
+\caption{Google Websuchen und Newssuchen für "Bitcoin" im zeitlichen Verlauf}
+\label{fig:PublicInterestBTC2}
+\centering
+\end{figure}
+Anzumerken ist hier, dass die historischen Kursdaten hier in keinem Verhältnis zur y-Achse stehen und nur der grafischen Darstellung dienen.
+
+
+
+\todo{analog eth; schlussfolgerung}
 wiki search/google plotten und sagen, dass bekannt erst ab xyz
 
 
 
 Kann man über die ersten Zeit immer was sagen? V.A bei bitcoin? einfahc zu unbekannt, als das faktoren relevant wären (common sense...); für nacher festhalten, dass eine analyse mit ganzem satz und eine erst am aa.bb.cccc
+
+Output Data exploration report
+
+
+Wie zu sehen ist, sind die Teilschritte und Phasen im CRISP-DM-Referenzmodell nicht strikt von einander getrennt, sondern gehen 
 
 \subsection{Verify Data Quality}
 Ziel: Qualität sichern; common sense
