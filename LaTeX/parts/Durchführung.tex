@@ -793,23 +793,31 @@ Interpretiert man die Googlesuchen als Indikator für den Bekanntheitsgrad des B
 \label{fig:PublicInterestBTC2}
 \centering
 \end{figure}
-Anzumerken ist hier, dass die historischen Kursdaten hier in keinem Verhältnis zur y-Achse stehen und nur der grafischen Darstellung dienen.
+Anzumerken ist, dass die historischen Kursdaten hier in keinem Verhältnis zur y-Achse stehen und nur der grafischen Darstellung dienen.
+Anders verhält es sich bei Etherum (siehe Abbildung \ref{fig:PublicInterestETH}). Hier besteht schon vor dem offiziellen Start des Etherumnetzwerks\citep{tual_ethereum_2015} ein gewisses Interesse.
+\begin{figure}[H]
+\frame{
+\includegraphics[width=\textwidth]{images/ETHpublicWithPrice}}
+\caption{Google Websuchen und Newssuchen für "Ethereum" im zeitlichen Verlauf}
+\label{fig:PublicInterestETH}
+\centering
+\end{figure}
+Als Schlussfolgerung lässt sich daraus ableiten, dass es sehr unwahrscheinlich ist, dass Indikatoren wie Aktienindices oder der Ölpreis den Kryptowährungskurs beeinflussen, wenn sie noch unbekannt ist. Deswegen empfiehlt sich für die Analyse der Zeitraum, seit die Währungen Bekanntheit erlangt haben. 
 
+\begin{longtable}[H]{|p{4,5cm}|p{12cm}|}
+\hline
+\textbf{Output} & \textbf{Beschreibung} \\ 
+\hhline{==}
+Data exploration report & Analyse des Bitcoinkurses erst ab 1.1.2011; des Etherumkurses ab 30.7.2015\\
+\hline
+\caption{Output des Schrittes "Explore the Data"}
+\end{longtable}
 
-
-\todo{analog eth; schlussfolgerung}
-wiki search/google plotten und sagen, dass bekannt erst ab xyz
-
-
-
-Kann man über die ersten Zeit immer was sagen? V.A bei bitcoin? einfahc zu unbekannt, als das faktoren relevant wären (common sense...); für nacher festhalten, dass eine analyse mit ganzem satz und eine erst am aa.bb.cccc
-
-Output Data exploration report
-
-
-Wie zu sehen ist, sind die Teilschritte und Phasen im CRISP-DM-Referenzmodell nicht strikt von einander getrennt, sondern gehen 
 
 \subsection{Verify Data Quality}
+
+
+
 Ziel: Qualität sichern; common sense
 --> alle preise in usd; zeit in ttmmyyyy oder so
 --> einige lücken
