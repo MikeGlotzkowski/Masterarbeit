@@ -386,13 +386,7 @@ Wie in Tabelle \ref{tab:initialDataCollectionReport} zu sehen ist, umfassen die 
 Einige der Datensätze beinhalten nicht nur rohe Daten, sondern bereits Brechungen, wie den prozentualen Anstieg eines Kurses zum Vortag. Obwohl die Features des Datensatzes erst im nachfolgenden Schritt beschrieben werden, kann hier schon festgehalten werden, dass diese 'Zusatzinformationen' von der Analyse ausgeschlossen werden. Es handelt sich dabei lediglich um eine - für den menschlichen Betrachter einfach zu verstehende - andere Schreibweise für die Daten in einer Zeitreihe und nicht um zusätzliche Informationen. \newline
 
 \subsection{Describe the Data} \label{subsec:describe}
-Ziel: Format, größe, Anzahl der Beobachtungen; Beschaffenheit
--->
---> sind die Daten okay? 
-numerisch; Ganzhal
-Float, Kommazahl
-
-Eine detaillierte Beschreibung der oben genannten Datensätze erfolgt nun. Für jeden Satz, bzw. jede homogene Gruppe (wie die Aktienindices), werden die Anzahl der Spalten (Features), die Anzahl der Reihen (Observations) und die Dateigröße (in Kilobyte; KB) angegeben. Außerdem werden für die Features genauer erläutert.
+Eine detaillierte Beschreibung der oben genannten Datensätze erfolgt nun. Für jeden Satz, bzw. jede homogene Gruppe (wie die Aktienindices), werden die Anzahl der Spalten (Features), die Anzahl der Reihen (Observations) und die Dateigröße (in Kilobyte; KB) angegeben. Außerdem werden für die Features genauer erläutert. Beim Datentyp 'numerisch' handelt es sich um eine Ganzzahl, bei 'numerisch (5)' um eine Gleitkommazahl mit bis zu fünf Nachkommastellen.
 
 \begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
 \hline
@@ -403,8 +397,8 @@ Dateigröße & \multicolumn{2}{l|}{32} \\ \hline
 \hhline{===}
 \textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
 \hhline{===}
-Date & Datum im Format dd/mm/yyyy HH:MM & HH:MM unbenutzt \\ \hline
-Volume & numerisch (Gleitkommazahl) mit einer Nachkommastelle & extrem große Lücke zwischen 20.9.2012 und 9.7.2016; eventuell nicht zu gebrauchen; zwischen 50.0 und 16665662.5 \\ \hline 
+Date & Datum im Format 'dd/mm/yyyy HH:MM' & HH:MM unbenutzt \\ \hline
+Volume & numerisch (1) & extrem große Lücke zwischen 20.9.2012 und 9.7.2016; eventuell nicht zu gebrauchen; zwischen 50.0 und 16665662.5 \\ \hline 
 \caption{Data description report für BTC \textunderscore Total \textunderscore Volume \textunderscore Daily \textunderscore Full}
 \end{longtable}
 
@@ -417,8 +411,8 @@ Dateigröße & \multicolumn{2}{l|}{78} \\ \hline
 \hhline{===}
 \textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
 \hhline{===}
-Date & Datum im Format yyyy-mm-dd HH:MM:SS UTC & HH:MM:SS unbenutzt \\ \hline
-Difficulty & numerisch (Gleitkommazahl) mit zwei Nachkommastelle & Inkonsistenzen in der Difficulty, teilweise um Faktor 100 unterschiedliche Werte in aufeinanderfolgenden Zeilen; manche mit Nachkommastellen, manche ohne \\ \hline 
+Date & Datum im Format 'yyyy-mm-dd HH:MM:SS UTC' & HH:MM:SS unbenutzt \\ \hline
+Difficulty & numerisch (2) & Inkonsistenzen in der Difficulty, teilweise um Faktor 100 unterschiedliche Werte in aufeinanderfolgenden Zeilen; manche mit Nachkommastellen, manche ohne \\ \hline 
 \caption{Data description report für BTC \textunderscore Difficulty \textunderscore Daily \textunderscore Full}
 \end{longtable}
 
@@ -431,8 +425,8 @@ Dateigröße & \multicolumn{2}{l|}{46} \\ \hline
 \hhline{===}
 \textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
 \hhline{===}
-Date & Datum im Format dd/mm/yy HH:MM & HH:MM:SS unbenutzt \\ \hline
-Transactions & numerisch (Ganzzahl) &   \\ \hline 
+Date & Datum im Format 'dd/mm/yy HH:MM' & HH:MM:SS unbenutzt \\ \hline
+Transactions & numerisch (0) &   \\ \hline 
 \caption{Data description report für BTC \textunderscore Transaction \textunderscore Number \textunderscore Fully \textunderscore Daily}
 \end{longtable}
 
@@ -445,7 +439,7 @@ Dateigröße & \multicolumn{2}{l|}{279} \\ \hline
 \hhline{===}
 \textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
 \hhline{===}
-Time & Datum im Format dd/mm/yy HH:MM & HH:MM:SS unbenutzt \\ \hline
+Time & Datum im Format 'dd/mm/yy HH:MM' & HH:MM:SS unbenutzt \\ \hline
 bit-x & numerisch (Gleitkommazahl) & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
 bitbay & numerisch (Gleitkommazahl) & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
 cex.io & numerisch (Gleitkommazahl) & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
@@ -468,9 +462,9 @@ Dateigröße & \multicolumn{2}{l|}{33} \\ \hline
 \hhline{===}
 \textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
 \hhline{===}
-Date(UTC) & Datum im Format m/dd/yyyy &  \\ \hline
-UnixTimeStamp & numerisch (Ganzzahl) & zusätzliches Datum als Unix Timestamp \\ \hline 
-Value & numerisch (Ganzzahl) & von 7204930659375 (min) bis 9554710634375 (max) \\ \hline 
+Date(UTC) & Datum im Format 'm/dd/yyyy' &  \\ \hline
+UnixTimeStamp & numerisch (0) & zusätzliches Datum als Unix Timestamp \\ \hline 
+Value & numerisch (0) & von 7204930659375 (min) bis 9554710634375 (max) \\ \hline 
 \caption{Data description report für ETH \textunderscore Total \textunderscore Volume \textunderscore Daily \textunderscore Full}
 \end{longtable}
 
@@ -483,9 +477,9 @@ Dateigröße & \multicolumn{2}{l|}{32} \\ \hline
 \hhline{===}
 \textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
 \hhline{===}
-Date(UTC) & Datum im Format m/dd/yyyy &  \\ \hline
-UnixTimeStamp & numerisch (Ganzzahl) & zusätzliches Datum als Unix Timestamp \\ \hline 
-Value & numerisch (Ganzzahl) & \\ \hline 
+Date(UTC) & Datum im Format 'm/dd/yyyy' &  \\ \hline
+UnixTimeStamp & numerisch (0) & zusätzliches Datum als Unix Timestamp \\ \hline 
+Value & numerisch (0) & \\ \hline 
 \caption{Data description report für ETH \textunderscore Difficuly \textunderscore Daily \textunderscore Full}
 \end{longtable}
 
@@ -498,9 +492,9 @@ Dateigröße & \multicolumn{2}{l|}{31} \\ \hline
 \hhline{===}
 \textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
 \hhline{===}
-Date(UTC) & Datum im Format m/dd/yyyy &  \\ \hline
-UnixTimeStamp & numerisch (Ganzzahl) & zusätzliches Datum als Unix Timestamp \\ \hline 
-Value & numerisch (Ganzzahl) & \\ \hline 
+Date(UTC) & Datum im Format 'm/dd/yyyy' &  \\ \hline
+UnixTimeStamp & numerisch (0) & zusätzliches Datum als Unix Timestamp \\ \hline 
+Value & numerisch (0) & \\ \hline 
 \caption{Data description report für ETH \textunderscore Transaction \textunderscore Number \textunderscore Fully \textunderscore Daily}
 \end{longtable}
 
@@ -513,8 +507,8 @@ Dateigröße & \multicolumn{2}{l|}{2} \\ \hline
 \hhline{===}
 \textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
 \hhline{===}
-Monat & Datum im Format yyyy-mm & keine Stelle für 'Tag' \\ \hline
-bitcoin: (Weltweit) & numerisch (Ganzzahl) & Scala von 0 bis 100 \\ \hline
+Monat & Datum im Format 'yyyy-mm' & keine Stelle für 'Tag' \\ \hline
+bitcoin: (Weltweit) & numerisch (0) & Scala von 0 bis 100 \\ \hline
 \caption{Data description report für google \textunderscore Trends \textunderscore BTC \textunderscore Newssearch und google \textunderscore Trends \textunderscore BTC \textunderscore Websearch}
 \end{longtable}
 
@@ -527,8 +521,8 @@ Dateigröße & \multicolumn{2}{l|}{1} \\ \hline
 \hhline{===}
 \textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
 \hhline{===}
-Monat & Datum im Format yyyy-mm & keine Stelle für 'Tag' \\ \hline
-Ethereum: (Weltweit) & numerisch (Ganzzahl) & Scala von 0 bis 100 \\ \hline
+Monat & Datum im Format 'yyyy-mm' & keine Stelle für 'Tag' \\ \hline
+Ethereum: (Weltweit) & numerisch (0) & Scala von 0 bis 100 \\ \hline
 \caption{Data description report für google \textunderscore Trends \textunderscore ETH \textunderscore Newssearch und google \textunderscore Trends \textunderscore ETH \textunderscore Websearch}
 \end{longtable}
 
@@ -545,10 +539,10 @@ Dateigröße & \multicolumn{2}{l|}{57} \\ \hline
 project & text & immer 'en.wikipedia' \\ \hline
 article & text & immer 'Bitcoin' \\ \hline
 granularity & text & immer 'daily' \\ \hline
-timestamp & Datum im Format yyyymmdd00 & \\ \hline
+timestamp & Datum im Format 'yyyymmddhh' & hh immer 00\\ \hline
 access & text & immer 'all-access' \\ \hline
 agents & text & immer 'all-agents' \\ \hline
-views & numerisch (Ganzzahl) & \\ \hline
+views & numerisch (0) & \\ \hline
 \caption{Data description report für Wiki \textunderscore Page \textunderscore Views \textunderscore BTC}
 \end{longtable}
 
@@ -564,10 +558,10 @@ Dateigröße & \multicolumn{2}{l|}{57} \\ \hline
 project & text & immer 'en.wikipedia' \\ \hline
 article & text & immer 'Ethereum' \\ \hline
 granularity & text & immer 'daily' \\ \hline
-timestamp & Datum im Format yyyymmdd00 & \\ \hline
+timestamp & Datum im Format 'yyyymmdd00' & hh immer 00\\ \hline
 access & text & immer 'all-access' \\ \hline
 agents & text & immer 'all-agents' \\ \hline
-views & numerisch (Ganzzahl) & \\ \hline
+views & numerisch (0) & \\ \hline
 \caption{Data description report für Wiki \textunderscore Page \textunderscore Views \textunderscore ETH}
 \end{longtable}
 
@@ -595,10 +589,10 @@ Dateigröße & \multicolumn{2}{l|}{bei vollständigen (1.1.2009 bis 5.11.2017) 2
 \textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
 \hhline{===}
 Date & Datum im Format 'mmm dd, yyyy' (mmm als Text) & Monat als Text (z.B. 'Jan 02, 2009') \\ \hline
-Price & numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt; Tausender durch Komma \\ \hline 
-Open &  numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt; Tausender durch Komma \\ \hline 
-High &  numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt; Tausender durch Komma \\ \hline 
-Low &  numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt; Tausender durch Komma \\ \hline 
+Price & numerisch (2) & Nachkommastellen durch Punkt abgetrennt; Tausender durch Komma \\ \hline 
+Open &  numerisch (2) & Nachkommastellen durch Punkt abgetrennt; Tausender durch Komma \\ \hline 
+High &  numerisch (2) & Nachkommastellen durch Punkt abgetrennt; Tausender durch Komma \\ \hline 
+Low &  numerisch (2) & Nachkommastellen durch Punkt abgetrennt; Tausender durch Komma \\ \hline 
 Vol. & Mischform aus Zahl und Text & Werte mit 'K' für Tausend (Kilo), 'M' für Millionen (engl. Millions) und 'B' für Milliarden (engl. Billions); Fehlende Werte mit Strich (-) gekennzeichnet \\ \hline
 Change \% & Prozentzahl mit Prozentzeichen (\%) & negative und positive Werte \\ \hline
 \caption{Data description report für alle Aktienindices}
@@ -614,7 +608,7 @@ Dateigröße & \multicolumn{2}{l|}{9} \\ \hline
 \textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
 \hhline{===}
 DATE & Datum im Format 'dd/mm/yyyy' & in wöchentlichem Abstand \\ \hline
-STLFSI & numerisch (Gleitkommazahl) mit drei Nachkommastellen & im Intervall von [-1,586;3,246] \\ \hline
+STLFSI & numerisch (3) & im Intervall von [-1,586;3,246] \\ \hline
 \caption{Data description report für STLFSI \textunderscore history}
 \end{longtable}
 
@@ -628,10 +622,10 @@ Dateigröße & \multicolumn{2}{l|}{INR: 51; BRL, CNY, GBP, JPY: 110; EUR: 111 } 
 \textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
 \hhline{===}
 Date & Datum im Format 'mmm dd, yyyy' (mmm als Text) & Monat als Text (z.B. 'Jan 02, 2009') \\ \hline
-Price & numerisch (Gleitkommazahl) mit bis zu vier Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
-Open &  numerisch (Gleitkommazahl) mit bis zu vier Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
-High &  numerisch (Gleitkommazahl) mit bis zu vier Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
-Low &  numerisch (Gleitkommazahl) mit bis zu vier Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+Price & numerisch (4) & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+Open &  numerisch (4) & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+High &  numerisch (4) & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+Low &  numerisch (4) & Nachkommastellen durch Punkt abgetrennt \\ \hline 
 Change \% & Prozentzahl mit Prozentzeichen (\%) & negative und positive Werte \\ \hline
 \caption{Data description report für alle Währungen}
 \end{longtable}
@@ -646,10 +640,10 @@ Dateigröße & \multicolumn{2}{l|}{unterschiedlich; Gold und Silber: 139, Brent:
 \textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
 \hhline{===}
 Date & Datum im Format 'mmm dd, yyyy' (mmm als Text) & Monat als Text (z.B. 'Jan 02, 2009') \\ \hline
-Price & numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
-Open &  numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
-High &  numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
-Low &  numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+Price & numerisch (2) & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+Open &  numerisch (2) & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+High &  numerisch (2) & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+Low &  numerisch (2) & Nachkommastellen durch Punkt abgetrennt \\ \hline 
 Change \% & Prozentzahl mit Prozentzeichen (\%) & negative und positive Werte \\ \hline
 \caption{Data description report für alle natürlichen Ressourcen}
 \end{longtable}
@@ -664,12 +658,12 @@ Dateigröße & \multicolumn{2}{l|}{51} \\ \hline
 \textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
 \hhline{===}
 Date & Datum im Format 'mmm dd, yyyy' (mmm als Text) & Monat als Text (z.B. 'Jan 02, 2009') \\ \hline
-Open &  numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
-High &  numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
-Low &  numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
-Close &  numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
-Volume &  numerisch (Ganzzahl) & Kommas zwischen Tausendern \\ \hline 
-Market Cap &  numerisch (Ganzzahl) & Kommas zwischen Tausendern \\ \hline 
+Open &  numerisch (2) & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+High &  numerisch (2) & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+Low &  numerisch (2) & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+Close &  numerisch (2) & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+Volume &  numerisch (0) & Kommas zwischen Tausendern \\ \hline 
+Market Cap &  numerisch (0) & Kommas zwischen Tausendern \\ \hline 
 \caption{Data description report für ETH \textunderscore Price \textunderscore Volume \textunderscore Full \textunderscore Daily}
 \end{longtable}
 
@@ -683,13 +677,13 @@ Dateigröße & \multicolumn{2}{l|}{148} \\ \hline
 \textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
 \hhline{===}
 Date & Datum im Format 'dd/mm/yyyy HH:MM' & HH:MM ungenutzt \\ \hline
-Open &  numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
-High &  numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
-Low &  numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
-Close &  numerisch (Gleitkommazahl) mit zwei Nachkommastellen & Nachkommastellen durch Punkt abgetrennt \\ \hline 
-Volume (BTC) &  numerisch (Ganzzahl) & Kommas zwischen Tausendern \\ \hline 
-Volume (Currency) &  numerisch (Ganzzahl) & Kommas zwischen Tausendern \\ \hline 
-Weighted Price &  numerisch (Ganzzahl) & Kommas zwischen Tausendern \\ \hline 
+Open &  numerisch (2) & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+High &  numerisch (2) & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+Low &  numerisch (2) & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+Close &  numerisch (2) & Nachkommastellen durch Punkt abgetrennt \\ \hline 
+Volume (BTC) &  numerisch (0) & Kommas zwischen Tausendern \\ \hline 
+Volume (Currency) &  numerisch (0) & Kommas zwischen Tausendern \\ \hline 
+Weighted Price &  numerisch (0) & Kommas zwischen Tausendern \\ \hline 
 \caption{Data description report für BTC \textunderscore Price \textunderscore Volume \textunderscore Full \textunderscore Daily}
 \end{longtable}
 
@@ -704,29 +698,29 @@ Dateigröße & \multicolumn{2}{l|}{728} \\ \hline
 \textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
 \hhline{===}
 Date & Datum im Format 'dd/mm/yyyy HH:MM' & HH:MM ungenutzt \\ \hline
-btc \textunderscore market \textunderscore price & numerisch (Gleitkommazahl) mit bis zu neun Nachkommastellen & \\ \hline
-btc \textunderscore total \textunderscore bitcoins & numerisch (Gleitkommazahl) mit einer Nachkommastelle & eigentlich nur ganzzahlige Werte (immer '.0' am Ende) \\ \hline
-btc \textunderscore market \textunderscore cap & numerisch (Gleitkommazahl) mit bis zu fünf Nachkommastellen & \\ \hline
-btc \textunderscore trade \textunderscore volume & numerisch (Gleitkommazahl) mit bis zu vier Nachkommastellen & Zu Beginn immer 0; enthält Lücken \\ \hline
-btc \textunderscore blocks \textunderscore size & numerisch (Gleitkommazahl) mit bis zu vier Nachkommastellen &  Zu Beginn immer 0; Nachkommastellen erst ab 20.4.2016 \\ \hline
-btc \textunderscore avg \textunderscore block \textunderscore size & numerisch (Gleitkommazahl) mit bis zu 16 (?) Nachkommastellen & Bis auf einen Wert (2.10.2017) immer < 0\\ \hline
-btc \textunderscore n \textunderscore orphaned \textunderscore blocks & numerisch (Ganzzahl) & Nur Werte im Intervall [0;7] \\ \hline
-btc \textunderscore n \textunderscore transactions \textunderscore per \textunderscore block & numerisch (Gleitkommazahl) mit bis zu acht Nachkommastellen & Nachkommastellen erst ab 20.4.2016 \\ \hline
-btc \textunderscore median \textunderscore confirmation \textunderscore time & numerisch (Gleitkommazahl) mit bis zu elf Nachkommastellen & Manche Werte scheinen Perioden darzustellen (7,86666666667 oder 7,93333333333) \\ \hline
-btc \textunderscore hash \textunderscore rate & numerisch (Gleitkommazahl) mit bis zu 17 Nachkommastellen & Große Spanne von \num{2,04e-6} bis \num{1,0e+12} \\ \hline
-btc \textunderscore difficulty & numerisch (Gleitkommazahl) mit bis zu elf Nachkommastellen & maximal 12 Stellen (Vorkommastellen + Nachkommastellen = 12) \\ \hline
-btc \textunderscore miners \textunderscore revenue & numerisch (Gleitkommazahl) mit bis zu vier Nachkommastellen & \\ \hline
-btc \textunderscore transaction \textunderscore fees & numerisch (Gleitkommazahl) mit bis zu acht Nachkommastellen & \\ \hline
-btc \textunderscore cost \textunderscore per \textunderscore transaction \textunderscore percent & numerisch (Gleitkommazahl) mit bis zu elf Nachkommastellen & Werte werden nach unten (zeitlich später) kleiner \\ \hline
-btc \textunderscore cost \textunderscore per \textunderscore transaction & numerisch (Gleitkommazahl) mit bis zu elf Nachkommastellen & maximal 12 Stellen (Vorkommastellen + Nachkommastellen = 12) \\ \hline
-btc \textunderscore n \textunderscore unique \textunderscore addresses & numerisch (Ganzzahl) & \\ \hline
-btc \textunderscore n \textunderscore transactions & numerisch (Ganzzahl) & \\ \hline
-btc \textunderscore n \textunderscore transactions \textunderscore total & numerisch (Ganzzahl) & Werte kumulativ (stetig steigend) \\ \hline
-btc \textunderscore n \textunderscore transactions \textunderscore excluding \textunderscore popular & numerisch (Ganzzahl) & \\ \hline
-btc \textunderscore n \textunderscore transactions \textunderscore excluding \textunderscore chains \textunderscore longer \textunderscore than \textunderscore 100 & numerisch (Ganzzahl) & Bis zum 18.4.2010 identisch mit btc \textunderscore n \textunderscore transactions \textunderscore excluding \textunderscore popular \\ \hline
-btc \textunderscore output \textunderscore volume & numerisch (Gleitkommazahl) mit bis zu sieben Nachkommastellen & viele Anfangswerte sind glatte Zehner \\ \hline
-btc \textunderscore estimated \textunderscore transaction \textunderscore volume & numerisch (Gleitkommazahl) mit bis zu sechs Nachkommastellen & Nachkommastellen erst ab 20.4.2016 \\ \hline
-btc \textunderscore estimated \textunderscore transaction \textunderscore volume \textunderscore usd & numerisch (Gleitkommazahl) mit bis zu vier Nachkommastellen & Nachkommastellen erst ab 20.4.2016 \\ \hline
+btc \textunderscore market \textunderscore price & numerisch (9) & \\ \hline
+btc \textunderscore total \textunderscore bitcoins & numerisch (1) & eigentlich nur ganzzahlige Werte (immer '.0' am Ende) \\ \hline
+btc \textunderscore market \textunderscore cap & numerisch (5) & \\ \hline
+btc \textunderscore trade \textunderscore volume & numerisch (4) & Zu Beginn immer 0; enthält Lücken \\ \hline
+btc \textunderscore blocks \textunderscore size & numerisch (4) &  Zu Beginn immer 0; Nachkommastellen erst ab 20.4.2016 \\ \hline
+btc \textunderscore avg \textunderscore block \textunderscore size & numerisch (16?) & Bis auf einen Wert (2.10.2017) immer < 0\\ \hline
+btc \textunderscore n \textunderscore orphaned \textunderscore blocks & numerisch (0) & Nur Werte im Intervall [0;7] \\ \hline
+btc \textunderscore n \textunderscore transactions \textunderscore per \textunderscore block & numerisch (8) & Nachkommastellen erst ab 20.4.2016 \\ \hline
+btc \textunderscore median \textunderscore confirmation \textunderscore time & numerisch (11) & Manche Werte scheinen Perioden darzustellen (7,86666666667 oder 7,93333333333) \\ \hline
+btc \textunderscore hash \textunderscore rate & numerisch (17) & Große Spanne von \num{2,04e-6} bis \num{1,0e+12} \\ \hline
+btc \textunderscore difficulty & numerisch (11) & maximal 12 Stellen (Vorkommastellen + Nachkommastellen = 12) \\ \hline
+btc \textunderscore miners \textunderscore revenue & numerisch (4) & \\ \hline
+btc \textunderscore transaction \textunderscore fees & numerisch (8) & \\ \hline
+btc \textunderscore cost \textunderscore per \textunderscore transaction \textunderscore percent & numerisch (11) & Werte werden nach unten (zeitlich später) kleiner \\ \hline
+btc \textunderscore cost \textunderscore per \textunderscore transaction & numerisch (11) & maximal 12 Stellen (Vorkommastellen + Nachkommastellen = 12) \\ \hline
+btc \textunderscore n \textunderscore unique \textunderscore addresses & numerisch (0) & \\ \hline
+btc \textunderscore n \textunderscore transactions & numerisch (0) & \\ \hline
+btc \textunderscore n \textunderscore transactions \textunderscore total & numerisch (0) & Werte kumulativ (stetig steigend) \\ \hline
+btc \textunderscore n \textunderscore transactions \textunderscore excluding \textunderscore popular & numerisch (0) & \\ \hline
+btc \textunderscore n \textunderscore transactions \textunderscore excluding \textunderscore chains \textunderscore longer \textunderscore than \textunderscore 100 & numerisch (0) & Bis zum 18.4.2010 identisch mit btc \textunderscore n \textunderscore transactions \textunderscore excluding \textunderscore popular \\ \hline
+btc \textunderscore output \textunderscore volume & numerisch (7) & viele Anfangswerte sind glatte Zehner \\ \hline
+btc \textunderscore estimated \textunderscore transaction \textunderscore volume & numerisch (6) & Nachkommastellen erst ab 20.4.2016 \\ \hline
+btc \textunderscore estimated \textunderscore transaction \textunderscore volume \textunderscore usd & numerisch (4) & Nachkommastellen erst ab 20.4.2016 \\ \hline
 \caption{Data description report für bitcoinDataset}
 \label{tab:BTCextraData}
 \end{longtable}
@@ -743,22 +737,22 @@ Dateigröße & \multicolumn{2}{l|}{115} \\ \hline
 \hhline{===}
 Date(UTC) & Datum im Format 'mm/dd/yyyy' & \\ \hline
 UnixTimeStamp & Datum im Format UnixTimeStamp & \\ \hline
-eth \textunderscore etherprice & numerisch (Gleitkommazahl) mit bis zu zwei Nachkommastellen & bbb \\ \hline
-eth \textunderscore tx & numerisch (Ganzzahl) & \\ \hline
-eth \textunderscore address & numerisch (Ganzzahl) & Werte stetig steigend \\ \hline
-eth \textunderscore supply & numerisch (Gleitkommazahl) mit bis zu vier Nachkommastellen &  Werte stetig steigend \\ \hline
-eth \textunderscore marketcap & numerisch (Gleitkommazahl) mit bis zu neun Nachkommastellen & \\ \hline
-eth \textunderscore hashrate & numerisch (Gleitkommazahl) mit bis zu vier Nachkommastellen & \\ \hline
-eth \textunderscore difficulty & numerisch (Gleitkommazahl) mit bis zu drei Nachkommastellen & die ersten drei Werte sind < 0, was der Definition der Schwierigkeit widerspricht \\ \hline
-eth \textunderscore blocks & numerisch (Ganzzahl) & immer vierstellig \\ \hline
-eth \textunderscore uncles & numerisch (Ganzzahl) & \\ \hline
-eth \textunderscore blocksize & numerisch (Ganzzahl) & \\ \hline
-eth \textunderscore blocktime & numerisch (Gleitkommazahl) mit bis zu zwei Nachkommastellen & Nur Werte im Intervall [4,46;30,31]\\ \hline
-eth \textunderscore gasprice & numerisch (Ganzzahl) & \\ \hline
-eth \textunderscore gaslimit & numerisch (Ganzzahl) & vermutlich stufenhafter Anstieg/Abfall \\ \hline
-eth \textunderscore gasused & numerisch (Ganzzahl) & \\ \hline
-eth \textunderscore ethersupply & numerisch (Gleitkommazahl) mit bis zu fünf Nachkommastellen & \\ \hline
-eth \textunderscore ens \textunderscore register & numerisch (Ganzzahl) & von 30.7.2015 bis 3.5.2017 keine Daten; von 4.5.2017 bis 8.5.2017 immer Nullwerte \\ \hline
+eth \textunderscore etherprice & numerisch (2) & bbb \\ \hline
+eth \textunderscore tx & numerisch (0) & \\ \hline
+eth \textunderscore address & numerisch (0) & Werte stetig steigend \\ \hline
+eth \textunderscore supply & numerisch (4) &  Werte stetig steigend \\ \hline
+eth \textunderscore marketcap & numerisch (9) & \\ \hline
+eth \textunderscore hashrate & numerisch (4) & \\ \hline
+eth \textunderscore difficulty & numerisch (3) & die ersten drei Werte sind < 0, was der Definition der Schwierigkeit widerspricht \\ \hline
+eth \textunderscore blocks & numerisch (0) & immer vierstellig \\ \hline
+eth \textunderscore uncles & numerisch (0) & \\ \hline
+eth \textunderscore blocksize & numerisch (0) & \\ \hline
+eth \textunderscore blocktime & numerisch (2) & Nur Werte im Intervall [4,46;30,31]\\ \hline
+eth \textunderscore gasprice & numerisch (0) & \\ \hline
+eth \textunderscore gaslimit & numerisch (0) & vermutlich stufenhafter Anstieg/Abfall \\ \hline
+eth \textunderscore gasused & numerisch (0) & \\ \hline
+eth \textunderscore ethersupply & numerisch (5) & \\ \hline
+eth \textunderscore ens \textunderscore register & numerisch (0) & von 30.7.2015 bis 3.5.2017 keine Daten; von 4.5.2017 bis 8.5.2017 immer Nullwerte \\ \hline
 \caption{Data description report für ethereumDataset}
 \label{tab:ETHextraData}
 \end{longtable}
@@ -815,30 +809,39 @@ Data exploration report & Analyse des Bitcoinkurses erst ab 1.1.2011; des Etheru
 
 
 \subsection{Verify Data Quality}
+Bei der Sicherung der Datenqualität fällt auf, dass die Daten oberflächlich eine hohe Qualität aufweisen. Beispielsweise sind alle Datensätze in USD angegeben und strukturiert. Sie enthalten pro Datei nicht viele Features und besitzen kaum lückenhafte Spalten. Jedoch sind einige Dinge zu beachten (siehe Tabelle \ref{tab:dataQual}).
 
-
-
-Ziel: Qualität sichern; common sense
---> alle preise in usd; zeit in ttmmyyyy oder so
---> einige lücken
---> kommas und punkte nicht immer richtig; erstezen
---> fehler bei difficult? oder einfacher um am anfang initial zu schürfen?!
-
-Problem|Lösung tabelle
-
+\begin{longtable}[H]{|p{5,5cm}|p{8,5cm}|}
+\hline
+\textbf{Problem} & \textbf{Lösung} \\ 
+\hhline{==}
+Die verschiedenen Datensätze haben unterschiedliche Datumsformate. Dies birgt Risiken beim Zusammenführen der Daten. & Vor dem Joinen der Daten müssten die Formate uniformiert werden. Dies kann beispielsweise mit der R-Methode \begin{lstlisting}
+as.Date(data$DateColumn,format='%Y%m%d')
+\end{lstlisting}
+geschehen, solange das Datum in einem gültigen Format ist. \\ \hline
+Beim Zusammensetzten der Datensätze entstehen Lücken, da einige Datensätze (z.B. Kryptowährungs-eigene Eigenschaften) sieben Observations pro Woche festhalten, Andere (z.B. Aktienindices) nur fünf. Außerdem gibt es Datensätze mit Feiertagen (z.B. Neujahr) oder solche mit nur einer Observaton pro Woche (z.B. STLFSI). & Azure ML Studio bietet das Experiment Item 'Clean Missing Data' an. Neben den Möglichkeiten, fehlende Daten mit dem Modus, Median oder Mittelwert auszufüllen, kann das Verfahren MICE\citep{azur_multiple_2011} oder die Probablilistic PCA\citep{tipping_probabilistic_1999} genutzt werden. \\ \hline
+Durch die unterschiedlichen Formatierungen gibt es inkonsistente Separatoren (Komma, Semikolon, Tab), Dezimaltrennzeichen (Punkt, Komma) und Tausendertrennzeichen (Punkte, ohne Trennzeichen). & Vor dem Zusammenführen müssen die Separatoren und Trennzeichen untersucht und eventuell umgeändert werden. Dies kann mit Excel ('Speichern als...' oder Notepad++ ('Find and Replace') geschehen. Nach dem Joinen muss nachgeprüft werden. \\ \hline
+Die Schwierigkeit für das Etherumining wird im Datensatz ethereumDataset anfangs mit kleiner als 1 angeben. Dies ist per Definition unmöglich. & Entweder es handelt sich hier um einen undokumentierte Sonderfall zu Beginn des Netztwerks oder es ist ein Fehler im Datensatz. Trotz dieser Unstimmigkeit, ist die Tatsache insignifikant und kann vernachlässigt werden. \\ \hline
+\caption{Data quality report des Schrittes "Verify data quality"}
+\label{tab:dataQual}
+\end{longtable}
 
 hier aufzählen alles und bei select dann reduzieren und bei clean dann lücken etc.
 bei construict dann bis zu azure zusammenbauen 
 
-hierher zurück und fehler in den daten beschriebn, wenn welche auftauchen!
 
 \section{Data Preperation}
 \subsection{Select Data}
-Ziel: Welche Daten sind wichtig für die Analyse?
---> textding überführen in 1 und 0
---> paar indices killen
---> einige features killen: prozentualer ansteig zB
---> teilweise doppelte sachen wie difficulty, dann überprüfen, ob gleich und dann 1 killen
+
+gut beschrieben und auf herausforderungen aufmkersam gehts jetzt daran, auszuwählen , zu reinigen und zusammenzubauen
+dabei zuerst hier "aussoertieren", dann bereinigen (lücken füllen etc.) und schließlich so zusammenbauen, dass sie in azure genutzt werden können. 
+
+-aktienindices: nicht alle brauchen, weil sonst überrepresantiv; für btc nur die ab 1.1.2011; nicht zwei getrennte, deswegen auf diesen für ETH nutzen
+-change\%: oft angesprochen, jetzt gekillt, kein mehrwert nur für menschen besser lesbar, reduzieren gut für algorithmen, jetzt nicht mitnehmen. das ist der fall bei aktienidices, währungen und natürliche ressourcen
+-doppelte sachen: sachen doppelt, vor allem in einzelnen und bitcoinDataset/etherumDataset, nicht schlecht, so mehr sicherheit. prüfen auf konsistenz und dann anderen killen. hier schreiben, welche datensätze alle rausfliegen
+-textding oh fuck
+
+
 
 
 \subsection{Clean Data}
