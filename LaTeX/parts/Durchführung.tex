@@ -699,7 +699,7 @@ Dateigröße & \multicolumn{2}{l|}{728} \\ \hline
 \hhline{===}
 Date & Datum im Format 'dd/mm/yyyy HH:MM' & HH:MM ungenutzt \\ \hline
 btc \textunderscore market \textunderscore price & numerisch (9) & \\ \hline
-btc \textunderscore total \textunderscore bitcoins & numerisch (1) & eigentlich nur ganzzahlige Werte (immer '.0' am Ende) \\ \hline
+btc \textunderscore total \textunderscore bitcoins & numerisch (1) & nur Werte mit '.0' oder '.5' am Ende \\ \hline
 btc \textunderscore market \textunderscore cap & numerisch (5) & \\ \hline
 btc \textunderscore trade \textunderscore volume & numerisch (4) & Zu Beginn immer 0; enthält Lücken \\ \hline
 btc \textunderscore blocks \textunderscore size & numerisch (4) &  Zu Beginn immer 0; Nachkommastellen erst ab 20.4.2016 \\ \hline
@@ -832,9 +832,34 @@ bei construict dann bis zu azure zusammenbauen
 
 \section{Data Preperation}
 \subsection{Select Data}
+Die Datensätze sind nun gut beschrieben und es wurde auf Herausforderungen und Probleme hingewiesen. Die folgenden Punkte befassen sich damit, die richtigen Daten und Features weiter zu reduzieren ("Select Data"), sie zu reinigen ("Clean Data") und schließlich zum endgültigen Analyse-Datensatz zusammenfassen ("Construct Data", "Integrate Data" und "Format Data").
+Ausgenommen der jetzt begründet ausgeschlossenen Daten, werden alle Vorgestellten zum bilden des Models genutzt. Tabelle \ref{tab:selecData} liefert einen Überblick.
 
-gut beschrieben und auf herausforderungen aufmkersam gehts jetzt daran, auszuwählen , zu reinigen und zusammenzubauen
+In Punkt \ref{subsec:collection} wurde festgestellt, dass der Datensatz 'BTC \textunderscore Total \textunderscore Volume \textunderscore Daily \textunderscore Full' große Lücken enthält. Darüber hinaus enthält der Datensatz 'bitcoinDataset' ebenfalls die Anzahl der Bitcoins als Feature 'btc \textunderscore total \textunderscore bitcoins'. Ein stichprobenhafter Konsistenzcheck ergibt, dass die vorhanden Daten sich decken. Aus diesem Grund wird der Lückenhafte Datensatz exkludiert. 
+'BTC \textunderscore Difficulty \textunderscore Daily \textunderscore Full' enthält wie 'bitcoinDataset' die Miningschwierigkeit (siehe Punkt \ref{sec:cryptocurrency2}). Obwohl der einzelne Datensatz minimal genauere Werte enthält, fällt die Wahl erneut auf das 'bitcoinDataset', da es Daten über eine längere Zeitspanne enthält. Genauso verhält sich bei 'BTC \textunderscore Transaction \textunderscore Number \textunderscore Fully \textunderscore Daily' und 'BTC \textunderscore Price \textunderscore Multiple \textunderscore Daily'. 
+Analog wird bei den Etherumdatensätzen vorgegangen. 'ETH \textunderscore Total \textunderscore Volume \textunderscore Daily \textunderscore Full' enthählt die gleichen Daten wie 'ethereumDataset'. Allerdings um Faktor 100000 erhöht. Vermutlich handelt es sich hierbei um eienn Konvertierungs- oder Kopierfehler, da das derzeit mögliche Maximum bei 100 Millionen Ether liegt.\multicitep{buterin_lets_2016; hawksby-robinson_what_2017} Die Werte für die Schwierigkeit und Anzahl der Transaktionen stimmen bei 'ETH \textunderscore Difficuly \textunderscore Daily \textunderscore Full' bzw. 'ETH \textunderscore Transaction \textunderscore Number \textunderscore Fully' mit 'ethereumDataset' genau überein. 
+Auch wenn die Datensätze an dieser Stelle aussortiert werden, war ihre Beschreibung keine Verschwendung. Sie hat dazu beigetragen, das Domainwissen (siehe \ref{} \todo{anfügen}) zu vertiefen und die Plausibilität der Daten zu prüfen.
+
+
 dabei zuerst hier "aussoertieren", dann bereinigen (lücken füllen etc.) und schließlich so zusammenbauen, dass sie in azure genutzt werden können. 
+
+
+
+
+\begin{longtable}[H]{|p{11cm}|p{2,5cm}|p{2,5cm}|}
+\hline
+\textbf{Datensatz} & \textbf{Inkludiert} & \textbf{Exkludiert} \\ 
+\hhline{===}
+BTC \textunderscore Total \textunderscore Volume \textunderscore Daily \textunderscore Full & & X \\ \hline
+BTC \textunderscore Difficulty \textunderscore Daily \textunderscore Full & & X \\ \hline
+BTC \textunderscore Transaction \textunderscore Number \textunderscore Fully \textunderscore Daily & & X \\ \hline
+BTC \textunderscore Price \textunderscore Multiple \textunderscore Daily & & X \\ \hline
+ETH \textunderscore Total \textunderscore Volume \textunderscore Daily \textunderscore Full & & X \\ \hline
+ETH \textunderscore Difficuly \textunderscore Daily \textunderscore Full & & X \\ \hline
+ETH \textunderscore Transaction \textunderscore Number \textunderscore Fully \textunderscore Daily & & X \\ \hline
+\caption{Inkludierte und exkludierte Datensätze für die Analyse}
+\label{tab:selecData}
+\end{longtable}
 
 -aktienindices: nicht alle brauchen, weil sonst überrepresantiv; für btc nur die ab 1.1.2011; nicht zwei getrennte, deswegen auf diesen für ETH nutzen
 -change\%: oft angesprochen, jetzt gekillt, kein mehrwert nur für menschen besser lesbar, reduzieren gut für algorithmen, jetzt nicht mitnehmen. das ist der fall bei aktienidices, währungen und natürliche ressourcen
