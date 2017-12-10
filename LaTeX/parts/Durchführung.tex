@@ -841,11 +841,6 @@ Analog wird bei den Etherumdatensätzen vorgegangen. 'ETH \textunderscore Total 
 Auch wenn die Datensätze an dieser Stelle aussortiert werden, war ihre Beschreibung keine Verschwendung. Sie hat dazu beigetragen, das Domainwissen (siehe \ref{} \todo{anfügen}) zu vertiefen und die Plausibilität der Daten zu prüfen.
 
 
-dabei zuerst hier "aussoertieren", dann bereinigen (lücken füllen etc.) und schließlich so zusammenbauen, dass sie in azure genutzt werden können. 
-
-
-
-
 \begin{longtable}[H]{|p{11cm}|p{2,5cm}|p{2,5cm}|}
 \hline
 \textbf{Datensatz} & \textbf{Inkludiert} & \textbf{Exkludiert} \\ 
@@ -857,13 +852,20 @@ BTC \textunderscore Price \textunderscore Multiple \textunderscore Daily & & X \
 ETH \textunderscore Total \textunderscore Volume \textunderscore Daily \textunderscore Full & & X \\ \hline
 ETH \textunderscore Difficuly \textunderscore Daily \textunderscore Full & & X \\ \hline
 ETH \textunderscore Transaction \textunderscore Number \textunderscore Fully \textunderscore Daily & & X \\ \hline
+google \textunderscore Trends \textunderscore BTC \textunderscore Websearch &  & \\ \hline
+google \textunderscore Trends \textunderscore ETH \textunderscore Websearch &  & \\ \hline
+google \textunderscore Trends \textunderscore BTC \textunderscore Newssearch &  & \\ \hline
+google \textunderscore Trends \textunderscore ETH \textunderscore Newssearch &  & \\ \hline
+Wiki \textunderscore Page \textunderscore Views \textunderscore BTC & & \\ \hline
+Wiki \textunderscore Page \textunderscore Views \textunderscore ETH &  & \\ \hline
+abcnews \textunderscore Date \textunderscore  & & \\ \hline
 \caption{Inkludierte und exkludierte Datensätze für die Analyse}
 \label{tab:selecData}
 \end{longtable}
 
 -aktienindices: nicht alle brauchen, weil sonst überrepresantiv; für btc nur die ab 1.1.2011; nicht zwei getrennte, deswegen auf diesen für ETH nutzen
 -change\%: oft angesprochen, jetzt gekillt, kein mehrwert nur für menschen besser lesbar, reduzieren gut für algorithmen, jetzt nicht mitnehmen. das ist der fall bei aktienidices, währungen und natürliche ressourcen
--doppelte sachen: sachen doppelt, vor allem in einzelnen und bitcoinDataset/etherumDataset, nicht schlecht, so mehr sicherheit. prüfen auf konsistenz und dann anderen killen. hier schreiben, welche datensätze alle rausfliegen
+
 -textding oh fuck
 
 
