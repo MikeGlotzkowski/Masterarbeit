@@ -45,7 +45,7 @@ Die schwerste Aufgabe dieses Teils ist das Finden von Daten, die Einfluss auf de
 \newline
 Damit eine Analyse der Kryptowährungen möglich ist, müssen zu diesen historische Kursdaten beschafft werden. Dieser, auf den ersten Blick simpel wirkende Schritt, ist in Wirklichkeit \todo{formulierung} nicht trivial. Kryptowährungen werden an dutzenden Portalen gleichzeitig gehandelt. Dabei erscheinen genauso schnell neue Börsen, wie alte verschwinden. Auch das Handelsvolumen und die Handelswährung unterscheidet sich. Hinzu kommt, dass an Bitcoin- oder Ethereum-Handelsportalen meist 24 Stunden täglich gehandelt werden kann. Aus diesem Grund sind solche Datenquellen ausgewählt worden, die entweder ihre Daten direkt von der Blockchain erhalten oder einen gewichteten Mittelwert über die größten Handelsplatformen berechnen.
 \newline
-Die nächste Schwierigkeit ist die Auswahl der Aktienindizes, die für die Analyse herangezogen werden. Es existiert keine allgemein gültige oder anerkannte Liste mit 'den wichtigsten Aktienindizes'. Aus diesem Grund wurden die Indices ausgewählt, die die Website investing.com als "major world indices" deklariert.\citep{fusion_media_limited_major_2017} Es liegt dabei eine große Überschneidung mir anderen Stock Market-Seiten vor.\multicitep{liveindex.org_live_2017; yahoo_finance_major_2017; yahoo_finance_major_2017-1} Zusätzlich zu den Aktienindices wird ein Financial Stress Index (FSI) herangezogen. Ein solcher "index misst die aktuelle Belastung in einem finanzwirtschaftlichen System"\citep[S.~1;eigene Übersetzung]{vermeulen_financial_2014} In diesem Fall ist es der St. Louis Fed Financial Stress Index, der 18 Einzelfaktoren aus drei Kategorien bündelt.\citep{federal_reserve_bank_of_st._louis_st._2017}
+Die nächste Schwierigkeit ist die Auswahl der Aktienindizes, die für die Analyse herangezogen werden. Es existiert keine allgemein gültige oder anerkannte Liste mit 'den wichtigsten Aktienindizes'. Aus diesem Grund wurden die Indices ausgewählt, die die Website investing.com als "major world indices" deklariert.\citep{fusion_media_limited_major_2017} Es liegt dabei eine große Überschneidung mir anderen Stock Market-Seiten vor.\multicitep{liveindex.org_live_2017; yahoo_finance_major_2017; yahoo_finance_major_2017-1} Zusätzlich zu den Aktienindices wird ein Financial Stress Index (FSI) herangezogen. Ein solcher "index misst die aktuelle Belastung in einem finanzwirtschaftlichen System"\citep[S.~1; eigene Übersetzung]{vermeulen_financial_2014} In diesem Fall ist es der St. Louis Fed Financial Stress Index, der 18 Einzelfaktoren aus drei Kategorien bündelt.\citep{federal_reserve_bank_of_st._louis_st._2017}
 \newline
 Ferner werden die Währungen der acht größten Volkswirtschaften\citep{the_international_monetary_fund_world_2017} und die Kurse für Gold, Silber und Rohöl mit einbezogen. Es werden die Wechselkurse zum Dollar betrachtet, sprich Fremdwährung/USD. Bei den Ölkursen wird Brent, das wichtigste Rohöl für den europäischen Markt \citep{noauthor_brent_2016}, und West Texas Intermediate (WTI), das Pondon für den US-Markt, betrachtet\citep{noauthor_west_2017}.
 
@@ -377,7 +377,7 @@ BTC \textunderscore Price \textunderscore Volume \textunderscore Full \textunder
 \textbf{Datensatz} & \textbf{Reichweite} & \textbf{Besonderheiten}\\ 
 \hhline{===}
 bitcoinDataset & 6.10.2009 bis 30.10.2017 & sehr detaillierte Bitcoin Eigenschaften; 24 Features, z.B. Anzahl der einzigartigen Adressen im Netztwerk oder Kosten pro Transaktion \\ \hline
-ethereumDataset & 30.7.2017 bis 3.10.2017 & sehr detaillierte Ethereum Eigenschaften; 18 Features, z.B. Anzahl der Adressen im Ethereum-Netzwerk oder Anzahl der Blocks und Uncles \\ \hline
+ethereumDataset & 30.7.2015 bis 3.10.2017 & sehr detaillierte Ethereum Eigenschaften; 18 Features, z.B. Anzahl der Adressen im Ethereum-Netzwerk oder Anzahl der Blocks und Uncles \\ \hline
 \caption{Output "Initial data collection report" des Schrittes "Collect the Initial Data"}
 \label{tab:initialDataCollectionReport}
 \end{longtable}
@@ -855,7 +855,8 @@ Für die Etherumkursanalyse werden die Seitenaufrufe herangezogen, da sich die D
 \label{fig:WikiETH}
 \centering
 \end{figure}
-
+Obwohl für den STLFSI nur wöchentlich - nicht täglich - berechnet wird, wird er beibehalten. Bei den Währungen wird nur der Kurs INR/USD exkludiert, da hier nur Daten ab dem 9.9.2014 vorliegen. Alle Daten zu natürlichen Ressourcen (Gold, Silber, Öl) werden inkludiert.
+Dem Datensatz 'ETH \textunderscore Price \textunderscore Volume \textunderscore Full \textunderscore Daily' fehlt die erste Woche an Daten, ist sonst aber reicher an Informationen über den Etherum/USD-Kurs als das 'ethereumDataset', da es nicht nur den Durchschnittspreis eines Tages enthält, sondern sowohl den ersten und letzten Kurs in einem 24-Stunden-Fenster, als auch den Höchsten und den Niedrigsten. Dem 'BTC \textunderscore Price \textunderscore Volume \textunderscore Full \textunderscore Daily' hingegen fehlt das erste halbe Jahr an Daten und weist erst ab Ende (18.12.) 2011 keine Lücken mehr auf. In allen Datensätzen (Aktienindices, Währungen, natürliche Ressourcen) wird das Feature '\%Change' gestrichen, da in \ref{subsec:describe} festgestellt wurde, dass es redundant ist.
 
 \begin{longtable}[H]{|p{11cm}|p{2,5cm}|p{2,5cm}|}
 \hline
@@ -875,34 +876,58 @@ google \textunderscore Trends \textunderscore ETH \textunderscore Newssearch & X
 Wiki \textunderscore Page \textunderscore Views \textunderscore BTC &  & X \\ \hline
 Wiki \textunderscore Page \textunderscore Views \textunderscore ETH & X & \\ \hline
 abcnews \textunderscore Date \textunderscore  & & \\ \hline
-
 FTXIN9, PSI20, AEX, BFX, XU100, BVSP, VIX, CSE, GDAXI, DJI, FTSE, FTMIB, HSI, IBEX, MXX, JKSE, KSE, KS11, MCX, IXIC, NSEI, N225, OMXC20, OMXS30, IRTS, SPX, AXJO, GSPTSE, SSEC, SSMI, TA35, TASI, TRX50CAP, US2000, WIG20 & X & \\ \hline
-ATX, BUX, NZDOW, DJSH, STOXX50E, STI, HNX30, PSI, SETI, SZSC1, TWII & & X \\ \hline
+ATX, BSESN, BUX, NZDOW, DJSH, STOXX50E, STI, HNX30, PSI, SETI, SZSC1, TWII & & X \\ \hline
 STLFSI & X & \\ \hline
+CNY \textunderscore USD \textunderscore history & X & \\ \hline
+JPY \textunderscore USD \textunderscore history & X & \\ \hline
+EUR \textunderscore USD \textunderscore history & X & \\ \hline
+GBP \textunderscore USD \textunderscore history & X & \\ \hline
+INR \textunderscore USD \textunderscore history & & X \\ \hline
+BRL \textunderscore USD \textunderscore history & X & \\ \hline
+gold \textunderscore history & X &  \\ \hline
+silver \textunderscore history  & X &  \\ \hline
+oil \textunderscore brent \textunderscore history  & X &  \\ \hline
+oil \textunderscore wti \textunderscore history  & X &  \\ \hline
+ETH \textunderscore Price \textunderscore Volume \textunderscore Full \textunderscore Daily & X & \\ \hline
+BTC \textunderscore Price \textunderscore Volume \textunderscore Full \textunderscore Daily & & X \\ \hline
+bitcoinDataset & X & \\ \hline
+ethereumDataset & X & \\ \hline
 \caption{Inkludierte und exkludierte Datensätze für die Analyse}
 \label{tab:selecData}
 \end{longtable}
+\todo{Textdingens: abc}
 
--aktienindices: nicht alle brauchen, weil sonst überrepresantiv; für btc nur die ab 1.1.2011; nicht zwei getrennte, deswegen auf diesen für ETH nutzen
--change\%: oft angesprochen, jetzt gekillt, kein mehrwert nur für menschen besser lesbar, reduzieren gut für algorithmen, jetzt nicht mitnehmen. das ist der fall bei aktienidices, währungen und natürliche ressourcen
+\subsection{Clean Data und Construct Data}
 
--textding oh fuck
+Die Schritte 'Clean Data' und 'Construct Data' gehen Hand in Hand. Deswegen werden die beiden Punkte zusammengefasst. 
+Die Menge aller Daten für die Untersuchung ist heterogen. Es existieren jedoch Blöcke, die innerhalb eine homogene Struktur aufweisen. Aus diesem Grund ist es ratsam, zuerst die homogenen Daten zusammenzufassen und diese großen Blöcke dann zusammenzufügen. Durch dieses Buttom-Up-Zusammensetzen wird die Integration vereinfacht.
+Das Vorgehen ist dabei folgendes:
+\begin{itemize}
+\item Die einzelnen Datensätze werden so bearbeitet, dass sie für die Zusammenführung in ihren Block bereit sind.
+\item Die bearbeiteten Daten werden ihrem Datenblock hinzugefügt. Das Ergebnis wird untersucht und eventuelle Unreinheiten beseitigt.
+\item Alle Blöcke werden in einen abschließenden Datensatz integriert. Dieser wird wiederum inspiziert und bereinigt.
+\end{itemize}
+Nachfolgend wird das Bereinigen und Zusammensetzten beschrieben. Zuerst werden die Aktienindices bearbeitet (Listing \ref{list:indicesR}) und gejoint und (Abbildung \ref{fig:indicesAzure_1}). Daraufhin werden sie nachbearbeitet (Abbildung \ref{fig:indicesAzure_2}).
+
+\lstinputlisting[caption=Aufbereiten der Indices-Datensätze,label=list:indicesR]{../R/processIndexSets/processDataSet_Indices.R}
+
+
+\begin{longtable}[H]{|p{4cm}|p{8cm}|p{4cm}|}
+\hline
+\textbf{Problem} & \textbf{Lösung} & \textbf{Werkzeug} \\
+\hhline{===} 
+unterschiedliche Datumsformate & Zuerst werden die Daten in Text formatiert und dann mit dem Packet 'anytime' in R konvertiert. & R + Package 'anytime' (siehe Listing \ref{list:indicesR} Zeile 37) \\ \hline
+Lücken durch joinen der Daten & \todo{kommt noch} &  Azure Machine Learning Studio Experiment Item 'Clean Missing Data' \\ \hline
+unterschiedliche Seperatoren, Trennzeichen etc. & Die Daten werden mit Excel von '.tsv' in '.csv' konvertiert. Eine programmatische Änderung oder 'Find and Replace' ist schwer, da es einen Tab als Trennzeichen zwischen Tag, Monat und Jahr gibt. Kommas als Tausendertrennzeichen werden entfernt. & Excel 'Save As...' und R-Methode 'gsub' (siehe Listing \ref{list:indicesR} Zeilen 31-34) \\ \hline
+pseudo-numerische Werte (1.5M) & \todo{wie macht man das genau mit den Kommas?} & \\
+\caption{Data cleaning report}
+\label{tab:selecData}
+\end{longtable}
 
 
 
-
-\subsection{Clean Data}
-Ziel: Sachen aus "Verfiy Data Quality" aufgreifen;
---> Lücken füllen, Preise, Datum
-
-evtl. was könnte noch ein problem werden?
-
-\subsection{Construct Data}
-Ziel: Daten so umbauen, dass sie in algorithmus passen
-umfasst evtl. abgeleitete attribute; hier aber nicht. eig schon, da indices v.a stfl sehr starkt zusammenfassende dinge sind
-
---> aggregieren in super-datensätze für katheogien wegen azure
-output: aggregierte, saubere daten
+Der Schritt 'Construct data' enthält die Möglichkeit, neue Features hinzuzufügen. Hier ist kein Bedarf bedarf dafür. Außerdem handelt es sich teilweise schon um stark aggregierte Features, wie den STFL (siehe \ref{subsec:assesTheSituation}).
 
 
 \subsection{Integrate Data}

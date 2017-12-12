@@ -81,9 +81,24 @@
 \usepackage{tgcursor}% tt font with bold/italic styles
 \lstset{
     language=R,
-    basicstyle=\ttfamily
+    basicstyle=\ttfamily,
+    numbers=left,
+    stepnumber=1
 }
-
+\lstset{
+    extendedchars=true,
+	numberbychapter=true,
+	basicstyle=\scriptsize\ttm,
+ 	frame=l,
+	captionpos=b,		
+	xleftmargin=5pt,
+	tabsize=2,
+	numberstyle=\scriptsize,
+	numbersep=10pt,
+	breakautoindent  = true,
+	breaklines       = true,
+	breakatwhitespace = true
+}
 
 % Custom colors
 \definecolor{deepblue}{rgb}{0,0,0.5}
@@ -95,42 +110,6 @@
 \DeclareFixedFont{\ttb}{T1}{txtt}{bx}{n}{10} % for bold
 \DeclareFixedFont{\ttm}{T1}{txtt}{m}{n}{10}  % for normal
 
-
-\lstset{
-    extendedchars=true,
-	numberbychapter=true,
-	basicstyle=\scriptsize\ttm,
- 	frame=l,
-	captionpos=b,		
-	xleftmargin=5pt,
-	tabsize=2,
-    numbers=none,
-	numberstyle=\scriptsize,
-	numbersep=10pt,
-	breakautoindent  = true,
-	breaklines       = true,
-	breakatwhitespace = true,
-	prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}}
-}
-
-
-% Python environment
-\lstnewenvironment{python}[2][]
-{
-\vspace{10pt}
-\lstset{
-    caption=#1,
-    label=lst.#2,
-	language=Python,
-	commentstyle=\color{grau},
-	morekeywords={self}, % Add keywords here
-	deletekeywords=[2]{help}, 
-	keywordstyle=\ttb\color{deepblue},
-	stringstyle=\color{deepgreen},
-	showstringspaces=false,
-	}
-}
-{}
 
 
 	
