@@ -353,7 +353,7 @@ STLFSI \textunderscore history.csv & 2.1.2009 bis 27.10.2017 & Zeilen im Abstand
 \textbf{Datensatz} & \textbf{Reichweite} & \textbf{Besonderheiten}\\
 \hhline{===}
 CNY \textunderscore USD \textunderscore history & 1.1.2009 bis 13.11.2017 & Datum in einem Format mit Text (!); Lücken an Wochenenden und Feiertagen \\ \hline
-JPY \textunderscore USD \textunderscore history & 1.1.2009 bis 13.11.2017 & Datum in einem Format mit Text (!); Lücken an Wochenenden und Feiertagen \\ \hline
+JPY \textunderscore USD \textunderscore history & 12.5.2009 bis 13.11.2017 & Datum in einem Format mit Text (!); Lücken an Wochenenden und Feiertagen \\ \hline
 EUR \textunderscore USD \textunderscore history & 1.1.2009 bis 13.11.2017 & Datum in einem Format mit Text (!); Lücken an Wochenenden und Feiertagen \\ \hline
 GBP \textunderscore USD \textunderscore history & 1.1.2009 bis 13.11.2017 & Datum in einem Format mit Text (!); Lücken an Wochenenden und Feiertagen \\ \hline
 INR \textunderscore USD \textunderscore history & 09.09.2014 bis 13.11.2017 & Datum in einem Format mit Text (!); Fehlende Daten vor dem 09.09.2014 Lücken an Wochenenden und Feiertagen \\ \hline
@@ -615,9 +615,9 @@ STLFSI & numerisch (3) & im Intervall von [-1,586;3,246] \\ \hline
 \begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
 \hline
 Datensatz & \multicolumn{2}{l|}{alle Währungen} \\ \hline
-Observations & \multicolumn{2}{p{9cm}|}{unterschiedlich; INR: 996, BRL: 2314, JPY: 2314, CNY: 2314, GBP: 2316, EUR: 2323}\\ \hline
+Observations & \multicolumn{2}{p{9cm}|}{unterschiedlich; INR: 996, BRL: 2314, JPY: 2615, CNY: 2314, GBP: 2339, EUR: 2323}\\ \hline
 Features & \multicolumn{2}{l|}{6} \\ \hline
-Dateigröße & \multicolumn{2}{l|}{INR: 51; BRL, CNY, GBP, JPY: 110; EUR: 111 } \\ \hline
+Dateigröße & \multicolumn{2}{l|}{INR: 51; BRL, CNY: 110; EUR, GBP: 111; JPY: 134 } \\ \hline
 \hhline{===}
 \textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
 \hhline{===}
@@ -633,9 +633,9 @@ Change \% & Prozentzahl mit Prozentzeichen (\%) & negative und positive Werte \\
 \begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
 \hline
 Datensatz & \multicolumn{2}{l|}{alle natürlichen Ressourcen} \\ \hline
-Observations & \multicolumn{2}{p{9cm}|}{unterschiedlich; Gold und Silber: 2289, Brent: 2290, WTI: 2283}\\ \hline
+Observations & \multicolumn{2}{p{9cm}|}{unterschiedlich; Gold: 2289, Silber: 2692 Brent: 2290, WTI: 2283}\\ \hline
 Features & \multicolumn{2}{l|}{7} \\ \hline
-Dateigröße & \multicolumn{2}{l|}{unterschiedlich; Gold und Silber: 139, Brent: 121, WTI: 118} \\ \hline
+Dateigröße & \multicolumn{2}{l|}{unterschiedlich; Gold: 139, Silber: 142, Brent: 121, WTI: 118} \\ \hline
 \hhline{===}
 \textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
 \hhline{===}
@@ -908,11 +908,10 @@ Das Vorgehen ist dabei folgendes:
 \item Die bearbeiteten Daten werden ihrem Datenblock hinzugefügt. Das Ergebnis wird untersucht und eventuelle Unreinheiten beseitigt.
 \item Alle Blöcke werden in einen abschließenden Datensatz integriert. Dieser wird wiederum inspiziert und bereinigt.
 \end{itemize}
-Nachfolgend wird das Bereinigen und Zusammensetzten beschrieben. Zuerst werden die Aktienindices bearbeitet (Listing \ref{list:indicesR}) und gejoint und (Abbildung \ref{fig:indicesAzure_1}). Daraufhin werden sie nachbearbeitet (Abbildung \ref{fig:indicesAzure_2}).
-
+Nachfolgend wird das Bereinigen und Zusammensetzten beschrieben. Zuerst werden die Aktienindices bearbeitet (Listing \ref{list:indicesR}) und gejoint (Abbildung \ref{fig:indicesAzure_1}). Daraufhin werden sie nachbearbeitet (Abbildung \ref{fig:indicesAzure_2}).
 \lstinputlisting[caption=Aufbereiten der Indices-Datensätze,label=list:indicesR]{../R/processIndexSets/processDataSet_Indices.R}
-
-
+Analog werden die natürlichen Ressourcen zu einem Datenblock zusammengefasst. Ähnlich wird mit den Währungskursen vorgegangen. Die verarbeitung in R ist jedoch einfacher, da sie keine Tausendertrennzeichen und keine pseudo-numerischen Werte enthalten. 
+\lstinputlisting[caption=Convertierung von pseudo-numerischen Werten,label=list:pseudonumeric]{../R/pseudonumeric.R}
 \begin{longtable}[H]{|p{4cm}|p{8cm}|p{4cm}|}
 \hline
 \textbf{Problem} & \textbf{Lösung} & \textbf{Werkzeug} \\
@@ -920,7 +919,7 @@ Nachfolgend wird das Bereinigen und Zusammensetzten beschrieben. Zuerst werden d
 unterschiedliche Datumsformate & Zuerst werden die Daten in Text formatiert und dann mit dem Packet 'anytime' in R konvertiert. & R + Package 'anytime' (siehe Listing \ref{list:indicesR} Zeile 37) \\ \hline
 Lücken durch joinen der Daten & \todo{kommt noch} &  Azure Machine Learning Studio Experiment Item 'Clean Missing Data' \\ \hline
 unterschiedliche Seperatoren, Trennzeichen etc. & Die Daten werden mit Excel von '.tsv' in '.csv' konvertiert. Eine programmatische Änderung oder 'Find and Replace' ist schwer, da es einen Tab als Trennzeichen zwischen Tag, Monat und Jahr gibt. Kommas als Tausendertrennzeichen werden entfernt. & Excel 'Save As...' und R-Methode 'gsub' (siehe Listing \ref{list:indicesR} Zeilen 31-34) \\ \hline
-pseudo-numerische Werte (1.5M) & \todo{wie macht man das genau mit den Kommas?} & \\
+pseudo-numerische Werte (z.B."1.5M" oder "0.07k") & Bei betroffenen Werten wird der Buchstabe entfernt und die Zahl mit dem entsprechenden Wert multipliziert (z.B. $ 1.3 \times 1000 $ für 1.3K & R-Methoden gsup() und grepl, sowie mathematische Operationen (siehe Listing \ref{list:pseudonumeric})\\
 \caption{Data cleaning report}
 \label{tab:selecData}
 \end{longtable}

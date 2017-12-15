@@ -18,16 +18,25 @@ btcPrice.csv <- read.csv2("btcPrice.csv");
 btcPrice.csv[,1] <- as.Date(btcPrice.csv[,1],"%d/%m/%Y")
 attach(btcPrice.csv)
 
+#wikipageviews
+data <- read.csv("Wiki_Page_Views_BTC.csv")
+attach(data)
+data$timestamp <- as.character(data$timestamp)
+data$timestamp <- as.Date(data$timestamp, "%Y%m%d")
+keep <- c("timestamp", "views")
+data <- data[,keep]
+
 #Plot the data
 ggplot() + 
   geom_line(data = google_Trends_BTC_Websearch.csv, aes(x = Monat, y = bitcoin...Weltweit., color = "BTC Websearch")) +
   geom_line(data = google_Trends_BTC_Newssearch.csv, aes(x = Monat, y = bitcoin...Weltweit., color = "BTC Newssearch")) +
   geom_line(data = btcPrice.csv, aes(x = ï..Date, y = btc_market_price/50, color = "Bitcoinkurs")) +
+  geom_line(data = data, aes(x = timestamp, y = views/800, color = "Wiki")) 
   xlab('Date') +
   ylab('GoogleSearchIndex')+
   scale_colour_manual("", 
-                      breaks = c("BTC Websearch", "BTC Newssearch", "Bitcoinkurs"),
-                      values = c("red", "green", "blue")) 
+                      breaks = c("BTC Websearch", "BTC Newssearch", "Bitcoinkurs", "Wiki"),
+                      values = c("red", "green", "blue", "orange")) 
 
 
 # Read ETH datasets and convert dates
@@ -59,3 +68,4 @@ ggplot() +
 ggplot() +
   geom_line(data = ethPrice.csv, aes(x = ï..Date.UTC., y = eth_etherprice, color = "Ethereumkurs"))
   
+

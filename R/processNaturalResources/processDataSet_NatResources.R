@@ -6,7 +6,7 @@ library(anytime)
 
 #Function to format the data and rename columns
 processDataSet <- function(fileName){
-
+  
   #Read Data as csv
   dataSet <- read.csv2(fileName)
   
@@ -39,24 +39,19 @@ processDataSet <- function(fileName){
   dataSet[,openName] <- as.numeric(as.character(dataSet[,openName]))
   dataSet[,highName] <- as.numeric(as.character(dataSet[,highName]))
   dataSet[,lowName] <- as.numeric(as.character(dataSet[,lowName]))
-  dataSet[,volumeName] <- pseudoNumeric.as.numeric(dataSet[,volumeName])  
+  dataSet[,volumeName] <- pseudoNumeric.as.numeric(dataSet[, volumeName])
   
   
   #save as csv; not csv2, because azure ML studio can't read semicolons as seperators
   write.csv(dataSet, file = paste(name, "_processed.csv"), append = FALSE, quote = TRUE, sep = ",",
-              eol = "\n", na = "", dec = ".", row.names = TRUE,
-              col.names = TRUE, qmethod = c("escape", "double"),
-              fileEncoding = "")
- }
+            eol = "\n", na = "", dec = ".", row.names = TRUE,
+            col.names = TRUE, qmethod = c("escape", "double"),
+            fileEncoding = "")
+}
 
 #get all files to convert
 files <- list.files(path=".", pattern="*.csv", full.names=T, recursive=FALSE)
 
 #convert
 lapply(files, processDataSet)
-
-
-
-
-  
 
