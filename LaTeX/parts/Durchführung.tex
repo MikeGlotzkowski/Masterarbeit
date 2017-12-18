@@ -839,7 +839,7 @@ In Punkt \ref{subsec:collection} wurde festgestellt, dass der Datensatz 'BTC \te
 'BTC \textunderscore Difficulty \textunderscore Daily \textunderscore Full' enthält wie 'bitcoinDataset' die Miningschwierigkeit (siehe Punkt \ref{sec:cryptocurrency2}). Obwohl der einzelne Datensatz minimal genauere Werte enthält, fällt die Wahl erneut auf das 'bitcoinDataset', da es Daten über eine längere Zeitspanne enthält. Genauso verhält sich bei 'BTC \textunderscore Transaction \textunderscore Number \textunderscore Fully \textunderscore Daily' und 'BTC \textunderscore Price \textunderscore Multiple \textunderscore Daily'. 
 Analog wird bei den Etherumdatensätzen vorgegangen. 'ETH \textunderscore Total \textunderscore Volume \textunderscore Daily \textunderscore Full' enthählt die gleichen Daten wie 'ethereumDataset'. Allerdings um Faktor 100000 erhöht. Vermutlich handelt es sich hierbei um eienn Konvertierungs- oder Kopierfehler, da das derzeit mögliche Maximum bei 100 Millionen Ether liegt.\multicitep{buterin_lets_2016; hawksby-robinson_what_2017} Die Werte für die Schwierigkeit und Anzahl der Transaktionen stimmen bei 'ETH \textunderscore Difficuly \textunderscore Daily \textunderscore Full' bzw. 'ETH \textunderscore Transaction \textunderscore Number \textunderscore Fully' mit 'ethereumDataset' genau überein. 
 Auch wenn die Datensätze an dieser Stelle aussortiert werden, war ihre Beschreibung keine Verschwendung. Sie hat dazu beigetragen, das Domainwissen (siehe \ref{} \todo{anfügen}) zu vertiefen und die Plausibilität der Daten zu prüfen.
-Der Bitcoinkurs soll vom 1.1.2011 an analysiert werden. Für einige Aktienindices liegen für diese Zeit noch keine Daten vor. Um die über 50 Indices etwas auszudünnen, werden nur solche für das Machine Learning genutzt, für die Daten vorhanden sind. Dadurch wird versucht Datenlücken zu vermeiden. Damit der Arbeitsaufwand reduziert wird, wird die Auswahl für die Analyse des Etherumpreises übernommen. Die Google Trends Daten werden beibehalten. Anders verhält es sich bei den Wikipedia-Seitenaufrufen. Für die Bitcoinanalyse ist die Zeitspanne des Datensatzes zu kurz (es fehlen 4 1/2 Jahre: von 1.1.2011 bis 1.7.2015). Eine mögliche Korrelation (siehe Abbildung \ref{fig:WikiBTC}) zwischen Seitenaufrufen und Bitcoinkurs müsste gesondert untersucht werden. 
+Der Bitcoinkurs soll vom 1.1.2011 an analysiert werden. Für einige Aktienindices liegen für diese Zeit noch keine Daten vor. Um die über 50 Indices etwas auszudünnen, werden nur solche für das Machine Learning genutzt, für die Daten vorhanden sind. Dadurch wird versucht, Datenlücken zu vermeiden. Damit der Arbeitsaufwand reduziert wird, wird die Auswahl für die Analyse des Etherumpreises übernommen. Die Google Trends Daten werden beibehalten. Anders verhält es sich bei den Wikipedia-Seitenaufrufen. Für die Bitcoinanalyse ist die Zeitspanne des Datensatzes zu kurz (es fehlen 4 1/2 Jahre: von 1.1.2011 bis 1.7.2015). Eine mögliche Korrelation (siehe Abbildung \ref{fig:WikiBTC}) zwischen Seitenaufrufen und Bitcoinkurs müsste gesondert untersucht werden. 
 \begin{figure}[H]
 \frame{
 \includegraphics[width=\textwidth]{images/WikiPageBTC}}
@@ -857,6 +857,7 @@ Für die Etherumkursanalyse werden die Seitenaufrufe herangezogen, da sich die D
 \end{figure}
 Obwohl für den STLFSI nur wöchentlich - nicht täglich - berechnet wird, wird er beibehalten. Bei den Währungen wird nur der Kurs INR/USD exkludiert, da hier nur Daten ab dem 9.9.2014 vorliegen. Alle Daten zu natürlichen Ressourcen (Gold, Silber, Öl) werden inkludiert.
 Dem Datensatz 'ETH \textunderscore Price \textunderscore Volume \textunderscore Full \textunderscore Daily' fehlt die erste Woche an Daten, ist sonst aber reicher an Informationen über den Etherum/USD-Kurs als das 'ethereumDataset', da es nicht nur den Durchschnittspreis eines Tages enthält, sondern sowohl den ersten und letzten Kurs in einem 24-Stunden-Fenster, als auch den Höchsten und den Niedrigsten. Dem 'BTC \textunderscore Price \textunderscore Volume \textunderscore Full \textunderscore Daily' hingegen fehlt das erste halbe Jahr an Daten und weist erst ab Ende (18.12.) 2011 keine Lücken mehr auf. In allen Datensätzen (Aktienindices, Währungen, natürliche Ressourcen) wird das Feature '\%Change' gestrichen, da in \ref{subsec:describe} festgestellt wurde, dass es redundant ist.
+abcnews \textunderscore Date \textunderscore Text wird beinhelaten.
 
 \begin{longtable}[H]{|p{11cm}|p{2,5cm}|p{2,5cm}|}
 \hline
@@ -875,7 +876,7 @@ google \textunderscore Trends \textunderscore BTC \textunderscore Newssearch & X
 google \textunderscore Trends \textunderscore ETH \textunderscore Newssearch & X & \\ \hline
 Wiki \textunderscore Page \textunderscore Views \textunderscore BTC &  & X \\ \hline
 Wiki \textunderscore Page \textunderscore Views \textunderscore ETH & X & \\ \hline
-abcnews \textunderscore Date \textunderscore  & & \\ \hline
+abcnews \textunderscore Date \textunderscore Text  & X & \\ \hline
 FTXIN9, PSI20, AEX, BFX, XU100, BVSP, VIX, CSE, GDAXI, DJI, FTSE, FTMIB, HSI, IBEX, MXX, JKSE, KSE, KS11, MCX, IXIC, NSEI, N225, OMXC20, OMXS30, IRTS, SPX, AXJO, GSPTSE, SSEC, SSMI, TA35, TASI, TRX50CAP, US2000, WIG20 & X & \\ \hline
 ATX, BSESN, BUX, NZDOW, DJSH, STOXX50E, STI, HNX30, PSI, SETI, SZSC1, TWII & & X \\ \hline
 STLFSI & X & \\ \hline
@@ -898,9 +899,9 @@ ethereumDataset & X & \\ \hline
 \end{longtable}
 \todo{Textdingens: abc}
 
-\subsection{Clean Data und Construct Data}
+\subsection{Clean, Construct, Integrate, Format Data}
 
-Die Schritte 'Clean Data' und 'Construct Data' gehen Hand in Hand. Deswegen werden die beiden Punkte zusammengefasst. 
+Die Schritte 'Clean Data', 'Construct Data', 'Integrate Data' und 'Format Data' gehen Hand in Hand. Deswegen werden die Punkte zusammengefasst. Bei der tatsächlichen Durchführung wurden die Schritte iterativ und inkrementell durchlaufen. \newline
 Die Menge aller Daten für die Untersuchung ist heterogen. Es existieren jedoch Blöcke, die innerhalb eine homogene Struktur aufweisen. Aus diesem Grund ist es ratsam, zuerst die homogenen Daten zusammenzufassen und diese großen Blöcke dann zusammenzufügen. Durch dieses Buttom-Up-Zusammensetzen wird die Integration vereinfacht.
 Das Vorgehen ist dabei folgendes:
 \begin{itemize}
@@ -918,7 +919,7 @@ Nachfolgend wird das Bereinigen und Zusammensetzten beschrieben. Zuerst werden d
 \centering
 \end{figure}
 
-Daraufhin werden sie nachbearbeitet. Die nachfolgende Beschreibung bezieht sich auf Abbildung \ref{fig:indicesAzure_2}. In jedem Datensatz existiert eine Spalte, die die Zeilen durchnummeriert. Dies diente zum beheben von Fehlern. Diese Spalte wird entfernt (1. Select Columns in Dataset). Ebenso enthält das Ergebnis noch 35 Datums-Spalten. Diese können auf Eine reduziert werden (2. Select Columns in Dataset und Edit Metadata).
+Daraufhin werden sie nachbearbeitet. Die nachfolgende Beschreibung bezieht sich auf Abbildung \ref{fig:indicesAzure_2}: In jedem Datensatz existiert eine Spalte, die die Zeilen durchnummeriert. Dies diente zum beheben von Fehlern und wird nun entfernt (1. Select Columns in Dataset). Ebenso enthält das Ergebnis noch 35 Datums-Spalten. Diese können auf Eine reduziert werden (2. Select Columns in Dataset und Edit Metadata).
 \begin{figure}[H]
 \frame{
 \includegraphics[width=\textwidth]{images/indicesAzure_2}}
@@ -927,8 +928,18 @@ Daraufhin werden sie nachbearbeitet. Die nachfolgende Beschreibung bezieht sich 
 \centering
 \end{figure}
 Analog werden die natürlichen Ressourcen zu einem Datenblock zusammengefasst. Ähnlich wird mit den Währungskursen vorgegangen. Die Verarbeitung in R ist jedoch einfacher, da sie keine Tausendertrennzeichen, keine pseudo-numerischen Werte und keine Lücken enthalten. 
-
-
+Der Datensatz 'abcnews \textunderscore Date \textunderscore Text' (siehe Abbildung \ref{fig:abcAzure1}) wird mit dem Experiment Item 'Preprocess Text' vorbearbeitet, nachdem alte Überschriften (vor dem 1.1.2011) entfernt wurden (siehe Listing \ref{list:abcold} Zeile 6). 
+\begin{figure}[H]
+\frame{
+\includegraphics[width=\textwidth]{images/abcAzure1}}
+\caption{Feature Hashing der abcnews in Azure Machine Learning Studio}
+\label{fig:abcAzure1}
+\centering
+\end{figure}
+\lstinputlisting[caption=Entfernen der alten Überschriften,label=list:abcold]{../R/abc/abcold.R}
+Es führt unter anderem eine Lemmatisierung durch und entfernt Zahlen und Sonderzeichen. Anschließend wird ein Feature Hashing durchgeführt. Für jede Überschrift existiert eine einzelne Zeile im Datensatz. Diese werden mit dem R-Script in Listing \ref{list:abcHashed} in Azure aggregiert.
+\lstinputlisting[caption=Aggregieren der Hashing-Ergebnisse,label=list:abcHashed]{../R/abc/abcHashed.R}
+Zuletzt werden noch die Googlesuchen und die Wikipedia-Seitenaufrufe zusammengefasst.
 \begin{longtable}[H]{|p{4cm}|p{8cm}|p{4cm}|}
 \hline
 \textbf{Problem} & \textbf{Lösung} & \textbf{Werkzeug} \\
@@ -937,28 +948,34 @@ unterschiedliche Datumsformate & Zuerst werden die Daten in Text formatiert und 
 Lücken durch joinen der Daten & Es handelt sich um 'Missing not at random'-Fehler (MNAR)\citep[S.~553]{graham_missing_2009}. Das bedeutet, dass die Lücken absichtlich sind (weil an diesen Tagen nicht gehandelt wird). Da es kein statistisches Verfahren zum schließen solcher Lücken gibt, werden sie beibehalten. \citep[S.~1109]{leonhart_dorsch_2014} & \\ \hline
 unterschiedliche Seperatoren, Trennzeichen etc. & Die Daten werden mit Excel von '.tsv' in '.csv' konvertiert. Eine programmatische Änderung oder 'Find and Replace' ist schwer, da es einen Tab als Trennzeichen zwischen Tag, Monat und Jahr gibt. Kommas als Tausendertrennzeichen werden entfernt. & Excel 'Save As...' und R-Methode 'gsub' (siehe Listing \ref{list:indicesR} Zeilen 31-34) \\ \hline
 pseudo-numerische Werte (z.B."1.5M" oder "0.07k") & Bei betroffenen Werten wird der Buchstabe entfernt und die Zahl mit dem entsprechenden Wert multipliziert (z.B. $ 1.3 \times 1000 $ für 1.3K) & R-Methoden 'gsup' und 'grepl', sowie mathematische Operationen (siehe Listing \ref{list:pseudonumeric})\\ \hline
-Fehlende Werte & Fehlende Werte im Volumen werden als '-' angegeben, nicht als 'Nichts' Durch ersetzen des '-' in R wird das Problem behoben. & R: Listing \ref{list:indicesR} Zeile 45 \\ \hline
+Fehlende Werte & Fehlende Werte im Volumen werden als '-' angegeben, nicht als 'Nichts'. Durch ersetzen des '-' in R wird das Problem behoben. & R: Listing \ref{list:indicesR} Zeile 45 \\ \hline
 \caption{Data cleaning report}
 \label{tab:selecData}
 \end{longtable}
-
 \lstinputlisting[caption=Konvertierung von pseudo-numerischen Werten,label=list:pseudonumeric]{../R/pseudonumeric.R}
-
 Der Schritt 'Construct data' enthält die Möglichkeit, neue Features hinzuzufügen. Hier ist kein Bedarf bedarf dafür. Außerdem handelt es sich teilweise schon um stark aggregierte Features, wie den STFL (siehe \ref{subsec:assesTheSituation}).
 
-
-\subsection{Integrate Data}
-Ziel: Daten zusammenführen
---> die fertigen Datensätze, die ich gefunden habe in die BTC-, ETH-Kursdaten überführen
---> in azure machen mit join
-
-\subsection{Format Data}
-mal sehen, ob es auch so geht; evtl. namen der sachen ändern, damit die sachen nicht gleich heißen! (vorgreifen in construct/integrate)
-
-
+\begin{longtable}[H]{|p{6cm}|p{9,5cm}|}
+\hline
+\textbf{Output} & \textbf{Beschreibung}\\
+\hhline{==}
+Hashed \textunderscore news & Die abcsnews nach dem Feature Hashing und der Aggregation. \\ \hline
+\caption{Output: Generated records}
+\label{tab:constructData}
+\end{longtable}
 
 
-
+\begin{longtable}[H]{|p{6cm}|p{9,5cm}|}
+\hline
+\textbf{Output} & \textbf{Beschreibung}\\
+\hhline{==}
+Joined \textunderscore Indices & Alle Aktienincides in einem Datensatz. \\ \hline
+Joined \textunderscore Currencies & Alle Währungen in einem Datensatz.  \\ \hline
+Joined \textunderscore Resources & Alle natürlichen Ressourcen in einem Datensatz. \\ \hline
+Joined \textunderscore Public & Google Suchen, Google Newssuchen, ETH-Wikipedia-Seitenaufrufe \\ \hline
+\caption{Output: Merged data}
+\label{tab:integrateData}
+\end{longtable}
 
 \section{Modeling}
 \subsection{Select the Modeling Technique}
