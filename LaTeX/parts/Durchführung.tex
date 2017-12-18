@@ -939,7 +939,7 @@ Der Datensatz 'abcnews \textunderscore Date \textunderscore Text' (siehe Abbildu
 \lstinputlisting[caption=Entfernen der alten Überschriften,label=list:abcold]{../R/abc/abcold.R}
 Es führt unter anderem eine Lemmatisierung durch und entfernt Zahlen und Sonderzeichen. Anschließend wird ein Feature Hashing durchgeführt. Für jede Überschrift existiert eine einzelne Zeile im Datensatz. Diese werden mit dem R-Script in Listing \ref{list:abcHashed} in Azure aggregiert.
 \lstinputlisting[caption=Aggregieren der Hashing-Ergebnisse,label=list:abcHashed]{../R/abc/abcHashed.R}
-Zuletzt werden noch die Googlesuchen und die Wikipedia-Seitenaufrufe zusammengefasst.
+Zuletzt werden noch die Google News- und Websuchen zusammengefasst.
 \begin{longtable}[H]{|p{4cm}|p{8cm}|p{4cm}|}
 \hline
 \textbf{Problem} & \textbf{Lösung} & \textbf{Werkzeug} \\
@@ -972,7 +972,7 @@ Hashed \textunderscore news & Die abcsnews nach dem Feature Hashing und der Aggr
 Joined \textunderscore Indices & Alle Aktienincides in einem Datensatz. \\ \hline
 Joined \textunderscore Currencies & Alle Währungen in einem Datensatz.  \\ \hline
 Joined \textunderscore Resources & Alle natürlichen Ressourcen in einem Datensatz. \\ \hline
-Joined \textunderscore Public & Google Suchen, Google Newssuchen, ETH-Wikipedia-Seitenaufrufe \\ \hline
+Joined \textunderscore Public & Google Suchen und Google Newssuchen in einem Datensatz \\ \hline
 \caption{Output: Merged data}
 \label{tab:integrateData}
 \end{longtable}
