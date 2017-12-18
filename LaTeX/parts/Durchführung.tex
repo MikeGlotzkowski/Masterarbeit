@@ -908,23 +908,41 @@ Das Vorgehen ist dabei folgendes:
 \item Die bearbeiteten Daten werden ihrem Datenblock hinzugefügt. Das Ergebnis wird untersucht und eventuelle Unreinheiten beseitigt.
 \item Alle Blöcke werden in einen abschließenden Datensatz integriert. Dieser wird wiederum inspiziert und bereinigt.
 \end{itemize}
-Nachfolgend wird das Bereinigen und Zusammensetzten beschrieben. Zuerst werden die Aktienindices bearbeitet (Listing \ref{list:indicesR}) und gejoint (Abbildung \ref{fig:indicesAzure_1}). Daraufhin werden sie nachbearbeitet (Abbildung \ref{fig:indicesAzure_2}).
+Nachfolgend wird das Bereinigen und Zusammensetzten beschrieben. Zuerst werden die Aktienindices bearbeitet (Listing \ref{list:indicesR}) und gejoint (Abbildung \ref{fig:indicesAzure_1}). 
 \lstinputlisting[caption=Aufbereiten der Indices-Datensätze,label=list:indicesR]{../R/processIndexSets/processDataSet_Indices.R}
-Analog werden die natürlichen Ressourcen zu einem Datenblock zusammengefasst. Ähnlich wird mit den Währungskursen vorgegangen. Die verarbeitung in R ist jedoch einfacher, da sie keine Tausendertrennzeichen und keine pseudo-numerischen Werte enthalten. 
-\lstinputlisting[caption=Convertierung von pseudo-numerischen Werten,label=list:pseudonumeric]{../R/pseudonumeric.R}
+\begin{figure}[H]
+\frame{
+\includegraphics[width=\textwidth]{images/indicesAzure_1}}
+\caption{Zusammenführen der Aktienindices in Azure Machine Learning Studio}
+\label{fig:indicesAzure_1}
+\centering
+\end{figure}
+
+Daraufhin werden sie nachbearbeitet. Die nachfolgende Beschreibung bezieht sich auf Abbildung \ref{fig:indicesAzure_2}. In jedem Datensatz existiert eine Spalte, die die Zeilen durchnummeriert. Dies diente zum beheben von Fehlern. Diese Spalte wird entfernt (1. Select Columns in Dataset). Ebenso enthält das Ergebnis noch 35 Datums-Spalten. Diese können auf Eine reduziert werden (2. Select Columns in Dataset und Edit Metadata).
+\begin{figure}[H]
+\frame{
+\includegraphics[width=\textwidth]{images/indicesAzure_2}}
+\caption{Nachbearbeiten des Ergbnisdatensatzes in Azure Machine Learning Studio}
+\label{fig:indicesAzure_2}
+\centering
+\end{figure}
+Analog werden die natürlichen Ressourcen zu einem Datenblock zusammengefasst. Ähnlich wird mit den Währungskursen vorgegangen. Die Verarbeitung in R ist jedoch einfacher, da sie keine Tausendertrennzeichen, keine pseudo-numerischen Werte und keine Lücken enthalten. 
+
+
 \begin{longtable}[H]{|p{4cm}|p{8cm}|p{4cm}|}
 \hline
 \textbf{Problem} & \textbf{Lösung} & \textbf{Werkzeug} \\
 \hhline{===} 
 unterschiedliche Datumsformate & Zuerst werden die Daten in Text formatiert und dann mit dem Packet 'anytime' in R konvertiert. & R + Package 'anytime' (siehe Listing \ref{list:indicesR} Zeile 37) \\ \hline
-Lücken durch joinen der Daten & \todo{kommt noch} &  Azure Machine Learning Studio Experiment Item 'Clean Missing Data' \\ \hline
+Lücken durch joinen der Daten & Es handelt sich um 'Missing not at random'-Fehler (MNAR)\citep[S.~553]{graham_missing_2009}. Das bedeutet, dass die Lücken absichtlich sind (weil an diesen Tagen nicht gehandelt wird). Da es kein statistisches Verfahren zum schließen solcher Lücken gibt, werden sie beibehalten. \citep[S.~1109]{leonhart_dorsch_2014} & \\ \hline
 unterschiedliche Seperatoren, Trennzeichen etc. & Die Daten werden mit Excel von '.tsv' in '.csv' konvertiert. Eine programmatische Änderung oder 'Find and Replace' ist schwer, da es einen Tab als Trennzeichen zwischen Tag, Monat und Jahr gibt. Kommas als Tausendertrennzeichen werden entfernt. & Excel 'Save As...' und R-Methode 'gsub' (siehe Listing \ref{list:indicesR} Zeilen 31-34) \\ \hline
-pseudo-numerische Werte (z.B."1.5M" oder "0.07k") & Bei betroffenen Werten wird der Buchstabe entfernt und die Zahl mit dem entsprechenden Wert multipliziert (z.B. $ 1.3 \times 1000 $ für 1.3K & R-Methoden gsup() und grepl, sowie mathematische Operationen (siehe Listing \ref{list:pseudonumeric})\\
+pseudo-numerische Werte (z.B."1.5M" oder "0.07k") & Bei betroffenen Werten wird der Buchstabe entfernt und die Zahl mit dem entsprechenden Wert multipliziert (z.B. $ 1.3 \times 1000 $ für 1.3K) & R-Methoden 'gsup' und 'grepl', sowie mathematische Operationen (siehe Listing \ref{list:pseudonumeric})\\ \hline
+Fehlende Werte & Fehlende Werte im Volumen werden als '-' angegeben, nicht als 'Nichts' Durch ersetzen des '-' in R wird das Problem behoben. & R: Listing \ref{list:indicesR} Zeile 45 \\ \hline
 \caption{Data cleaning report}
 \label{tab:selecData}
 \end{longtable}
 
-
+\lstinputlisting[caption=Konvertierung von pseudo-numerischen Werten,label=list:pseudonumeric]{../R/pseudonumeric.R}
 
 Der Schritt 'Construct data' enthält die Möglichkeit, neue Features hinzuzufügen. Hier ist kein Bedarf bedarf dafür. Außerdem handelt es sich teilweise schon um stark aggregierte Features, wie den STFL (siehe \ref{subsec:assesTheSituation}).
 

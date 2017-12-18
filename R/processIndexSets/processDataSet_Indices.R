@@ -39,8 +39,10 @@ processDataSet <- function(fileName){
   dataSet[,openName] <- as.numeric(as.character(dataSet[,openName]))
   dataSet[,highName] <- as.numeric(as.character(dataSet[,highName]))
   dataSet[,lowName] <- as.numeric(as.character(dataSet[,lowName]))
-  dataSet[,volumeName] <- pseudoNumeric.as.numeric(dataSet[,volumeName])  
+  dataSet[,volumeName] <- pseudoNumeric.as.numeric(dataSet[,volumeName])
   
+  #missing values to NA (missing Data)
+  dataSet[, volumeName][dataSet[, volumeName] == "-"] <- NA  
   
   #save as csv; not csv2, because azure ML studio can't read semicolons as seperators
   write.csv(dataSet, file = paste(name, "_processed.csv"), append = FALSE, quote = TRUE, sep = ",",
