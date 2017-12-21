@@ -972,11 +972,12 @@ Hashed \textunderscore news & Die abcsnews nach dem Feature Hashing und der Aggr
 Joined \textunderscore Indices & Alle Aktienincides in einem Datensatz. \\ \hline
 Joined \textunderscore Currencies & Alle Währungen in einem Datensatz.  \\ \hline
 Joined \textunderscore Resources & Alle natürlichen Ressourcen in einem Datensatz. \\ \hline
-Joined \textunderscore Public & Google Suchen und Google Newssuchen in einem Datensatz \\ \hline
+Joined \textunderscore Public & Google Suchen und Google Newssuchen in einem Datensatz. \\ \hline
 \caption{Output: Merged data}
 \label{tab:integrateData}
 \end{longtable}
 
+Syntaktische Änderungen an den Datensätzen, also verändern der Spaltenreihenfolge oder der Spaltenbezeichungen sind Teil des Schrittes 'Format data'. Es kann beispielsweise in einem eingesetzten Werkzeug notwendig sein, dass die erste Spalte einer Tabelle ein eindeutiger Schlüssel sein muss.\citep[S.~46]{chapman_crisp-dm_2000} Obgleich dieser Fall hier nicht eintritt, werden syntaktische Änderungen vorgenommen: Wie oben bereits erwähnt, entstehen beim Zusammenführen der Tabellen doppelte Spalten. Werden zwei Tabellen gejoint, so existieren zwei Datumsspalten, die die gleichen Werte beinhalten (rechte Datumsspalte und linke Datumsspalte). Diese Redundanzen werden entfernt. Außerdem wird die beibehaltene Spalte in 'Date' umbenannt.
 \section{Modeling}
 \subsection{Select the Modeling Technique}
 Ziel: Auswahl der Algorithmen
