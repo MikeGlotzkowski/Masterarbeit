@@ -949,6 +949,7 @@ Lücken durch joinen der Daten & Es handelt sich um 'Missing not at random'-Fehl
 unterschiedliche Seperatoren, Trennzeichen etc. & Die Daten werden mit Excel von '.tsv' in '.csv' konvertiert. Eine programmatische Änderung oder 'Find and Replace' ist schwer, da es einen Tab als Trennzeichen zwischen Tag, Monat und Jahr gibt. Kommas als Tausendertrennzeichen werden entfernt. & Excel 'Save As...' und R-Methode 'gsub' (siehe Listing \ref{list:indicesR} Zeilen 31-34) \\ \hline
 pseudo-numerische Werte (z.B."1.5M" oder "0.07k") & Bei betroffenen Werten wird der Buchstabe entfernt und die Zahl mit dem entsprechenden Wert multipliziert (z.B. $ 1.3 \times 1000 $ für 1.3K) & R-Methoden 'gsup' und 'grepl', sowie mathematische Operationen (siehe Listing \ref{list:pseudonumeric})\\ \hline
 Fehlende Werte & Fehlende Werte im Volumen werden als '-' angegeben, nicht als 'Nichts'. Durch ersetzen des '-' in R wird das Problem behoben. & R: Listing \ref{list:indicesR} Zeile 45 \\ \hline
+
 \caption{Data cleaning report}
 \label{tab:selecData}
 \end{longtable}
@@ -977,22 +978,57 @@ Joined \textunderscore Public & Google Suchen und Google Newssuchen in einem Dat
 \label{tab:integrateData}
 \end{longtable}
 
-Syntaktische Änderungen an den Datensätzen, also verändern der Spaltenreihenfolge oder der Spaltenbezeichungen sind Teil des Schrittes 'Format data'. Es kann beispielsweise in einem eingesetzten Werkzeug notwendig sein, dass die erste Spalte einer Tabelle ein eindeutiger Schlüssel sein muss.\citep[S.~46]{chapman_crisp-dm_2000} Obgleich dieser Fall hier nicht eintritt, werden syntaktische Änderungen vorgenommen: Wie oben bereits erwähnt, entstehen beim Zusammenführen der Tabellen doppelte Spalten. Werden zwei Tabellen gejoint, so existieren zwei Datumsspalten, die die gleichen Werte beinhalten (rechte Datumsspalte und linke Datumsspalte). Diese Redundanzen werden entfernt. Außerdem wird die beibehaltene Spalte in 'Date' umbenannt.
+Syntaktische Änderungen an den Datensätzen, also verändern der Spaltenreihenfolge oder der Spaltenbezeichungen sind Teil des Schrittes 'Format data'. Es kann beispielsweise in einem eingesetzten Werkzeug notwendig sein, dass die erste Spalte einer Tabelle ein eindeutiger Schlüssel sein muss.\citep[S.~46]{chapman_crisp-dm_2000} Obgleich dieser Fall hier nicht eintritt, werden syntaktische Änderungen vorgenommen: Wie oben bereits erwähnt, entstehen beim Zusammenführen der Tabellen doppelte Spalten. Werden zwei Tabellen gejoint, so existieren zwei Datumsspalten, die die gleichen Werte beinhalten (rechte Datumsspalte und linke Datumsspalte). Diese Redundanzen werden entfernt. Außerdem wird die beibehaltene Spalte in 'Date' umbenannt.\newline
+
+Um nur die Zeilen zur Analyse zu benutzen, die im ausgewählten Zeitintervall (siehe xxx) liegen, wird das Datensetz noch aufgesplittet (Experiment Item 'Split Data' mit Relative Expression \textbackslash "Date" >= 2011-01-01T00:00:00). Daraufhin werden mit dem Item 'Clean Missing Data (Probabilistic PCA))' fehlende Daten ersetzt. Bei neun Spalten ist dies nicht möglich (keine Fehlermeldung). Diese werden mit einem erneuten 'Clean Missing Data (Remove entire column)' entfernt. Als Abschluss wird mit dem R-Script in Listing \ref{list:AzureIncrease} eine neue Spalte eingeführt, die angibt, ob der Kurs zum Vortag gesteigen ist (Wert: 1) oder nicht (Wert: 0). Dieser wird im Nachfolgenden als Vorhersagewert genutzt.
+\lstinputlisting[caption=Hinzufügen und Popularisieren der Spalte "increase" in Azure Machine Learning Studio,label=list:AzureIncrease]{../R/AzureIncrease.R}
+
+
 \section{Modeling}
 \subsection{Select the Modeling Technique}
-Ziel: Auswahl der Algorithmen
---> Supervised (Continous value --> wert; two-class (hoch/runter))
+
+
+Auswahl der Algorithmen;
+alles supervised, weil ich ziel label habe.
+einmal genauen preis (continuous values) "regressions" und einmal two class für 1: gestiegen und 0 für nicht gesteigen; wäre auich denkbar cluster mit "leicht fallend, leicht steigend" etc, aber zu aufwändig.
+
+in azure: 
+two class aufzählen
+regressionen aufzählen -ordinary regression -poison regression -linear regression -quantil (eignet sich gut, aber andere form)
+
+alle parametrisierbar. hier standard parameter
+
 
 \subsection{Generate Test Design}
-Ziel: Training und error rates betrachten
---> azure split data experiment item!
+
+
+muss überlegt werden und kann für versch. algos anders sein. es gibt auch ansätze, nicht verhältnismäßig zu splitten, sondern auch algos dafür. hier aber klassische 80:20 mit dem split modul mit random (nicht einfach obere/unterere hälfte).
+
 
 \subsection{Build the Model}
 Ziel: Models bauen
 --> "azure ml run"
 
-\subsection{Assess the Model}
+model aufschreiben und welche parameter "model description"
 
+sind quasi 2: 2class beschreibung und regression beschreibung
+
+2class:
+Algorithmus Accuracy Precision Recall F1-Score AUC Average Log Loss
+Two-Class Support Vector Machine
+Two-Class Neural Network
+Two-Class Logistic Regression
+Two-Class Locally-Deep Support Vector Machine
+Two-Class Decision Jungle
+Two-Class Decision Forest
+Two-Class Boosted Decision Tree
+Two-Class Bayes Point Machine
+Two-Class Averaged Perceptron
+\subsection{Assess the Model}
+hier r modul und add rows --> übersuchtlich in tabelle schreiben
+ranking schwer, da unterschiedl.
+
+ranking bei "nicht-treffern" sinnlos, deswegen nur 2class regressionen
 
 \section{Evaluation}
 \subsection{Evaluate Results}
@@ -1000,10 +1036,5 @@ Ziel: Models bauen
 \subsection{Determine Next Steps}
 
 
-\section{Deployment}
-\subsection{Plan Deployment}
-\subsection{Plan Monitoring and Maintenance}
-\subsection{Produce Final Report}
-\subsection{Review Project}
 
 
