@@ -6,11 +6,11 @@ Wie in Abschnitt \ref{sec:DataMining} bereits erwähnt, haben sich um das Data M
 \subsection{Knowledge Discovery in Databases (KDD) process model}
 Die Bezeichung Knowledge Discovery in Databases wurde hauptsächlich von \citep{fayyad_data_1996} geprägt. Sie beschreiben in ihrer Arbeit ein Problem der 1990er Jahre. Wie auch heute noch, stieg damals die Masse der gespeicherten Daten exponentiell \todo{wirklich "exponentiell"?} an. Die Manuelle Auswertung dieser Datensätze erforderte mehr Arbeitskraft als vorhanden war. \citep[S.~38]{fayyad_data_1996} beschreiben es als "data overload". Deswegen versuchte man, die Prozesse zur Findung von Erkenntnissen zu automatisieren. Daraus hat sich ein Standardvorgehen entwickelt, dass das KDD-Prozessmodell darstellt.
 \begin{figure}[H]
+\centering
 \frame{
 \includegraphics[width=\textwidth]{images/kddprocess}}
 \caption{Ein Überblick über die Schritte des KDD Prozesses nach \citep[S.~41]{fayyad_data_1996}}
 \label{fig:kddprocess}
-\centering
 \end{figure}
 
 
@@ -155,21 +155,21 @@ Bei CRoss Industrial Standard Process for Data Mining handelt es sich - wie bei 
 
 
 \begin{figure}[H]
+\centering
 \frame{
 \includegraphics[width=\textwidth]{images/CRISP_DM}}
 \caption{Phasen des CRISP-DM Referenzmodells nach \citep[S.~10]{chapman_crisp-dm_2000}}
 \label{fig:CRISP_DM}
-\centering
 \end{figure}
 
 Wie in Abbildung \ref{fig:CRISP_DM} zu sehen ist, umfasst das Referenzmodell sechs Phasen. Genau wie beim KDD-Prozessmodell handelt es sich nicht um ein lineares Modell, sondern um eines, das Rückschritte und Iterationen erlaubt. Im Nachfolgenden wird zuerst immer ein Prozessschritt kurz vorgestellt und darunter detaillierter betrachtet. Als Referenz dient unter anderem Abbildung \ref{fig:CRISP_DM_detailed}, die zusätzlich den Output der einzelnen Schritte zeigt.
 
 \begin{figure}[H]
+\centering
 \frame{
 \includegraphics[width=\textwidth]{images/crisp_dm_detailed}}
 \caption{Generische Aufgaben (bold) und Output (italic) des CRISP-DM Referenzmodells \citep[S.~12]{chapman_crisp-dm_2000}}
 \label{fig:CRISP_DM_detailed}
-\centering
 \end{figure}
 
 \subsubsection{Business Understanding}
@@ -251,11 +251,11 @@ nein & Wohnung &   2 & nein\\
 \end{table}
 Ebenfalls entnommen werden kann, dass es sich um demographische Angaben über Personen handelt. Zusätzlich wurde zu jeder Person erfasst ob sie Lasagne probiert hat. In Abbildung \ref{fig:Lasagne_RStudio} wird der Datensatz schließlich in RStudio betrachtet.
 \begin{figure}[H]
+\centering
 \frame{
 \includegraphics[width=\textwidth]{images/Lasagne_data}}
 \caption{Betrachten der Datentypen des Datensatzes in RStudio}
 \label{fig:Lasagne_RStudio}
-\centering
 \end{figure}
 Zu sehen ist hier, dass es sich um einen Datensatz mit 13 Variablen und 856 Beobachtungen handelt (hier scheint ein falscher Zeichensatz vorzuliegen oder Ähnliches, da eine zusätzliche leere Spalte "X" angezeigt wird \todo{was hier tun?}). Zusätzlich können die vorgeschlagenen Datentypen von R betrachtet werden. Bei den meisten Spalten handelt es sich um Ganzzahlen (int) oder Factoren (manchmal auch als Enums bezeichnet).
 
@@ -290,11 +290,11 @@ In der aufwendigsten Phase des ganzen Prozesses (siehe Abbildung \ref{fig:CRISP_
 Wie bereits erwähnt, handelt es sich nicht nur um die Phase, die den meisten Aufwand erfordert, sondern auch um die, von der die Genauigkeit des Endresultates zu großen Stücken abhängt.\citep[S.~73]{swamynathan_mastering_2017}
 
 \begin{figure}[H]
+\centering
 \frame{
 \includegraphics[width=\textwidth]{images/ProjektphasenInProzent_DRISP_DM}}
 \caption{Durchschnittlicher prozentualer Anteil der CRISP-DM-Projektphase am Gesamtprojekt nach \citep[S.~15; eigene Darstellung]{shearer_crisp-dm_2000}}
 \label{fig:CRISP_DM_percent}
-\centering
 \end{figure}
 
 \paragraph{Select Data}\mbox{} \\
@@ -428,11 +428,11 @@ Der nun folgende Abschnitt befasst sich mit Machine Learning. Zu Beginn der Arbe
 \end{itemize}
 Diese unterschiedlichen Gliederungen erklären \citep[S.~222]{ramasubramanian_machine_2017} damit, dass entweder nach "Learning types" (siehe Abbildung \ref{fig:MachineLearningTypes_all}) oder "Subjective grouping" (siehe Tabelle \ref{tab:SebjectiveGrouping}) klassifiziert werden kann.
 \begin{figure}[H]
+\centering
 \frame{
 \includegraphics[width=\textwidth]{images/MachineLearningTypes_all}}
 \caption{Machine Learning Types nach  \citep[S.~222]{ramasubramanian_machine_2017}}
 \label{fig:MachineLearningTypes_all}
-\centering
 \end{figure}
 
 \begin{table}[H]
@@ -520,7 +520,7 @@ Text mining algorithms & Automatic summarization\\
 Da der Artikel "How to choose algorithms for Microsoft Azure Machine Learning" von \citep{ericson_microsoft_2017} nach "Supervised", "Unsupervised" und "Reinforcement learning" zurückgreift, wird nachfolgend diese Gliederung genutzt und um "Semi-supervised Learning" und "Active Learning" erweitert. \newline
 \todo{raus?:} Anzumerken ist, dass nur Algorithmen beschrieben werden, die zum Zeitpunkt der Arbeit in "Microsoft Azure Machine Learning Studio" verfügbar sind.
 
-\subsection{Supervised Learning}
+\subsection{Supervised Learning}\label{subsec:sl}
 Die möglicherweise am einfachsten nachvollziehbare Gruppe des Machine Learning ist das Supervised Learning, da es "sehr ähnlich zu dem Prozess ist, in dem Menschen Dinge lernen"\citep[S.~13; eigene Übersetzung]{kim_matlab_2017}. Es existiert ein Datensatz, bei dem für jeden Input ein Output vorhanden ist. Ein Beispiel können Patientendaten sein, die als Output eine Variable besitzen, die angibt, ob ein Patient an Krebs erkrankt ist oder nicht.\citep[S.~222]{ramasubramanian_machine_2017} Diese "response variable" (Krebs oder nicht Krebs) wird als "label"\citep[S.~222]{ramasubramanian_machine_2017} bezeichnet. Die Aufgabe des Learning Prozesses ist es dann, einen Zusammenhang zwischen dem Input (Patientendaten) und dem Label (Krebs oder nicht Krebs) herzustellen. Dies geschieht mit sogenannten "training sets"\citep[S.~5]{paluszek_matlab_2017} Der zweite Schritt ist dann das Überprüfen des entstandenen Models. Dabei wird das Model auf ein zweites gelabeltes "test set"\citep[S.~5]{paluszek_matlab_2017} angewandt und das Ergebnis überprüft.\newline
 Die Algorithmen des Supervised Learning lassen sich erneut aufteilen:
 
@@ -534,11 +534,11 @@ Betrachtet man die Labels und stellt fest, dass sie die Datensätze in Kategorie
 \end{itemize}
 Weiterhin kann zwischen Klassifikationen mit nur zwei Labels ("two-class or binomial classification"\citep{ericson_how_2017}) (siehe Abbildung \ref{fig:classification}) oder mehr als zwei Labels ("multi-class classification"\citep{ericson_how_2017}) unterschieden werden.
 \begin{figure}[H]
+\centering
 \frame{
 \includegraphics[width=\textwidth]{images/classification}}
 \caption{Beispiel für eine Klassifikation aus \citep[S.~8]{suthaharan_machine_2016}}
 \label{fig:classification}
-\centering
 \end{figure}
 \subsubsection{Regression}\label{subsubsec:regression}
 Wenn eine Unterteilung in Kategorien wie gerade genannt nicht möglich ist und die Output variable ein fortlaufender \todo{Wort} Wert ist, werden Regressionen benutzt. Dabei liegt der "Hauptfokus [...] darin, einen Zusammenhang zwischen einer abhängigen Variablen und einer oder mehreren unabhängigen [...] Variablen herzustellen"\citep[S.~60; eigene Übersetzung]{swamynathan_mastering_2017}. Neben dem bekanntesten Beispiel
@@ -582,11 +582,11 @@ Beim angesprochenen Clustering handelt es sich um das "Identifizieren von distin
 \item die "Dichte im Datenraum"\citep[S.~338; eigene Übersetzung]{ramasubramanian_machine_2017}.
 \end{itemize}
 \begin{figure}[H]
+\centering
 \frame{
 \includegraphics[width=\textwidth]{images/clustering}}
 \caption{Beispiel für zwei Cluster \citep[S.~9]{suthaharan_machine_2016}}
 \label{fig:clustering}
-\centering
 \end{figure}
 
 \subsection{Semi-supervised Learning}
@@ -606,11 +606,11 @@ Nach \citep[S.~4]{settles_active_2010} wird Active Learning beispielsweise in
 \subsection{Reinforcement Learning}
 "Beim Reinforcement Learning interagiert der Lerner" - also ein Programm - "mit seiner Umwelt"\citep[S.~45; eigene Übersetzung]{settles_active_2010}. Er "experimentiert" dabei um eine Lösung auf das gestellte Problem zu finden und erhält je nach Ausgang seiner Aktion eine Belohnung oder eine Bestrafung.\citep[S.~331]{kubat_introduction_2017} Es wird also nicht direkt mit einem Output (Label) gearbeitet, sondern lediglich die Qualität des Outputs bewertet. Das Ziel ist, durch ein iteratives Vorgehen (siehe Abbildung \ref{fig:reinforcementLearning}), ein maximales Endergebnis (größer Reward) zu erreichen.\citep[S.~69]{swamynathan_mastering_2017}
 \begin{figure}[H]
+\centering
 \frame{
 \includegraphics[width=\textwidth]{images/reinforcementLearning}}
 \caption{Iterativer Reinforcement Learning Prozess aus \citep[S.~25]{lison_introduction_2012}}
 \label{fig:reinforcementLearning}
-\centering
 \end{figure}
 Reinforcement Learning kommt in Szenarien zum Einsatz, in denen noch keine Daten zum Lernen zur Verfügung stehen oder erst nach und nach aktualisiert werden.\citep[S.~223]{ramasubramanian_machine_2017}\newline
 Ein prominentes Beispiel für ein System mit Reinforcement Learning ist Google DeepMinds AlphaGo. Es handelt sich dabei um einen Go (asiatisches Brettspiel) spielendes Computersystem, dass seine Spielstärke durch spielen gegen sich selbst erreichte.\citep{silver_mastering_2017}

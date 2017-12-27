@@ -192,9 +192,7 @@ Costs and benefits & --- \\
 \end{longtable}
 
 
-\subsection{Determine the Data Mining Goals}
-
-
+\subsection{Determine the Data Mining Goals}\label{subsec:goals}
 \begin{longtable}[!h]{|p{4,5cm}|p{12cm}|}
 \hline
 \textbf{Output} & \textbf{Beschreibung} \\ 
@@ -232,7 +230,7 @@ $Regression \quad passt \quad perfekt := 1$
 \newline 
 $Regression \quad erklärt \quad nichts := 0$;
 \newline 
-kleine Werte sind normal, große  sollten misstrauisch machen\citep{mircosoft_evaluate_2017}
+kleine Werte sind normal, große sollten misstrauisch machen\citep{mircosoft_evaluate_2017}
 \end{itemize}
 \\
 \hline
@@ -766,35 +764,35 @@ Obwohl die Qualität der Daten erst in einem nachfolgenden Schritt genauer betra
 \item Am Ende von Abschnitt \ref{subsec:collection} wurde bereits angesprochen, dass das Feature 'Change' (z.B. bei den Aktienindices) keinen Mehrwert für die Analyse bietet.
 \end{itemize}
 
-\subsection{Explore the Data}
+\subsection{Explore the Data} \label{subsec:explore}
 Der User Guide empfielt, um die bekannten Daten weiter zu untersuchen, "Abfrage-, Visualisierungs- und Reportingtechniken anzuwenden"\citep[S.~40; eigene Übersetzung]{chapman_crisp-dm_2000}. Es ist sicherlich aufschlussreich, alle Features auf einen Graphen mit dem Kryptowärhungskurs zu plotten. Da dies jedoch sehr aufwendig ist, werden hier nur einige Daten betrachtet. Außerdem ist es wahrscheinlich, dass komplexere Zusammenhänge nicht trivial visuell erkennbar sind.\newline
 
 Betrachtet man das Interesse am Bitcoin (Google Websuchen und Google Newssuchen) mit dem R Statement in Listing \ref{list:PublicInterestBTC}, so zeigt sich, dass der erste Ausschlag Mitte 2011 zu erkennen ist und der Nächste erst Anfang 2013 (Abbildung \ref{fig:PublicInterestBTC}). 
 \lstinputlisting[caption=Google Websuchen und Newssuchen für "Bitcoin" im zeitlichen Verlauf in R,label=list:PublicInterestBTC]{../R/punlicInterestPlots/PublicInterestBTC.R}
 \begin{figure}[H]
+\centering
 \frame{
 \includegraphics[width=\textwidth]{images/BTCpublicWithoutPrice}}
 \caption{Google Websuchen und Newssuchen für "Bitcoin" im zeitlichen Verlauf}
 \label{fig:PublicInterestBTC}
-\centering
 \end{figure}
 Interpretiert man die Googlesuchen als Indikator für den Bekanntheitsgrad des Bitcoins, so lässt sich daraus schließen, dass die Währung bis 2011 sehr unbekannt und erst nach 2013 wirklich bekannt war. Zieht man nun den Bitcoinkurs heran (Listing \ref{list:PublicInterestBTC2}), so lässt sich ein Zusammenhang erkennen (Abbildung \ref{fig:PublicInterestBTC2}). 
 \lstinputlisting[caption=Google Websuchen und Newssuchen für "Bitcoin" und Bitcoinkurs im zeitlichen Verlauf in R,label=list:PublicInterestBTC2]{../R/punlicInterestPlots/PublicInterestBTC2.R}
 \begin{figure}[H]
+\centering
 \frame{
 \includegraphics[width=\textwidth]{images/BTCpublicWithPrice}}
 \caption{Google Websuchen und Newssuchen für "Bitcoin" im zeitlichen Verlauf}
 \label{fig:PublicInterestBTC2}
-\centering
 \end{figure}
 Anzumerken ist, dass die historischen Kursdaten hier in keinem Verhältnis zur y-Achse stehen und nur der grafischen Darstellung dienen.
 Anders verhält es sich bei Etherum (siehe Abbildung \ref{fig:PublicInterestETH}). Hier besteht schon vor dem offiziellen Start des Etherumnetzwerks\citep{tual_ethereum_2015} ein gewisses Interesse.
 \begin{figure}[H]
+\centering
 \frame{
 \includegraphics[width=\textwidth]{images/ETHpublicWithPrice}}
 \caption{Google Websuchen und Newssuchen für "Ethereum" im zeitlichen Verlauf}
 \label{fig:PublicInterestETH}
-\centering
 \end{figure}
 Als Schlussfolgerung lässt sich daraus ableiten, dass es sehr unwahrscheinlich ist, dass Indikatoren wie Aktienindices oder der Ölpreis den Kryptowährungskurs beeinflussen, wenn sie noch unbekannt ist. Deswegen empfiehlt sich für die Analyse der Zeitraum, seit die Währungen Bekanntheit erlangt haben. 
 
@@ -841,19 +839,19 @@ Analog wird bei den Etherumdatensätzen vorgegangen. 'ETH \textunderscore Total 
 Auch wenn die Datensätze an dieser Stelle aussortiert werden, war ihre Beschreibung keine Verschwendung. Sie hat dazu beigetragen, das Domainwissen (siehe \ref{} \todo{anfügen}) zu vertiefen und die Plausibilität der Daten zu prüfen.
 Der Bitcoinkurs soll vom 1.1.2011 an analysiert werden. Für einige Aktienindices liegen für diese Zeit noch keine Daten vor. Um die über 50 Indices etwas auszudünnen, werden nur solche für das Machine Learning genutzt, für die Daten vorhanden sind. Dadurch wird versucht, Datenlücken zu vermeiden. Damit der Arbeitsaufwand reduziert wird, wird die Auswahl für die Analyse des Etherumpreises übernommen. Die Google Trends Daten werden beibehalten. Anders verhält es sich bei den Wikipedia-Seitenaufrufen. Für die Bitcoinanalyse ist die Zeitspanne des Datensatzes zu kurz (es fehlen 4 1/2 Jahre: von 1.1.2011 bis 1.7.2015). Eine mögliche Korrelation (siehe Abbildung \ref{fig:WikiBTC}) zwischen Seitenaufrufen und Bitcoinkurs müsste gesondert untersucht werden. 
 \begin{figure}[H]
+\centering
 \frame{
 \includegraphics[width=\textwidth]{images/WikiPageBTC}}
 \caption{Wikipedia Seitenaufrufe "Bitcoin" und der Bitcoinkurs im zeitlichen Verlauf}
 \label{fig:WikiBTC}
-\centering
 \end{figure}
 Für die Etherumkursanalyse werden die Seitenaufrufe herangezogen, da sich die Daten zeitlich decken (siehe Abbildung \ref{fig:WikiETH}). Erneut ist bei beiden Diagrammen der Kryptowährungskurs nur relativ dargestellt und nicht in absoluten Zahlen. \todo{formulierung}
 \begin{figure}[H]
+\centering
 \frame{
 \includegraphics[width=\textwidth]{images/WikiPageETH}}
 \caption{Wikipedia Seitenaufrufe "Etherum" und der Etherumkurs im zeitlichen Verlauf}
 \label{fig:WikiETH}
-\centering
 \end{figure}
 Obwohl für den STLFSI nur wöchentlich - nicht täglich - berechnet wird, wird er beibehalten. Bei den Währungen wird nur der Kurs INR/USD exkludiert, da hier nur Daten ab dem 9.9.2014 vorliegen. Alle Daten zu natürlichen Ressourcen (Gold, Silber, Öl) werden inkludiert.
 Dem Datensatz 'ETH \textunderscore Price \textunderscore Volume \textunderscore Full \textunderscore Daily' fehlt die erste Woche an Daten, ist sonst aber reicher an Informationen über den Etherum/USD-Kurs als das 'ethereumDataset', da es nicht nur den Durchschnittspreis eines Tages enthält, sondern sowohl den ersten und letzten Kurs in einem 24-Stunden-Fenster, als auch den Höchsten und den Niedrigsten. Dem 'BTC \textunderscore Price \textunderscore Volume \textunderscore Full \textunderscore Daily' hingegen fehlt das erste halbe Jahr an Daten und weist erst ab Ende (18.12.) 2011 keine Lücken mehr auf. In allen Datensätzen (Aktienindices, Währungen, natürliche Ressourcen) wird das Feature '\%Change' gestrichen, da in \ref{subsec:describe} festgestellt wurde, dass es redundant ist.
@@ -902,7 +900,7 @@ ethereumDataset & X & \\ \hline
 \subsection{Clean, Construct, Integrate, Format Data}
 
 Die Schritte 'Clean Data', 'Construct Data', 'Integrate Data' und 'Format Data' gehen Hand in Hand. Deswegen werden die Punkte zusammengefasst. Bei der tatsächlichen Durchführung wurden die Schritte iterativ und inkrementell durchlaufen. \newline
-Die Menge aller Daten für die Untersuchung ist heterogen. Es existieren jedoch Blöcke, die innerhalb eine homogene Struktur aufweisen. Aus diesem Grund ist es ratsam, zuerst die homogenen Daten zusammenzufassen und diese großen Blöcke dann zusammenzufügen. Durch dieses Buttom-Up-Zusammensetzen wird die Integration vereinfacht.
+Die Menge aller Daten für die Untersuchung ist heterogen. Es existieren jedoch Blöcke (z.B. alle Währungskurse oder alle natürlichen Ressourcen), die innerhalb eine homogene Struktur aufweisen. Aus diesem Grund ist es ratsam, zuerst die homogenen Daten zusammenzufassen und diese großen Blöcke dann zusammenzufügen. Durch dieses Buttom-Up-Zusammensetzen wird die Integration vereinfacht.
 Das Vorgehen ist dabei folgendes:
 \begin{itemize}
 \item Die einzelnen Datensätze werden so bearbeitet, dass sie für die Zusammenführung in ihren Block bereit sind.
@@ -912,50 +910,47 @@ Das Vorgehen ist dabei folgendes:
 Nachfolgend wird das Bereinigen und Zusammensetzten beschrieben. Zuerst werden die Aktienindices bearbeitet (Listing \ref{list:indicesR}) und gejoint (Abbildung \ref{fig:indicesAzure_1}). 
 \lstinputlisting[caption=Aufbereiten der Indices-Datensätze,label=list:indicesR]{../R/processIndexSets/processDataSet_Indices.R}
 \begin{figure}[H]
+\centering
 \frame{
 \includegraphics[width=\textwidth]{images/indicesAzure_1}}
 \caption{Zusammenführen der Aktienindices in Azure Machine Learning Studio}
 \label{fig:indicesAzure_1}
-\centering
 \end{figure}
-
-Daraufhin werden sie nachbearbeitet. Die nachfolgende Beschreibung bezieht sich auf Abbildung \ref{fig:indicesAzure_2}: In jedem Datensatz existiert eine Spalte, die die Zeilen durchnummeriert. Dies diente zum beheben von Fehlern und wird nun entfernt (1. Select Columns in Dataset). Ebenso enthält das Ergebnis noch 35 Datums-Spalten. Diese können auf Eine reduziert werden (2. Select Columns in Dataset und Edit Metadata).
+Daraufhin werden sie nachbearbeitet (die Beschreibung bezieht sich auf Abbildung \ref{fig:indicesAzure_2}): In jedem Ursprungsdatensatz existiert eine Spalte, die die Zeilen durchnummeriert. Dies diente zum beheben von Fehlern und wird nun entfernt (1. Select Columns in Dataset). Ebenso enthält das Ergebnis noch 35 Datums-Spalten (von jedem Ursprungsdatensatz eine). Diese werden bis auf Eine entfernt (2. Select Columns in Dataset und Edit Metadata).
 \begin{figure}[H]
+\centering
 \frame{
 \includegraphics[width=\textwidth]{images/indicesAzure_2}}
 \caption{Nachbearbeiten des Ergbnisdatensatzes in Azure Machine Learning Studio}
 \label{fig:indicesAzure_2}
-\centering
 \end{figure}
 Analog werden die natürlichen Ressourcen zu einem Datenblock zusammengefasst. Ähnlich wird mit den Währungskursen vorgegangen. Die Verarbeitung in R ist jedoch einfacher, da sie keine Tausendertrennzeichen, keine pseudo-numerischen Werte und keine Lücken enthalten. 
-Der Datensatz 'abcnews \textunderscore Date \textunderscore Text' (siehe Abbildung \ref{fig:abcAzure1}) wird mit dem Experiment Item 'Preprocess Text' vorbearbeitet, nachdem alte Überschriften (vor dem 1.1.2011) entfernt wurden (siehe Listing \ref{list:abcold} Zeile 6). 
+Spezieller ist der Datensatz 'abcnews \textunderscore Date \textunderscore Text' (siehe Abbildung \ref{fig:abcAzure1}). Er wird mit dem Experiment Item 'Preprocess Text' vorbearbeitet, nachdem alte Überschriften (vor dem 1.1.2011) entfernt wurden (Execute R Script; siehe Listing \ref{list:abcold} Zeile 6). 
 \begin{figure}[H]
+\centering
 \frame{
 \includegraphics[width=\textwidth]{images/abcAzure1}}
 \caption{Feature Hashing der abcnews in Azure Machine Learning Studio}
 \label{fig:abcAzure1}
-\centering
 \end{figure}
 \lstinputlisting[caption=Entfernen der alten Überschriften,label=list:abcold]{../R/abc/abcold.R}
-Es führt unter anderem eine Lemmatisierung durch und entfernt Zahlen und Sonderzeichen. Anschließend wird ein Feature Hashing durchgeführt. Für jede Überschrift existiert eine einzelne Zeile im Datensatz. Diese werden mit dem R-Script in Listing \ref{list:abcHashed} in Azure aggregiert.
+Das Preprocessing führt unter anderem eine Lemmatisierung durch und entfernt Zahlen und Sonderzeichen. Anschließend wird ein Feature Hashing durchgeführt. Dabei handelt es sich um die Überführung von Texttupeln in Zahlwerte, damit eine Verarbeitung durch Computer möglich wird. Für jede Überschrift existiert eine einzelne Zeile im Datensatz. Diese werden mit dem R-Script in Listing \ref{list:abcHashed} in Azure aggregiert.
 \lstinputlisting[caption=Aggregieren der Hashing-Ergebnisse,label=list:abcHashed]{../R/abc/abcHashed.R}
-Zuletzt werden noch die Google News- und Websuchen zusammengefasst.
+Zuletzt werden noch die Google News- und Websuchen zusammengefasst. Der abschließende Data cleaning report ist in Tabelle \ref{tab:selecData} zu finden.
 \begin{longtable}[H]{|p{4cm}|p{8cm}|p{4cm}|}
 \hline
 \textbf{Problem} & \textbf{Lösung} & \textbf{Werkzeug} \\
 \hhline{===} 
-unterschiedliche Datumsformate & Zuerst werden die Daten in Text formatiert und dann mit dem Packet 'anytime' in R konvertiert. & R + Package 'anytime' (siehe Listing \ref{list:indicesR} Zeile 37) \\ \hline
+unterschiedliche Datumsformate & Zuerst werden die Daten in Text und anschließend mit dem Packet 'anytime' in R konvertiert. & R + Package 'anytime' (siehe Listing \ref{list:indicesR} Zeile 37) \\ \hline
 Lücken durch joinen der Daten & Es handelt sich um 'Missing not at random'-Fehler (MNAR)\citep[S.~553]{graham_missing_2009}. Das bedeutet, dass die Lücken absichtlich sind (weil an diesen Tagen nicht gehandelt wird). Da es kein statistisches Verfahren zum schließen solcher Lücken gibt, werden sie beibehalten. \citep[S.~1109]{leonhart_dorsch_2014} & \\ \hline
-unterschiedliche Seperatoren, Trennzeichen etc. & Die Daten werden mit Excel von '.tsv' in '.csv' konvertiert. Eine programmatische Änderung oder 'Find and Replace' ist schwer, da es einen Tab als Trennzeichen zwischen Tag, Monat und Jahr gibt. Kommas als Tausendertrennzeichen werden entfernt. & Excel 'Save As...' und R-Methode 'gsub' (siehe Listing \ref{list:indicesR} Zeilen 31-34) \\ \hline
-pseudo-numerische Werte (z.B."1.5M" oder "0.07k") & Bei betroffenen Werten wird der Buchstabe entfernt und die Zahl mit dem entsprechenden Wert multipliziert (z.B. $ 1.3 \times 1000 $ für 1.3K) & R-Methoden 'gsup' und 'grepl', sowie mathematische Operationen (siehe Listing \ref{list:pseudonumeric})\\ \hline
+unterschiedliche Seperatoren, Trennzeichen etc. & Die Daten werden mit Excel von '.tsv' in '.csv' konvertiert. Eine programmatische Änderung oder 'Find and Replace' ist schwer, da es einen Tab als Trennzeichen zwischen Tag, Monat und Jahr gibt. Kommas als Tausendertrennzeichen werden entfernt. & Excel 'Save As...' und R-Methode 'gsub' (siehe Listing \ref{list:indicesR} Zeilen 30-34) \\ \hline
+pseudo-numerische Werte (z.B. "1.5M" oder "0.07k") & Bei betroffenen Werten wird der Buchstabe entfernt und die Zahl mit dem entsprechenden Wert multipliziert (z.B. $ 1.3 \times 1000 $ für 1.3K) & R-Methoden 'gsup' und 'grepl', sowie mathematische Operationen (siehe Listing \ref{list:pseudonumeric})\\ \hline
 Fehlende Werte & Fehlende Werte im Volumen werden als '-' angegeben, nicht als 'Nichts'. Durch ersetzen des '-' in R wird das Problem behoben. & R: Listing \ref{list:indicesR} Zeile 45 \\ \hline
-
 \caption{Data cleaning report}
 \label{tab:selecData}
 \end{longtable}
 \lstinputlisting[caption=Konvertierung von pseudo-numerischen Werten,label=list:pseudonumeric]{../R/pseudonumeric.R}
-Der Schritt 'Construct data' enthält die Möglichkeit, neue Features hinzuzufügen. Hier ist kein Bedarf bedarf dafür. Außerdem handelt es sich teilweise schon um stark aggregierte Features, wie den STFL (siehe \ref{subsec:assesTheSituation}).
-
+Der Schritt 'Construct data' enthält die Möglichkeit, neue Features hinzuzufügen. Hier ist kein Bedarf bedarf dafür. Außerdem handelt es sich teilweise schon um stark aggregierte Features, wie den STFL (siehe \ref{subsec:assesTheSituation}). Damit sind die Konvertierungen, Formatierungen und Zusammenführungen der Datenblöcke abgeschlossen. Die Ergebnisse sind in den Tabellen \ref{tab:constructData} und \ref{tab:integrateData} festgehalten.
 \begin{longtable}[H]{|p{6cm}|p{9,5cm}|}
 \hline
 \textbf{Output} & \textbf{Beschreibung}\\
@@ -964,7 +959,6 @@ Hashed \textunderscore news & Die abcsnews nach dem Feature Hashing und der Aggr
 \caption{Output: Generated records}
 \label{tab:constructData}
 \end{longtable}
-
 
 \begin{longtable}[H]{|p{6cm}|p{9,5cm}|}
 \hline
@@ -978,32 +972,66 @@ Joined \textunderscore Public & Google Suchen und Google Newssuchen in einem Dat
 \label{tab:integrateData}
 \end{longtable}
 
-Syntaktische Änderungen an den Datensätzen, also verändern der Spaltenreihenfolge oder der Spaltenbezeichungen sind Teil des Schrittes 'Format data'. Es kann beispielsweise in einem eingesetzten Werkzeug notwendig sein, dass die erste Spalte einer Tabelle ein eindeutiger Schlüssel sein muss.\citep[S.~46]{chapman_crisp-dm_2000} Obgleich dieser Fall hier nicht eintritt, werden syntaktische Änderungen vorgenommen: Wie oben bereits erwähnt, entstehen beim Zusammenführen der Tabellen doppelte Spalten. Werden zwei Tabellen gejoint, so existieren zwei Datumsspalten, die die gleichen Werte beinhalten (rechte Datumsspalte und linke Datumsspalte). Diese Redundanzen werden entfernt. Außerdem wird die beibehaltene Spalte in 'Date' umbenannt.\newline
-
-Um nur die Zeilen zur Analyse zu benutzen, die im ausgewählten Zeitintervall (siehe xxx) liegen, wird das Datensetz noch aufgesplittet (Experiment Item 'Split Data' mit Relative Expression \textbackslash "Date" >= 2011-01-01T00:00:00). Daraufhin werden mit dem Item 'Clean Missing Data (Probabilistic PCA))' fehlende Daten ersetzt. Bei neun Spalten ist dies nicht möglich (keine Fehlermeldung). Diese werden mit einem erneuten 'Clean Missing Data (Remove entire column)' entfernt. Als Abschluss wird mit dem R-Script in Listing \ref{list:AzureIncrease} eine neue Spalte eingeführt, die angibt, ob der Kurs zum Vortag gesteigen ist (Wert: 1) oder nicht (Wert: 0). Dieser wird im Nachfolgenden als Vorhersagewert genutzt.
+Syntaktische Änderungen an den Datensätzen, also verändern der Spaltenreihenfolgen oder der Spaltenbezeichungen sind Teil des Schrittes 'Format data'. Es kann beispielsweise in einem eingesetzten Werkzeug notwendig sein, dass die erste Spalte einer Tabelle ein eindeutiger Schlüssel sein muss.\citep[S.~46]{chapman_crisp-dm_2000} Obgleich dieser Fall hier nicht eintritt, werden syntaktische Änderungen vorgenommen: Wie oben bereits erwähnt, entstehen beim Zusammenführen der Tabellen doppelte Spalten. Werden zwei Tabellen gejoint, so existieren zwei Datumsspalten, die die gleichen Werte beinhalten (rechte Datumsspalte und linke Datumsspalte). Diese Redundanzen werden entfernt. Außerdem wird die beibehaltene Spalte in 'Date' umbenannt.\newline
+Alle erzeugten Blöcke und einzelnen Datensätze werden nun im Azure Machine Learning Studio zu einem Datensatz zusammengefasst. Für das Machine Learning werden aus diesem die benötigten Spalten für BTC bzw. ETH ausgewählt. Da das Joinen wie bisher verläuft, wird auf eine extra Beschreibung von Abbildung \ref{fig:azureFinalSet} verzichtet.
+\begin{figure}[H]
+\centering
+\frame{
+\includegraphics[width=\textwidth]{images/azureFinalSet}}
+\caption{Erzeugen des finalen Datensatzes für das Machine Learning}
+\label{fig:azureFinalSet}
+\end{figure}
+Der letzte Schritt vor dem Machine Learning ist das Auswählen des Analysezeitraums und das bereinigen fehlender Daten (siebe Abbildung \ref{fig:azureDateAndCleaning}).
+\begin{figure}[H]
+\centering
+\frame{
+\includegraphics[width=\textwidth]{images/azureDateAndCleaning}}
+\caption{Auswahl des Analysezeitraums und bereinigen fehlender Daten in Azure Machine Learning Studio}
+\label{fig:azureDateAndCleaning}
+\end{figure}
+Um nur die Zeilen zur Analyse zu benutzen, die im ausgewählten Zeitintervall (siehe Punkt \ref{subsec:explore}) liegen, wird das Datensetz noch aufgesplittet (Experiment Item 'Split Data' mit Relative Expression \textbackslash "Date" >= 2011-01-01T00:00:00 für BTC und \textbackslash "Date" >= 2015-07-30T00:00:00 für ETH). Daraufhin werden mit dem Item 'Clean Missing Data (Probabilistic PCA))' fehlende Daten ersetzt, die nicht unter die Kategorie MNAR fallen. Bei neun Spalten ist dies nicht möglich (keine Fehlermeldung in Azure Machine Learning; vermutlich zu wenige Werte für Probabilistic PCA). Diese werden mit einem erneuten 'Clean Missing Data (Remove entire column)' entfernt. Als Abschluss wird mit dem R-Script in Listing \ref{list:AzureIncrease} eine neue Spalte angefügt, die angibt, ob der Kurs zum Vortag gestiegen ist (Wert: 1) oder nicht (Wert: 0). Dieser wird im Nachfolgenden als Vorhersagewert genutzt.
 \lstinputlisting[caption=Hinzufügen und Popularisieren der Spalte "increase" in Azure Machine Learning Studio,label=list:AzureIncrease]{../R/AzureIncrease.R}
 
 
 \section{Modeling}
 \subsection{Select the Modeling Technique}
-
-
-Auswahl der Algorithmen;
-alles supervised, weil ich ziel label habe.
-einmal genauen preis (continuous values) "regressions" und einmal two class für 1: gestiegen und 0 für nicht gesteigen; wäre auich denkbar cluster mit "leicht fallend, leicht steigend" etc, aber zu aufwändig.
-
-in azure: 
-two class aufzählen
-regressionen aufzählen -ordinary regression -poison regression -linear regression -quantil (eignet sich gut, aber andere form)
-
-alle parametrisierbar. hier standard parameter
-
+Wie in Punkt \ref{subsec:goals} gefordert, wird einerseits versucht, einen Wert für den Kurs vorherzusagen (mit Hilfe von Regressionen) und andererseits, ob der Kurs steigt oder nicht (Two-Class classification). In beiden Fällen handelt es sich um Supervised Learning, da für jeden Input ein Output vorhanden ist (siehe Punkt \ref{subsec:sl}).
+In Azure verfügbare Two-Class classification Algorithmen sind:
+\begin{itemize}
+\item Two-Class Support Vector Machine
+\item Two-Class Neural Network
+\item Two-Class Logistic Regression
+\item Two-Class Locally-Deep Support Vector Machine
+\item Two-Class Decision Jungle
+\item Two-Class Decision Forest
+\item Two-Class Boosted Decision Tree
+\item Two-Class Bayes Point Machine
+\item Two-Class Averaged Perceptron
+\end{itemize}
+Bei den Regressionen sind es:
+\begin{itemize}
+\item Bayesian Linear Regression
+\item Boosted Decision Tree Regression
+\item Decision Forest Regression
+\item Fast Forest Quantile Regression
+\item Linear Regression
+\item Neural Network Regression
+\item Ordinal Regression
+\item Poisson Regression
+\end{itemize}
+Ausgeschlossen werden Ordinal Regression (nur geeignet, um Rangfolgen aufzustellen), Poisson Regression (nur geigten, um vorherzusagen, wie oft etwas passiert), Linear Regression (nur für sehr simple Modelle) und Ordinal Regression (zwar geeignet, nutzt aber andere Metriken und ist nicht vergleichbar).
+Die Algorithmen besitzen konfigurierbare Parameter. Die Güte der erzeugten Modelle hängt unter anderem von diesen einstellbaren Werten ab. Azure bietet die Möglichkeit, diese Parameter automatisch zu optimieren. Dazu wird das Experiment Item 'Tune Model Hyperparameter' eingesetzt. Es verbessert das Ergebnis des Models hinsichtlich eines bestimmten Wertes (Genauigkeit, Präzision etc.). Im vorliegenden Fall werden als Zielparameter die Metriken aus den Data Mining Goals (Punkt \ref{subsec:goals}) gewählt:
+F1-Score für Klassifikationen und Bestimmtheitsmaß (Coefficient of determination) für die Regressionen.
 
 \subsection{Generate Test Design}
-
-
-muss überlegt werden und kann für versch. algos anders sein. es gibt auch ansätze, nicht verhältnismäßig zu splitten, sondern auch algos dafür. hier aber klassische 80:20 mit dem split modul mit random (nicht einfach obere/unterere hälfte).
-
+Es muss überlegt werden, in welchem Verhältnis die zu analysierenden Daten aufgeteilt werden (Trainingsdaten:Testdaten). Es gibt kein allgemeingültiges, optimales Verhältnis. In der Praxis sind jedoch Verhältnisse wie 70:30 oder 80:20 üblich. Es existieren auch andere Ansätze, die wiederum auf Algorithmen basieren.\citep{crowther_method_2005} Beachtet werden muss jedoch, dass nicht einfach obere und untere Hälfte des Datensatzes genutzt werden, sondern die Aufteilung nach dem Zufallsprinzip geschieht. Da das Experiment Item 'Tune Model Hyperparameter' eingesetzt wird, gibt es die Möglichkeit, ein zusätzliches Validation Datasetz zu nutzen. Das für diese Analyse gewählte Verhältnis ist in Abbildung \ref{fig:ratio} zu sehen.
+\begin{figure}[H]
+\centering
+\frame{
+\includegraphics[width=12cm]{images/ratio}}
+\caption{Verhältnis der Aufteilen in Trainings-, Test- und Validationsdatensatz}
+\label{fig:ratio}
+\end{figure}
 
 \subsection{Build the Model}
 Ziel: Models bauen
