@@ -29,7 +29,7 @@ In  gewöhnlichen Industrie- oder Forschungsprojekten ist es wichtig, die Stakeh
 \hhline{==}
 Background & Die Analyse wird im Rahmen einer Masterarbeit durchgeführt. Nur eine Person ist daran beteiligt. \\
 \hline
-Business objectives & Die Untersuchung hat zwei Hauptziele. Das eine ist die Analyse der Cryptowährungen an sich. Es soll herausgefunden werden, ob Kursschwankungen mit Hilfe der Isolation von Einflussfaktoren und den Mitteln des Machine Learning vorausgesagt werden können oder anderweitige Auffälligkeiten zu beobachten sind. Das andere Ziel ist die Einarbeitung in das Werkzeug Azure Machine Learning. \\
+Business objectives & Die Untersuchung hat zwei Hauptziele. Das eine ist die Analyse der Kryptowährungen an sich. Es soll herausgefunden werden, ob Kursschwankungen mit Hilfe der Isolation von Einflussfaktoren und den Mitteln des Machine Learning vorausgesagt werden können oder anderweitige Auffälligkeiten zu beobachten sind. Das andere Ziel ist die Einarbeitung in das Werkzeug Azure Machine Learning. \\
 \hline
 Business success criteria & Die Erkenntnis, dass eine Vorhersage nicht möglich ist, oder dass wichtige Einflüsse nicht gefunden wurden, ist durchaus möglich und bedeutet keinesfalls ein Scheitern des Projekts. Hinsichtlich des Werkzeugs Azure ML, ist es beispielsweise interessant, welchen Restriktionen das Tool unterlegen ist. Das Betrifft sowohl Funktionen, die (noch) nicht vorhanden sind, oder technische Limitationen, wie Geschwindigkeit, Volumenbegrenzungen etc..\\
 \hline
@@ -224,7 +224,7 @@ $ f_{n} : false \quad negative $ \newline
 \item Mean absolute error (MAE): Unterschied von vorhergesagten und tatsächlichen Werten; je kleiner desto besser\citep{mircosoft_evaluate_2017}
 \item Root mean squared error (RMSE): Macht eine Aussage darüber, "wie gut eine Funktionskurve an vorliegende Daten angepasst ist"; "je größer der RMSE [...], desto schlechter"\citep{statista_root_nodate}
 \item Relative absolute error (RAE), Relative squared error (RSE): Ähnlich dem RMSE, aber für den Vergleich von Regressionen mit unterschiedlichen Maßeinheiten geeignet.\citep{dr._sayad_model_2017} Im vorliegenden Fall können die anderen Größen herangezogen werden, da alle Modelle die gleiche Einheit für die vorhergesagten Werte nutzen.
-\item Coefficient of determination: Gütemaß für die Aussagekraft der Regression; 
+\item Coefficient of determination ($ R^2 $): Gütemaß für die Aussagekraft der Regression; 
 \newline
 $Regression \quad passt \quad perfekt := 1$ 
 \newline 
@@ -438,16 +438,16 @@ Dateigröße & \multicolumn{2}{l|}{279} \\ \hline
 \textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
 \hhline{===}
 Time & Datum im Format 'dd/mm/yy HH:MM' & HH:MM:SS unbenutzt \\ \hline
-bit-x & numerisch (Gleitkommazahl) & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
-bitbay & numerisch (Gleitkommazahl) & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
-cex.io & numerisch (Gleitkommazahl) & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
-coinbase & numerisch (Gleitkommazahl) & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
-exmo & numerisch (Gleitkommazahl) & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
-gemini & numerisch (Gleitkommazahl) & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
-hitbtc & numerisch (Gleitkommazahl) & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
-itbit & numerisch (Gleitkommazahl) & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
-kraken & numerisch (Gleitkommazahl) & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
-others & numerisch (Gleitkommazahl) & Wert eines Bitcoins in USD an anderen Börsen; ohne Lücken \\ \hline
+bit-x & numerisch & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
+bitbay & numerisch & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
+cex.io & numerisch & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
+coinbase & numerisch & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
+exmo & numerisch & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
+gemini & numerisch & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
+hitbtc & numerisch & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
+itbit & numerisch & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
+kraken & numerisch & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
+others & numerisch & Wert eines Bitcoins in USD an anderen Börsen; ohne Lücken \\ \hline
 \caption{Data description report für BTC \textunderscore Price \textunderscore Multiple \textunderscore Daily}
 \end{longtable}
 
@@ -498,7 +498,7 @@ Value & numerisch (0) & \\ \hline
 
 \begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
 \hline
-Datensatz & \multicolumn{2}{l|}{google \textunderscore Trends \textunderscore BTC \textunderscore Newssearch und google \textunderscore Trends \textunderscore BTC \textunderscore Websearch} \\ \hline
+Datensatz & \multicolumn{2}{p{9cm}|}{google \textunderscore Trends \textunderscore BTC \textunderscore Newssearch und google \textunderscore Trends \textunderscore BTC \textunderscore Websearch} \\ \hline
 Observations & \multicolumn{2}{l|}{107} \\ \hline
 Features & \multicolumn{2}{l|}{2} \\ \hline
 Dateigröße & \multicolumn{2}{l|}{2} \\ \hline
@@ -512,7 +512,7 @@ bitcoin: (Weltweit) & numerisch (0) & Scala von 0 bis 100 \\ \hline
 
 \begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
 \hline
-Datensatz & \multicolumn{2}{l|}{google \textunderscore Trends \textunderscore ETH \textunderscore Newssearch und google \textunderscore Trends \textunderscore ETH \textunderscore Websearch} \\ \hline
+Datensatz & \multicolumn{2}{p{9cm}|}{google \textunderscore Trends \textunderscore ETH \textunderscore Newssearch und google \textunderscore Trends \textunderscore ETH \textunderscore Websearch} \\ \hline
 Observations & \multicolumn{2}{l|}{83} \\ \hline
 Features & \multicolumn{2}{l|}{2} \\ \hline
 Dateigröße & \multicolumn{2}{l|}{1} \\ \hline
@@ -580,7 +580,7 @@ headline \textunderscore text & Text & ohne Satzzeichen; alles in Kleinbuchstabe
 \begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
 \hline
 Datensatz & \multicolumn{2}{l|}{alle Aktienindices} \\ \hline
-Observations & \multicolumn{2}{l|}{unterschiedlich; bei vollständigen (1.1.2009 bis 5.11.2017) ca. 2230} \\ \hline
+Observations & \multicolumn{2}{p{9cm}|}{unterschiedlich; bei vollständigen (1.1.2009 bis 5.11.2017) ca. 2230} \\ \hline
 Features & \multicolumn{2}{l|}{7} \\ \hline
 Dateigröße & \multicolumn{2}{l|}{bei vollständigen (1.1.2009 bis 5.11.2017) 253 bis 102} \\ \hline
 \hhline{===}
@@ -1020,49 +1020,144 @@ Bei den Regressionen sind es:
 \item Poisson Regression
 \end{itemize}
 Ausgeschlossen werden Ordinal Regression (nur geeignet, um Rangfolgen aufzustellen), Poisson Regression (nur geigten, um vorherzusagen, wie oft etwas passiert), Linear Regression (nur für sehr simple Modelle) und Ordinal Regression (zwar geeignet, nutzt aber andere Metriken und ist nicht vergleichbar).
-Die Algorithmen besitzen konfigurierbare Parameter. Die Güte der erzeugten Modelle hängt unter anderem von diesen einstellbaren Werten ab. Azure bietet die Möglichkeit, diese Parameter automatisch zu optimieren. Dazu wird das Experiment Item 'Tune Model Hyperparameter' eingesetzt. Es verbessert das Ergebnis des Models hinsichtlich eines bestimmten Wertes (Genauigkeit, Präzision etc.). Im vorliegenden Fall werden als Zielparameter die Metriken aus den Data Mining Goals (Punkt \ref{subsec:goals}) gewählt:
+Die Algorithmen besitzen konfigurierbare Parameter. Die Güte der erzeugten Modelle hängt unter anderem von diesen einstellbaren Werten ab. Azure bietet die Möglichkeit, die Parameter automatisch zu optimieren. Dazu wird das Experiment Item 'Tune Model Hyperparameter' eingesetzt. Es verbessert das Ergebnis des Models hinsichtlich eines bestimmten Wertes (Genauigkeit, Präzision etc.). Im vorliegenden Fall werden als Zielparameter die Metriken aus den Data Mining Goals (Punkt \ref{subsec:goals}) gewählt:
 F1-Score für Klassifikationen und Bestimmtheitsmaß (Coefficient of determination) für die Regressionen.
 
 \subsection{Generate Test Design}
-Es muss überlegt werden, in welchem Verhältnis die zu analysierenden Daten aufgeteilt werden (Trainingsdaten:Testdaten). Es gibt kein allgemeingültiges, optimales Verhältnis. In der Praxis sind jedoch Verhältnisse wie 70:30 oder 80:20 üblich. Es existieren auch andere Ansätze, die wiederum auf Algorithmen basieren.\citep{crowther_method_2005} Beachtet werden muss jedoch, dass nicht einfach obere und untere Hälfte des Datensatzes genutzt werden, sondern die Aufteilung nach dem Zufallsprinzip geschieht. Da das Experiment Item 'Tune Model Hyperparameter' eingesetzt wird, gibt es die Möglichkeit, ein zusätzliches Validation Datasetz zu nutzen. Das für diese Analyse gewählte Verhältnis ist in Abbildung \ref{fig:ratio} zu sehen.
+Es muss überlegt werden, in welchem Verhältnis die zu analysierenden Daten aufgeteilt werden (Trainingsdaten : Testdaten). Es gibt kein allgemeingültiges, optimales Verhältnis. In der Praxis sind jedoch Verhältnisse wie 70:30 oder 80:20 üblich. Es existieren auch andere Ansätze, die wiederum auf Algorithmen basieren.\citep{crowther_method_2005} Beachtet werden muss jedoch, dass nicht einfach obere und untere Hälfte des Datensatzes genutzt werden, sondern die Aufteilung nach dem Zufallsprinzip geschieht. Da das Experiment Item 'Tune Model Hyperparameter' eingesetzt wird, gibt es die Möglichkeit, ein zusätzliches Validation Datasetz zu nutzen. Das für diese Analyse gewählte Verhältnis (Training 54 : Validierung 14 : Test 20) ist in Abbildung \ref{fig:ratio} visualisiert.
 \begin{figure}[H]
 \centering
 \frame{
 \includegraphics[width=12cm]{images/ratio}}
-\caption{Verhältnis der Aufteilen in Trainings-, Test- und Validationsdatensatz}
+\caption{Verhältnis der Aufteilen in Trainings-, Test- und Validationsdatensatz (Output Testdesign)}
 \label{fig:ratio}
 \end{figure}
 
 \subsection{Build the Model}
-Ziel: Models bauen
---> "azure ml run"
+Nachdem alle Vorbereitungen abgeschlossen sind, wird jetzt das eigentliche Machine Learning durchgeführt. Dazu werden vier Experimente in Azure Machine Learning Studio modelliert. Je ein Modell für:
+\begin{itemize}
+\item die Kurspreisvorhersage für ETH (Regression für ETH),
+\item die Kurspreisvorhersage für BTC (Regression für ETH),
+\item die Vorhersage, ob der ETH Kurs steigt (Two-class classification füe ETH) und
+\item die Vorhersage, ob der BTC Kurs steigt (Two-class classification füe BTC).
+\end{itemize}
+Die Experimente gleichen sich sehr, deswegen sind hier nur die Kurspreisvorhersage für ETH (Abbildung xxx) und die Klassifikation für BTC (Abbildung yyy) abgebildet.
 
-model aufschreiben und welche parameter "model description"
+bild1
 
-sind quasi 2: 2class beschreibung und regression beschreibung
+bild2
 
-2class:
-Algorithmus Accuracy Precision Recall F1-Score AUC Average Log Loss
-Two-Class Support Vector Machine
-Two-Class Neural Network
-Two-Class Logistic Regression
-Two-Class Locally-Deep Support Vector Machine
-Two-Class Decision Jungle
-Two-Class Decision Forest
-Two-Class Boosted Decision Tree
-Two-Class Bayes Point Machine
-Two-Class Averaged Perceptron
+Mit den zwei 'Split Data' Experiment Items wird der Analysedatensatz, wie im vorherigen Punkt spezifiziert, in Trainings-, Validierungs- und Testdaten aufgeteilt. Zu sehen ist auch das Item 'Tune Model Hyperparameter (entire grid)', das sowohl das Training des Models, als auch das optimieren der Algorithmenparameter übernimmt (deshalb an dieser Stelle noch kein Output: Parameter Settings). Die Option 'entire grid' beim Verbessern der Parameter ist eine inperformante Option, die aber sehr genau arbeitet. Dies ist verkraftbar, da die Gesamtlaufzeit des Experiments 30 Minuten nicht deutlich überschreitet.
+
 \subsection{Assess the Model}
-hier r modul und add rows --> übersuchtlich in tabelle schreiben
-ranking schwer, da unterschiedl.
+Ein Durchlauf liefert folgende Ergebnisse (auf drei Nachkommastellen gerundet):
 
-ranking bei "nicht-treffern" sinnlos, deswegen nur 2class regressionen
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{5cm}|p{1,5cm}|p{1,5cm}|p{1,5cm}|p{1,5cm}|p{1,5cm}|}
+\hline
+\textbf{Algorithmus} & \textbf{F1-Score} & \textbf{Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{AUC}\\ 
+\hhline{======}
+Two-Class Support Vector Machine & 0.567 & 0.533 & 0.561 & 0.573 & 0.553 \\ \hline
+Two-Class Neural Network & 0.685 & 0.561 & 0.555 & 0.896 & 0.573 \\ \hline
+Two-Class Logistic Regression & 0.592 & 0.556 & 0.580 & 0.604 & 0.578 \\ \hline
+Two-Class Locally-Deep Support Vector Machine & 0.592 & 0.556 & 0.580 & 0.604 & 0.549 \\ \hline
+Two-Class Decision Jungle & 0.651 & 0.500 & 0.519 & 0.875 & 0.473 \\ \hline
+Two-Class Decision Forest & 0.480 & 0.494 & 0.532 & 0.438 & 0.498 \\ \hline
+Two-Class Boosted Decision Tree & 0.511 & 0.522 & 0.562 & 0.469 & 0.560 \\ \hline
+Two-Class Bayes Point Machine & 0.687 & 0.533 & 0.535 & 0.958 & 0.597 \\ \hline
+Two-Class Averaged Perceptron & 0.620 & 0.606 & 0.637 & 0.604 & 0.607 \\ \hline
+\end{tabular}
+\caption{Ergebnisse des Machine Learning: Model description der Ethereum Two-class Classification}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{5cm}|p{1,5cm}|p{1,5cm}|p{1,5cm}|p{1,5cm}|p{1,5cm}|}
+\hline
+\textbf{Algorithmus} & \textbf{F1-Score} & \textbf{Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{AUC}\\ 
+\hhline{======}
+Two-Class Support Vector Machine & 0.662937 & 0.552045 & 0.578049 & 0.777049 & 0.499951 \\ \hline
+Two-Class Neural Network & 0.706199 & 0.594796 & 0.599542 & 0.859016 & 0.612805 \\ \hline
+Two-Class Logistic Regression & 0.623946 & 0.585502 & 0.642361 & 0.606557 & 0.597031 \\ \hline
+Two-Class Locally-Deep Support Vector Machine & 0.647555 & 0.611524 & 0.666667 & 0.629508 & 0.64313 \\ \hline
+Two-Class Decision Jungle & 0.659236 & 0.60223 & 0.640867 & 0.678689 & 0.639724 \\ \hline
+Two-Class Decision Forest & 0.656958 & 0.605948 & 0.648562 & 0.665574 & 0.65077 \\ \hline
+Two-Class Boosted Decision Tree & 0.66875 & 0.605948 & 0.638806 & 0.701639 & 0.649595 \\ \hline
+Two-Class Bayes Point Machine & 0.734082 & 0.604089 & 0.592742 & 0.963934 & 0.583691 \\ \hline
+Two-Class Averaged Perceptron & 0.566957 & 0.537175 & 0.603704 & 0.534426 & 0.56416 \\ \hline
+\end{tabular}
+\caption{Ergebnisse des Machine Learning: Model description der Bitcoin Two-class Classification}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{5cm}|p{1,5cm}|p{1,5cm}|p{1,5cm}|p{1,5cm}|p{1,5cm}|}
+\hline
+\textbf{Algorithmus} & \textbf{$ R^2 $} & \textbf{MAE} & \textbf{RMSE} & \textbf{RAE} & \textbf{RSE}\\ 
+\hhline{======}
+Bayesian Linear Regression & aaa & bbb & ccc & ddd & eee \\ \hline
+Boosted Decision Tree Regression & aaa & bbb & ccc & ddd & eee \\ \hline
+Decision Forest Regression & aaa & bbb & ccc & ddd & eee \\ \hline
+Neural Network Regression & aaa & bbb & ccc & ddd & eee \\ \hline
+\end{tabular}
+\caption{Ergebnisse des Machine Learning: Model description der Ethereum Regression}
+\end{table}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{5cm}|p{1,5cm}|p{1,5cm}|p{1,5cm}|p{1,5cm}|p{1,5cm}|}
+\hline
+\textbf{Algorithmus} & \textbf{$ R^2 $} & \textbf{MAE} & \textbf{RMSE} & \textbf{RAE} & \textbf{RSE}\\ 
+\hhline{======}
+Bayesian Linear Regression & aaa & bbb & ccc & ddd & eee \\ \hline
+Boosted Decision Tree Regression & aaa & bbb & ccc & ddd & eee \\ \hline
+Decision Forest Regression & aaa & bbb & ccc & ddd & eee \\ \hline
+Neural Network Regression & aaa & bbb & ccc & ddd & eee \\ \hline
+\end{tabular}
+\caption{Ergebnisse des Machine Learning: Model description der Bitcoin Regression}
+\end{table}
+
+
+
+
+da bei regression $ R^2 $ von aaa bis bbb --> modell erklärt das nicht, deswegen rankin sinnlos
+
+bei 2class hingegen kann man folgendes ranking (tabelle xxx) aufstellen:
+
+
+
+etc rankin mit gewählten parametern "inkl Output Revised parameter settings"
+
+bic ranking mir param "inkl Output Revised parameter settings"
+
+
+
+in der tabelle sind auch die optimalten paremeter zu sehen, die mit tune gefunden wurden
+
+
+
+
+
+
+
 
 \section{Evaluation}
 \subsection{Evaluate Results}
-\subsection{Review Process}
-\subsection{Determine Next Steps}
+es sollte geprüft werden, ob...
+es lässt sich sagen, dass der kurs-preis mit den hier angewandten mitteln etc. nicht vorhergesagt werden kann
+es läst sich aber auch sagen, dass vorherhsage, ob steigt oder nicht, nicht rein zufällig sind. vorsichtig mit solchen aussagen, aber genauere Betrachtung sinnvoll.
+außerdem einblick in azure machine learning bekommen, aussage über reifegrad machen
 
+tabelle mit business success kriteria? 
+
+\subsection{Review Process}
+abschließedes bild, was praktisch gemacht wurde
+dann beschreibung, was hier gut lief und was man besser hätte machen können
+
+\subsection{Determine Next Steps}
+im normalen model jetzt deployment. das hier aber in der arbeit nicht geplant.
+weiter geht es mit fazit und interpretation der ergebnisse
 
 
 
