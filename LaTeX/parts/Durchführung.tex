@@ -29,7 +29,7 @@ In  gewöhnlichen Industrie- oder Forschungsprojekten ist es wichtig, die Stakeh
 \hhline{==}
 Background & Die Analyse wird im Rahmen einer Masterarbeit durchgeführt. Nur eine Person ist daran beteiligt. \\
 \hline
-Business objectives & Die Untersuchung hat zwei Hauptziele. Das eine ist die Analyse der Kryptowährungen an sich. Es soll herausgefunden werden, ob Kursschwankungen mit Hilfe der Isolation von Einflussfaktoren und den Mitteln des Machine Learning vorausgesagt werden können oder anderweitige Auffälligkeiten zu beobachten sind. Das andere Ziel ist die Einarbeitung in das Werkzeug Azure Machine Learning. \\
+Business objectives & Die Untersuchung hat zwei Hauptziele. Das eine ist die Analyse der Kryptowährungen an sich. Es soll herausgefunden werden, ob der Kurs mit Hilfe der Isolation von Einflussfaktoren und den Mitteln des Machine Learning vorausgesagt werden können. Das andere Ziel ist die Einarbeitung in das Werkzeug Azure Machine Learning Studio. \\
 \hline
 Business success criteria & Die Erkenntnis, dass eine Vorhersage nicht möglich ist, oder dass wichtige Einflüsse nicht gefunden wurden, ist durchaus möglich und bedeutet keinesfalls ein Scheitern des Projekts. Hinsichtlich des Werkzeugs Azure ML, ist es beispielsweise interessant, welchen Restriktionen das Tool unterlegen ist. Das Betrifft sowohl Funktionen, die (noch) nicht vorhanden sind, oder technische Limitationen, wie Geschwindigkeit, Volumenbegrenzungen etc..\\
 \hline
@@ -242,8 +242,8 @@ kleine Werte sind normal, große sollten misstrauisch machen\citep{mircosoft_eva
 \todo{bessere beschreibungen} \newline
 \todo{was zu den quellen sagen}
 
-\subsection{Produce a Project Plan}
-Nach diesem sehr Daten-orientierten Teilschritt, befasst sich der nachfolgende Schritt einerseits mit der (groben) Planung des weiteren Projekts und andererseits mit einer anfänglichen Betrachtung der eingesetzten Werkzeuge. Grundsätzlich orientiert sich der Projektplan am Referenzmodell CRISP-DM. In einem komplexeren Projekt mit mehreren kollaborativ arbeitenden Personen, kommt diesem Schritt eine größere Rolle zu als im vorliegenden Fall. Wichtige Meilensteine, die zu bestimmten Zeitpunkten fertig vorliegen müssen, um einen unterbrechungsfreien Projektverlauf zu gewährleisten, stellen die Outputs jedes Prozessschrittes dar. Eine genauere zeitliche Einschätzung ist dem Output "Project Plan" in Tabelle \ref{tab:projectPlan} zu entnehmen. Zu sehen ist dort, die geschätzte Arbeitszeit in Tagen für jeden Schritt und der Anteil am Gesamtprojekt. Anzumerken ist hier, dass die Angaben durch Rückschritte in frühere Phasen verzerrt werden können.\newline
+\subsection{Produce a Project Plan} \label{subsec:projectPlan}
+Nach diesem sehr Daten-orientierten Teilschritt, befasst sich der nachfolgende Schritt einerseits mit der (groben) Planung des weiteren Projekts und andererseits mit einer anfänglichen Betrachtung der eingesetzten Werkzeuge. Grundsätzlich orientiert sich der Projektplan am Referenzmodell CRISP-DM. In einem komplexeren Projekt mit mehreren kollaborativ arbeitenden Personen, kommt diesem Schritt eine größere Rolle zu als im vorliegenden Fall. Wichtige Meilensteine, die zu bestimmten Zeitpunkten fertig vorliegen müssen, um einen unterbrechungsfreien Projektverlauf zu gewährleisten, stellen die Outputs jedes Prozessschrittes dar. Eine zeitliche Einschätzung ist dem Output "Project Plan" in Tabelle \ref{tab:projectPlan} zu entnehmen. Zu sehen ist dort der geschätzte Arbeitsaufwand in Tagen für jeden Schritt und der Anteil am Gesamtprojekt. Anzumerken ist hier, dass die Angaben durch Rückschritte in frühere Phasen verzerrt werden können. Auf das Deployment wird verzichtet.  \newline
 Bei der initialen Betrachtung der Werkzeuge werden laut Prozessmodell verschiedene alternativen gegeneinander abgewogen und ihr Zweck im Projekt festgelegt. Da das Werkzeug Azure Machine Learning Studio bereits vorgegeben ist, wird hier nur der Zweck der Werkzeuge im Projektverlauf betrachtet. Wird das Werkzeug R (bzw. RStudio) eingesetzt, so erhält es den Vorzug gegenüber seiner Konkurrenz (z.b. Python) aufgrund der Erfahrung des Entwicklers.
 
 
@@ -251,30 +251,11 @@ Bei der initialen Betrachtung der Werkzeuge werden laut Prozessmodell verschiede
 \hline
 \textbf{Prozessschritt} & \textbf{geschätze Zeit in Tagen} & \textbf{Prozentualer Anteil} \\
 \hhline{===}
-Collect initial data & 2 & 20\% \\ \hline
-Describe data & 2 & 20\% \\ \hline
-Explore data & 2 & 20\% \\ \hline
-Verify data quality & 2 & 20\% \\ \hline
-Data understanding gesamt & $\sum 2$ &  $\sum 2 \%$ \\ \hline
-Select data & 2 & 20\% \\ \hline
-Clean data & 2 & 20\% \\ \hline
-Construct data & 2 & 20\% \\ \hline
-Integrate data & 2 & 20\% \\ \hline
-Format data  & 2 & 20\% \\ \hline
-Data preparation gesamt & $\sum 2$ &  $\sum 2 \%$ \\ \hline
-Select modeling technique & 2 & 20\% \\ \hline
-Generate test design & 2 & 20\% \\ \hline
-Build model & 2 & 20\% \\ \hline
-Assess model & 2 & 20\% \\ \hline
-Modeling gesamt & $\sum 2$ &  $\sum 2 \%$ \\ \hline
-Evaluate results & 2 & 20\% \\ \hline
-Review process & 2 & 20\% \\ \hline
-Determine next steps & 2 & 20\% \\ \hline
-Evaluation gesamt & $\sum 2$ &  $\sum 2 \%$ \\ \hline
-Plan deployment & 2 & 20\% \\ \hline
-Plan monitoring and maintenance & 2 & 20\% \\ \hline
-Produce final report & 2 & 20\% \\ \hline
-Review project & 2 & 20\% \\ \hline
+Business understanding gesamt & $\sum 5$ &  $11 \%$ \\ \hline
+Data understanding gesamt & $\sum 20$ &  $44 \%$ \\ \hline
+Data preparation gesamt & $\sum 10$ &  $22 \%$ \\ \hline
+Modeling gesamt & $\sum 5$ &  $11 \%$ \\ \hline
+Evaluation gesamt & $\sum 5$ &  $11 \%$ \\ \hline
 \caption{Output "Project Plan" des Schrittes "Produce a Project Plan"}
 \label{tab:projectPlan}
 \end{longtable}
@@ -290,7 +271,6 @@ RStudio & zum lokalen entwerfen von Scripten vor der Ausführung in der Cloud un
 Excel & zur Betrachtung, Vorbereitung und Konvertierung von Daten vor dem Upload in die Cloud \\ \hline
 Notepad++ & zur Betrachtung, Vorbereitung und Konvertierung von Daten vor dem Upload in die Cloud \\ \hline
 \caption{Output "Initial assessment of tools and techniques" des Schrittes "Produce a Project Plan"}
-\label{tab:projectPlan}
 \end{longtable}
 
 
@@ -1041,11 +1021,23 @@ Nachdem alle Vorbereitungen abgeschlossen sind, wird jetzt das eigentliche Machi
 \item die Vorhersage, ob der ETH Kurs steigt (Two-class classification füe ETH) und
 \item die Vorhersage, ob der BTC Kurs steigt (Two-class classification füe BTC).
 \end{itemize}
-Die Experimente gleichen sich sehr, deswegen sind hier nur die Kurspreisvorhersage für ETH (Abbildung xxx) und die Klassifikation für BTC (Abbildung yyy) abgebildet.
+Die Experimente gleichen sich sehr, deswegen sind hier nur die Kurspreisvorhersage für ETH (Abbildung \ref{fig:azureETHReg}) und die Klassifikation für BTC (Abbildung \ref{fig:azureBTCClass}) abgebildet.
 
-bild1
+\begin{figure}[H]
+\centering
+\frame{
+\includegraphics[width=\textwidth]{images/azureETHReg}}
+\caption{Ethereum Regressionen in Azure Machine Learning Studio}
+\label{fig:azureETHReg}
+\end{figure}
 
-bild2
+\begin{figure}[H]
+\centering
+\frame{
+\includegraphics[width=\textwidth]{images/azureBTCClass}}
+\caption{Bitcoin Klassifikation in Azure Machine Learning Studio}
+\label{fig:azureBTCClass}
+\end{figure}
 
 Mit den zwei 'Split Data' Experiment Items wird der Analysedatensatz, wie im vorherigen Punkt spezifiziert, in Trainings-, Validierungs- und Testdaten aufgeteilt. Zu sehen ist auch das Item 'Tune Model Hyperparameter (entire grid)', das sowohl das Training des Models, als auch das optimieren der Algorithmenparameter übernimmt (deshalb an dieser Stelle noch kein Output: Parameter Settings). Die Option 'entire grid' beim Verbessern der Parameter ist eine inperformante Option, die aber sehr genau arbeitet. Dies ist verkraftbar, da die Gesamtlaufzeit des Experiments 30 Minuten nicht deutlich überschreitet.
 
@@ -1068,7 +1060,8 @@ Two-Class Boosted Decision Tree & 0.514620 & 0.538889 & 0.586667 & 0.458333 & 0.
 Two-Class Bayes Point Machine & 0.684211 & 0.533333 & 0.535294 & 0.947917 & 0.595982 \\ \hline
 Two-Class Averaged Perceptron & 0.522727 & 0.533333 & 0.575000 & 0.479167 & 0.573289 \\ \hline
 \end{tabular}
-\caption{Ergebnisse des Machine Learning: Model description der Ethereum Two-class Classification}
+\caption{Ergebnisse des Machine Learning: Ethereum Two-class Classification}
+\label{tab:ETH2}
 \end{table}
 
 \begin{table}[H]
@@ -1087,7 +1080,8 @@ Two-Class Boosted Decision Tree & 0.668750 & 0.605948 & 0.638806 & 0.701639 & 0.
 Two-Class Bayes Point Machine & 0.734082 & 0.604089 & 0.592742 & 0.963934 & 0.583691 \\ \hline
 Two-Class Averaged Perceptron & 0.566957 & 0.537175 & 0.603704 & 0.534426 & 0.564160 \\ \hline
 \end{tabular}
-\caption{Ergebnisse des Machine Learning: Model description der Bitcoin Two-class Classification}
+\caption{Ergebnisse des Machine Learning: Bitcoin Two-class Classification}
+\label{tab:BTC2}
 \end{table}
 
 \begin{table}[H]
@@ -1101,7 +1095,8 @@ Boosted Decision Tree Regression & 0.999326 & 1.372442 & 2.918441 & 0.014468 & 0
 Decision Forest Regression & 0.994616 & 3.514041 & 8.250093 & 0.037045 & 0.005384 \\ \hline
 Bayesian Linear Regression & 0.999994 & 0.206625 & 0.272996 & 0.002178 & 0.000006 \\ \hline
 \end{tabular}
-\caption{Ergebnisse des Machine Learning: Model description der Ethereum Regression}
+\caption{Ergebnisse des Machine Learning: Ethereum Regression}
+\label{tab:ETHREg}
 \end{table}
 
 \begin{table}[H]
@@ -1115,45 +1110,101 @@ Boosted Decision Tree Regression & 0.995827 & 10.095783 & 44.099144 & 0.02491 & 
 Decision Forest Regression & 0.995791 & 13.301142 & 44.290157 & 0.032819 & 0.004209 \\ \hline
 Bayesian Linear Regression & 0.999946 & 2.273447 & 5.032831 & 0.005609 & 0.000054 \\ \hline
 \end{tabular}
-\caption{Ergebnisse des Machine Learning: Model description der Bitcoin Regression}
+\caption{Ergebnisse des Machine Learning: Bitcoin Regression}
+\label{tab:BTCReg}
 \end{table}
 
+Betrachtet man zuerst die beiden Regressionen (Tabellen \ref{tab:BTCReg} und \ref{tab:ETHREg}), so fällt auf, dass $ R^2 $ sehr hoch ist (Maximum ist $ R^2 = 1 $). Auf den ersten Blick zeugt das von einer nahezu perfekten Kurspreisvorhersage. Untersucht man das Ergebnis genauer, so sieht man, dass die vorhergesagten Werte sehr nahe an den tatsächlichen liegen (siehe Tabelle \ref{tab:scoredReal}).
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|}
+\hline
+\textbf{Vorhergesagter Etherumpreis in USD} & \textbf{tatsächlicher Preis in USD}\\ 
+\hhline{==}
+44.4758 & 44.16 \\ \hline
+11.3525 & 11.41 \\ \hline
+306.6813 & 306.72 \\ \hline
+5.2086 & 5.38 \\ \hline
+\end{tabular}
+\caption{Ausschnitt des Ergebnisses der Vorhersage des Ethereumkurses mit einer Bayesian Linear Regression (nicht chronologisch; auf vier Nachkommastellen gerundet)}
+\label{tab:BTCReg}
+\end{table}
+Bei der Beschreibung der Bewertungsmetrinken in Punkt \ref{subsec:goals} wurde jedoch darauf hingewiesen, dass große Werte für $ R^2 $ misstrauisch machen sollten. Dieses Phänomen kann mehre Gründe haben. Hier liegen folgende Vermutungen vor:
+\begin{itemize}
+\item Es liegt ein Fall von Überanpassung (engl. overfitting) vor. "Ein überangepasstes Modell [...] ist zu kompliziert für die [darunterliegenden] Daten"\citep[eigene Übersetzung]{frost_danger_2015}. Das bedeutet, das Modell ist zu speziell angepasst und besitzt zu viele Variablen.
+\item Wenn zu viele Variablen im Verhältnis zu den Beobachtungen vorliegen, kann es auch zu einer Zufallskorrelation (engl. chance correlation) kommen.\citep{lohninger_teach/me_1999}
+\item Wahrscheinlich ist auch, dass die Trends (steigende Kurse) "sehr hohe $ R^2 $ Werte erzeugen".\citep[eigene Übersetzung]{frost_five_2016}
+\end{itemize}
+Das CRISP-DM Referenzmodell sieht ein Ranking der Modelle vor. An dieser Stelle wird jedoch darauf verzichtet, da die Ergebnisse noch Mängel aufweisen.
+Bei den Klassifikationen gibt es in dieser Hinsicht keine offensichtlichen Merkmale. 
+Würde man versuchen, einen Münzwurf mit einem mathematischen Modell vorherzusagen (was nicht möglich ist), so würde die statistische Genauigkeit (accuracy) bei 50\% liegen. In Tabelle \ref{tab:ETH2} und \ref{tab:BTC2} ist zu sehen, dass die Accuracy nicht deutlich über diesem Wert liegt. Bei einigen Algorithmen ist jedoch ein Wert von ca. 60\% (0.6) erkennbar.
+Die besten Modelle nach F1-Score sind für Ethereum in Tabelle \ref{tab:ETHBest} und für Bitcoin in \ref{tab:BTCBest} aufgestellt.
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|}
+\hline
+\textbf{Algorithmus} & \textbf{F1-Score}\\ 
+\hhline{==}
+Two-Class Decision Jungle & 0.698413 \\ \hline
+Two-Class Neural Network & 0.685259 \\ \hline
+Two-Class Bayes Point Machine & 0.684211 \\ \hline
+\end{tabular}
+\caption{Rangliste der besten Ethereum Two-Class Classification Algorithmen}
+\label{tab:ETHBest}
+\end{table}
 
-
-
-da bei regression $ R^2 $ von aaa bis bbb --> modell erklärt das nicht, deswegen rankin sinnlos
-
-bei 2class hingegen kann man folgendes ranking (tabelle xxx) aufstellen:
-
-
-
-etc rankin mit gewählten parametern "inkl Output Revised parameter settings"
-
-bic ranking mir param "inkl Output Revised parameter settings"
-
-
-
-in der tabelle sind auch die optimalten paremeter zu sehen, die mit tune gefunden wurden
-
-
-
-
-
-
-
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{4cm}|}
+\hline
+\textbf{Algorithmus} & \textbf{F1-Score}\\ 
+\hhline{==}
+Two-Class Bayes Point Machine & 0.734082 \\ \hline
+Two-Class Neural Network & 0.706199 \\ \hline
+Two-Class Boosted Decision Tree & 0.668750 \\ \hline
+\end{tabular}
+\caption{Rangliste der besten Bitcoin Two-Class Classification Algorithmen}
+\label{tab:ETHBest}
+\end{table}
+Anzumerken ist hier die interessante Tatsache, dass der Kurs sehr genau vorhergesagt wurde (wenn auch durch Fehler in Modell), eine Aussage darüber, ob der Kurs steigt oder nicht, jedoch kaum möglich ist.
+Nach der Ergebnisbetrachtung werden diese nun hinsichtlich der business objectives und der business success criteria betrachtet.
 
 \section{Evaluation}
 \subsection{Evaluate Results}
-es sollte geprüft werden, ob...
-es lässt sich sagen, dass der kurs-preis mit den hier angewandten mitteln etc. nicht vorhergesagt werden kann
-es läst sich aber auch sagen, dass vorherhsage, ob steigt oder nicht, nicht rein zufällig sind. vorsichtig mit solchen aussagen, aber genauere Betrachtung sinnvoll.
-außerdem einblick in azure machine learning bekommen, aussage über reifegrad machen
-
-tabelle mit business success kriteria? 
+Es sollte einerseits geprüft werden, ob die Kurse von Kryptowährungen mit den Mitteln des Machine Learning vorhergesagt werden können. Andererseits sollte eine Einarbeitung in Azure Machine Learning Studio erfolgen und Herausgearbeitet werden, welchen Restriktionen das Werkzeug unterliegt.
+Schlussfolgern lässt sich, dass der Kurspreis von Bitcoin und Ethereum mit den hier angewandten Mitteln nicht vorhersagbar ist. Es kann aber festgehalten werden, dass die Kursschwankungen nicht rein zufällig sind. Eine genauere Betrachtung mit den gewonnen Erkenntnissen (weniger Einflussfaktoren, eventuell eine Time-Series-Analysis) ist sinnvoll (siehe Punkt aaa).
+Der Umgang mit Azure Machine Learning Studio wurde vertraut. Eine Aussage über den Reifegrad und Grenzen des Tools kann gemacht werden (siehe Punkt bbb).
 
 \subsection{Review Process}
-abschließedes bild, was praktisch gemacht wurde
-dann beschreibung, was hier gut lief und was man besser hätte machen können
+Neben der technischen Interpretation der Ergebnisse und dem beurteilen der business objectives, folgt ein Rückblick auf die Schritte des CRISP-DM Referenzmodells.
+In Tabelle \ref{tab:ProcessReview} wird der Projektplan aus Punkt \ref{subsec:projectPlan} aufgegriffen und mit dem tatsächlichen Verlauf verglichen. Abweichungen werden erläutert und Dinge, die beim nächsten mal verbessert werden können, werden festgehalten (Lessons Learned).
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{3cm}|p{1,6cm}|p{1,6cm}|p{4,5cm}|p{4,5cm}|}
+\hline
+\textbf{Prozessschritt} & \textbf{gesch. Aufwand} & \textbf{tats. Aufwand} & \textbf{Grund für Abweichung} & \textbf{Verbesserungen} \\ 
+\hhline{=====}
+Business understanding gesamt & 5 Tage & 5 Tage & - & Die Ziele genauer beschreiben. Bereits hier sollte sich mit Metriken beschäftigt werden. \\ \hline
+Data understanding gesamt & 20 Tage & 16 Tage & Die Struktur der Daten war eher homogen und selbsterklärend.\newline Der Explorationsschritt war kurz. & Mehr Aufwand für das erforschen der Daten aufbringen und mehr Zusammenhänge suchen. \\ \hline
+Data preparation gesamt & 10 Tage & 29 Tage & Die Transformation erforderte Programmierung (Skripte) in einer nicht vertrauten Sprache. Viele Probleme sind erst beim tatsächlichen Durchführen aufgetaucht.\newline Der Modellierungsaufwand im Azure ML Studio war nicht unerheblich. & Beim Sammeln der Daten auf Formatierung, Trennzeichen und Dateiformate achten.\newline Stücke der Modellierung können als Vorlagen vorbereitet werden (Split Data, Tune Hyperparameter, Score, Evaluate). \\ \hline
+Modeling gesamt & 5 Tage & 10 Tage & Nicht alle Algorithmen können verwendet werden. Deswegen muss die Spezifikation gelesen und eingeschätzt werden.\newline Die Durchlaufzeit der Experimente (vor allem das Modelltrainings) wurde unterschätzt. & Es sollte ein Modell und Modifikationen davon als Kopien erstellt und nachts trainiert werden.\newline Dem Werkzeug nicht zu sehr vertrauen (schnelleres Abbrechen bei langen Laufzeiten). \\ \hline
+Evaluation gesamt & 5 Tage & 5 Tage & - & - \\ \hline
+\end{tabular}
+\caption{Rückblick auf den Projektplan}
+\label{tab:ProcessReview}
+\end{table}
+
+Die Übereinstimmung der Aufteilung nach Shearer mit dem tatsächlichen Aufwand wird in Abbildung \ref{fig:phases} erkennbar.
+ 
+\begin{figure}[H]
+\centering
+\frame{
+\includegraphics[width=\textwidth]{images/phases2}}
+\caption{Tortendiagramme des Projektaufwands nach Shearer, nach Plan und des tatsächlicher Aufwands}
+\label{fig:phases}
+\end{figure}
+
 
 \subsection{Determine Next Steps}
 im normalen model jetzt deployment. das hier aber in der arbeit nicht geplant.
