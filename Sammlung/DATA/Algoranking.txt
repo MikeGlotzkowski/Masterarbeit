@@ -1,0 +1,23 @@
+
+ETHER:
+Two-Class Decision Jungle & 0.698413
+Two-Class Neural Network & 0.685259
+Two-Class Bayes Point Machine & 0.684211
+Two-Class Support Vector Machine & 0.565445
+Two-Class Logistic Regression & 0.559585 
+Two-Class Decision Forest & 0.556818
+Two-Class Locally-Deep Support Vector Machine & 0.547264
+Two-Class Averaged Perceptron & 0.522727
+Two-Class Boosted Decision Tree & 0.514620 
+
+
+BITCOIN
+Two-Class Bayes Point Machine & 0.734082
+Two-Class Neural Network & 0.706199
+Two-Class Boosted Decision Tree & 0.668750
+Two-Class Support Vector Machine & 0.662937
+Two-Class Decision Jungle & 0.659236
+Two-Class Decision Forest & 0.656958
+Two-Class Locally-Deep Support Vector Machine & 0.647555
+Two-Class Logistic Regression & 0.623946
+Two-Class Averaged Perceptron & 0.566957

@@ -1114,7 +1114,7 @@ Bayesian Linear Regression & 0.999946 & 2.273447 & 5.032831 & 0.005609 & 0.00005
 \label{tab:BTCReg}
 \end{table}
 
-Betrachtet man zuerst die beiden Regressionen (Tabellen \ref{tab:BTCReg} und \ref{tab:ETHREg}), so fällt auf, dass $ R^2 $ sehr hoch ist (Maximum ist $ R^2 = 1 $). Auf den ersten Blick zeugt das von einer nahezu perfekten Kurspreisvorhersage. Untersucht man das Ergebnis genauer, so sieht man, dass die vorhergesagten Werte sehr nahe an den tatsächlichen liegen (siehe Tabelle \ref{tab:scoredReal}).
+Betrachtet man zuerst die beiden Regressionen (Tabellen \ref{tab:ETHREg} und \ref{tab:BTCReg}), so fällt auf, dass $ R^2 $ sehr hoch ist (Maximum ist $ R^2 = 1 $). Auf den ersten Blick zeugt das von einer nahezu perfekten Kurspreisvorhersage. Untersucht man das Ergebnis genauer, so sieht man, dass die vorhergesagten Werte sehr nahe an den tatsächlichen liegen (siehe Tabelle \ref{tab:scoredReal}).
 \begin{table}[H]
 \centering
 \begin{tabular}{|p{4cm}|p{4cm}|}
@@ -1127,16 +1127,16 @@ Betrachtet man zuerst die beiden Regressionen (Tabellen \ref{tab:BTCReg} und \re
 5.2086 & 5.38 \\ \hline
 \end{tabular}
 \caption{Ausschnitt des Ergebnisses der Vorhersage des Ethereumkurses mit einer Bayesian Linear Regression (nicht chronologisch; auf vier Nachkommastellen gerundet)}
-\label{tab:BTCReg}
+\label{tab:scoredReal}
 \end{table}
-Bei der Beschreibung der Bewertungsmetrinken in Punkt \ref{subsec:goals} wurde jedoch darauf hingewiesen, dass große Werte für $ R^2 $ misstrauisch machen sollten. Dieses Phänomen kann mehre Gründe haben. Hier liegen folgende Vermutungen vor:
+Bei der Beschreibung der Bewertungsmetriken in Punkt \ref{subsec:goals} wurde jedoch darauf hingewiesen, dass große Werte für $ R^2 $ misstrauisch machen sollten. Dieses Phänomen kann mehre Gründe haben. Hier liegen folgende Vermutungen vor:
 \begin{itemize}
 \item Es liegt ein Fall von Überanpassung (engl. overfitting) vor. "Ein überangepasstes Modell [...] ist zu kompliziert für die [darunterliegenden] Daten"\citep[eigene Übersetzung]{frost_danger_2015}. Das bedeutet, das Modell ist zu speziell angepasst und besitzt zu viele Variablen.
-\item Wenn zu viele Variablen im Verhältnis zu den Beobachtungen vorliegen, kann es auch zu einer Zufallskorrelation (engl. chance correlation) kommen.\citep{lohninger_teach/me_1999}
+\item Wenn zu viele Variablen im Verhältnis zu den Beobachtungen vorliegen, kann es zu einer Zufallskorrelation (engl. chance correlation) kommen.\citep{lohninger_teach/me_1999}
 \item Wahrscheinlich ist auch, dass die Trends (steigende Kurse) "sehr hohe $ R^2 $ Werte erzeugen".\citep[eigene Übersetzung]{frost_five_2016}
 \end{itemize}
 Das CRISP-DM Referenzmodell sieht ein Ranking der Modelle vor. An dieser Stelle wird jedoch darauf verzichtet, da die Ergebnisse noch Mängel aufweisen.
-Bei den Klassifikationen gibt es in dieser Hinsicht keine offensichtlichen Merkmale. 
+Bei den Klassifikationen gibt es in dieser Hinsicht keine offensichtlichen Merkmale.\newline 
 Würde man versuchen, einen Münzwurf mit einem mathematischen Modell vorherzusagen (was nicht möglich ist), so würde die statistische Genauigkeit (accuracy) bei 50\% liegen. In Tabelle \ref{tab:ETH2} und \ref{tab:BTC2} ist zu sehen, dass die Accuracy nicht deutlich über diesem Wert liegt. Bei einigen Algorithmen ist jedoch ein Wert von ca. 60\% (0.6) erkennbar.
 Die besten Modelle nach F1-Score sind für Ethereum in Tabelle \ref{tab:ETHBest} und für Bitcoin in \ref{tab:BTCBest} aufgestellt.
 \begin{table}[H]
@@ -1164,16 +1164,16 @@ Two-Class Neural Network & 0.706199 \\ \hline
 Two-Class Boosted Decision Tree & 0.668750 \\ \hline
 \end{tabular}
 \caption{Rangliste der besten Bitcoin Two-Class Classification Algorithmen}
-\label{tab:ETHBest}
+\label{tab:BTCBest}
 \end{table}
 Anzumerken ist hier die interessante Tatsache, dass der Kurs sehr genau vorhergesagt wurde (wenn auch durch Fehler in Modell), eine Aussage darüber, ob der Kurs steigt oder nicht, jedoch kaum möglich ist.
-Nach der Ergebnisbetrachtung werden diese nun hinsichtlich der business objectives und der business success criteria betrachtet.
+Nach der Ergebnisbetrachtung folgt nun die Bewertung hinsichtlich der business objectives und der business success criteria.
 
 \section{Evaluation}
-\subsection{Evaluate Results}
+\subsection{Evaluate Results} \label{subsec:revRes}
 Es sollte einerseits geprüft werden, ob die Kurse von Kryptowährungen mit den Mitteln des Machine Learning vorhergesagt werden können. Andererseits sollte eine Einarbeitung in Azure Machine Learning Studio erfolgen und Herausgearbeitet werden, welchen Restriktionen das Werkzeug unterliegt.
-Schlussfolgern lässt sich, dass der Kurspreis von Bitcoin und Ethereum mit den hier angewandten Mitteln nicht vorhersagbar ist. Es kann aber festgehalten werden, dass die Kursschwankungen nicht rein zufällig sind. Eine genauere Betrachtung mit den gewonnen Erkenntnissen (weniger Einflussfaktoren, eventuell eine Time-Series-Analysis) ist sinnvoll (siehe Punkt aaa).
-Der Umgang mit Azure Machine Learning Studio wurde vertraut. Eine Aussage über den Reifegrad und Grenzen des Tools kann gemacht werden (siehe Punkt bbb).
+Schlussfolgern lässt sich, dass der Kurspreis von Bitcoin und Ethereum mit den hier angewandten Mitteln nicht vorhersagbar ist. Es kann aber festgehalten werden, dass die Kursschwankungen nicht rein zufällig sind. Eine genauere Betrachtung mit den gewonnen Erkenntnissen (weniger Einflussfaktoren, eventuell eine Time-Series-Analysis) ist sinnvoll (siehe Punkt Punkt \ref{sec:BewertungML}).
+Der Umgang mit Azure Machine Learning Studio wurde vertraut. Eine Aussage über den Reifegrad und Grenzen des Tools kann gemacht werden (siehe Punkt \ref{sec:BeswertungAzure}).
 
 \subsection{Review Process}
 Neben der technischen Interpretation der Ergebnisse und dem beurteilen der business objectives, folgt ein Rückblick auf die Schritte des CRISP-DM Referenzmodells.
@@ -1207,8 +1207,9 @@ Die Übereinstimmung der Aufteilung nach Shearer mit dem tatsächlichen Aufwand 
 
 
 \subsection{Determine Next Steps}
-im normalen model jetzt deployment. das hier aber in der arbeit nicht geplant.
-weiter geht es mit fazit und interpretation der ergebnisse
+Im Referenzmodell folgt nach der Evaluation das Deployment. Im Falle dieser Untersuchung wird jedoch darauf verzichtet. Einerseits besitzen die erstellten Modelle noch nicht den Reifegrad, um genutzt zu werden, andererseits würde der Aufwand den Umfang der Arbeit übersteigen.
+Im weiteren wird wie oben (Punkt \ref{subsec:revRes}) angesprochen, das Werkzeug Azure Machine Learning Studio bewertet (Punkt \ref{sec:BeswertungAzure}), eine Aussage über das Referenzmodell CRIPS-DM getroffen (Punkt \ref{sec:BeswertungCrisp}) und die Ergebnisse des Machine Learning interpretiert (Punkt \ref{sec:BewertungML}).
+
 
 
 
