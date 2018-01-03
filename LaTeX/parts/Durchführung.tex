@@ -1,4 +1,4 @@
-\chapter{Durchführung der Analyse}
+\chapter{Praxis: Durchführung der Analyse}
 Nachdem in den vorhergegangen Abschnitten alle Aspekte des Themas "Kursanalyse von Kryptowährungen mit Azure Machine Learning" betrachtet wurden, widmet sich dieser Abschnitt der praktischen Umsetzung. Jeder Themenblock hat seinen Teil zum Erstellen eines Kontextes beigetragen, in dem die Analyse durchgeführt werden kann (siehe Tabelle \ref{tab:themeblocks}).
 \begin{table}[H]
 \begin{tabular}{|p{3,5cm}|p{6cm}|p{7cm}|}
@@ -20,7 +20,7 @@ Microsoft Azure Machine Learning Studio (\ref{sec:msmls}) & Allgemeine Beschreib
 Wie in Punkt \ref{sec:crispdmdec} angesprochen, wird als Hilfe für das Prozessmodell CRISP-DM der zugehörige User Guide \citep[S.~30-56]{chapman_crisp-dm_2000} herangezogen. Die, im Guide genannten, Outputs jedes Prozessschritts werden nachfolgend speziell hervorgehoben. Das CRISP-DM Prozessmodell ist sehr generisch gehalten. Dies ist beispielsweise daran zu erkennen, dass das Modell in vier übereinander liegende Abstraktionsschichten gegliedert ist.\citep[S.~6]{chapman_crisp-dm_2000} Dies dient der Anpassungsfähigkeit an viele heterogene Projekte. Diese Anpassungsfähigkeit wird gleich im ersten Schritt genutzt.\newline
  
 \section{Business Understanding}
-\subsection{Determine the Business Objectives}
+\subsection*{Festlegung der fachlichen Projektziele (Determine the Business Objectives)}
 In  gewöhnlichen Industrie- oder Forschungsprojekten ist es wichtig, die Stakeholder (vor allem Geldgeber) und den Reifegrad und die Akzeptanz des Data Mining im Projektumfeld zu analysieren. Dies rückt im vorliegenden Fall in den Hintergrund. Die Anderen Outputs sind jedoch ebenso wichtig.
 
 \begin{centering} \begin{longtable}[H]{|p{4,5cm}|p{12cm}|}
@@ -35,75 +35,10 @@ Business success criteria & Die Erkenntnis, dass eine Vorhersage nicht möglich 
 \hline
 \caption{Output des Schrittes "Determine the Business Objectives"}
 \end{longtable} \end{centering}
-\subsection{Assess the Situation} \label{subsec:assesTheSituation}
+\subsection*{Aufstellung der Projetressourcen und Einflussfaktoren (Assess the Situation)} \label{subsec:assesTheSituation}
 Dieser Teil befasst sich vor allem damit, welche Ressourcen zur Verfügung stehen (Hardware, Software, personell) und welche sonstigen Bedingungen erfüllt sein müssen oder das Projekt begrenzen. Dazu zählt auch das Finden von Daten, die für die Modellierung genutzt werden können. Anzumerken ist hierbei, dass es noch nicht um das tatsächliche Laden der Daten im Sinne von Dateien geht, sondern um das Finden von potentiellen Quellen für Daten. Zusätzlich sollen noch eine Risiko- und eine Kosten-Nutzen-Analyse durchgeführt werden. Das Hauptaugenmerk liegt jedoch auf der Erschließung der Daten. 
 \newline
 An Stelle einer vollständigen Risikoanalyse (Kontext herstellen, Risiken identifizieren, analysieren, evaluieren, managen\citep[S.~43]{sowa_management_2017}), tritt eine Aufzählung der zwei Hauptrisiken. Dies geschieht einerseits aus Gründen der Verhältnismäßigkeit, andererseits liegt der Fokus der Arbeit auf einem anderen Thema. Ähnlich verhält es sich mit der Kosten-Nutzen-Analyse. Sie wird zur Bewertung der Wirtschaftlichkeit herangezogen, was in diesem Kontext nicht relevant ist. Deswegen wird auf sie vollständig verzichtet.
-\newline
-Die schwerste Aufgabe dieses Teils ist das Finden von Daten, die Einfluss auf den Kurs von Kryptowährungen haben (könnten). Forschungen in diesem Bereich identifizierten einerseits öffentliches Interesse (soziale Medien, Google Suchanfragen, etc.)\multicitep{kristoufek_bitcoin_2013; garcia_digital_2014} und andererseits auch wirtschaftliche Faktoren ("standard economic theory", also Angebot und Nachfrage, Investoren)\citep{kristoufek_what_2015} als Haupteinflussfaktoren. Anhand den Aussagen dieser Paper und zusätzlichen Überlegungen ergeben sich folgende Faktoren, die bei der Analyse bedacht werden (Tabellen \ref{tab:dataToAnalyseA} bis \ref{tab:dataToAnalyseE}).\newline Darüber hinaus wird die Quelle aufgeführt, über die die Daten bezogen werden. Bei monetären Strömen oder Kursen, wird immer der Kurs in USD herangezogen. 
-\newline
-Damit eine Analyse der Kryptowährungen möglich ist, müssen zu diesen historische Kursdaten beschafft werden. Dieser, auf den ersten Blick simpel wirkende Schritt, ist jedoch nicht trivial. Kryptowährungen werden an dutzenden Portalen gleichzeitig gehandelt. Dabei erscheinen genauso schnell neue Börsen, wie alte verschwinden. Auch das Handelsvolumen und die Handelswährung unterscheidet sich. Hinzu kommt, dass an Bitcoin- oder Ethereum-Handelsportalen meist 24 Stunden täglich gehandelt werden kann. Aus diesem Grund sind solche Datenquellen ausgewählt worden, die entweder ihre Daten direkt von der Blockchain erhalten oder einen gewichteten Mittelwert über die größten Handelsplatformen berechnen.
-\newline
-Die nächste Schwierigkeit ist die Auswahl der Aktienindizes, die für die Analyse herangezogen werden. Es existiert keine allgemein gültige oder anerkannte Liste mit 'den wichtigsten Aktienindizes'. Aus diesem Grund wurden die Indices ausgewählt, die die Website investing.com als "major world indices" deklariert.\citep{fusion_media_limited_major_2017} Es liegt dabei eine große Überschneidung mir anderen Stock Market-Seiten vor.\multicitep{liveindex.org_live_2017; yahoo_finance_major_2017; yahoo_finance_major_2017-1} Zusätzlich zu den Aktienindices wird ein Financial Stress Index (FSI) herangezogen. Ein solcher "index misst die aktuelle Belastung in einem finanzwirtschaftlichen System"\citep[S.~1; eigene Übersetzung]{vermeulen_financial_2014} In diesem Fall ist es der St. Louis Fed Financial Stress Index, der 18 Einzelfaktoren aus drei Kategorien bündelt.\citep{federal_reserve_bank_of_st._louis_st._2017}
-\newline
-Ferner werden die Währungen der acht größten Volkswirtschaften\citep{the_international_monetary_fund_world_2017} und die Kurse für Gold, Silber und Rohöl mit einbezogen. Es werden die Wechselkurse zum Dollar betrachtet, sprich Fremdwährung/USD. Bei den Ölkursen wird Brent, das wichtigste Rohöl für den europäischen Markt \citep{noauthor_brent_2016}, und West Texas Intermediate (WTI), das Pondon für den US-Markt, betrachtet\citep{noauthor_west_2017}.
-
-\begin{centering} \begin{longtable}[H]{|p{5cm}|p{5,5cm}|p{5,5cm}|}
-\hline
-\textbf{Daten} & \textbf{für BTC} & \textbf{für ETH} \\
-\hhline{===}
-Handelsvolumen & ja, von https://bitcoincharts.com/ &  ja, von https://coinmarketcap.com/ \\ \hline
-Coin Volumen (Gesamtanzhal der vorhandenen Bitcoins/des Ethers) & ja, von https://blockchain.info/ & ja, von https://etherscan.io/ \\ \hline
-Mining-Schwierigkeit & ja, von https://data.bitcoinity.org/ & ja, von https://etherscan.io/ \\ \hline
-Anzahl der Transaktionen & ja, von https://blockchain.info/ & ja, von https://etherscan.io/ \\ \hline
-Hashrate & ja, von https://www.kaggle.com/ & ja, von https://www.kaggle.com/ \\ \hline
-Marktkapitalisierung & ja, von https://www.kaggle.com/ & ja, von https://www.kaggle.com/ \\ \hline
-\caption{Mögliche Einflussfaktoren: Kryptowährungs-eigene Faktoren (für Begriffserklärungen siehe Punkt \ref{sec:cryptocurrency2})}
-\label{tab:dataToAnalyseA}
-\end{longtable} 
-\end{centering}
-
-\begin{centering} \begin{longtable}[H]{|p{5cm}|p{5,5cm}|p{5,5cm}|}
-\hline
-\textbf{Daten} & \textbf{für BTC} & \textbf{für ETH} \\
-\hhline{===}
-Google Websuchen & ja, von https://trends.google.de/trends/ & ja, von https://trends.google.de/trends/ \\ \hline
-Google News-Suchen & ja, von https://trends.google.de/trends/ & ja, von https://trends.google.de/trends/ \\ \hline
-Wikipedia Seitenaufrufe & ja, von https://wikimedia.org/api/rest \textunderscore v1/ & ja, von https://wikimedia.org/api/rest \textunderscore v1/ \\ \hline
-Tweets (Twitter Nachrichten) & \multicolumn{2}{p{11cm}|}{nein, nicht kostenlos verfügbar} \\ \hline
-Zeitungsartikel/-Überschriften & \multicolumn{2}{p{11cm}|}{ja, von https://www.kaggle.com/therohk/million-headlines/data/}\\ \hline
-\caption{Mögliche Einflussfaktoren: Öffentliches Interesse}
-\end{longtable} 
-\end{centering}
-
-\begin{centering} \begin{longtable}[H]{|p{9cm}|p{3,5cm}|p{3,5cm}|}
-\hline
-\textbf{Daten} & \textbf{für BTC} & \textbf{für ETH} \\
-\hhline{===}
-Dow 30, S\&P 500, Nasdaq, SmallCap, S\&P 500 VIX, S\&P/TSX, TR Canada, Bovespa, IPC, DAX, FTSE 100, CAC 40, Euro Stoxx, AEX, IBEX, FTSE MIB, SMI, PSI, BEL, ATX, OMXS30, OMXC20, MICEX, RTSI, WIG20, Budapest SE, BIST 100, TA 35, Tadawul All Share, Nikkei 225, S\&P/ASX 200, DJ New Zealand, Shanghai, SZSE Component, China A50, DJ Shanghai, Hang Seng, Taiwan Weighted, SET, KOSPI, IDX Composite, Nifty, BSE Sensex, PSEi Composite, STI Index, Karachi, HNX 30, CSE All-Share	& \multicolumn{2}{p{7cm}|}{ja, von https://www.investing.com/indices/}\\ \hline
-St. Louis Fed Financial Stress Index (STLFSI) & \multicolumn{2}{p{7cm}|}{ja, von https://fred.stlouisfed.org/series/STLFSI}\\ \hline
-\caption{Mögliche Einflussfaktoren: (Aktien)indizes}
-\end{longtable} 
-\end{centering}
-
-
-\begin{centering} \begin{longtable}[H]{|p{7cm}|p{4,5cm}|p{4,5cm}|}
-\hline
-\textbf{Daten} & \textbf{für BTC} & \textbf{für ETH} \\
-\hhline{===}
-China (CNY), Japan (JPY), Deutschland (EUR, Großbritannien  (GBP), Frankreich (EUR), Indien (INR), Brasilien (BRL) & \multicolumn{2}{p{9cm}|}{ja, von https://www.investing.com/currencies/single-currency-crosses}\\ \hline
-\caption{Mögliche Einflussfaktoren: Währungen der größten Volkswirtschaften (nach BIP)}
-\end{longtable} 
-\end{centering}
-
-\begin{centering} \begin{longtable}[H]{|p{7cm}|p{4,5cm}|p{4,5cm}|}
-\hline
-\textbf{Daten} & \textbf{für BTC} & \textbf{für ETH} \\
-\hhline{===}
-Goldpreis, Silberpreis, Brent (Rohöl Europa), WTI (Rohöl USA) & \multicolumn{2}{p{9cm}|}{ja, von https://www.investing.com/commodities/}\\ \hline
-\caption{Mögliche Einflussfaktoren: natürliche Ressourcen}
-\label{tab:dataToAnalyseE}
-\end{longtable} \end{centering}
 
 \begin{centering} \begin{longtable}[H]{|p{6,5cm}|p{10cm}|}
 \hline
@@ -150,7 +85,71 @@ Costs and benefits & --- \\
 \caption{Output des Schrittes "Assess the Situation"}
 \end{longtable} \end{centering}
 
-\subsection{Determine the Data Mining Goals}\label{subsec:goals}
+Die schwerste Aufgabe dieses Teils ist das Finden von Daten, die Einfluss auf den Kurs von Kryptowährungen haben (könnten). Forschungen in diesem Bereich identifizierten einerseits öffentliches Interesse (soziale Medien, Google Suchanfragen, etc.)\multicitep{kristoufek_bitcoin_2013; garcia_digital_2014} und andererseits auch wirtschaftliche Faktoren ("standard economic theory", also Angebot und Nachfrage, Investoren)\citep{kristoufek_what_2015} als Haupteinflussfaktoren. Anhand den Aussagen dieser Paper und zusätzlichen Überlegungen ergeben sich folgende Faktoren, die bei der Analyse bedacht werden (Tabellen \ref{tab:dataToAnalyseA} bis \ref{tab:dataToAnalyseE}).\newline Darüber hinaus wird die Quelle aufgeführt, über die die Daten bezogen werden. Bei monetären Strömen oder Kursen, wird immer der Kurs in USD herangezogen. 
+\newline
+Damit eine Analyse der Kryptowährungen möglich ist, müssen zu diesen historische Kursdaten beschafft werden. Dieser, auf den ersten Blick simpel wirkende Schritt, ist jedoch nicht trivial. Kryptowährungen werden an dutzenden Portalen gleichzeitig gehandelt. Dabei erscheinen genauso schnell neue Börsen, wie alte verschwinden. Auch das Handelsvolumen und die Handelswährung unterscheidet sich. Hinzu kommt, dass an Bitcoin- oder Ethereum-Handelsportalen meist 24 Stunden täglich gehandelt werden kann. Aus diesem Grund sind solche Datenquellen ausgewählt worden, die entweder ihre Daten direkt von der Blockchain erhalten oder einen gewichteten Mittelwert über die größten Handelsplatformen berechnen.
+\newline
+Die nächste Schwierigkeit ist die Auswahl der Aktienindizes, die für die Analyse herangezogen werden. Es existiert keine allgemein gültige oder anerkannte Liste mit 'den wichtigsten Aktienindizes'. Aus diesem Grund wurden die Indices ausgewählt, die die Website investing.com als "major world indices" deklariert.\citep{fusion_media_limited_major_2017} Es liegt dabei eine große Überschneidung mir anderen Stock Market-Seiten vor.\multicitep{liveindex.org_live_2017; yahoo_finance_major_2017; yahoo_finance_major_2017-1} Zusätzlich zu den Aktienindices wird ein Financial Stress Index (FSI) herangezogen. Ein solcher "index misst die aktuelle Belastung in einem finanzwirtschaftlichen System"\citep[S.~1; eigene Übersetzung]{vermeulen_financial_2014} In diesem Fall ist es der St. Louis Fed Financial Stress Index, der 18 Einzelfaktoren aus drei Kategorien bündelt.\citep{federal_reserve_bank_of_st._louis_st._2017}
+\newline
+Ferner werden die Währungen der acht größten Volkswirtschaften\citep{the_international_monetary_fund_world_2017} und die Kurse für Gold, Silber und Rohöl mit einbezogen. Es werden die Wechselkurse zum Dollar betrachtet, sprich Fremdwährung/USD. Bei den Ölkursen wird Brent, das wichtigste Rohöl für den europäischen Markt \citep{noauthor_brent_2016}, und West Texas Intermediate (WTI), das Pondon für den US-Markt, betrachtet\citep{noauthor_west_2017}.
+
+\begin{centering} \begin{longtable}[H]{|p{5cm}|p{5,5cm}|p{5,5cm}|}
+\hline
+\textbf{Daten} & \textbf{für BTC} & \textbf{für ETH} \\
+\hhline{===}
+Handelsvolumen & ja, von https://bitcoincharts.com/ &  ja, von https://coinmarketcap.com/ \\ \hline
+Coin Volumen (Gesamtanzhal der vorhandenen Bitcoins/des Ethers) & ja, von https://blockchain.info/ & ja, von https://etherscan.io/ \\ \hline
+Mining-Schwierigkeit & ja, von https://data.bitcoinity.org/ & ja, von https://etherscan.io/ \\ \hline
+Anzahl der Transaktionen & ja, von https://blockchain.info/ & ja, von https://etherscan.io/ \\ \hline
+Hashrate & ja, von https://www.kaggle.com/ & ja, von https://www.kaggle.com/ \\ \hline
+Marktkapitalisierung & ja, von https://www.kaggle.com/ & ja, von https://www.kaggle.com/ \\ \hline
+\caption{Mögliche Einflussfaktoren: Kryptowährungs-eigene Faktoren (für Begriffserklärungen siehe Punkt \ref{sec:cryptocurrency2})}
+\label{tab:dataToAnalyseA}
+\end{longtable} 
+\end{centering}
+
+\begin{centering} \begin{longtable}[H]{|p{5cm}|p{5,5cm}|p{5,5cm}|}
+\hline
+\textbf{Daten} & \textbf{für BTC} & \textbf{für ETH} \\
+\hhline{===}
+Google Websuchen & ja, von https://trends.google.de/trends/ & ja, von https://trends.google.de/trends/ \\ \hline
+Google News-Suchen & ja, von https://trends.google.de/trends/ & ja, von https://trends.google.de/trends/ \\ \hline
+Wikipedia Seitenaufrufe & ja, von https://wikimedia.org/api/rest \textunderscore v1/ & ja, von https://wikimedia.org/api/rest \textunderscore v1/ \\ \hline
+Tweets (Twitter Nachrichten) & \multicolumn{2}{p{11cm}|}{nein, nicht kostenlos verfügbar} \\ \hline
+Zeitungsartikel/-Überschriften & \multicolumn{2}{p{11cm}|}{ja, von https://www.kaggle.com/therohk/million-headlines/data/}\\ \hline
+\caption{Mögliche Einflussfaktoren: Öffentliches Interesse}
+\end{longtable} 
+\end{centering}
+
+\begin{centering} \begin{longtable}[H]{|p{9cm}|p{3,5cm}|p{3,5cm}|}
+\hline
+\textbf{Daten} & \textbf{für BTC} & \textbf{für ETH} \\
+\hhline{===}
+Dow 30, S\&P 500, Nasdaq, SmallCap, S\&P 500 VIX, S\&P/TSX, TR Canada, Bovespa, IPC, DAX, FTSE 100, CAC 40, Euro Stoxx, AEX, IBEX, FTSE MIB, SMI, PSI, BEL, ATX, OMXS30, OMXC20, MICEX, RTSI, WIG20, Budapest SE, BIST 100, TA 35, Tadawul All Share, Nikkei 225, S\&P/ASX 200, DJ New Zealand, Shanghai, SZSE Component, China A50, DJ Shanghai, Hang Seng, Taiwan Weighted, SET, KOSPI, IDX Composite, Nifty, BSE Sensex, PSEi Composite, STI Index, Karachi, HNX 30, CSE All-Share	& \multicolumn{2}{p{7cm}|}{ja, von https://www.investing.com/indices/}\\ \hline
+St. Louis Fed Financial Stress Index (STLFSI) & \multicolumn{2}{p{7cm}|}{ja, von https://fred.stlouisfed.org/series/STLFSI}\\ \hline
+\caption{Mögliche Einflussfaktoren: (Aktien)indizes}
+\end{longtable} 
+\end{centering}
+
+\begin{centering} \begin{longtable}[H]{|p{7cm}|p{4,5cm}|p{4,5cm}|}
+\hline
+\textbf{Daten} & \textbf{für BTC} & \textbf{für ETH} \\
+\hhline{===}
+China (CNY), Japan (JPY), Deutschland (EUR, Großbritannien  (GBP), Frankreich (EUR), Indien (INR), Brasilien (BRL) & \multicolumn{2}{p{9cm}|}{ja, von https://www.investing.com/currencies/single-currency-crosses}\\ \hline
+\caption{Mögliche Einflussfaktoren: Währungen der größten Volkswirtschaften (nach BIP)}
+\end{longtable} 
+\end{centering}
+
+\begin{centering} \begin{longtable}[H]{|p{7cm}|p{4,5cm}|p{4,5cm}|}
+\hline
+\textbf{Daten} & \textbf{für BTC} & \textbf{für ETH} \\
+\hhline{===}
+Goldpreis, Silberpreis, Brent (Rohöl Europa), WTI (Rohöl USA) & \multicolumn{2}{p{9cm}|}{ja, von https://www.investing.com/commodities/}\\ \hline
+\caption{Mögliche Einflussfaktoren: natürliche Ressourcen}
+\label{tab:dataToAnalyseE}
+\end{longtable} \end{centering}
+
+\subsection*{Festlegen der technischen Projektziele (Determine the Data Mining Goals)}\label{subsec:goals}
 \begin{centering} \begin{longtable}[!h]{|p{4,5cm}|p{12cm}|}
 \hline
 \textbf{Output} & \textbf{Beschreibung} \\ 
@@ -196,7 +195,7 @@ kleine Werte sind normal, große sollten misstrauisch machen\citep{mircosoft_eva
 \todo{Text und Auswahl treffen} 
 
 
-\subsection{Produce a Project Plan} \label{subsec:projectPlan}
+\subsection*{Aufstellung eines groben Projektplans und der genutzten Werkzeuge (Produce a Project Plan)} \label{subsec:projectPlan}
 Nach diesem sehr Daten-orientierten Teilschritt, befasst sich der nachfolgende Schritt einerseits mit der (groben) Planung des weiteren Projekts und andererseits mit einer anfänglichen Betrachtung der eingesetzten Werkzeuge. Grundsätzlich orientiert sich der Projektplan am Referenzmodell CRISP-DM. In einem komplexeren Projekt mit mehreren kollaborativ arbeitenden Personen, kommt diesem Schritt eine größere Rolle zu als im vorliegenden Fall. Wichtige Meilensteine, die zu bestimmten Zeitpunkten fertig vorliegen müssen, um einen unterbrechungsfreien Projektverlauf zu gewährleisten, stellen die Outputs jedes Prozessschrittes dar. Eine zeitliche Einschätzung ist dem Output "Project Plan" in Tabelle \ref{tab:projectPlan} zu entnehmen. Zu sehen ist dort der geschätzte Arbeitsaufwand in Tagen für jeden Schritt und der Anteil am Gesamtprojekt. Anzumerken ist hier, dass die Angaben durch Rückschritte in frühere Phasen verzerrt werden können. Auf das Deployment wird verzichtet.  \newline
 Bei der initialen Betrachtung der Werkzeuge werden laut Prozessmodell verschiedene alternativen gegeneinander abgewogen und ihr Zweck im Projekt festgelegt. Da das Werkzeug Azure Machine Learning Studio bereits vorgegeben ist, wird hier nur der Zweck der Werkzeuge im Projektverlauf betrachtet. Wird das Werkzeug R (bzw. RStudio) eingesetzt, so erhält es den Vorzug gegenüber seiner Konkurrenz (z.b. Python) aufgrund der Erfahrung des Entwicklers.
 
@@ -227,13 +226,9 @@ Notepad++ & zur Betrachtung, Vorbereitung und Konvertierung von Daten vor dem Up
 \end{longtable} \end{centering}
 
 \section{Data Understanding}
-\subsection{Collect the Initial Data} \label{subsec:collection}
-In Schritt \ref{subsec:assesTheSituation} wurden Einflussfaktoren auf den Kurs festgehalten. Zusätzlich wurden bereits Quellen für Daten zu diesen Faktoren gesucht. In diesem Schritt werden nun die Daten tatsächlich (im Sinne von 'echten' Dateien) bezogen und bereits in Azure Machine Learning geladen. Ebenfalls Teil dieses Schrittes ist es, die Daten grob zu beschreiben. Im vorliegen Fall wird die Datenspanne und weitere offensichtliche Merkmale beschrieben. \newline
-
-Die Herkunft der Daten ist nicht weiter beschrieben, da dies bereits in \ref{subsec:assesTheSituation} abgehandelt wurde. \newline
-
+\subsection*{Beschaffung der Daten und grobe Beschreibung (Collect the Initial Data)} \label{subsec:collection}
+In Schritt \ref{subsec:assesTheSituation} wurden Einflussfaktoren auf den Kurs festgehalten. Zusätzlich wurden bereits Quellen für Daten zu diesen Faktoren gesucht. In diesem Schritt werden nun die Daten tatsächlich (im Sinne von 'echten' Dateien) bezogen und bereits in Azure Machine Learning geladen. Ebenfalls Teil dieses Schrittes ist es, die Daten grob zu beschreiben. Im vorliegen Fall wird die Datenspanne und weitere offensichtliche Merkmale beschrieben. Die Herkunft der Daten ist nicht weiter beschrieben, da dies bereits in \ref{subsec:assesTheSituation} abgehandelt wurde.\newline
 Alle gesammelten Daten enthalten Header-Informationen (Preis, Kurs, Datum etc.). Azure ML Studio kann diese Header auslesen und nutzt sie für einfache Select- oder Join-Befehle. Damit dies möglich ist, müssen die Daten als 'Genereic CSV File with a header (.csv)' oder 'Generic TSV File with a header (.tsv)' vorliegen. In manchen Fällen ist es möglich, dass Microsoft Excel beim Speichern einer Datei als '.csv' statt Kommas, Strichpunkte zum Trennen nutzt. Hier ist darauf zu achten, dass tatsächlich Kommas als Trennzeichen genutzt werden, da Azure ML Studio diese sonst nicht interpretieren kann. Die Datei-Endung '.tsv' ist nicht zwingend erforderlich. Ein 'Tab seperated values'-File kann auch mit der Endung '.txt' hochgeladen und richtig interpretiert werden. Dies ist wichtig, da Excel als Endung für diese Dateien nicht '.tsv' sondern '.txt' wählt.\newline
-
 Azure ML Studio bietet die Möglichkeit, mehrere Dateien gezippt in das Tool zu laden. Dies bietet sich an, wenn viele einzelne Dateien hochgeladen werden sollen. Leider kann das Zip-File pro Experiment nur einmal verwendet werden und nur eine Datei daraus kann entpackt werden. Dadurch ist diese Option im Falle dieser Arbeit nicht praktikabel. Es müssen also alle Dateien einzeln geladen werden.
 
 \begin{centering} \begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
@@ -314,7 +309,7 @@ ethereumDataset & 30.7.2015 bis 3.10.2017 & sehr detaillierte Ethereum Eigenscha
 Wie in Tabelle \ref{tab:initialDataCollectionReport} zu sehen ist, umfassen die Daten verschiedene Zeitspannen. Einige Aktienindices, vor allem ATX und HNX30, existieren noch nicht so lange, wie die historischen Daten des Bitcoins. Es gibt mehrere Wege, um damit umzugehen. Da auch ohne diese noch über 30 andere Indices zur Verfügung stehen, fließen sie nicht weiter in die Untersuchung ein.\\newline
 Einige der Datensätze beinhalten nicht nur rohe Daten, sondern bereits Brechungen, wie den prozentualen Anstieg eines Kurses zum Vortag. Obwohl die Features des Datensatzes erst im nachfolgenden Schritt beschrieben werden, kann hier schon festgehalten werden, dass diese 'Zusatzinformationen' von der Analyse ausgeschlossen werden. Es handelt sich dabei lediglich um eine - für den menschlichen Betrachter einfach zu verstehende - andere Schreibweise für die Daten in einer Zeitreihe und nicht um zusätzliche Informationen. \newline
 
-\subsection{Describe the Data} \label{subsec:describe}
+\subsection*{Genaue Beschreibung der Daten (Describe the Data)} \label{subsec:describe}
 Eine detaillierte Beschreibung der oben genannten Datensätze erfolgt nun. Für jeden Satz, bzw. jede homogene Gruppe (wie die Aktienindices), werden die Anzahl der Spalten (Features), die Anzahl der Reihen (Observations) und die Dateigröße (in Kilobyte; KB) angegeben. Außerdem werden für die Features genauer erläutert. Beim Datentyp 'numerisch' handelt es sich um eine Ganzzahl, bei 'numerisch (5)' um eine Gleitkommazahl mit bis zu fünf Nachkommastellen.
 
 \begin{centering} \begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
@@ -675,7 +670,7 @@ Obwohl die Qualität der Daten erst in einem nachfolgenden Schritt genauer betra
 \item Am Ende von Abschnitt \ref{subsec:collection} wurde bereits angesprochen, dass das Feature 'Change' (z.B. bei den Aktienindices) keinen Mehrwert für die Analyse bietet.
 \end{itemize}
 
-\subsection{Explore the Data} \label{subsec:explore}
+\subsection*{Untersuchung der Daten durch Visualisierung (Explore the Data)} \label{subsec:explore}
 Der User Guide empfielt, um die bekannten Daten weiter zu untersuchen, "Abfrage-, Visualisierungs- und Reportingtechniken anzuwenden"\citep[S.~40; eigene Übersetzung]{chapman_crisp-dm_2000}. Es ist sicherlich aufschlussreich, alle Features auf einen Graphen mit dem Kryptowärhungskurs zu plotten. Da dies jedoch sehr aufwendig ist, werden hier nur einige Daten betrachtet. Außerdem ist es wahrscheinlich, dass komplexere Zusammenhänge nicht trivial visuell erkennbar sind.\newline
 
 Betrachtet man das Interesse am Bitcoin (Google Websuchen und Google Newssuchen) mit dem R Statement in Listing \ref{list:PublicInterestBTC}, so zeigt sich, dass der erste Ausschlag Mitte 2011 zu erkennen ist und der Nächste erst Anfang 2013 (Abbildung \ref{fig:PublicInterestBTC}). 
@@ -716,7 +711,7 @@ Data exploration report & Analyse des Bitcoinkurses erst ab 1.1.2011; des Etheru
 \caption{Output des Schrittes "Explore the Data"}
 \end{longtable} \end{centering}
 
-\subsection{Verify Data Quality}
+\subsection*{Problemen mit den Daten und mögliche Lösungen (Verify Data Quality)}
 Bei der Sicherung der Datenqualität fällt auf, dass die Daten oberflächlich eine hohe Qualität aufweisen. Beispielsweise sind alle Datensätze in USD angegeben und strukturiert. Sie enthalten pro Datei nicht viele Features und besitzen kaum lückenhafte Spalten. Jedoch sind einige Dinge zu beachten (siehe Tabelle \ref{tab:dataQual}).
 
 \begin{centering} \begin{longtable}[H]{|p{5,5cm}|p{8,5cm}|}
@@ -724,7 +719,7 @@ Bei der Sicherung der Datenqualität fällt auf, dass die Daten oberflächlich e
 \textbf{Problem} & \textbf{Lösung} \\ 
 \hhline{==}
 Die verschiedenen Datensätze haben unterschiedliche Datumsformate. Dies birgt Risiken beim Zusammenführen der Daten. & Vor dem Joinen der Daten müssten die Formate uniformiert werden. Dies kann beispielsweise mit der R-Methode \begin{lstlisting}
-as.Date(data$DateColumn,format='%Y%m%d')
+as.Date(data$DateColumn, format='%Y%m%d')
 \end{lstlisting}
 geschehen, solange das Datum in einem gültigen Format ist. \\ \hline
 Beim Zusammensetzten der Datensätze entstehen Lücken, da einige Datensätze (z.B. Kryptowährungs-eigene Eigenschaften) sieben Observations pro Woche festhalten, Andere (z.B. Aktienindices) nur fünf. Außerdem gibt es Datensätze mit Feiertagen (z.B. Neujahr) oder solche mit nur einer Observaton pro Woche (z.B. STLFSI). & Azure ML Studio bietet das Experiment Item 'Clean Missing Data' an. Neben den Möglichkeiten, fehlende Daten mit dem Modus, Median oder Mittelwert auszufüllen, kann das Verfahren MICE\citep{azur_multiple_2011} oder die Probablilistic PCA\citep{tipping_probabilistic_1999} genutzt werden. \\ \hline
@@ -738,7 +733,7 @@ bei construict dann bis zu azure zusammenbauen
 
 
 \section{Data Preperation}
-\subsection{Select Data}
+\subsection*{Inkludieren und Expludieren von Daten (Select Data)}
 Die Datensätze sind nun gut beschrieben und es wurde auf Herausforderungen und Probleme hingewiesen. Die folgenden Punkte befassen sich damit, die richtigen Daten und Features weiter zu reduzieren ("Select Data"), sie zu reinigen ("Clean Data") und schließlich zum endgültigen Analyse-Datensatz zusammenfassen ("Construct Data", "Integrate Data" und "Format Data").
 Ausgenommen der jetzt begründet ausgeschlossenen Daten, werden alle Vorgestellten zum bilden des Models genutzt. Tabelle \ref{tab:selecData} liefert einen Überblick.
 
@@ -805,7 +800,7 @@ ethereumDataset & X & \\ \hline
 \label{tab:selecData}
 \end{longtable} \end{centering}
 
-\subsection{Clean, Construct, Integrate, Format Data}
+\subsection*{Aufbereitung der Daten (Clean, Construct, Integrate, Format Data)}
 
 Die Schritte 'Clean Data', 'Construct Data', 'Integrate Data' und 'Format Data' gehen Hand in Hand. Deswegen werden die Punkte zusammengefasst. Bei der tatsächlichen Durchführung wurden die Schritte iterativ und inkrementell durchlaufen. \newline
 Die Menge aller Daten für die Untersuchung ist heterogen. Es existieren jedoch Blöcke (z.B. alle Währungskurse oder alle natürlichen Ressourcen), die innerhalb eine homogene Struktur aufweisen. Aus diesem Grund ist es ratsam, zuerst die homogenen Daten zusammenzufassen und diese großen Blöcke dann zusammenzufügen. Durch dieses Buttom-Up-Zusammensetzen wird die Integration vereinfacht.
@@ -899,7 +894,7 @@ Um nur die Zeilen zur Analyse zu benutzen, die im ausgewählten Zeitintervall (s
 
 
 \section{Modeling}
-\subsection{Select the Modeling Technique}
+\subsection*{Auswahl von Klassifizierungs- und Regressionsalgorithmen (Select the Modeling Technique)}
 Wie in Punkt \ref{subsec:goals} gefordert, wird einerseits versucht, einen Wert für den Kurs vorherzusagen (mit Hilfe von Regressionen) und andererseits, ob der Kurs steigt oder nicht (Two-Class classification). In beiden Fällen handelt es sich um Supervised Learning, da für jeden Input ein Output vorhanden ist (siehe Punkt \ref{subsec:sl}).
 In Azure verfügbare Two-Class classification Algorithmen sind:
 \begin{itemize}
@@ -928,7 +923,7 @@ Ausgeschlossen werden Ordinal Regression (nur geeignet, um Rangfolgen aufzustell
 Die Algorithmen besitzen konfigurierbare Parameter. Die Güte der erzeugten Modelle hängt unter anderem von diesen einstellbaren Werten ab. Azure bietet die Möglichkeit, die Parameter automatisch zu optimieren. Dazu wird das Experiment Item 'Tune Model Hyperparameter' eingesetzt. Es verbessert das Ergebnis des Models hinsichtlich eines bestimmten Wertes (Genauigkeit, Präzision etc.). Im vorliegenden Fall werden als Zielparameter die Metriken aus den Data Mining Goals (Punkt \ref{subsec:goals}) gewählt:
 F1-Score für Klassifikationen und Bestimmtheitsmaß (Coefficient of determination) für die Regressionen.
 
-\subsection{Generate Test Design}
+\subsection*{Festlegung des Verhältnis von Trainings- und Testdaten (Generate Test Design)}
 Es muss überlegt werden, in welchem Verhältnis die zu analysierenden Daten aufgeteilt werden (Trainingsdaten : Testdaten). Es gibt kein allgemeingültiges, optimales Verhältnis. In der Praxis sind jedoch Verhältnisse wie 70:30 oder 80:20 üblich. Es existieren auch andere Ansätze, die wiederum auf Algorithmen basieren.\citep{crowther_method_2005} Beachtet werden muss jedoch, dass nicht einfach obere und untere Hälfte des Datensatzes genutzt werden, sondern die Aufteilung nach dem Zufallsprinzip geschieht. Da das Experiment Item 'Tune Model Hyperparameter' eingesetzt wird, gibt es die Möglichkeit, ein zusätzliches Validation Datasetz zu nutzen. Das für diese Analyse gewählte Verhältnis (Training 54 : Validierung 14 : Test 20) ist in Abbildung \ref{fig:ratio} visualisiert.
 \begin{figure}[H]
 \centering
@@ -938,7 +933,7 @@ Es muss überlegt werden, in welchem Verhältnis die zu analysierenden Daten auf
 \label{fig:ratio}
 \end{figure}
 
-\subsection{Build the Model}
+\subsection*{Durchführung des Machine Learning (Build the Model)}
 Nachdem alle Vorbereitungen abgeschlossen sind, wird jetzt das eigentliche Machine Learning durchgeführt. Dazu werden vier Experimente in Azure Machine Learning Studio modelliert. Je ein Modell für:
 \begin{itemize}
 \item die Kurspreisvorhersage für ETH (Regression für ETH),
@@ -966,7 +961,7 @@ Die Experimente gleichen sich sehr, deswegen sind hier nur die Kurspreisvorhersa
 
 Mit den zwei 'Split Data' Experiment Items wird der Analysedatensatz, wie im vorherigen Punkt spezifiziert, in Trainings-, Validierungs- und Testdaten aufgeteilt. Zu sehen ist auch das Item 'Tune Model Hyperparameter (entire grid)', das sowohl das Training des Models, als auch das optimieren der Algorithmenparameter übernimmt (deshalb an dieser Stelle noch kein Output: Parameter Settings). Die Option 'entire grid' beim Verbessern der Parameter ist eine inperformante Option, die aber sehr genau arbeitet. Dies ist verkraftbar, da die Gesamtlaufzeit des Experiments 30 Minuten nicht deutlich überschreitet.
 
-\subsection{Assess the Model}
+\subsection*{Betrachtung der Ergebnisse (Assess the Model)}
 Ein Durchlauf liefert folgende Ergebnisse:
 
 \begin{table}[H]
@@ -1095,12 +1090,12 @@ Anzumerken ist hier die interessante Tatsache, dass der Kurs sehr genau vorherge
 Nach der Ergebnisbetrachtung folgt nun die Bewertung hinsichtlich der business objectives und der business success criteria.
 
 \section{Evaluation}
-\subsection{Evaluate Results} \label{subsec:revRes}
+\subsection*{Bewertung der Ergebnisse (Evaluate Results)} \label{subsec:revRes}
 Es sollte einerseits geprüft werden, ob die Kurse von Kryptowährungen mit den Mitteln des Machine Learning vorhergesagt werden können. Andererseits sollte eine Einarbeitung in Azure Machine Learning Studio erfolgen und Herausgearbeitet werden, welchen Restriktionen das Werkzeug unterliegt.
 Schlussfolgern lässt sich, dass der Kurspreis von Bitcoin und Ethereum mit den hier angewandten Mitteln nicht vorhersagbar ist. Es kann aber festgehalten werden, dass die Kursschwankungen nicht rein zufällig sind. Eine genauere Betrachtung mit den gewonnen Erkenntnissen (weniger Einflussfaktoren, eventuell eine Time-Series-Analysis) ist sinnvoll (siehe Punkt Punkt \ref{sec:BewertungML}).
 Der Umgang mit Azure Machine Learning Studio wurde vertraut. Eine Aussage über den Reifegrad und Grenzen des Tools kann gemacht werden (siehe Punkt \ref{sec:BeswertungAzure}).
 
-\subsection{Review Process}
+\subsection*{Rückblick auf den CRISP-DM-Prozess (Review Process)}
 Neben der technischen Interpretation der Ergebnisse und dem beurteilen der business objectives, folgt ein Rückblick auf die Schritte des CRISP-DM Referenzmodells.
 In Tabelle \ref{tab:ProcessReview} wird der Projektplan aus Punkt \ref{subsec:projectPlan} aufgegriffen und mit dem tatsächlichen Verlauf verglichen. Abweichungen werden erläutert und Dinge, die beim nächsten mal verbessert werden können, werden festgehalten (Lessons Learned).
 
@@ -1130,8 +1125,7 @@ Die Übereinstimmung der Aufteilung nach Shearer mit dem tatsächlichen Aufwand 
 \label{fig:phases}
 \end{figure}
 
-
-\subsection{Determine Next Steps}
+\subsection*{Umgang mit den Erkenntnissen: (Determine Next Steps)}
 Im Referenzmodell folgt nach der Evaluation das Deployment. Im Falle dieser Untersuchung wird jedoch darauf verzichtet. Einerseits besitzen die erstellten Modelle noch nicht den Reifegrad, um genutzt zu werden, andererseits würde der Aufwand den Umfang der Arbeit übersteigen.
 Im weiteren wird wie oben (Punkt \ref{subsec:revRes}) angesprochen, das Werkzeug Azure Machine Learning Studio bewertet (Punkt \ref{sec:BeswertungAzure}), eine Aussage über das Referenzmodell CRIPS-DM getroffen (Punkt \ref{sec:BeswertungCrisp}) und die Ergebnisse des Machine Learning interpretiert (Punkt \ref{sec:BewertungML}).
 
