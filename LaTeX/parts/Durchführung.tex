@@ -23,7 +23,7 @@ Wie in Punkt \ref{sec:crispdmdec} angesprochen, wird als Hilfe für das Prozessm
 \subsection{Determine the Business Objectives}
 In  gewöhnlichen Industrie- oder Forschungsprojekten ist es wichtig, die Stakeholder (vor allem Geldgeber) und den Reifegrad und die Akzeptanz des Data Mining im Projektumfeld zu analysieren. Dies rückt im vorliegenden Fall in den Hintergrund. Die Anderen Outputs sind jedoch ebenso wichtig.
 
-\begin{longtable}[H]{|p{4,5cm}|p{12cm}|}
+\begin{centering} \begin{longtable}[H]{|p{4,5cm}|p{12cm}|}
 \hline
 \textbf{Output} & \textbf{Beschreibung} \\ 
 \hhline{==}
@@ -34,117 +34,78 @@ Business objectives & Die Untersuchung hat zwei Hauptziele. Das eine ist die Ana
 Business success criteria & Die Erkenntnis, dass eine Vorhersage nicht möglich ist, oder dass wichtige Einflüsse nicht gefunden wurden, ist durchaus möglich und bedeutet keinesfalls ein Scheitern des Projekts. Hinsichtlich des Werkzeugs Azure ML, ist es beispielsweise interessant, welchen Restriktionen das Tool unterlegen ist. Das Betrifft sowohl Funktionen, die (noch) nicht vorhanden sind, oder technische Limitationen, wie Geschwindigkeit, Volumenbegrenzungen etc..\\
 \hline
 \caption{Output des Schrittes "Determine the Business Objectives"}
-\end{longtable}
-
+\end{longtable} \end{centering}
 \subsection{Assess the Situation} \label{subsec:assesTheSituation}
 Dieser Teil befasst sich vor allem damit, welche Ressourcen zur Verfügung stehen (Hardware, Software, personell) und welche sonstigen Bedingungen erfüllt sein müssen oder das Projekt begrenzen. Dazu zählt auch das Finden von Daten, die für die Modellierung genutzt werden können. Anzumerken ist hierbei, dass es noch nicht um das tatsächliche Laden der Daten im Sinne von Dateien geht, sondern um das Finden von potentiellen Quellen für Daten. Zusätzlich sollen noch eine Risiko- und eine Kosten-Nutzen-Analyse durchgeführt werden. Das Hauptaugenmerk liegt jedoch auf der Erschließung der Daten. 
 \newline
-An Stelle einer vollständigen Risikoanalyse (Kontext herstellen, Risiken identifizieren, analysieren, evaluieren, managen\citep[S.~43]{sowa_management_2017}), tritt eine Aufzählung der 3 Hauptrisiken. Dies geschieht einerseits aus Gründen der Verhältnismäßigkeit, andererseits liegt der Fokus der Arbeit auf einem anderen Thema. Ähnlich verhält es sich mit der Kosten-Nutzen-Analyse. Sie wird zur Bewertung der Wirtschaftlichkeit herangezogen, was in diesem Kontext nicht relevant ist. Deswegen wird auf sie vollständig verzichtet.
+An Stelle einer vollständigen Risikoanalyse (Kontext herstellen, Risiken identifizieren, analysieren, evaluieren, managen\citep[S.~43]{sowa_management_2017}), tritt eine Aufzählung der zwei Hauptrisiken. Dies geschieht einerseits aus Gründen der Verhältnismäßigkeit, andererseits liegt der Fokus der Arbeit auf einem anderen Thema. Ähnlich verhält es sich mit der Kosten-Nutzen-Analyse. Sie wird zur Bewertung der Wirtschaftlichkeit herangezogen, was in diesem Kontext nicht relevant ist. Deswegen wird auf sie vollständig verzichtet.
 \newline
-Die schwerste Aufgabe dieses Teils ist das Finden von Daten, die Einfluss auf den Kurs von Kryptowährungen haben (könnten). Forschungen in diesem Bereich identifizierten einerseits öffentliches Interesse (soziale Medien, Google Suchanfragen, etc.)\multicitep{kristoufek_bitcoin_2013; garcia_digital_2014} und andererseits auch wirtschaftliche Faktoren ("standard economic theory", also Angebot und Nachfrage, Investoren)\citep{kristoufek_what_2015} als Haupteinflussfaktoren. Anhand den Aussagen dieser Paper und zusätzlichen Überlegungen ergeben sich folgende Faktoren, die bei der Analyse bedacht werden (Tabelle \ref{tab:dataToAnalyse}).\newline Darüber hinaus wird die Quelle aufgeführt, über die die Daten bezogen werden. Bei monetären Strömen oder Kursen, wird immer der Kurs in USD herangezogen. 
+Die schwerste Aufgabe dieses Teils ist das Finden von Daten, die Einfluss auf den Kurs von Kryptowährungen haben (könnten). Forschungen in diesem Bereich identifizierten einerseits öffentliches Interesse (soziale Medien, Google Suchanfragen, etc.)\multicitep{kristoufek_bitcoin_2013; garcia_digital_2014} und andererseits auch wirtschaftliche Faktoren ("standard economic theory", also Angebot und Nachfrage, Investoren)\citep{kristoufek_what_2015} als Haupteinflussfaktoren. Anhand den Aussagen dieser Paper und zusätzlichen Überlegungen ergeben sich folgende Faktoren, die bei der Analyse bedacht werden (Tabellen \ref{tab:dataToAnalyseA} bis \ref{tab:dataToAnalyseE}).\newline Darüber hinaus wird die Quelle aufgeführt, über die die Daten bezogen werden. Bei monetären Strömen oder Kursen, wird immer der Kurs in USD herangezogen. 
 \newline
-Damit eine Analyse der Kryptowährungen möglich ist, müssen zu diesen historische Kursdaten beschafft werden. Dieser, auf den ersten Blick simpel wirkende Schritt, ist in Wirklichkeit \todo{formulierung} nicht trivial. Kryptowährungen werden an dutzenden Portalen gleichzeitig gehandelt. Dabei erscheinen genauso schnell neue Börsen, wie alte verschwinden. Auch das Handelsvolumen und die Handelswährung unterscheidet sich. Hinzu kommt, dass an Bitcoin- oder Ethereum-Handelsportalen meist 24 Stunden täglich gehandelt werden kann. Aus diesem Grund sind solche Datenquellen ausgewählt worden, die entweder ihre Daten direkt von der Blockchain erhalten oder einen gewichteten Mittelwert über die größten Handelsplatformen berechnen.
+Damit eine Analyse der Kryptowährungen möglich ist, müssen zu diesen historische Kursdaten beschafft werden. Dieser, auf den ersten Blick simpel wirkende Schritt, ist jedoch nicht trivial. Kryptowährungen werden an dutzenden Portalen gleichzeitig gehandelt. Dabei erscheinen genauso schnell neue Börsen, wie alte verschwinden. Auch das Handelsvolumen und die Handelswährung unterscheidet sich. Hinzu kommt, dass an Bitcoin- oder Ethereum-Handelsportalen meist 24 Stunden täglich gehandelt werden kann. Aus diesem Grund sind solche Datenquellen ausgewählt worden, die entweder ihre Daten direkt von der Blockchain erhalten oder einen gewichteten Mittelwert über die größten Handelsplatformen berechnen.
 \newline
 Die nächste Schwierigkeit ist die Auswahl der Aktienindizes, die für die Analyse herangezogen werden. Es existiert keine allgemein gültige oder anerkannte Liste mit 'den wichtigsten Aktienindizes'. Aus diesem Grund wurden die Indices ausgewählt, die die Website investing.com als "major world indices" deklariert.\citep{fusion_media_limited_major_2017} Es liegt dabei eine große Überschneidung mir anderen Stock Market-Seiten vor.\multicitep{liveindex.org_live_2017; yahoo_finance_major_2017; yahoo_finance_major_2017-1} Zusätzlich zu den Aktienindices wird ein Financial Stress Index (FSI) herangezogen. Ein solcher "index misst die aktuelle Belastung in einem finanzwirtschaftlichen System"\citep[S.~1; eigene Übersetzung]{vermeulen_financial_2014} In diesem Fall ist es der St. Louis Fed Financial Stress Index, der 18 Einzelfaktoren aus drei Kategorien bündelt.\citep{federal_reserve_bank_of_st._louis_st._2017}
 \newline
 Ferner werden die Währungen der acht größten Volkswirtschaften\citep{the_international_monetary_fund_world_2017} und die Kurse für Gold, Silber und Rohöl mit einbezogen. Es werden die Wechselkurse zum Dollar betrachtet, sprich Fremdwährung/USD. Bei den Ölkursen wird Brent, das wichtigste Rohöl für den europäischen Markt \citep{noauthor_brent_2016}, und West Texas Intermediate (WTI), das Pondon für den US-Markt, betrachtet\citep{noauthor_west_2017}.
 
-\begin{longtable}[H]{|p{4cm}|p{6,25cm}|p{6,25cm}|}
-\multicolumn{3}{c}{\textit{Cryptowährungs-eigene Faktoren}}\\ \hline
+\begin{centering} \begin{longtable}[H]{|p{5cm}|p{5,5cm}|p{5,5cm}|}
+\hline
 \textbf{Daten} & \textbf{für BTC} & \textbf{für ETH} \\
 \hhline{===}
 Handelsvolumen & ja, von https://bitcoincharts.com/ &  ja, von https://coinmarketcap.com/ \\ \hline
 Coin Volumen (Gesamtanzhal der vorhandenen Bitcoins/des Ethers) & ja, von https://blockchain.info/ & ja, von https://etherscan.io/ \\ \hline
-Mining-Schwierigkeit \todo{Erklärung} & ja, von https://data.bitcoinity.org/ & ja, von https://etherscan.io/ \\ \hline
+Mining-Schwierigkeit & ja, von https://data.bitcoinity.org/ & ja, von https://etherscan.io/ \\ \hline
 Anzahl der Transaktionen & ja, von https://blockchain.info/ & ja, von https://etherscan.io/ \\ \hline
 Hashrate & ja, von https://www.kaggle.com/ & ja, von https://www.kaggle.com/ \\ \hline
 Marktkapitalisierung & ja, von https://www.kaggle.com/ & ja, von https://www.kaggle.com/ \\ \hline
-\multicolumn{3}{c}{\textit{Öffentliches Interesse}}\\ \hline
+\caption{Mögliche Einflussfaktoren: Kryptowährungs-eigene Faktoren (für Begriffserklärungen siehe Punkt \ref{sec:cryptocurrency2})}
+\label{tab:dataToAnalyseA}
+\end{longtable} 
+\end{centering}
+
+\begin{centering} \begin{longtable}[H]{|p{5cm}|p{5,5cm}|p{5,5cm}|}
+\hline
 \textbf{Daten} & \textbf{für BTC} & \textbf{für ETH} \\
 \hhline{===}
 Google Websuchen & ja, von https://trends.google.de/trends/ & ja, von https://trends.google.de/trends/ \\ \hline
 Google News-Suchen & ja, von https://trends.google.de/trends/ & ja, von https://trends.google.de/trends/ \\ \hline
 Wikipedia Seitenaufrufe & ja, von https://wikimedia.org/api/rest \textunderscore v1/ & ja, von https://wikimedia.org/api/rest \textunderscore v1/ \\ \hline
-Tweets (Twitter Nachrichten) & \multicolumn{2}{c}{nein, nicht kostenlos verfügbar} \\ \hline
-Zeitungsartikel/-Überschriften & \multicolumn{2}{c}{ja, von https://www.kaggle.com/therohk/million-headlines/data/}\\ \hline
-Blogartikel & \todo{???} & \todo{???} \\ \hline
-(Web-)Domains & \todo{???} & \todo{???} \\ \hline
-\multicolumn{3}{c}{\textit{(Aktien)indizes}}\\ \hline
+Tweets (Twitter Nachrichten) & \multicolumn{2}{p{11cm}|}{nein, nicht kostenlos verfügbar} \\ \hline
+Zeitungsartikel/-Überschriften & \multicolumn{2}{p{11cm}|}{ja, von https://www.kaggle.com/therohk/million-headlines/data/}\\ \hline
+\caption{Mögliche Einflussfaktoren: Öffentliches Interesse}
+\end{longtable} 
+\end{centering}
+
+\begin{centering} \begin{longtable}[H]{|p{9cm}|p{3,5cm}|p{3,5cm}|}
+\hline
 \textbf{Daten} & \textbf{für BTC} & \textbf{für ETH} \\
 \hhline{===}
-Dow 30	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-S\&P 500	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-Nasdaq	 & \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-SmallCap & \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-S\&P 500 VIX& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-S\&P/TSX	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-TR Canada  & \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-Bovespa	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-IPC & \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-DAX	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-FTSE 100		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-CAC 40	 	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-Euro Stoxx 	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-AEX		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-IBEX 	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-FTSE MIB	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline	
-SMI		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-PSI 	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-BEL 	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline	 
-ATX		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-OMXS30		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-OMXC20	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline	
-MICEX		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-RTSI	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline	
-WIG20		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-Budapest SE		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-BIST 100	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline	
-TA 35		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline	 
-Tadawul All Share	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-Nikkei 225		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-S\&P/ASX 200		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-DJ New Zealand		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-Shanghai	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-SZSE Component		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-China A50		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-DJ Shanghai	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-Hang Seng		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-Taiwan Weighted		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-SET		& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-KOSPI	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-IDX Composite	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-Nifty 	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-BSE Sensex	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-PSEi Composite	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-STI Index	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-Karachi	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-HNX 30	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
-CSE All-Share	& \multicolumn{2}{c}{ja, von https://www.investing.com/indices/}\\ \hline
+Dow 30, S\&P 500, Nasdaq, SmallCap, S\&P 500 VIX, S\&P/TSX, TR Canada, Bovespa, IPC, DAX, FTSE 100, CAC 40, Euro Stoxx, AEX, IBEX, FTSE MIB, SMI, PSI, BEL, ATX, OMXS30, OMXC20, MICEX, RTSI, WIG20, Budapest SE, BIST 100, TA 35, Tadawul All Share, Nikkei 225, S\&P/ASX 200, DJ New Zealand, Shanghai, SZSE Component, China A50, DJ Shanghai, Hang Seng, Taiwan Weighted, SET, KOSPI, IDX Composite, Nifty, BSE Sensex, PSEi Composite, STI Index, Karachi, HNX 30, CSE All-Share	& \multicolumn{2}{p{7cm}|}{ja, von https://www.investing.com/indices/}\\ \hline
+St. Louis Fed Financial Stress Index (STLFSI) & \multicolumn{2}{p{7cm}|}{ja, von https://fred.stlouisfed.org/series/STLFSI}\\ \hline
+\caption{Mögliche Einflussfaktoren: (Aktien)indizes}
+\end{longtable} 
+\end{centering}
 
 
-St. Louis Fed Financial Stress Index (STLFSI) & \multicolumn{2}{c}{ja, von https://fred.stlouisfed.org/series/STLFSI}\\ \hline
-\multicolumn{3}{c}{\textit{Währungen der größten Volkswirtschaften (nach BIP)}}\\ \hline
+\begin{centering} \begin{longtable}[H]{|p{7cm}|p{4,5cm}|p{4,5cm}|}
+\hline
 \textbf{Daten} & \textbf{für BTC} & \textbf{für ETH} \\
 \hhline{===}
-China (CNY) & \multicolumn{2}{c}{ja, von https://www.investing.com/currencies/single-currency-crosses}\\ \hline
-Japan (JPY)& \multicolumn{2}{c}{ja, von https://www.investing.com/currencies/single-currency-crosses}\\ \hline
-Deutschland (EUR) & \multicolumn{2}{c}{ja, von https://www.investing.com/currencies/single-currency-crosses}\\ \hline
-Großbritannien  (GBP) & \multicolumn{2}{c}{ja, von https://www.investing.com/currencies/single-currency-crosses}\\ \hline
-Frankreich (EUR) & \multicolumn{2}{c}{ja, von https://www.investing.com/currencies/single-currency-crosses}\\ \hline
-Indien (INR) & \multicolumn{2}{c}{ja, von https://www.investing.com/currencies/single-currency-crosses}\\ \hline
-Brasilien (BRL) & \multicolumn{2}{c}{ja, von https://www.investing.com/currencies/single-currency-crosses}\\ \hline
-\multicolumn{3}{c}{\textit{natürliche Ressourcen}}\\ \hline
+China (CNY), Japan (JPY), Deutschland (EUR, Großbritannien  (GBP), Frankreich (EUR), Indien (INR), Brasilien (BRL) & \multicolumn{2}{p{9cm}|}{ja, von https://www.investing.com/currencies/single-currency-crosses}\\ \hline
+\caption{Mögliche Einflussfaktoren: Währungen der größten Volkswirtschaften (nach BIP)}
+\end{longtable} 
+\end{centering}
+
+\begin{centering} \begin{longtable}[H]{|p{7cm}|p{4,5cm}|p{4,5cm}|}
+\hline
 \textbf{Daten} & \textbf{für BTC} & \textbf{für ETH} \\
 \hhline{===}
-Goldpreis & \multicolumn{2}{c}{ja, von https://www.investing.com/commodities/}\\ \hline
-Silberpreis & \multicolumn{2}{c}{ja, von https://www.investing.com/commodities/}\\ \hline
-Brent (Rohöl Europa) & \multicolumn{2}{c}{ja, von https://www.investing.com/commodities/}\\ \hline
-WTI (Rohöl USA) & \multicolumn{2}{c}{ja, von https://www.investing.com/commodities/}\\ \hline
-\caption{Mögliche Einflussfaktoren auf den Kurs von Kryptowährungen}
-\label{tab:dataToAnalyse}
-\end{longtable}
+Goldpreis, Silberpreis, Brent (Rohöl Europa), WTI (Rohöl USA) & \multicolumn{2}{p{9cm}|}{ja, von https://www.investing.com/commodities/}\\ \hline
+\caption{Mögliche Einflussfaktoren: natürliche Ressourcen}
+\label{tab:dataToAnalyseE}
+\end{longtable} \end{centering}
 
-\begin{longtable}[H]{|p{6,5cm}|p{10cm}|}
+\begin{centering} \begin{longtable}[H]{|p{6,5cm}|p{10cm}|}
 \hline
 \textbf{Output} & \textbf{Beschreibung} \\ 
 \hhline{==}
@@ -180,8 +141,6 @@ Schließlich sollen nur solche Daten genutzt werden, die entweder frei verfügba
 Risks and contingencies & \begin{itemize}
 \item keinen Zugriff auf Azure ML Studio (Server-seitige Probleme; Ablauf der Free-Subscription)
 \item benötigte Daten nicht verfügbar
-\item \todo{todo}
-\item\todo{todo}
 \end{itemize} \\
 \hline
 Terminology & Als Glossar dient das Abkürzungsverzeichnis zu Beginn der Arbeit. \\
@@ -189,24 +148,21 @@ Terminology & Als Glossar dient das Abkürzungsverzeichnis zu Beginn der Arbeit.
 Costs and benefits & --- \\
 \hline
 \caption{Output des Schrittes "Assess the Situation"}
-\end{longtable}
-
+\end{longtable} \end{centering}
 
 \subsection{Determine the Data Mining Goals}\label{subsec:goals}
-\begin{longtable}[!h]{|p{4,5cm}|p{12cm}|}
+\begin{centering} \begin{longtable}[!h]{|p{4,5cm}|p{12cm}|}
 \hline
 \textbf{Output} & \textbf{Beschreibung} \\ 
 \hhline{==}
-Data mining goals & Es sollen mit Hilfe von Azure Machine Learning Studio mehrere Machine Learning Models erzeugt werden. Sie sollen folgende Sachverhalte \todo{Wort} vorhersagen:
+Data mining goals & Es sollen mit Hilfe von Azure Machine Learning Studio mehrere Machine Learning Models erzeugt werden. Sie sollen folgende Szenarien \todo{Wort} vorhersagen:
 \begin{itemize}
 \item Steigt der Kurs innerhalb eines 24-Stunden Zyklus über das Hoch des vorhergehenden 24-Stunden Zyklus? (Mögliche Antworten sind $ja := 1$ und $nein := 0$) 
-\item Fällt der Kurs innerhalb eines 24-Stunden Zyklus unter das Tief des vorhergehenden 24-Stunden Zyklus? (Mögliche Antworten sind $ja := 1$ und $nein := 0$)
 \item Wie hoch ist das Hoch des nächsten 24-Stunden Zyklus? (Antwort: Preis eines Bitcoins/Ethers in USD)
-\item Wie niedrig ist das Tief des nächsten 24-Stunden Zyklus? (Antwort: Preis eines Bitcoins/Ethers in USD)
 \end{itemize} 
-Bei den ersten beiden Fällen handelt es sich um eine two-class classification (siehe \ref{subsubsec:classification}). Die letzten beiden Fragen fallen in das Gebiet der Regressionen (siehe \ref{subsubsec:regression}). \\
+Im ersten Fall handelt es sich um eine two-class classification (siehe \ref{subsubsec:classification}). Die zweite Frage fällt in das Gebiet der Regressionen (siehe \ref{subsubsec:regression}). \\
 \hline
-Data mining success criteria & Die Klassifikationen werden bewertet anhand:
+Data mining success criteria & Möglichkeiten für die Bewertung einer Klassifikationen sind:
 \begin{itemize}
 \item Accuracy: $ \frac{t_{p} + t_{n}}{t_{p} + t_{n} + f_{p} + f_{n}}$ (Anteil der insgesamt richtig vorhergesagten Werte)
 \item Precision: $ \frac{t_{p}}{t_{p} + f_{p}}$ (Anteil der richtig vorhergesagten true-Werte)
@@ -219,11 +175,11 @@ $ t_{n} : true \quad negative $ \newline
 $ f_{p} : false \quad positive $ \newline
 $ f_{n} : false \quad negative $ \newline
 \\
-& Die Regressionen werden bewertet anhand:
+& Möglichkeiten für die Bewertung einer Regressionen sind:
 \begin{itemize}
 \item Mean absolute error (MAE): Unterschied von vorhergesagten und tatsächlichen Werten; je kleiner desto besser\citep{mircosoft_evaluate_2017}
 \item Root mean squared error (RMSE): Macht eine Aussage darüber, "wie gut eine Funktionskurve an vorliegende Daten angepasst ist"; "je größer der RMSE [...], desto schlechter"\citep{statista_root_nodate}
-\item Relative absolute error (RAE), Relative squared error (RSE): Ähnlich dem RMSE, aber für den Vergleich von Regressionen mit unterschiedlichen Maßeinheiten geeignet.\citep{dr._sayad_model_2017} Im vorliegenden Fall können die anderen Größen herangezogen werden, da alle Modelle die gleiche Einheit für die vorhergesagten Werte nutzen.
+\item Relative absolute error (RAE), Relative squared error (RSE): Ähnlich dem RMSE, aber für den Vergleich von Regressionen mit unterschiedlichen Maßeinheiten geeignet.\citep{dr._sayad_model_2017}
 \item Coefficient of determination ($ R^2 $): Gütemaß für die Aussagekraft der Regression; 
 \newline
 $Regression \quad passt \quad perfekt := 1$ 
@@ -235,19 +191,17 @@ kleine Werte sind normal, große sollten misstrauisch machen\citep{mircosoft_eva
 \\
 \hline
 \caption{Output des Schrittes "Determine the Data Mining Goals"}
-\end{longtable}
+\end{longtable} \end{centering}
 
+\todo{Text und Auswahl treffen} 
 
-\todo{welche werte bedeuten was} \newline
-\todo{bessere beschreibungen} \newline
-\todo{was zu den quellen sagen}
 
 \subsection{Produce a Project Plan} \label{subsec:projectPlan}
 Nach diesem sehr Daten-orientierten Teilschritt, befasst sich der nachfolgende Schritt einerseits mit der (groben) Planung des weiteren Projekts und andererseits mit einer anfänglichen Betrachtung der eingesetzten Werkzeuge. Grundsätzlich orientiert sich der Projektplan am Referenzmodell CRISP-DM. In einem komplexeren Projekt mit mehreren kollaborativ arbeitenden Personen, kommt diesem Schritt eine größere Rolle zu als im vorliegenden Fall. Wichtige Meilensteine, die zu bestimmten Zeitpunkten fertig vorliegen müssen, um einen unterbrechungsfreien Projektverlauf zu gewährleisten, stellen die Outputs jedes Prozessschrittes dar. Eine zeitliche Einschätzung ist dem Output "Project Plan" in Tabelle \ref{tab:projectPlan} zu entnehmen. Zu sehen ist dort der geschätzte Arbeitsaufwand in Tagen für jeden Schritt und der Anteil am Gesamtprojekt. Anzumerken ist hier, dass die Angaben durch Rückschritte in frühere Phasen verzerrt werden können. Auf das Deployment wird verzichtet.  \newline
 Bei der initialen Betrachtung der Werkzeuge werden laut Prozessmodell verschiedene alternativen gegeneinander abgewogen und ihr Zweck im Projekt festgelegt. Da das Werkzeug Azure Machine Learning Studio bereits vorgegeben ist, wird hier nur der Zweck der Werkzeuge im Projektverlauf betrachtet. Wird das Werkzeug R (bzw. RStudio) eingesetzt, so erhält es den Vorzug gegenüber seiner Konkurrenz (z.b. Python) aufgrund der Erfahrung des Entwicklers.
 
 
-\begin{longtable}[!h]{|p{4cm}|p{4cm}|p{4cm}|}
+\begin{centering} \begin{longtable}[!h]{|p{4cm}|p{4cm}|p{4cm}|}
 \hline
 \textbf{Prozessschritt} & \textbf{geschätze Zeit in Tagen} & \textbf{Prozentualer Anteil} \\
 \hhline{===}
@@ -258,9 +212,8 @@ Modeling gesamt & $\sum 5$ &  $11 \%$ \\ \hline
 Evaluation gesamt & $\sum 5$ &  $11 \%$ \\ \hline
 \caption{Output "Project Plan" des Schrittes "Produce a Project Plan"}
 \label{tab:projectPlan}
-\end{longtable}
-
-\begin{longtable}[!h]{|p{4cm}|p{11cm}|}
+\end{longtable} \end{centering}
+\begin{centering} \begin{longtable}[!h]{|p{4cm}|p{11cm}|}
 \hline
 \textbf{Werkzeug} & \textbf{Zweck im Projekt}\\ 
 \hhline{==}
@@ -271,8 +224,7 @@ RStudio & zum lokalen entwerfen von Scripten vor der Ausführung in der Cloud un
 Excel & zur Betrachtung, Vorbereitung und Konvertierung von Daten vor dem Upload in die Cloud \\ \hline
 Notepad++ & zur Betrachtung, Vorbereitung und Konvertierung von Daten vor dem Upload in die Cloud \\ \hline
 \caption{Output "Initial assessment of tools and techniques" des Schrittes "Produce a Project Plan"}
-\end{longtable}
-
+\end{longtable} \end{centering}
 
 \section{Data Understanding}
 \subsection{Collect the Initial Data} \label{subsec:collection}
@@ -284,9 +236,9 @@ Alle gesammelten Daten enthalten Header-Informationen (Preis, Kurs, Datum etc.).
 
 Azure ML Studio bietet die Möglichkeit, mehrere Dateien gezippt in das Tool zu laden. Dies bietet sich an, wenn viele einzelne Dateien hochgeladen werden sollen. Leider kann das Zip-File pro Experiment nur einmal verwendet werden und nur eine Datei daraus kann entpackt werden. Dadurch ist diese Option im Falle dieser Arbeit nicht praktikabel. Es müssen also alle Dateien einzeln geladen werden.
 
-\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\begin{centering} \begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
 \hline
-\multicolumn{3}{|c|}{Cryptowährungs-eigene Faktoren}\\ \hline
+\multicolumn{3}{|c|}{Kryptowährungs-eigene Faktoren}\\ \hline
 \textbf{Datensatz} & \textbf{Reichweite} & \textbf{Besonderheiten}\\ 
 \hhline{===}
 BTC \textunderscore Total \textunderscore Volume \textunderscore Daily \textunderscore Full & 3.1.2009 bis 5.11.2017 & teilweise kein Anstieg des Volumens im Datensatz; große Lücken im Datensatz (2012-2016)\\ \hline
@@ -358,15 +310,14 @@ bitcoinDataset & 6.10.2009 bis 30.10.2017 & sehr detaillierte Bitcoin Eigenschaf
 ethereumDataset & 30.7.2015 bis 3.10.2017 & sehr detaillierte Ethereum Eigenschaften; 18 Features, z.B. Anzahl der Adressen im Ethereum-Netzwerk oder Anzahl der Blocks und Uncles \\ \hline
 \caption{Output "Initial data collection report" des Schrittes "Collect the Initial Data"}
 \label{tab:initialDataCollectionReport}
-\end{longtable}
-
+\end{longtable} \end{centering}
 Wie in Tabelle \ref{tab:initialDataCollectionReport} zu sehen ist, umfassen die Daten verschiedene Zeitspannen. Einige Aktienindices, vor allem ATX und HNX30, existieren noch nicht so lange, wie die historischen Daten des Bitcoins. Es gibt mehrere Wege, um damit umzugehen. Da auch ohne diese noch über 30 andere Indices zur Verfügung stehen, fließen sie nicht weiter in die Untersuchung ein.\\newline
 Einige der Datensätze beinhalten nicht nur rohe Daten, sondern bereits Brechungen, wie den prozentualen Anstieg eines Kurses zum Vortag. Obwohl die Features des Datensatzes erst im nachfolgenden Schritt beschrieben werden, kann hier schon festgehalten werden, dass diese 'Zusatzinformationen' von der Analyse ausgeschlossen werden. Es handelt sich dabei lediglich um eine - für den menschlichen Betrachter einfach zu verstehende - andere Schreibweise für die Daten in einer Zeitreihe und nicht um zusätzliche Informationen. \newline
 
 \subsection{Describe the Data} \label{subsec:describe}
 Eine detaillierte Beschreibung der oben genannten Datensätze erfolgt nun. Für jeden Satz, bzw. jede homogene Gruppe (wie die Aktienindices), werden die Anzahl der Spalten (Features), die Anzahl der Reihen (Observations) und die Dateigröße (in Kilobyte; KB) angegeben. Außerdem werden für die Features genauer erläutert. Beim Datentyp 'numerisch' handelt es sich um eine Ganzzahl, bei 'numerisch (5)' um eine Gleitkommazahl mit bis zu fünf Nachkommastellen.
 
-\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\begin{centering} \begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
 \hline
 Datensatz & \multicolumn{2}{l|}{BTC \textunderscore Total \textunderscore Volume \textunderscore Daily \textunderscore Full} \\ \hline
 Observations & \multicolumn{2}{l|}{1615} \\ \hline
@@ -378,9 +329,8 @@ Dateigröße & \multicolumn{2}{l|}{32} \\ \hline
 Date & Datum im Format 'dd/mm/yyyy HH:MM' & HH:MM unbenutzt \\ \hline
 Volume & numerisch (1) & extrem große Lücke zwischen 20.9.2012 und 9.7.2016; eventuell nicht zu gebrauchen; zwischen 50.0 und 16665662.5 \\ \hline 
 \caption{Data description report für BTC \textunderscore Total \textunderscore Volume \textunderscore Daily \textunderscore Full}
-\end{longtable}
-
-\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\end{longtable} \end{centering}
+\begin{centering} \begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
 \hline
 Datensatz & \multicolumn{2}{l|}{BTC \textunderscore Difficulty \textunderscore Daily \textunderscore Full} \\ \hline
 Observations & \multicolumn{2}{l|}{1826} \\ \hline
@@ -392,9 +342,8 @@ Dateigröße & \multicolumn{2}{l|}{78} \\ \hline
 Date & Datum im Format 'yyyy-mm-dd HH:MM:SS UTC' & HH:MM:SS unbenutzt \\ \hline
 Difficulty & numerisch (2) & Inkonsistenzen in der Difficulty, teilweise um Faktor 100 unterschiedliche Werte in aufeinanderfolgenden Zeilen; manche mit Nachkommastellen, manche ohne \\ \hline 
 \caption{Data description report für BTC \textunderscore Difficulty \textunderscore Daily \textunderscore Full}
-\end{longtable}
-
-\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\end{longtable} \end{centering}
+\begin{centering} \begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
 \hline
 Datensatz & \multicolumn{2}{l|}{BTC \textunderscore Transaction \textunderscore Number \textunderscore Fully \textunderscore Daily} \\ \hline
 Observations & \multicolumn{2}{l|}{1615} \\ \hline
@@ -406,9 +355,8 @@ Dateigröße & \multicolumn{2}{l|}{46} \\ \hline
 Date & Datum im Format 'dd/mm/yy HH:MM' & HH:MM:SS unbenutzt \\ \hline
 Transactions & numerisch (0) &   \\ \hline 
 \caption{Data description report für BTC \textunderscore Transaction \textunderscore Number \textunderscore Fully \textunderscore Daily}
-\end{longtable}
-
-\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\end{longtable} \end{centering}
+\begin{centering} \begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
 \hline
 Datensatz & \multicolumn{2}{l|}{BTC \textunderscore Price \textunderscore Multiple \textunderscore Daily} \\ \hline
 Observations & \multicolumn{2}{l|}{2669} \\ \hline
@@ -429,9 +377,8 @@ itbit & numerisch & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ 
 kraken & numerisch & Wert eines Bitcoins in USD an dieser Börse; mit Lücken \\ \hline 
 others & numerisch & Wert eines Bitcoins in USD an anderen Börsen; ohne Lücken \\ \hline
 \caption{Data description report für BTC \textunderscore Price \textunderscore Multiple \textunderscore Daily}
-\end{longtable}
-
-\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\end{longtable} \end{centering}
+\begin{centering} \begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
 \hline
 Datensatz & \multicolumn{2}{l|}{ETH \textunderscore Total \textunderscore Volume \textunderscore Daily \textunderscore Full} \\ \hline
 Observations & \multicolumn{2}{l|}{830} \\ \hline
@@ -444,9 +391,8 @@ Date(UTC) & Datum im Format 'm/dd/yyyy' &  \\ \hline
 UnixTimeStamp & numerisch (0) & zusätzliches Datum als Unix Timestamp \\ \hline 
 Value & numerisch (0) & von 7204930659375 (min) bis 9554710634375 (max) \\ \hline 
 \caption{Data description report für ETH \textunderscore Total \textunderscore Volume \textunderscore Daily \textunderscore Full}
-\end{longtable}
-
-\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\end{longtable} \end{centering}
+\begin{centering} \begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
 \hline
 Datensatz & \multicolumn{2}{l|}{ETH \textunderscore Difficuly \textunderscore Daily \textunderscore Full} \\ \hline
 Observations & \multicolumn{2}{l|}{830} \\ \hline
@@ -459,9 +405,8 @@ Date(UTC) & Datum im Format 'm/dd/yyyy' &  \\ \hline
 UnixTimeStamp & numerisch (0) & zusätzliches Datum als Unix Timestamp \\ \hline 
 Value & numerisch (0) & \\ \hline 
 \caption{Data description report für ETH \textunderscore Difficuly \textunderscore Daily \textunderscore Full}
-\end{longtable}
-
-\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\end{longtable} \end{centering}
+\begin{centering} \begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
 \hline
 Datensatz & \multicolumn{2}{l|}{ETH \textunderscore Transaction \textunderscore Number \textunderscore Fully \textunderscore Daily} \\ \hline
 Observations & \multicolumn{2}{l|}{830} \\ \hline
@@ -474,9 +419,8 @@ Date(UTC) & Datum im Format 'm/dd/yyyy' &  \\ \hline
 UnixTimeStamp & numerisch (0) & zusätzliches Datum als Unix Timestamp \\ \hline 
 Value & numerisch (0) & \\ \hline 
 \caption{Data description report für ETH \textunderscore Transaction \textunderscore Number \textunderscore Fully \textunderscore Daily}
-\end{longtable}
-
-\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\end{longtable} \end{centering}
+\begin{centering} \begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
 \hline
 Datensatz & \multicolumn{2}{p{9cm}|}{google \textunderscore Trends \textunderscore BTC \textunderscore Newssearch und google \textunderscore Trends \textunderscore BTC \textunderscore Websearch} \\ \hline
 Observations & \multicolumn{2}{l|}{107} \\ \hline
@@ -488,9 +432,8 @@ Dateigröße & \multicolumn{2}{l|}{2} \\ \hline
 Monat & Datum im Format 'yyyy-mm' & keine Stelle für 'Tag' \\ \hline
 bitcoin: (Weltweit) & numerisch (0) & Scala von 0 bis 100 \\ \hline
 \caption{Data description report für google \textunderscore Trends \textunderscore BTC \textunderscore Newssearch und google \textunderscore Trends \textunderscore BTC \textunderscore Websearch}
-\end{longtable}
-
-\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\end{longtable} \end{centering}
+\begin{centering} \begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
 \hline
 Datensatz & \multicolumn{2}{p{9cm}|}{google \textunderscore Trends \textunderscore ETH \textunderscore Newssearch und google \textunderscore Trends \textunderscore ETH \textunderscore Websearch} \\ \hline
 Observations & \multicolumn{2}{l|}{83} \\ \hline
@@ -502,10 +445,9 @@ Dateigröße & \multicolumn{2}{l|}{1} \\ \hline
 Monat & Datum im Format 'yyyy-mm' & keine Stelle für 'Tag' \\ \hline
 Ethereum: (Weltweit) & numerisch (0) & Scala von 0 bis 100 \\ \hline
 \caption{Data description report für google \textunderscore Trends \textunderscore ETH \textunderscore Newssearch und google \textunderscore Trends \textunderscore ETH \textunderscore Websearch}
-\end{longtable}
+\end{longtable} \end{centering}
 
-
-\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\begin{centering} \begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
 \hline
 Datensatz & \multicolumn{2}{l|}{Wiki \textunderscore Page \textunderscore Views \textunderscore BTC} \\ \hline
 Observations & \multicolumn{2}{l|}{861} \\ \hline
@@ -522,9 +464,8 @@ access & text & immer 'all-access' \\ \hline
 agents & text & immer 'all-agents' \\ \hline
 views & numerisch (0) & \\ \hline
 \caption{Data description report für Wiki \textunderscore Page \textunderscore Views \textunderscore BTC}
-\end{longtable}
-
-\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\end{longtable} \end{centering}
+\begin{centering} \begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
 \hline
 Datensatz & \multicolumn{2}{l|}{Wiki \textunderscore Page \textunderscore Views \textunderscore ETH} \\ \hline
 Observations & \multicolumn{2}{l|}{861} \\ \hline
@@ -541,9 +482,8 @@ access & text & immer 'all-access' \\ \hline
 agents & text & immer 'all-agents' \\ \hline
 views & numerisch (0) & \\ \hline
 \caption{Data description report für Wiki \textunderscore Page \textunderscore Views \textunderscore ETH}
-\end{longtable}
-
-\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\end{longtable} \end{centering}
+\begin{centering} \begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
 \hline
 Datensatz & \multicolumn{2}{l|}{abcnews \textunderscore Date \textunderscore Text} \\ \hline
 Observations & \multicolumn{2}{l|}{mehr als 1048576 (Excel Maximum)} \\ \hline
@@ -555,9 +495,8 @@ Dateigröße & \multicolumn{2}{l|}{53480} \\ \hline
 publish \textunderscore date & Datum im Format 'yyyymmdd' & mehrere (hundert) Einträge für einen Tag \\ \hline
 headline \textunderscore text & Text & ohne Satzzeichen; alles in Kleinbuchstaben \\ \hline
 \caption{Data description report für abcnews \textunderscore Date \textunderscore Text}
-\end{longtable}
-
-\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\end{longtable} \end{centering}
+\begin{centering} \begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
 \hline
 Datensatz & \multicolumn{2}{l|}{alle Aktienindices} \\ \hline
 Observations & \multicolumn{2}{p{9cm}|}{unterschiedlich; bei vollständigen (1.1.2009 bis 5.11.2017) ca. 2230} \\ \hline
@@ -574,9 +513,8 @@ Low &  numerisch (2) & Nachkommastellen durch Punkt abgetrennt; Tausender durch 
 Vol. & Mischform aus Zahl und Text & Werte mit 'K' für Tausend (Kilo), 'M' für Millionen (engl. Millions) und 'B' für Milliarden (engl. Billions); Fehlende Werte mit Strich (-) gekennzeichnet \\ \hline
 Change \% & Prozentzahl mit Prozentzeichen (\%) & negative und positive Werte \\ \hline
 \caption{Data description report für alle Aktienindices}
-\end{longtable}
-
-\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\end{longtable} \end{centering}
+\begin{centering} \begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
 \hline
 Datensatz & \multicolumn{2}{l|}{STLFSI \textunderscore history} \\ \hline
 Observations & \multicolumn{2}{l|}{461} \\ \hline
@@ -588,9 +526,8 @@ Dateigröße & \multicolumn{2}{l|}{9} \\ \hline
 DATE & Datum im Format 'dd/mm/yyyy' & in wöchentlichem Abstand \\ \hline
 STLFSI & numerisch (3) & im Intervall von [-1,586;3,246] \\ \hline
 \caption{Data description report für STLFSI \textunderscore history}
-\end{longtable}
-
-\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\end{longtable} \end{centering}
+\begin{centering} \begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
 \hline
 Datensatz & \multicolumn{2}{l|}{alle Währungen} \\ \hline
 Observations & \multicolumn{2}{p{9cm}|}{unterschiedlich; INR: 996, BRL: 2314, JPY: 2615, CNY: 2314, GBP: 2339, EUR: 2323}\\ \hline
@@ -606,9 +543,8 @@ High &  numerisch (4) & Nachkommastellen durch Punkt abgetrennt \\ \hline
 Low &  numerisch (4) & Nachkommastellen durch Punkt abgetrennt \\ \hline 
 Change \% & Prozentzahl mit Prozentzeichen (\%) & negative und positive Werte \\ \hline
 \caption{Data description report für alle Währungen}
-\end{longtable}
-
-\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\end{longtable} \end{centering}
+\begin{centering} \begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
 \hline
 Datensatz & \multicolumn{2}{l|}{alle natürlichen Ressourcen} \\ \hline
 Observations & \multicolumn{2}{p{9cm}|}{unterschiedlich; Gold: 2289, Silber: 2692 Brent: 2290, WTI: 2283}\\ \hline
@@ -624,9 +560,8 @@ High &  numerisch (2) & Nachkommastellen durch Punkt abgetrennt \\ \hline
 Low &  numerisch (2) & Nachkommastellen durch Punkt abgetrennt \\ \hline 
 Change \% & Prozentzahl mit Prozentzeichen (\%) & negative und positive Werte \\ \hline
 \caption{Data description report für alle natürlichen Ressourcen}
-\end{longtable}
-
-\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\end{longtable} \end{centering}
+\begin{centering} \begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
 \hline
 Datensatz & \multicolumn{2}{l|}{ETH \textunderscore Price \textunderscore Volume \textunderscore Full \textunderscore Daily} \\ \hline
 Observations & \multicolumn{2}{p{9cm}|}{822}\\ \hline
@@ -643,9 +578,8 @@ Close &  numerisch (2) & Nachkommastellen durch Punkt abgetrennt \\ \hline
 Volume &  numerisch (0) & Kommas zwischen Tausendern \\ \hline 
 Market Cap &  numerisch (0) & Kommas zwischen Tausendern \\ \hline 
 \caption{Data description report für ETH \textunderscore Price \textunderscore Volume \textunderscore Full \textunderscore Daily}
-\end{longtable}
-
-\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\end{longtable} \end{centering}
+\begin{centering} \begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
 \hline
 Datensatz & \multicolumn{2}{l|}{BTC \textunderscore Price \textunderscore Volume \textunderscore Full \textunderscore Daily} \\ \hline
 Observations & \multicolumn{2}{p{9cm}|}{2247}\\ \hline
@@ -663,10 +597,9 @@ Volume (BTC) &  numerisch (0) & Kommas zwischen Tausendern \\ \hline
 Volume (Currency) &  numerisch (0) & Kommas zwischen Tausendern \\ \hline 
 Weighted Price &  numerisch (0) & Kommas zwischen Tausendern \\ \hline 
 \caption{Data description report für BTC \textunderscore Price \textunderscore Volume \textunderscore Full \textunderscore Daily}
-\end{longtable}
+\end{longtable} \end{centering}
 
-
-\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\begin{centering} \begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
 \hline
 Datensatz & \multicolumn{2}{l|}{bitcoinDataset} \\ \hline
 Observations & \multicolumn{2}{p{9cm}|}{2920}\\ \hline
@@ -701,10 +634,9 @@ btc \textunderscore estimated \textunderscore transaction \textunderscore volume
 btc \textunderscore estimated \textunderscore transaction \textunderscore volume \textunderscore usd & numerisch (4) & Nachkommastellen erst ab 20.4.2016 \\ \hline
 \caption{Data description report für bitcoinDataset}
 \label{tab:BTCextraData}
-\end{longtable}
+\end{longtable} \end{centering}
 
-
-\begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
+\begin{centering} \begin{longtable}[!h]{|p{5cm}|p{4cm}|p{5cm}|}
 \hline
 Datensatz & \multicolumn{2}{l|}{ethereumDataset} \\ \hline
 Observations & \multicolumn{2}{p{9cm}|}{797}\\ \hline
@@ -733,14 +665,13 @@ eth \textunderscore ethersupply & numerisch (5) & \\ \hline
 eth \textunderscore ens \textunderscore register & numerisch (0) & von 30.7.2015 bis 3.5.2017 keine Daten; von 4.5.2017 bis 8.5.2017 immer Nullwerte \\ \hline
 \caption{Data description report für ethereumDataset}
 \label{tab:ETHextraData}
-\end{longtable}
-
+\end{longtable} \end{centering}
 Obwohl die Qualität der Daten erst in einem nachfolgenden Schritt genauer betrachtet wird, können nach den Data description reports schon potentielle Stolperfallen \todo{darf man das so schreiben?} identifiziert werden. Diesen Herausforderungen muss sich angenommen werden:
 \begin{itemize}
 \item Die Formate des Datums sind unterschiedlich. Auch sind für einige Datensätze sieben Observations pro Woche verfügbar (z.B. für den Bitcoin-Kurs), für Andere nur 5 (z.B. für den Dow Jones Industrial Average). Daraus ergibt sich das Problem, wie die Daten am besten aneinander gesetzt (gejoint) werden.
 \item In den Daten befinden sich Lücken. Obwohl diese in der Regel im Verhältnis zum gesamten Datensatz klein sind, gibt es auch größere Lücken (z.B. die Anzahl der Registrierungen beim Ethereal Name Service pro Tag).
 \item Es tauchen Attribute doppelt auf. So beinhaltet sowohl der Datensatz BTC \textunderscore Difficulty \textunderscore Daily \textunderscore Full das Schwierigkeitsmaß für das Mininen, als auch der Datensatz bitcoinDataset. 
-\item Ein besonderen Fall stellt abcnews \textunderscore Date \textunderscore Text dar. Hierbei handelt es sich einerseits um einen Datensatz, der zu groß ist, um komplett in einem Programm geöffnet zu werden, andererseits beinhaltet er Informationen (Überschriften) als 'Klartext'. \todo{Klartext}
+\item Ein besonderen Fall stellt abcnews \textunderscore Date \textunderscore Text dar. Hierbei handelt es sich einerseits um einen Datensatz, der zu groß ist, um komplett in einem Programm geöffnet zu werden, andererseits beinhaltet er Informationen (Überschriften) in Textform.
 \item Am Ende von Abschnitt \ref{subsec:collection} wurde bereits angesprochen, dass das Feature 'Change' (z.B. bei den Aktienindices) keinen Mehrwert für die Analyse bietet.
 \end{itemize}
 
@@ -776,20 +707,19 @@ Anders verhält es sich bei Etherum (siehe Abbildung \ref{fig:PublicInterestETH}
 \end{figure}
 Als Schlussfolgerung lässt sich daraus ableiten, dass es sehr unwahrscheinlich ist, dass Indikatoren wie Aktienindices oder der Ölpreis den Kryptowährungskurs beeinflussen, wenn sie noch unbekannt ist. Deswegen empfiehlt sich für die Analyse der Zeitraum, seit die Währungen Bekanntheit erlangt haben. 
 
-\begin{longtable}[H]{|p{4,5cm}|p{12cm}|}
+\begin{centering} \begin{longtable}[H]{|p{4,5cm}|p{12cm}|}
 \hline
 \textbf{Output} & \textbf{Beschreibung} \\ 
 \hhline{==}
 Data exploration report & Analyse des Bitcoinkurses erst ab 1.1.2011; des Etherumkurses ab 30.7.2015\\
 \hline
 \caption{Output des Schrittes "Explore the Data"}
-\end{longtable}
-
+\end{longtable} \end{centering}
 
 \subsection{Verify Data Quality}
 Bei der Sicherung der Datenqualität fällt auf, dass die Daten oberflächlich eine hohe Qualität aufweisen. Beispielsweise sind alle Datensätze in USD angegeben und strukturiert. Sie enthalten pro Datei nicht viele Features und besitzen kaum lückenhafte Spalten. Jedoch sind einige Dinge zu beachten (siehe Tabelle \ref{tab:dataQual}).
 
-\begin{longtable}[H]{|p{5,5cm}|p{8,5cm}|}
+\begin{centering} \begin{longtable}[H]{|p{5,5cm}|p{8,5cm}|}
 \hline
 \textbf{Problem} & \textbf{Lösung} \\ 
 \hhline{==}
@@ -802,8 +732,7 @@ Durch die unterschiedlichen Formatierungen gibt es inkonsistente Separatoren (Ko
 Die Schwierigkeit für das Etherumining wird im Datensatz ethereumDataset anfangs mit kleiner als 1 angeben. Dies ist per Definition unmöglich. & Entweder es handelt sich hier um einen undokumentierte Sonderfall zu Beginn des Netztwerks oder es ist ein Fehler im Datensatz. Trotz dieser Unstimmigkeit, ist die Tatsache insignifikant und kann vernachlässigt werden. \\ \hline
 \caption{Data quality report des Schrittes "Verify data quality"}
 \label{tab:dataQual}
-\end{longtable}
-
+\end{longtable} \end{centering}
 hier aufzählen alles und bei select dann reduzieren und bei clean dann lücken etc.
 bei construict dann bis zu azure zusammenbauen 
 
@@ -825,7 +754,7 @@ Der Bitcoinkurs soll vom 1.1.2011 an analysiert werden. Für einige Aktienindice
 \caption{Wikipedia Seitenaufrufe "Bitcoin" und der Bitcoinkurs im zeitlichen Verlauf}
 \label{fig:WikiBTC}
 \end{figure}
-Für die Etherumkursanalyse werden die Seitenaufrufe herangezogen, da sich die Daten zeitlich decken (siehe Abbildung \ref{fig:WikiETH}). Erneut ist bei beiden Diagrammen der Kryptowährungskurs nur relativ dargestellt und nicht in absoluten Zahlen. \todo{formulierung}
+Für die Etherumkursanalyse werden die Seitenaufrufe herangezogen, da sich die Daten zeitlich decken (siehe Abbildung \ref{fig:WikiETH}). Erneut ist bei beiden Diagrammen der Kryptowährungskurs nur relativ dargestellt und nicht als absolute Größe.
 \begin{figure}[H]
 \centering
 \frame{
@@ -837,7 +766,7 @@ Obwohl für den STLFSI nur wöchentlich - nicht täglich - berechnet wird, wird 
 Dem Datensatz 'ETH \textunderscore Price \textunderscore Volume \textunderscore Full \textunderscore Daily' fehlt die erste Woche an Daten, ist sonst aber reicher an Informationen über den Etherum/USD-Kurs als das 'ethereumDataset', da es nicht nur den Durchschnittspreis eines Tages enthält, sondern sowohl den ersten und letzten Kurs in einem 24-Stunden-Fenster, als auch den Höchsten und den Niedrigsten. Dem 'BTC \textunderscore Price \textunderscore Volume \textunderscore Full \textunderscore Daily' hingegen fehlt das erste halbe Jahr an Daten und weist erst ab Ende (18.12.) 2011 keine Lücken mehr auf. In allen Datensätzen (Aktienindices, Währungen, natürliche Ressourcen) wird das Feature '\%Change' gestrichen, da in \ref{subsec:describe} festgestellt wurde, dass es redundant ist.
 abcnews \textunderscore Date \textunderscore Text wird beinhelaten.
 
-\begin{longtable}[H]{|p{11cm}|p{2,5cm}|p{2,5cm}|}
+\begin{centering} \begin{longtable}[H]{|p{11cm}|p{2,5cm}|p{2,5cm}|}
 \hline
 \textbf{Datensatz} & \textbf{Inkludiert} & \textbf{Exkludiert} \\ 
 \hhline{===}
@@ -874,8 +803,7 @@ bitcoinDataset & X & \\ \hline
 ethereumDataset & X & \\ \hline
 \caption{Inkludierte und exkludierte Datensätze für die Analyse}
 \label{tab:selecData}
-\end{longtable}
-\todo{Textdingens: abc}
+\end{longtable} \end{centering}
 
 \subsection{Clean, Construct, Integrate, Format Data}
 
@@ -917,7 +845,7 @@ Spezieller ist der Datensatz 'abcnews \textunderscore Date \textunderscore Text'
 Das Preprocessing führt unter anderem eine Lemmatisierung durch und entfernt Zahlen und Sonderzeichen. Anschließend wird ein Feature Hashing durchgeführt. Dabei handelt es sich um die Überführung von Texttupeln in Zahlwerte, damit eine Verarbeitung durch Computer möglich wird. Für jede Überschrift existiert eine einzelne Zeile im Datensatz. Diese werden mit dem R-Script in Listing \ref{list:abcHashed} in Azure aggregiert.
 \lstinputlisting[caption=Aggregieren der Hashing-Ergebnisse,label=list:abcHashed]{../R/abc/abcHashed.R}
 Zuletzt werden noch die Google News- und Websuchen zusammengefasst. Der abschließende Data cleaning report ist in Tabelle \ref{tab:selecData} zu finden.
-\begin{longtable}[H]{|p{4cm}|p{8cm}|p{4cm}|}
+\begin{centering} \begin{longtable}[H]{|p{4cm}|p{8cm}|p{4cm}|}
 \hline
 \textbf{Problem} & \textbf{Lösung} & \textbf{Werkzeug} \\
 \hhline{===} 
@@ -928,19 +856,17 @@ pseudo-numerische Werte (z.B. "1.5M" oder "0.07k") & Bei betroffenen Werten wird
 Fehlende Werte & Fehlende Werte im Volumen werden als '-' angegeben, nicht als 'Nichts'. Durch ersetzen des '-' in R wird das Problem behoben. & R: Listing \ref{list:indicesR} Zeile 45 \\ \hline
 \caption{Data cleaning report}
 \label{tab:selecData}
-\end{longtable}
-\lstinputlisting[caption=Konvertierung von pseudo-numerischen Werten,label=list:pseudonumeric]{../R/pseudonumeric.R}
+\end{longtable} \end{centering}\lstinputlisting[caption=Konvertierung von pseudo-numerischen Werten,label=list:pseudonumeric]{../R/pseudonumeric.R}
 Der Schritt 'Construct data' enthält die Möglichkeit, neue Features hinzuzufügen. Hier ist kein Bedarf bedarf dafür. Außerdem handelt es sich teilweise schon um stark aggregierte Features, wie den STFL (siehe \ref{subsec:assesTheSituation}). Damit sind die Konvertierungen, Formatierungen und Zusammenführungen der Datenblöcke abgeschlossen. Die Ergebnisse sind in den Tabellen \ref{tab:constructData} und \ref{tab:integrateData} festgehalten.
-\begin{longtable}[H]{|p{6cm}|p{9,5cm}|}
+\begin{centering} \begin{longtable}[H]{|p{6cm}|p{9,5cm}|}
 \hline
 \textbf{Output} & \textbf{Beschreibung}\\
 \hhline{==}
 Hashed \textunderscore news & Die abcsnews nach dem Feature Hashing und der Aggregation. \\ \hline
 \caption{Output: Generated records}
 \label{tab:constructData}
-\end{longtable}
-
-\begin{longtable}[H]{|p{6cm}|p{9,5cm}|}
+\end{longtable} \end{centering}
+\begin{centering} \begin{longtable}[H]{|p{6cm}|p{9,5cm}|}
 \hline
 \textbf{Output} & \textbf{Beschreibung}\\
 \hhline{==}
@@ -950,8 +876,7 @@ Joined \textunderscore Resources & Alle natürlichen Ressourcen in einem Datensa
 Joined \textunderscore Public & Google Suchen und Google Newssuchen in einem Datensatz. \\ \hline
 \caption{Output: Merged data}
 \label{tab:integrateData}
-\end{longtable}
-
+\end{longtable} \end{centering}
 Syntaktische Änderungen an den Datensätzen, also verändern der Spaltenreihenfolgen oder der Spaltenbezeichungen sind Teil des Schrittes 'Format data'. Es kann beispielsweise in einem eingesetzten Werkzeug notwendig sein, dass die erste Spalte einer Tabelle ein eindeutiger Schlüssel sein muss.\citep[S.~46]{chapman_crisp-dm_2000} Obgleich dieser Fall hier nicht eintritt, werden syntaktische Änderungen vorgenommen: Wie oben bereits erwähnt, entstehen beim Zusammenführen der Tabellen doppelte Spalten. Werden zwei Tabellen gejoint, so existieren zwei Datumsspalten, die die gleichen Werte beinhalten (rechte Datumsspalte und linke Datumsspalte). Diese Redundanzen werden entfernt. Außerdem wird die beibehaltene Spalte in 'Date' umbenannt.\newline
 Alle erzeugten Blöcke und einzelnen Datensätze werden nun im Azure Machine Learning Studio zu einem Datensatz zusammengefasst. Für das Machine Learning werden aus diesem die benötigten Spalten für BTC bzw. ETH ausgewählt. Da das Joinen wie bisher verläuft, wird auf eine extra Beschreibung von Abbildung \ref{fig:azureFinalSet} verzichtet.
 \begin{figure}[H]
