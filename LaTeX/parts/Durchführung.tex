@@ -150,18 +150,8 @@ Goldpreis, Silberpreis, Brent (Rohöl Europa), WTI (Rohöl USA) & \multicolumn{2
 \end{longtable} \end{centering}
 
 \subsection{Festlegen der technischen Projektziele (Determine the Data Mining Goals)}\label{subsec:goals}
-\begin{centering} \footnotesize \begin{longtable}[!h]{|p{4,5cm}|p{12cm}|}
-\hline
-\textbf{Output} & \textbf{Beschreibung} \\ 
-\hhline{==}
-Data mining goals & Es sollen mit Hilfe von Azure Machine Learning Studio mehrere Machine Learning Models erzeugt werden. Sie sollen folgende Szenarien \todo{Wort} vorhersagen:
-\begin{itemize}
-\item Steigt der Kurs innerhalb eines 24-Stunden Zyklus über das Hoch des vorhergehenden 24-Stunden Zyklus? (Mögliche Antworten sind $ja := 1$ und $nein := 0$) 
-\item Wie hoch ist das Hoch des nächsten 24-Stunden Zyklus? (Antwort: Preis eines Bitcoins/Ethers in USD)
-\end{itemize} 
-Im ersten Fall handelt es sich um eine two-class classification (siehe \ref{subsubsec:classification}). Die zweite Frage fällt in das Gebiet der Regressionen (siehe \ref{subsubsec:regression}). \\
-\hline
-Data mining success criteria & Möglichkeiten für die Bewertung einer Klassifikationen sind:
+Es sollen mit Hilfe von Azure Machine Learning Studio mehrere Machine Learning Models erzeugt werden. Sie sollen die Szenarien in Tabelle \ref{tab:goalsSuccess} vorhersagen (Data mining goals).\newline
+Möglichkeiten für die Bewertung einer Klassifikationen sind:
 \begin{itemize}
 \item Accuracy: $ \frac{t_{p} + t_{n}}{t_{p} + t_{n} + f_{p} + f_{n}}$ (Anteil der insgesamt richtig vorhergesagten Werte)
 \item Precision: $ \frac{t_{p}}{t_{p} + f_{p}}$ (Anteil der richtig vorhergesagten true-Werte)
@@ -169,12 +159,14 @@ Data mining success criteria & Möglichkeiten für die Bewertung einer Klassifik
 \item F1-score: $ 2 \times \frac{Precision \times Recall}{Precision + Recall}$ (Harmonisches Mittel aus Precision und Recall; Bester Wert = 1)
 \item AUC: Fläche unter der Receiver Operating Characteristics (ROC) Kurve; "Je besser die Klassifizierungsfähigkeit des Klassifikators desto höher ist der AUC-Wert"\citep[ROC-Kurve]{lohninger_grundlagen_2013} 
 \end{itemize} 
+mit den Bezeichnungen \newline
+\begin{framed}
 $ t_{p} : true \quad positive $ \newline
 $ t_{n} : true \quad negative $ \newline
 $ f_{p} : false \quad positive $ \newline
 $ f_{n} : false \quad negative $ \newline
-\\
-& Möglichkeiten für die Bewertung einer Regressionen sind:
+\end{framed}
+Möglichkeiten für die Bewertung einer Regressionen sind:
 \begin{itemize}
 \item Mean absolute error (MAE): Unterschied von vorhergesagten und tatsächlichen Werten; je kleiner desto besser\citep{mircosoft_evaluate_2017}
 \item Root mean squared error (RMSE): Macht eine Aussage darüber, "wie gut eine Funktionskurve an vorliegende Daten angepasst ist"; "je größer der RMSE [...], desto schlechter"\citep{statista_root_nodate}
@@ -187,9 +179,24 @@ $Regression \quad erklärt \quad nichts := 0$;
 \newline 
 kleine Werte sind normal, große sollten misstrauisch machen\citep{mircosoft_evaluate_2017}
 \end{itemize}
+Die Auswahl fällte auf den F1-Score für Klassifikationen, da er Recall und Precision inkludiert und im Gegensatz zum AUC zwischen mehreren Modellen direkt vergleichbar ist (Maximalwert 1 statt nach oben offen). Bei der Regression fällt die Wahl auf $ R^2 $, da sie Modelle ebenfalls direkt vergleichbar macht.
+\begin{centering} \footnotesize \begin{longtable}[!h]{|p{4,5cm}|p{12cm}|}
+\hline
+\textbf{Output} & \textbf{Beschreibung} \\ 
+\hhline{==}
+Data mining goals & \begin{itemize}
+\item Steigt der Kurs innerhalb eines 24-Stunden Zyklus über das Hoch des vorhergehenden 24-Stunden Zyklus? (Mögliche Antworten sind $ja := 1$ und $nein := 0$) 
+\item Wie hoch ist das Hoch des nächsten 24-Stunden Zyklus? (Antwort: Preis eines Bitcoins/Ethers in USD)
+\end{itemize} 
+Im ersten Fall handelt es sich um eine two-class classification (siehe \ref{subsubsec:classification}). Die zweite Frage fällt in das Gebiet der Regressionen (siehe \ref{subsubsec:regression}). \\
+\hline
+Data mining success criteria &\begin{itemize}
+\item F1-Score für Klassifikationen [Zielwert 1]
+\item $ R^2 $ für Regressionen [Zielwert 1]
+\end{itemize} \\
 \\
 \hline
-\caption{Output des Schrittes "Determine the Data Mining Goals"}
+\caption{Output des Schrittes "Determine the Data Mining Goals"} \label{tab:goalsSuccess}
 \end{longtable} \end{centering}
 
 \todo{Text und Auswahl treffen} 
@@ -713,7 +720,7 @@ Data exploration report & Analyse des Bitcoinkurses erst ab 1.1.2011; des Etheru
 \subsection{Problemen mit den Daten und mögliche Lösungen (Verify Data Quality)}
 Bei der Sicherung der Datenqualität fällt auf, dass die Daten oberflächlich eine hohe Qualität aufweisen. Beispielsweise sind alle Datensätze in USD angegeben und strukturiert. Sie enthalten pro Datei nicht viele Features und besitzen kaum lückenhafte Spalten. Jedoch sind einige Dinge zu beachten (siehe Tabelle \ref{tab:dataQual}).
 
-\begin{centering} \begin{longtable}[H]{|p{5,5cm}|p{8,5cm}|}
+\begin{centering} \footnotesize \begin{longtable}[H]{|p{7cm}|p{9cm}|}
 \hline
 \textbf{Problem} & \textbf{Lösung} \\ 
 \hhline{==}
@@ -760,7 +767,7 @@ Obwohl für den STLFSI nur wöchentlich - nicht täglich - berechnet wird, wird 
 Dem Datensatz 'ETH \textunderscore Price \textunderscore Volume \textunderscore Full \textunderscore Daily' fehlt die erste Woche an Daten, ist sonst aber reicher an Informationen über den Etherum/USD-Kurs als das 'ethereumDataset', da es nicht nur den Durchschnittspreis eines Tages enthält, sondern sowohl den ersten und letzten Kurs in einem 24-Stunden-Fenster, als auch den Höchsten und den Niedrigsten. Dem 'BTC \textunderscore Price \textunderscore Volume \textunderscore Full \textunderscore Daily' hingegen fehlt das erste halbe Jahr an Daten und weist erst ab Ende (18.12.) 2011 keine Lücken mehr auf. In allen Datensätzen (Aktienindices, Währungen, natürliche Ressourcen) wird das Feature '\%Change' gestrichen, da in \ref{subsec:describe} festgestellt wurde, dass es redundant ist.
 abcnews \textunderscore Date \textunderscore Text wird beinhelaten.
 
-\begin{centering} \begin{longtable}[H]{|p{11cm}|p{2,5cm}|p{2,5cm}|}
+\begin{centering} \footnotesize \begin{longtable}[H]{|p{12cm}|p{1,5cm}|p{1,5cm}|}
 \hline
 \textbf{Datensatz} & \textbf{Inkludiert} & \textbf{Exkludiert} \\ 
 \hhline{===}
