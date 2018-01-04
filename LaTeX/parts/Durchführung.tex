@@ -116,7 +116,7 @@ Google Websuchen & ja, von https://trends.google.de/trends/ & ja, von https://tr
 Google News-Suchen & ja, von https://trends.google.de/trends/ & ja, von https://trends.google.de/trends/ \\ \hline
 Wikipedia Seitenaufrufe & ja, von https://wikimedia.org/api/rest \textunderscore v1/ & ja, von https://wikimedia.org/api/rest \textunderscore v1/ \\ \hline
 Tweets (Twitter Nachrichten) & \multicolumn{2}{p{11cm}|}{nein, nicht kostenlos verfügbar} \\ \hline
-Zeitungsartikel/-Überschriften & \multicolumn{2}{p{11cm}|}{ja, von https://www.kaggle.com/therohk/million-headlines/data/}\\ \hline
+Zeitungsartikel/-Überschriften & \multicolumn{2}{p{11cm}|}{ja, von https://www.\gls{kaggle}.com/therohk/million-headlines/data/}\\ \hline
 \caption{Mögliche Einflussfaktoren: Öffentliches Interesse}
 \end{longtable} 
 \end{centering}
@@ -126,7 +126,7 @@ Zeitungsartikel/-Überschriften & \multicolumn{2}{p{11cm}|}{ja, von https://www.
 \textbf{Daten} & \textbf{für BTC} & \textbf{für ETH} \\
 \hhline{===}
 Dow 30, S\&P 500, Nasdaq, SmallCap, S\&P 500 VIX, S\&P/TSX, TR Canada, Bovespa, IPC, DAX, FTSE 100, CAC 40, Euro Stoxx, AEX, IBEX, FTSE MIB, SMI, PSI, BEL, ATX, OMXS30, OMXC20, MICEX, RTSI, WIG20, Budapest SE, BIST 100, TA 35, Tadawul All Share, Nikkei 225, S\&P/ASX 200, DJ New Zealand, Shanghai, SZSE Component, China A50, DJ Shanghai, Hang Seng, Taiwan Weighted, SET, KOSPI, IDX Composite, Nifty, BSE Sensex, PSEi Composite, STI Index, Karachi, HNX 30, CSE All-Share	& \multicolumn{2}{p{7cm}|}{ja, von https://www.investing.com/indices/}\\ \hline
-St. Louis Fed Financial Stress Index (STLFSI) & \multicolumn{2}{p{7cm}|}{ja, von https://fred.stlouisfed.org/series/STLFSI}\\ \hline
+St. Louis Fed Financial Stress Index (\gls{stlfsi}) & \multicolumn{2}{p{7cm}|}{ja, von https://fred.stlouisfed.org/series/STLFSI}\\ \hline
 \caption{Mögliche Einflussfaktoren: (Aktien)indizes}
 \end{longtable} 
 \end{centering}
@@ -135,7 +135,7 @@ St. Louis Fed Financial Stress Index (STLFSI) & \multicolumn{2}{p{7cm}|}{ja, von
 \hline
 \textbf{Daten} & \textbf{für BTC} & \textbf{für ETH} \\
 \hhline{===}
-China (CNY), Japan (JPY), Deutschland (EUR, Großbritannien  (GBP), Frankreich (EUR), Indien (INR), Brasilien (BRL) & \multicolumn{2}{p{9cm}|}{ja, von https://www.investing.com/currencies/single-currency-crosses}\\ \hline
+China (\gls{cny}), Japan (\gls{jpy}), Deutschland (\gls{eur}, Großbritannien  (\gls{gbp}), Frankreich (EUR), Indien (\gls{inr}), Brasilien (\gls{brl}) & \multicolumn{2}{p{9cm}|}{ja, von https://www.investing.com/currencies/single-currency-crosses}\\ \hline
 \caption{Mögliche Einflussfaktoren: Währungen der größten Volkswirtschaften (nach BIP)}
 \end{longtable} 
 \end{centering}
@@ -235,7 +235,7 @@ Notepad++ & zur Betrachtung, Vorbereitung und Konvertierung von Daten vor dem Up
 \section{Data Understanding}\label{sec:p2}
 \subsection{Beschaffung der Daten und grobe Beschreibung (Collect the Initial Data)} \label{subsec:collection}
 In Schritt \ref{subsec:assesTheSituation} wurden Einflussfaktoren auf den Kurs festgehalten. Zusätzlich wurden bereits Quellen für Daten zu diesen Faktoren gesucht. In diesem Schritt werden nun die Daten tatsächlich (im Sinne von 'echten' Dateien) bezogen und bereits in Azure Machine Learning geladen. Ebenfalls Teil dieses Schrittes ist es, die Daten grob zu beschreiben. Im vorliegen Fall wird die Datenspanne und weitere offensichtliche Merkmale beschrieben. Die Herkunft der Daten ist nicht weiter beschrieben, da dies bereits in \ref{subsec:assesTheSituation} abgehandelt wurde.\newline
-Alle gesammelten Daten enthalten Header-Informationen (Preis, Kurs, Datum etc.). Azure ML Studio kann diese Header auslesen und nutzt sie für einfache Select- oder Join-Befehle. Damit dies möglich ist, müssen die Daten als 'Genereic CSV File with a header (.csv)' oder 'Generic TSV File with a header (.tsv)' vorliegen. In manchen Fällen ist es möglich, dass Microsoft Excel beim Speichern einer Datei als '.csv' statt Kommas, Strichpunkte zum Trennen nutzt. Hier ist darauf zu achten, dass tatsächlich Kommas als Trennzeichen genutzt werden, da Azure ML Studio diese sonst nicht interpretieren kann. Die Datei-Endung '.tsv' ist nicht zwingend erforderlich. Ein 'Tab seperated values'-File kann auch mit der Endung '.txt' hochgeladen und richtig interpretiert werden. Dies ist wichtig, da Excel als Endung für diese Dateien nicht '.tsv' sondern '.txt' wählt.\newline
+Alle gesammelten Daten enthalten Header-Informationen (Preis, Kurs, Datum etc.). Azure ML Studio kann diese Header auslesen und nutzt sie für einfache Select- oder Join-Befehle. Damit dies möglich ist, müssen die Daten als 'Genereic \gls{csv} File with a header (.csv)' oder 'Generic \gls{tsv} File with a header (.tsv)' vorliegen. In manchen Fällen ist es möglich, dass Microsoft Excel beim Speichern einer Datei als '.csv' statt Kommas, Strichpunkte zum Trennen nutzt. Hier ist darauf zu achten, dass tatsächlich Kommas als Trennzeichen genutzt werden, da Azure ML Studio diese sonst nicht interpretieren kann. Die Datei-Endung '.tsv' ist nicht zwingend erforderlich. Ein 'Tab seperated values'-File kann auch mit der Endung '.txt' hochgeladen und richtig interpretiert werden. Dies ist wichtig, da Excel als Endung für diese Dateien nicht '.tsv' sondern '.txt' wählt.\newline
 Azure ML Studio bietet die Möglichkeit, mehrere Dateien gezippt in das Tool zu laden. Dies bietet sich an, wenn viele einzelne Dateien hochgeladen werden sollen. Leider kann das Zip-File pro Experiment nur einmal verwendet werden und nur eine Datei daraus kann entpackt werden. Dadurch ist diese Option im Falle dieser Arbeit nicht praktikabel. Es müssen also alle Dateien einzeln geladen werden.
 
 \begin{centering} \footnotesize \begin{longtable}[!h]{|p{4cm}|p{3cm}|p{8cm}|}
@@ -317,13 +317,13 @@ Wie in Tabelle \ref{tab:initialDataCollectionReport} zu sehen ist, umfassen die 
 Einige der Datensätze beinhalten nicht nur rohe Daten, sondern bereits Brechungen, wie den prozentualen Anstieg eines Kurses zum Vortag. Obwohl die Features des Datensatzes erst im nachfolgenden Schritt beschrieben werden, kann hier schon festgehalten werden, dass diese 'Zusatzinformationen' von der Analyse ausgeschlossen werden. Es handelt sich dabei lediglich um eine - für den menschlichen Betrachter einfach zu verstehende - andere Schreibweise für die Daten in einer Zeitreihe und nicht um zusätzliche Informationen. \newline
 
 \subsection{Genaue Beschreibung der Daten (Describe the Data)} \label{subsec:describe}
-Eine detaillierte Beschreibung der oben genannten Datensätze erfolgt nun. Für jeden Satz, bzw. jede homogene Gruppe (wie die Aktienindices), werden die Anzahl der Spalten (Features), die Anzahl der Reihen (Observations) und die Dateigröße (in Kilobyte; KB) angegeben. Außerdem werden für die Features genauer erläutert. Beim Datentyp 'numerisch' handelt es sich um eine Ganzzahl, bei 'numerisch (5)' um eine Gleitkommazahl mit bis zu fünf Nachkommastellen.
+Eine detaillierte Beschreibung der oben genannten Datensätze erfolgt nun. Für jeden Satz, bzw. jede homogene Gruppe (wie die Aktienindices), werden die Anzahl der Spalten (Features), die Anzahl der Reihen (\gls{obs}) und die Dateigröße (in Kilobyte; KB) angegeben. Außerdem werden für die Features genauer erläutert. Beim Datentyp 'numerisch' handelt es sich um eine Ganzzahl, bei 'numerisch (5)' um eine Gleitkommazahl mit bis zu fünf Nachkommastellen.
 
 \begin{centering} \footnotesize \begin{longtable}[!h]{|p{4cm}|p{3,5cm}|p{6,5cm}|}
 \hline
 Datensatz & \multicolumn{2}{l|}{BTC \textunderscore Total \textunderscore Volume \textunderscore Daily \textunderscore Full} \\ \hline
 Observations & \multicolumn{2}{l|}{1615} \\ \hline
-Features & \multicolumn{2}{l|}{2} \\ \hline
+\gls{feat} & \multicolumn{2}{l|}{2} \\ \hline
 Dateigröße & \multicolumn{2}{l|}{32} \\ \hline
 \hhline{===}
 \textbf{Feature} & \textbf{Datentyp} & \textbf{Besonderheit}\\ 
@@ -728,7 +728,7 @@ Die verschiedenen Datensätze haben unterschiedliche Datumsformate. Dies birgt R
 as.Date(data$DateColumn, format='%Y%m%d')
 \end{lstlisting}
 geschehen, solange das Datum in einem gültigen Format ist. \\ \hline
-Beim Zusammensetzten der Datensätze entstehen Lücken, da einige Datensätze (z.B. Kryptowährungs-eigene Eigenschaften) sieben Observations pro Woche festhalten, Andere (z.B. Aktienindices) nur fünf. Außerdem gibt es Datensätze mit Feiertagen (z.B. Neujahr) oder solche mit nur einer Observaton pro Woche (z.B. STLFSI). & Azure ML Studio bietet das Experiment Item 'Clean Missing Data' an. Neben den Möglichkeiten, fehlende Daten mit dem Modus, Median oder Mittelwert auszufüllen, kann das Verfahren MICE\citep{azur_multiple_2011} oder die Probablilistic PCA\citep{tipping_probabilistic_1999} genutzt werden. \\ \hline
+Beim Zusammensetzten der Datensätze entstehen Lücken, da einige Datensätze (z.B. Kryptowährungs-eigene Eigenschaften) sieben Observations pro Woche festhalten, Andere (z.B. Aktienindices) nur fünf. Außerdem gibt es Datensätze mit Feiertagen (z.B. Neujahr) oder solche mit nur einer Observaton pro Woche (z.B. STLFSI). & Azure ML Studio bietet das Experiment Item 'Clean Missing Data' an. Neben den Möglichkeiten, fehlende Daten mit dem Modus, Median oder Mittelwert auszufüllen, kann das Verfahren \gls{mice}\citep{azur_multiple_2011} oder die Probablilistic PCA\citep{tipping_probabilistic_1999} genutzt werden. \\ \hline
 Durch die unterschiedlichen Formatierungen gibt es inkonsistente Separatoren (Komma, Semikolon, Tab), Dezimaltrennzeichen (Punkt, Komma) und Tausendertrennzeichen (Punkte, ohne Trennzeichen). & Vor dem Zusammenführen müssen die Separatoren und Trennzeichen untersucht und eventuell umgeändert werden. Dies kann mit Excel ('Speichern als...' oder Notepad++ ('Find and Replace') geschehen. Nach dem Joinen muss nachgeprüft werden. \\ \hline
 Die Schwierigkeit für das Etherumining wird im Datensatz ethereumDataset anfangs mit kleiner als 1 angeben. Dies ist per Definition unmöglich. & Entweder es handelt sich hier um einen undokumentierte Sonderfall zu Beginn des Netztwerks oder es ist ein Fehler im Datensatz. Trotz dieser Unstimmigkeit, ist die Tatsache insignifikant und kann vernachlässigt werden. \\ \hline
 \caption{Data quality report des Schrittes "Verify data quality"}
@@ -741,7 +741,7 @@ bei construict dann bis zu azure zusammenbauen
 \section{Data Preperation}\label{sec:p3}
 \subsection{Inkludieren und Expludieren von Daten (Select Data)}
 Die Datensätze sind nun gut beschrieben und es wurde auf Herausforderungen und Probleme hingewiesen. Die folgenden Punkte befassen sich damit, die richtigen Daten und Features weiter zu reduzieren ("Select Data"), sie zu reinigen ("Clean Data") und schließlich zum endgültigen Analyse-Datensatz zusammenfassen ("Construct Data", "Integrate Data" und "Format Data").
-Ausgenommen der jetzt begründet ausgeschlossenen Daten, werden alle Vorgestellten zum bilden des Models genutzt. Tabelle \ref{tab:selecData} liefert einen Überblick.
+Ausgenommen der jetzt begründet ausgeschlossenen Daten, werden alle Vorgestellten zum bilden des \gls{model} genutzt. Tabelle \ref{tab:selecData} liefert einen Überblick.
 
 In Punkt \ref{subsec:collection} wurde festgestellt, dass der Datensatz 'BTC \textunderscore Total \textunderscore Volume \textunderscore Daily \textunderscore Full' große Lücken enthält. Darüber hinaus enthält der Datensatz 'bitcoinDataset' ebenfalls die Anzahl der Bitcoins als Feature 'btc \textunderscore total \textunderscore bitcoins'. Ein stichprobenhafter Konsistenzcheck ergibt, dass die vorhanden Daten sich decken. Aus diesem Grund wird der Lückenhafte Datensatz exkludiert. 
 'BTC \textunderscore Difficulty \textunderscore Daily \textunderscore Full' enthält wie 'bitcoinDataset' die Miningschwierigkeit (siehe Punkt \ref{sec:cryptocurrency2}). Obwohl der einzelne Datensatz minimal genauere Werte enthält, fällt die Wahl erneut auf das 'bitcoinDataset', da es Daten über eine längere Zeitspanne enthält. Genauso verhält sich bei 'BTC \textunderscore Transaction \textunderscore Number \textunderscore Fully \textunderscore Daily' und 'BTC \textunderscore Price \textunderscore Multiple \textunderscore Daily'. 
