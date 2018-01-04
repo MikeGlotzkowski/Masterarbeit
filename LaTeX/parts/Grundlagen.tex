@@ -1,7 +1,7 @@
 \chapter{Data Mining Frameworks}\label{sec:DataMiningFrameworks}
 Wie in Abschnitt \ref{sec:DataMining} bereits erwähnt, haben sich um das Data Mining drei bekannte Frameworks entwickelt. Zwei davon (KDD und CRISP-DM) werden im Nachfolgenden genauer beschrieben. Danach wird eines der beiden für die Untersuchung in der Arbeit ausgewählt. Da der SEMMA-Process dem CRIPS-DM Referenzmodell einerseits sehr ähnelt und andererseits genau genommen "keine Data Mining Methodik, sonder eher eine logische Organisation" des Data Mining "tool set"\citep[eigene Übersetzung]{enterpriseminer_sas_2012} ist, wird er hier ausgeklammert. 
 
-\section{Knowledge Discovery in Databases (KDD) process model}
+\section{Knowledge Discovery in Databases (KDD) process model}\label{sec:kdd}
 Die Bezeichung Knowledge Discovery in Databases wurde hauptsächlich von \citep{fayyad_data_1996} geprägt. Sie beschreiben in ihrer Arbeit ein Problem der 1990er Jahre. Wie auch heute noch, stieg damals die Masse der gespeicherten Daten rapide an. Die manuelle Auswertung dieser Datensätze erforderte mehr Arbeitskraft als vorhanden war. \citep[S.~38]{fayyad_data_1996} beschreiben es als "data overload". Deswegen versuchte man, die Prozesse zur Findung von Erkenntnissen zu automatisieren. Daraus hat sich ein Standardvorgehen entwickelt, dass das KDD-Prozessmodell darstellt.
 \begin{figure}[H]
 \centering
@@ -144,7 +144,7 @@ Zu obigem Fall: $$Gehalt = Studium \times 327,17 + ErfahrungGesamt \times 876,69
 Das Interpretieren der Ergebnisse beinhaltet ebenfalls das Zusammenfassen der Erkenntnisse und gegebenenfalls das Visualisieren.\citep[S.~71]{swamynathan_mastering_2017} Als Evaluieren wird das Eingliedern der Resultate in andere Systeme (zur Weiterverarbeitung oder Verbreitung), das Prüfen auf (und Lösen von) Konflikten mit anderen Untersuchungen und nicht zuletzt das Dokumentieren der Befunde bezeichnet.\citep[S.~42]{fayyad_data_1996} \newline
 An dieser Stelle sei erneut angemerkt, dass das erste Ergebnis des KDD-Prozesses nicht das Endergebnis sein muss. Es kann durchaus viele Iterationen geben, die auch "loops between any two steps" beinhalten können.\citep[S.~42]{fayyad_data_1996}
 
-\section{CRoss Industrial Standard Process for Data Mining (CRISP – DM)}
+\section{CRoss Industrial Standard Process for Data Mining (CRISP – DM)}\label{sec:crispdm}
 Bei CRoss Industrial Standard Process for Data Mining handelt es sich - wie bei KDD - um ein Referenzmodell für Data Mining. Das Modell wurde von einem 1996 gegründeten Konsortium aus "Daimler-Benz (now DaimlerChrysler), Integral Solutions Ltd. (ISL) [jetzt SPSS], NCR, and OHRA"\citep[S.~13]{shearer_crisp-dm_2000} erarbeitet. Die Version 1.0 wurde 2000 vorgestellt.\citep[S.~13]{shearer_crisp-dm_2000} In Umfragen (1999, 2002, 2004, 2007) wird das Modell als führend in Bereich von "data mining/predictive analytics projects"\citep[S.~72]{swamynathan_mastering_2017} bezeichnet. Das Modell ist "nicht-properitär, dokumnetiert und frei verfügbar"\citep[S.~13; eigene Übersetzung]{shearer_crisp-dm_2000}. Es ist ebenfalls in vielen Bereichen nutzbar, da es weder Industriesektor-, Werkzeugs- noch Anwendungsspezifisch ist. Grundsätzlich bekräftigt das Modell best practices und soll zu besseren und schnelleren Ergebnissen führen.\citep[S.~13; eigene Übersetzung]{shearer_crisp-dm_2000} 
 
 \begin{figure}[H]
@@ -549,7 +549,7 @@ Die Anomaly detection kann für folgende Szenarien genutzt werden\citep[S.~15:2]
 \item Anwendungen in "der Welt des Internet der Dinge"[S.~68]\citep{swamynathan_mastering_2017}
 \end{itemize}
 
-\section{Unsupervised Learning}
+\section{Unsupervised Learning}\label{sec:us1}
 Der 'Glücksfall', dass der vorhandene Datensatz Label besitzt, ist unter realen Umständen häufig nicht der Fall. Um aus diesen Daten trotzdem Schlüsse zu ziehen, werden Methoden des Unsupervised Learning herangezogen. Hier liegt der Fokus auf dem "Entdecken von aufschlussreichen Eigenschaften der verfügbaren Daten"\citep[S.277; eigene Übersetzung]{kubat_introduction_2017} und der "Untersuchung der Charakteristik der Daten"\citep[S.~13; eigene Übersetzung]{kim_matlab_2017}. Dies kann das Ziel haben komplexe und vielschichtige Daten zu vereinfachen und zu strukturieren\citep{ericson_how_2017} oder die Daten in Gruppen aufzuteilen\citep[S.~22]{lison_introduction_2012}. Um diese Gruppen ähnlicher Daten - sogenannte Cluster - geht es im nächsten Abschnitt.\newline
 Supervised Learning findet man nach \citep[S.~223]{ramasubramanian_machine_2017}
 \begin{itemize}
@@ -576,11 +576,11 @@ Beim angesprochenen Clustering handelt es sich um das "Identifizieren von distin
 \label{fig:clustering}
 \end{figure}
 
-\section{Semi-supervised Learning}
+\section{Semi-supervised Learning}\label{sec:ssl1}
 Bis jetzt wurden zwei Extremfälle beschrieben: entweder es gibt keine Labels oder alle Daten sind gelabelt. Es existieren jedoch auch Fälle dazwischen. Besitzen die meisten Daten ein Label, so ist es eventuell möglich, die Datensätze ohne für das Learning zu entfernen und ein Model aus dem Supervised Learning heranzuziehen. Tritt aber ein Problem auf, bei dem nur sehr wenige Daten gelabelt sind, empfiehlt sich ein Vorgehen aus dem Semi-supervised Learning. Methoden dieser Familie des Machine Learning beruhen auf der Annahme, dass "die Daten wichtige Informationen über die Gruppenzugehörigkeit beinhalten", "obwohl die Gruppenzugehörigkeit [...] unbekannt ist"\citep[S.~223; eigene Übersetzung]{ramasubramanian_machine_2017}. Als umfassendes Werk für Semi-supervised Learning ist an dieser Stelle \citep{chapelle_semi-supervised_2006} zu empfehlen. \newline
 Zur Anwendung kommt Semi-supervised Learning seit den 1990er Jahre in "natural language problems" und "text classification"\citep[S.~4]{chapelle_semi-supervised_2006}.
 
-\section{Active Learning}
+\section{Active Learning}\label{sec:al1}
 Ein Sonderfall des Semi-Supervised Learning ist das Active Learning. Hier wird davon ausgegangen, dass nur wenige oder keine Labels vorhanden sind, diese jedoch durch einen "Menschen mit umfangreichem Wissen im Themengebiet"\citep[S.~i; eigene Übersetzung]{olsson_literature_2009} hinzugefügt werden können. Alle Daten mit einem Label zu versehen wäre jedoch zu "schwer, zeitaufwendig oder zu teuer"\citep[Abstract; eigene Übersetzung]{settles_active_2010}. Mit dem Ziel an den Menschen nur so wenig Anfragen (engl. Queries) wie nötig zu stellen\citep[Abstract]{olsson_literature_2009}, werden Algorithmen entworfen, die selbst wählen könne, welche Datensätze gelabet werden.\citep[Abstract]{settles_active_2010}\newline
 Nach \citep[S.~4]{settles_active_2010} wird Active Learning beispielsweise in
 \begin{itemize}
@@ -589,7 +589,7 @@ Nach \citep[S.~4]{settles_active_2010} wird Active Learning beispielsweise in
 \item der Klassifikation oder dem Filtern von Dokumenten oder Mediendateien eingesetzt
 \end{itemize}
 
-\section{Reinforcement Learning}
+\section{Reinforcement Learning}\label{sec:rl1}
 "Beim Reinforcement Learning interagiert der Lerner" - also ein Programm - "mit seiner Umwelt"\citep[S.~45; eigene Übersetzung]{settles_active_2010}. Er "experimentiert" dabei um eine Lösung auf das gestellte Problem zu finden und erhält je nach Ausgang seiner Aktion eine Belohnung oder eine Bestrafung.\citep[S.~331]{kubat_introduction_2017} Es wird also nicht direkt mit einem Output (Label) gearbeitet, sondern lediglich die Qualität des Outputs bewertet. Das Ziel ist, durch ein iteratives Vorgehen (siehe Abbildung \ref{fig:reinforcementLearning}), ein maximales Endergebnis (größer Reward) zu erreichen.\citep[S.~69]{swamynathan_mastering_2017}
 \begin{figure}[H]
 \centering
@@ -624,9 +624,9 @@ Im nun folgenden Abschnitt der Arbeit wird das Microsoft Azure ML Studio in drei
 \item zuletzt die vorgefertigten Module vorgestellt.
 \end{enumerate}
 Es sollte in diesem Teil beachtet werden, dass die Quellen hauptsächlich Microsoft-eigen sind, da außer einigen Blockartikeln wenig externe Literatur oder Meinungen verfügbar sind.
-\section{Allgemeine Beschreibung}
+\section{Allgemeine Beschreibung}\label{sec:ab1}
 Zum Ende des Abschnittest \ref{sec:SaaS} wurde die \textbf{S}oftware \textbf{a}s \textbf{a} \textbf{S}ervice (SaaS) Microsoft Azure Machine Learning Studio bereits angesprochen. Es handelt sich dabei um eine Cloud-basierte Web-IDE (\textbf{I}ntegrated \textbf{D}evelopment \textbf{E}nvironment). Der Kern der Anwendung ist ein "drag and-drop tool", das genutzt wird um "predictive analytics solutions" zu entwerfen und bereitzustellen.\citep{ericson_what_2017} Es können sowohl vorgefertigte Bausteine genutzt werden, als auch selbst entworfene Scripte (in R und/oder Python).
-\section{Aufbau}
+\section{Aufbau und Komponenten}\label{sec:auK1}
 Die strukturellen Hauptkomponenten sind Tabelle \ref{tab:azuremlcomponents} zu entnehmen. Die Tabelle basiert auf dem Artikel "What is Azure Machine Learning Studio?" von \citep{ericson_what_2017} und dem Machine Learning Studio selbst (https://studio.azureml.net/Home).
 \begin{longtable}[H]{|p{2,5cm}|p{14cm}|}
 \hline

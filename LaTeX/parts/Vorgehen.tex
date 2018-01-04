@@ -1,8 +1,25 @@
 \chapter{Vorgehen und Ziele}\label{chapter:Vorgehen}
-Nach der Einführung in das Thema und dem Einordnen in aktuelle Themenfelder, wird nun das Vorgehen und das Ziel der Arbeit erläutert.\newline
-Der anschließende Abschnitt xxx befasst sich mit den Grundlagen, die für das Verständnis der Ausarbeitung nötig sind. Dort wird beispielsweise auf die verschiedenen Kategorien des Machine Learning (in xxx) und die zugehörigen Algorithmen und Verfahren eingegangen. Der nachfolgende Teil xxx befasst sich damit, Einflussfaktoren auf die Kurse von Kryptowährungen zu isolieren. Sind die Einflüsse gefunden, wird dargelegt, wie diese als Daten(satz) abgebildet werden können (xxx) und was als Quelle der Daten dient (xxx). In Punkt xxx werden die Datensätze beschrieben. Anschließend (Gliederungspunkt xxx) wird gezeigt, wie die Analyse durchgeführt wird. Dabei wird er Prozess yyy (siehe xxx) \todo{welcher Prozess? CRISP/KDD...; bereinigung etc..} durchlaufen. In Abschnitt xxx werden die Ergebnisse interpretiert und es werden Schlüsse gezogen. \todo{bessere Formulierung} Den Abschluss stellt der Ausblick (xxx) dar. Dieser Teil befasst sich damit, welchen Nutzen die Arbeit bringt (xxx) und wie die Erkenntnisse weiter verwendet werden können (xxx).\newline
-\todo{refs} \newline
-\todo{related work}\newline
-\todo{später genauer eingehen auf die Sachen}
-Als Ziel steht über der Arbeit, ob es möglich ist, den Kurs oder Kursschwankungen von Kryptowährungen mit Hilfe von Machine Learning vorauszusagen oder nicht. \todo{braucht man das "oder nicht"?}\newline
-\todo{grafische Darstellung anfügen}
+Nachdem in Kapitel \ref{chap:motivation} das Thema der Arbeit (\ref{sec:thema}) vorgestellt und die Motivation dahinter erläutert wurde (\ref{sec:cryptocurrency} bis \ref{sec:SaaS}), wird nun der restliche Aufbau vorgestellt.
+Die nächsten vier Kapitel befassen sich mit den Grundlagen hinter der Arbeit (\textbf{Theorie}): 
+\begin{itemize}
+\item Kapitel \ref{sec:DataMiningFrameworks} befasst sich mit Data Mining Frameworks. Dabei werden das \textbf{K}nowledge \textbf{D}iscovery in \textbf{D}atabases (KDD) process model (\ref{sec:kdd}) und der \textbf{CR}oss \textbf{I}ndustrial \textbf{S}tandard \textbf{P}rocess for Data Mining (CRISP – DM (\ref{sec:crispdm}) betrachtet. Anschließend folgt eine Entscheidung für CRISP-DM in Punkt \ref{sec:crispdmdec}.
+\item Daraufhin (Kapitel \ref{sec:MachineLearning}) folgen Erklärungen zu den Kategorien des Machine Learning Supervised Learning (\ref{subsec:sl}), Unsupervised Learning (\ref{sec:us1}), Semi-supervised Learning (\ref{sec:ssl1}), Active Learning (\ref{sec:al1}) und Reinforcement Learning (\ref{sec:rl1}).
+\item Genauere (technische) Details zu Krypthowärhungen sind in Kapitel \ref{sec:cryptocurrency2} festgehalten. Hier sind Definitionen zu Begriffen zu finden, die später für die Analyse genutzt werden.
+\item Den Abschluss des Theorieteils stellt die Allgemeine Beschreibung (\ref{sec:ab1}), der Aufbau und die Komponenten (\ref{sec:auK1}) von Microsoft Azure Machine Learning Studio in Kapitel \ref{sec:msmls} dar.
+\end{itemize}
+Im \textbf{Praxisteil} in Kapitel \ref{chap:praxis} werden
+\begin{itemize}
+\item zuerst Ziele und Projektressourcen festgelegt (\ref{sec:p1}).
+\item Daraufhin werden Daten beschafft, beschrieben und untersucht (\ref{sec:p2}).
+\item Nach ihrer Auswahl und Aufbereitung (\ref{sec:p3}) folgt
+\item die Auswahl der Machine Learning Algorithmen, die Festlegung des Testdesigns, Durchführen des Machine Learnings und die Auflistung der Ergebnisse (\ref{sec:p4}).
+\item Die Ergebnisbewertung, der Prozessrückblick und die nächsten Schritte (\ref{sec:p4}) stellen den Abschluss dar.
+\end{itemize}
+Das Schlusskapitel (\ref{chap:Bewertung}) Bewertet die drei Kernelemente der Arbeit:
+\begin{itemize}
+\item das Azure Machine Learning Studio (\ref{sec:BeswertungAzure}),
+\item das CRISP-DM Referenzmodell (\ref{sec:BeswertungCrisp}) und
+\item die Ergebnisse des Machine Learning (\ref{sec:BewertungML}).
+\end{itemize}
+Als Ziel steht über der Arbeit, ob es möglich ist, den Kurs oder Kursschwankungen von Kryptowährungen mit Hilfe von Machine Learning vorauszusagen oder nicht.\newline
+Für alle Teile sei angemerkt, dass die Fachliteratur fast ausschließlich in englischer Sprache verfügbar ist. In dieser Arbeit wird deswegen die Entscheidung getroffen, die Fachbegriffe nicht zu übersetzten. Auch die Prozessschritte und -artefakte (Outputs) des CRRISP-DM-Referenzmodells sind davon betroffen. 

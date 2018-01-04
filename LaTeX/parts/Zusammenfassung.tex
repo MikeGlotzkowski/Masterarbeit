@@ -1,2 +1,132 @@
 \chapter*{Zusammenfassung}
-\lipsum[1]
+
+{\normalsize ZIEL} \newline
+In der vorliegenden Arbeit werden Einflussfaktoren auf den Kurs von ausgewählten Kryptowährungen (Bitcoin [BTC] und Ethereum [ETH]) gesucht und mit Hilfe von Machine Learning versucht, herauszufunden, ob sich die Kurse der digitalen Währungen voraussagen lassen. Das Machine Learning wird mit dem Werkzeug Azure Machine Learning Studio von Microsoft durchgeführt.
+
+{\normalsize MOTIVATION} \newline
+Es besteht in der Informationstechnik großes Interesse an Kryptowährungen und der zugrundeliegenden Technik (Blockchain). Vorteile sind die einfache Benutzung, die Sicherheit, die Anonymität und die Möglichkeit der Integration in das Internet der Dinge (engl. Internet of Things, IoT), zum Beispiel in Form von Smart Contracts. \newline
+Ebenfalls große Bedeutsamkeit kommt dem interdisziplinären Themengebiet des Machine Learning zu. Dies zeigen bekannte Projekte wie Googles DeepMind, IMBs Watson oder Sprachassistenten wie Apples Siri, Amazons Alexa oder Samsungs Bixby.
+\newline
+Es wird ein Clouddienst, genauer eine Software as a Service (SaaS) für das Machine Learning genutzt, da dieser Sektor in den letzten 10 Jahren um 700\% gewachsen ist.
+
+{\normalsize VORGEHEN} \newline
+Zuerst werden im Theorieteil die Grundlagen (Data Mining Frameworks, Machine Learning, Kryptowährungen und Azure Machine Learning Studio) beschrieben. Hier wird die Wahl getroffen, die Analyse mit dem CRISP-DM-Referenzmodell durchzuführen.\newline
+Anschließend folgt der Praxisteil. Es werden die ersten fünf Phasen des Referenzmodells durchlaufen. Die letzte Phase (Deployment) wird weggelassen.
+
+{\normalsize GENUTZTE EINFLUSSFAKTOREN} \newline
+Folgende Einflussfaktoren werden für die Untersuchung genutzt:
+\begin{itemize}
+\item Kryptowährungs-eigene Faktoren (Handelsvolumen, Erzeugungsschwierigkeit, Preis am Vortag, Anzahl der Transaktionen etc.)
+\item öffentliches Interesse (Google suchen, Google Newssuchen, Wikipedia Seitenaufrufe, Zeitungsüberschriften)
+\item Aktienindices (aus verschiedenen Wirtschaftsregionen und unterschiedlichen Sektoren)
+\item der Preis für natürliche Ressourcen (zwei Ölsorten, Gold, Silber)
+\item historische Kursdaten für den BTC- und ETH-Kurs
+\end{itemize}
+
+{\normalsize ERGEBNISSE DES MACHINE LEARNING} \newline
+\begin{table}[H]
+\centering
+\footnotesize
+\begin{tabular}{|p{5cm}|p{1,5cm}|p{1,5cm}|p{1,5cm}|p{1,5cm}|p{1,5cm}|}
+\hline
+\textbf{Algorithmus} & \textbf{F1-Score} & \textbf{Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{AUC}\\ 
+\hhline{======}
+Two-Class Support Vector Machine & 0.565445 & 0.538889 & 0.568421 & 0.562500 & 0.552703 \\ \hline
+Two-Class Neural Network & 0.685259 & 0.561111 & 0.554839 & 0.895833 & 0.571181 \\ \hline
+Two-Class Logistic Regression & 0.559585 & 0.527778 & 0.556701 & 0.562500 & 0.568204 \\ \hline
+Two-Class Locally-Deep Support Vector Machine & 0.547264 & 0.494444 & 0.52381 & 0.572917 & 0.517361 \\ \hline
+Two-Class Decision Jungle & 0.698413 & 0.577778 & 0.564103 & 0.916667 & 0.553571 \\ \hline
+Two-Class Decision Forest & 0.556818 & 0.566667 & 0.6125 & 0.510417 & 0.573289 \\ \hline
+Two-Class Boosted Decision Tree & 0.514620 & 0.538889 & 0.586667 & 0.458333 & 0.570188 \\ \hline
+Two-Class Bayes Point Machine & 0.684211 & 0.533333 & 0.535294 & 0.947917 & 0.595982 \\ \hline
+Two-Class Averaged Perceptron & 0.522727 & 0.533333 & 0.575000 & 0.479167 & 0.573289 \\ \hline
+\end{tabular}
+\caption{Ergebnisse des Machine Learning: Ethereum Two-class Classification}
+\end{table}
+
+\begin{table}[H]
+\centering
+\footnotesize
+\begin{tabular}{|p{5cm}|p{1,5cm}|p{1,5cm}|p{1,5cm}|p{1,5cm}|p{1,5cm}|}
+\hline
+\textbf{Algorithmus} & \textbf{F1-Score} & \textbf{Accuracy} & \textbf{Precision} & \textbf{Recall} & \textbf{AUC}\\ 
+\hhline{======}
+Two-Class Support Vector Machine & 0.662937 & 0.552045 & 0.578049 & 0.777049 & 0.499951 \\ \hline
+Two-Class Neural Network & 0.706199 & 0.594796 & 0.599542 & 0.859016 & 0.612805 \\ \hline
+Two-Class Logistic Regression & 0.623946 & 0.585502 & 0.642361 & 0.606557 & 0.597031 \\ \hline
+Two-Class Locally-Deep Support Vector Machine & 0.647555 & 0.611524 & 0.666667 & 0.629508 & 0.643130 \\ \hline
+Two-Class Decision Jungle & 0.659236 & 0.602230 & 0.640867 & 0.678689 & 0.639724 \\ \hline
+Two-Class Decision Forest & 0.656958 & 0.605948 & 0.648562 & 0.665574 & 0.650770 \\ \hline
+Two-Class Boosted Decision Tree & 0.668750 & 0.605948 & 0.638806 & 0.701639 & 0.649595 \\ \hline
+Two-Class Bayes Point Machine & 0.734082 & 0.604089 & 0.592742 & 0.963934 & 0.583691 \\ \hline
+Two-Class Averaged Perceptron & 0.566957 & 0.537175 & 0.603704 & 0.534426 & 0.564160 \\ \hline
+\end{tabular}
+\caption{Ergebnisse des Machine Learning: Bitcoin Two-class Classification}
+\end{table}
+
+\begin{table}[H]
+\centering
+\footnotesize
+\begin{tabular}{|p{4cm}|p{1,7cm}|p{1,7cm}|p{1,7cm}|p{1,7cm}|p{1,7cm}|}
+\hline
+\textbf{Algorithmus} & \textbf{$ R^2 $} & \textbf{MAE} & \textbf{RMSE} & \textbf{RAE} & \textbf{RSE}\\ 
+\hhline{======}
+Neural Network Regression & -0.232605 & 69.99189 & 124.834987 & 0.737855 & 1.232605 \\ \hline
+Boosted Decision Tree Regression & 0.999326 & 1.372442 & 2.918441 & 0.014468 & 0.000674 \\ \hline
+Decision Forest Regression & 0.994616 & 3.514041 & 8.250093 & 0.037045 & 0.005384 \\ \hline
+Bayesian Linear Regression & 0.999994 & 0.206625 & 0.272996 & 0.002178 & 0.000006 \\ \hline
+\end{tabular}
+\caption{Ergebnisse des Machine Learning: Ethereum Regression}
+\end{table}
+
+\begin{table}[H]
+\centering
+\footnotesize
+\begin{tabular}{|p{4cm}|p{1,7cm}|p{1,7cm}|p{1,7cm}|p{1,7cm}|p{1,7cm}|}
+\hline
+\textbf{Algorithmus} & \textbf{$ R^2 $} & \textbf{MAE} & \textbf{RMSE} & \textbf{RAE} & \textbf{RSE}\\ 
+\hhline{======}
+Neural Network Regression & -0.105524 & 496.619518 & 717.756528 & 1.225332 & 1.105524 \\ \hline
+Boosted Decision Tree Regression & 0.995827 & 10.095783 & 44.099144 & 0.02491 & 0.004173 \\ \hline
+Decision Forest Regression & 0.995791 & 13.301142 & 44.290157 & 0.032819 & 0.004209 \\ \hline
+Bayesian Linear Regression & 0.999946 & 2.273447 & 5.032831 & 0.005609 & 0.000054 \\ \hline
+\end{tabular}
+\caption{Ergebnisse des Machine Learning: Bitcoin Regression}
+\end{table}
+
+Die Regressionen haben einen zu hohen Wert für $ R^2 $, deswegen ist es falsch eine Rangliste aufzustellen. Bei der Klassifikation gibt es folgendes Ranking (der beste Wert für den F1-Score ist 1, der Schlechteste 0):
+\begin{table}[H]
+\centering
+\footnotesize
+\begin{tabular}{|p{4cm}|p{4cm}|}
+\hline
+\textbf{Algorithmus} & \textbf{F1-Score}\\ 
+\hhline{==}
+Two-Class Decision Jungle & 0.698413 \\ \hline
+Two-Class Neural Network & 0.685259 \\ \hline
+Two-Class Bayes Point Machine & 0.684211 \\ \hline
+\end{tabular}
+\caption{Rangliste der besten Ethereum Two-Class Classification Algorithmen}
+\end{table}
+
+\begin{table}[H]
+\centering
+\footnotesize
+\begin{tabular}{|p{4cm}|p{4cm}|}
+\hline
+\textbf{Algorithmus} & \textbf{F1-Score}\\ 
+\hhline{==}
+Two-Class Bayes Point Machine & 0.734082 \\ \hline
+Two-Class Neural Network & 0.706199 \\ \hline
+Two-Class Boosted Decision Tree & 0.668750 \\ \hline
+\end{tabular}
+\caption{Rangliste der besten Bitcoin Two-Class Classification Algorithmen}
+\end{table}
+
+Es lässt sich Schlussfolgern, dass Kurs mit den den angewandten Mitteln und gefunden Einflussfaktoren nicht vorher gesagt werden kann. Es wird empfohlen, weniger Einflussfaktoren zu nutzen und dafür diese genauer zu betrachten. Der Kurs des Bitcoins scheint stärker von Faktoren beeinflusst zu werden, als der des Ethers.
+
+{\normalsize BEWERTUNG DES CRISP-DM-REFERENZMODELLS} \newline
+CRISP-DM ist ein sehr vielseitiges Referenzmodell. Es bietet durch den User Guide eine große Hilfestellung für weniger Erfahrene. In leicht angepasster Version kann es auf eine Vielzahl an Projekten aus den Bereichen Data Mining, Machine Learning, Data Science oder Analytics angewandt werden.
+
+{\normalsize BEWERTUNG DES AZURE MACHINE LEARNING STUDIOS} \newline
+Bei Azure Machine Learnung Studio handelt es sich um ein Werkzeug, dass alle Grundfunktionen bereitstellt. Es ist selbst durch R- oder Python-Skripte erweiterbar. Es besitzt eine aktuelle und ausreichende Dokumentation, jedoch keine Versionsverwaltung. Es wird für Vorstudien, Evaluations-Projekte und zum Lernen empfohlen, nicht aber für produktive Systeme.
