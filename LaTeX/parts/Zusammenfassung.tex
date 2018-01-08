@@ -1,24 +1,24 @@
 \chapter*{Zusammenfassung}
 
 {\normalsize ZIEL} \newline
-In der vorliegenden Arbeit werden Einflussfaktoren auf den Kurs von ausgewählten Kryptowährungen (Bitcoin [BTC] und Ethereum [ETH]) gesucht und mit Hilfe von Machine Learning versucht, herauszufunden, ob sich die Kurse der digitalen Währungen voraussagen lassen. Das Machine Learning wird mit dem Werkzeug Azure Machine Learning Studio von Microsoft durchgeführt.
+In der vorliegenden Arbeit werden Einflussfaktoren auf den Kurs von ausgewählten Kryptowährungen (Bitcoin [BTC] und Ethereum [ETH]) gesucht und mit Hilfe von Machine Learning analysiert, ob sich die Kurse der digitalen Währungen voraussagen lassen. Das Machine Learning wird mit dem Werkzeug Azure Machine Learning Studio von Microsoft durchgeführt.
 
 {\normalsize MOTIVATION} \newline
-Es besteht in der Informationstechnik großes Interesse an Kryptowährungen und der zugrundeliegenden Technik (Blockchain). Vorteile sind die einfache Benutzung, die Sicherheit, die Anonymität und die Möglichkeit der Integration in das Internet der Dinge (engl. Internet of Things, IoT), zum Beispiel in Form von Smart Contracts. \newline
-Ebenfalls große Bedeutsamkeit kommt dem interdisziplinären Themengebiet des Machine Learning zu. Dies zeigen bekannte Projekte wie Googles DeepMind, IMBs Watson oder Sprachassistenten wie Apples Siri, Amazons Alexa oder Samsungs Bixby.
+In der Informationstechnik besteht großes Interesse an Kryptowährungen und der zugrundeliegenden Technik (Blockchain). Vorteile sind die einfache Benutzung, die Sicherheit, die Anonymität und die Möglichkeit der Integration in das Internet der Dinge (engl. Internet of Things, IoT), zum Beispiel in Form von Smart Contracts. \newline
+Ebenfalls große Bedeutsamkeit kommt dem interdisziplinären Themengebiet des Machine Learning zu. Dies zeigen bekannte Projekte wie Googles DeepMind, IBMs Watson oder Sprachassistenten wie Apples Siri, Amazons Alexa oder Samsungs Bixby.
 \newline
 Es wird ein Clouddienst, genauer eine Software as a Service (SaaS) für das Machine Learning genutzt, da dieser Sektor in den letzten 10 Jahren um 700\% gewachsen ist.
 
 {\normalsize VORGEHEN} \newline
 Zuerst werden im Theorieteil die Grundlagen (Data Mining Frameworks, Machine Learning, Kryptowährungen und Azure Machine Learning Studio) beschrieben. Hier wird die Wahl getroffen, die Analyse mit dem CRISP-DM-Referenzmodell durchzuführen.\newline
-Anschließend folgt der Praxisteil. Es werden die ersten fünf Phasen des Referenzmodells durchlaufen. Die letzte Phase (Deployment) wird weggelassen.
+Anschließend folgt der Praxisteil. Es werden die ersten fünf Phasen des Referenzmodells durchlaufen. Die letzte Phase (Deployment) wird entfällt.
 
 {\normalsize GENUTZTE EINFLUSSFAKTOREN} \newline
 Folgende Einflussfaktoren werden für die Untersuchung genutzt:
 \begin{itemize}
-\item Kryptowährungs-eigene Faktoren (Handelsvolumen, Erzeugungsschwierigkeit, Preis am Vortag, Anzahl der Transaktionen etc.)
-\item öffentliches Interesse (Google suchen, Google Newssuchen, Wikipedia Seitenaufrufe, Zeitungsüberschriften)
-\item Aktienindices (aus verschiedenen Wirtschaftsregionen und unterschiedlichen Sektoren)
+\item Kryptowährungseigene Faktoren (Handelsvolumen, Erzeugungsschwierigkeit, Preis am Vortag, Anzahl der Transaktionen etc.)
+\item öffentliches Interesse (Google Suchen, Google Newssuchen, Wikipedia Seitenaufrufe, Zeitungsüberschriften)
+\item Aktienindizes (aus verschiedenen Wirtschaftsregionen und unterschiedlichen Sektoren)
 \item der Preis für natürliche Ressourcen (zwei Ölsorten, Gold, Silber)
 \item historische Kursdaten für den \gls{btc}- und \gls{eth}-Kurs
 \end{itemize}
@@ -94,7 +94,7 @@ Bayesian Linear Regression & 0.999946 & 2.273447 & 5.032831 & 0.005609 & 0.00005
 \caption{Ergebnisse des Machine Learning: Bitcoin Regression}
 \end{table}
 
-Die Regressionen haben einen zu hohen Wert für $ R^2 $, deswegen ist es falsch eine Rangliste aufzustellen. Bei der Klassifikation gibt es folgendes Ranking (der beste Wert für den F1-Score ist 1, der Schlechteste 0):
+Die Regressionen haben einen zu hohen Wert für $ R^2 $. Deswegen wäre es falsch, hier eine Rangliste aufzustellen. Bei der Klassifikation gibt es folgendes Ranking (der beste Wert für den F1-Score ist 1, der Schlechteste 0):
 \begin{table}[H]
 \centering
 \footnotesize
@@ -123,10 +123,10 @@ Two-Class Boosted Decision Tree & 0.668750 \\ \hline
 \caption{Rangliste der besten Bitcoin Two-Class Classification Algorithmen}
 \end{table}
 
-Es lässt sich Schlussfolgern, dass Kurs mit den den angewandten Mitteln und gefunden Einflussfaktoren nicht vorher gesagt werden kann. Es wird empfohlen, weniger Einflussfaktoren zu nutzen und dafür diese genauer zu betrachten. Der Kurs des Bitcoins scheint stärker von Faktoren beeinflusst zu werden, als der des Ethers.
+Es lässt sich schlussfolgern, dass der Kurs mit den angewandten Mitteln und gefundenen Einflussfaktoren nicht vorher gesagt werden kann. Es wird daher empfohlen, weniger Einflussfaktoren zu nutzen, diese aber genauer zu betrachten. Der Kurs des Bitcoins scheint stärker von Faktoren beeinflusst zu werden, als der des Ethers.
 
 {\normalsize BEWERTUNG DES CRISP-DM-REFERENZMODELLS} \newline
 \gls{crisp} ist ein sehr vielseitiges Referenzmodell. Es bietet durch den User Guide eine große Hilfestellung für weniger Erfahrene. In leicht angepasster Version kann es auf eine Vielzahl an Projekten aus den Bereichen Data Mining, Machine Learning, Data Science oder Analytics angewandt werden.
 
 {\normalsize BEWERTUNG DES AZURE MACHINE LEARNING STUDIOS} \newline
-Bei Azure Machine Learnung Studio handelt es sich um ein Werkzeug, dass alle Grundfunktionen bereitstellt. Es ist selbst durch R- oder Python-Skripte erweiterbar. Es besitzt eine aktuelle und ausreichende Dokumentation, jedoch keine Versionsverwaltung. Es wird für Vorstudien, Evaluationsprojekte und zum Lernen, nicht aber für produktive Systeme empfohlen.
+Bei Azure Machine Learnung Studio handelt es sich um ein Werkzeug, dass alle Grundfunktionen bereitstellt. Es ist selbst durch R- oder Python-Skripte erweiterbar und besitzt eine aktuelle und ausreichende Dokumentation, jedoch keine Versionsverwaltung. Das Studio wird für Vorstudien, Evaluationsprojekte und zum Lernen, nicht aber für produktive Systeme empfohlen.
