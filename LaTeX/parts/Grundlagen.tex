@@ -411,9 +411,9 @@ Wie zu sehen ist, handelt es sich sowohl bei KDD, als auch bei CRISP-DM um sehr 
 
 
 \chapter{Machine Learning}\label{sec:MachineLearning}
-Der nun folgende Abschnitt befasst sich mit Machine Learning. Zu Beginn der Arbeit wurde bereits erwähnt, dass maschinelles Lernen als "Sammlung von Algorithmen und Techniken" verstanden werden kann, die "genutzt werden, um Computersysteme zu erstellen, die aus Daten lernen, um Vorhersagen zu erstellen".\citep[S.~53; eigene Übersetzung]{swamynathan_mastering_2017} Um diese Algorithmensammlung genauer zu betrachten, ist es sinnvoll sie nach bestimmten Kategorien zu ordnen. 
+Der nun folgende Abschnitt befasst sich mit Machine Learning. Zu Beginn der Arbeit wurde bereits erwähnt, dass maschinelles Lernen als "Sammlung von Algorithmen und Techniken" verstanden werden kann, die "genutzt werden, um Computersysteme zu erstellen, die aus Daten lernen, um Vorhersagen zu erstellen".\citep[S.~53; eigene Übersetzung]{swamynathan_mastering_2017} Um diese Algorithmensammlung genauer zu betrachten, ist es sinnvoll sie in bestimmten Kategorien einzuordnen. 
 \begin{itemize}
-\item \citep{kubat_introduction_2017} unterscheidet in seinem Werk unter anderem nach verschiedenen Klassifikationen (Baysianisch, Nearest-Neighbor, Linear und Polynomial), künstlichen neuronalen Netzen (engl. artifical neuronal network, kurz: \gls{ann}), Entscheidungsbäumen, Unsupervised Learning, genetischen Algorithmen und Reinforcement Learning.
+\item \citep{kubat_introduction_2017} unterscheidet in seinem Werk unter anderem nach verschiedenen Klassifikationen (Baysianisch, Nearest-Neighbor, Linear und Polynomial), künstlichen neuronalen Netzen (engl. artifical neural network, kurz: \gls{ann}), Entscheidungsbäumen, Unsupervised Learning, genetischen Algorithmen und Reinforcement Learning.
 \item Einen anderen Ansatz wählt \citep{swamynathan_mastering_2017}. Er gliedert die Algorithmen nach Supervised Learning (mit Regressionen und Klassifikationen), Unsupervised Learning (mit Clusteranalyse, Dimensionsreduzierung und Anomalie-Erkennung) und Reinforcement Learning (Markow-Entscheidungsprozess, Q-Learning, Temporal Difference- und Monte-Carlo Methoden). \citep{kim_matlab_2017} wählt die gleiche Kategorisierung in die drei Typen.
 \item \citep{paluszek_matlab_2017} sehen neben Supervised und Unsupervised Learning noch Semisupervised und Online Learning.
 \end{itemize}
@@ -532,12 +532,12 @@ Weiterhin kann zwischen Klassifikationen mit nur zwei Labels ("two-class or bino
 \end{figure}
 
 \subsection{Regression}\label{subsubsec:regression}
-Wenn eine Unterteilung in Kategorien, wie gerade genannt, nicht möglich ist und die Output variable ein fortlaufender Wert (engl. continuous value) ist, werden Regressionen herangezogen. Dabei liegt der "Hauptfokus [...] darin, einen Zusammenhang zwischen einer abhängigen Variablen und einer oder mehreren unabhängigen [...] Variablen herzustellen"\citep[S.~60; eigene Übersetzung]{swamynathan_mastering_2017}. Neben dem bekanntesten Beispiel
+Wenn eine Unterteilung in Kategorien, wie gerade genannt, nicht möglich ist und die Outputvariable ein fortlaufender Wert (engl. continuous value) ist, werden Regressionen herangezogen. Dabei liegt der "Hauptfokus [...] darin, einen Zusammenhang zwischen einer abhängigen Variablen und einer oder mehreren unabhängigen [...] Variablen herzustellen"\citep[S.~60; eigene Übersetzung]{swamynathan_mastering_2017}. Neben dem bekanntesten Beispiel
 \begin{itemize}
-\item einen Kurs an der Börse vorherzusagen \multicitep{kauchak_zoterovoll2.pdf_2016, S.~5; kubat_introduction_2017, S.~207; ericson_how_2017}, gibt es Anwendungsfälle in
+\item einen Kurs an der Börse vorherzusagen \multicitep{kauchak_neural_2016, S.~5; kubat_introduction_2017, S.~207; ericson_how_2017}, gibt es Anwendungsfälle in
 \item der Epidemiologie,
 \item der Auto- und Flugzeugnavigation und
-\item Analysen im zeitlichen Verlauf (Wetterveränderung im Verlauf der Zeit)\citep[S.~5]{kauchak_zoterovoll2.pdf_2016}.
+\item Analysen im zeitlichen Verlauf (Wetterveränderung im Verlauf der Zeit)\citep[S.~5]{kauchak_neural_2016}.
 \end{itemize}
 
 \subsection{Anomaly detection}
@@ -554,14 +554,14 @@ Die Anomaly detection kann für folgende Szenarien genutzt werden\citep[S.~15:2]
 \end{itemize}
 
 \section{Unsupervised Learning}\label{sec:us1}
-Der 'Glücksfall', dass der vorhandene Datensatz Label besitzt, ist unter realen Umständen häufig nicht der Fall. Um aus diesen Daten trotzdem Schlüsse zu ziehen, werden Methoden des Unsupervised Learning herangezogen. Hier liegt der Fokus auf dem "Entdecken von aufschlussreichen Eigenschaften der verfügbaren Daten"\citep[S.277; eigene Übersetzung]{kubat_introduction_2017} und der "Untersuchung der Charakteristik der Daten"\citep[S.~13; eigene Übersetzung]{kim_matlab_2017}. Dies kann das Ziel haben, komplexe und vielschichtige Daten zu vereinfachen und zu strukturieren\citep{ericson_how_2017} oder die Daten in Gruppen aufzuteilen\citep[S.~22]{lison_introduction_2012}. Um diese Gruppen ähnlicher Daten - sogenannte Cluster - geht es im nächsten Abschnitt.\newline
+Der 'Glücksfall', dass der vorhandene Datensatz Label besitzt, tritt unter realen Umständen selten auf. Um aus diesen Daten trotzdem Schlüsse zu ziehen, werden Methoden des Unsupervised Learning herangezogen. Hier liegt der Fokus auf dem "Entdecken von aufschlussreichen Eigenschaften der verfügbaren Daten"\citep[S.277; eigene Übersetzung]{kubat_introduction_2017} und der "Untersuchung der Charakteristik der Daten"\citep[S.~13; eigene Übersetzung]{kim_matlab_2017}. Dies kann das Ziel haben, komplexe und vielschichtige Daten zu vereinfachen und zu strukturieren\citep{ericson_how_2017} oder die Daten in Gruppen aufzuteilen\citep[S.~22]{lison_introduction_2012}. Um diese Gruppen ähnlicher Daten - sogenannte Cluster - geht es im nächsten Abschnitt.\newline
 Supervised Learning findet man nach \citep[S.~223]{ramasubramanian_machine_2017}
 \begin{itemize}
 \item bei der Aufteilung von Kundendaten in Segmente,
 \item in Analysen von sozialen Netzwerken,
 \item in der Klimatologie,
 \item bei der Bildkompression und
-\item in der Bioinformatik.\citep[S.~6]{kauchak_zoterovoll2.pdf_2016}
+\item in der Bioinformatik.\citep[S.~6]{kauchak_neural_2016}
 \end{itemize}
 
 \subsection{Clustering}
@@ -581,11 +581,11 @@ Beim angesprochenen Clustering handelt es sich um das "Identifizieren von distin
 \end{figure}
 
 \section{Semi-supervised Learning}\label{sec:ssl1}
-Bis jetzt wurden zwei Extremfälle beschrieben: entweder es gibt keine Labels oder alle Daten sind gelabelt. Es existieren jedoch auch Abstufungen dazwischen. Besitzen die meisten Daten ein Label, so ist es eventuell möglich, die Datensätze ohne für das Learning zu entfernen und ein Model aus dem Supervised Learning heranzuziehen. Tritt aber ein Problem auf, bei dem nur sehr wenige Daten gelabelt sind, empfiehlt sich ein Vorgehen aus dem Semi-supervised Learning. Methoden dieser Familie des Machine Learning beruhen auf der Annahme, dass "die Daten wichtige Informationen über die Gruppenzugehörigkeit beinhalten", "obwohl die Gruppenzugehörigkeit [...] unbekannt ist"\citep[S.~223; eigene Übersetzung]{ramasubramanian_machine_2017}. Als umfassendes Werk für Semi-supervised Learning ist an dieser Stelle \citep{chapelle_semi-supervised_2006} zu nennen. \newline
+Bis jetzt wurden zwei Extremfälle beschrieben: entweder es gibt keine Labels oder alle Daten sind gelabelt. Es existieren jedoch auch Abstufungen dazwischen. Besitzen die meisten Daten ein Label, so ist es eventuell möglich, die Datensätze ohne Label für das Learning zu entfernen und ein Model aus dem Supervised Learning heranzuziehen. Tritt aber ein Problem auf, bei dem nur sehr wenige Daten gelabelt sind, empfiehlt sich ein Vorgehen aus dem Semi-supervised Learning. Methoden dieser Familie des Machine Learning beruhen auf der Annahme, dass "die Daten wichtige Informationen über die Gruppenzugehörigkeit beinhalten", "obwohl die Gruppenzugehörigkeit [...] unbekannt ist"\citep[S.~223; eigene Übersetzung]{ramasubramanian_machine_2017}. Als umfassendes Werk für Semi-supervised Learning ist an dieser Stelle \citep{chapelle_semi-supervised_2006} zu nennen. \newline
 Zur Anwendung kommt Semi-supervised Learning seit den 1990er Jahre in "natural language problems" und "text classification"\citep[S.~4]{chapelle_semi-supervised_2006}.
 
 \section{Active Learning}\label{sec:al1}
-Ein Sonderfall des Semi-Supervised Learning ist das Active Learning. Hier wird davon ausgegangen, dass nur wenige oder keine Labels vorhanden sind, diese jedoch durch einen "Menschen mit umfangreichem Wissen im Themengebiet"\citep[S.~i; eigene Übersetzung]{olsson_literature_2009} hinzugefügt werden können. Alle Daten mit einem Label zu versehen wäre jedoch zu "schwer, zeitaufwendig oder zu teuer"\citep[Abstract; eigene Übersetzung]{settles_active_2010}. Mit dem Ziel an den Menschen nur so wenig Anfragen (engl. Queries) wie nötig zu stellen\citep[Abstract]{olsson_literature_2009}, werden Algorithmen entworfen, die selbst wählen könne, welche Datensätze gelabet werden sollen.\citep[Abstract]{settles_active_2010}\newline
+Ein Sonderfall des Semi-Supervised Learning ist das Active Learning. Hier wird davon ausgegangen, dass nur wenige oder keine Labels vorhanden sind, diese jedoch durch einen "Menschen mit umfangreichem Wissen im Themengebiet"\citep[S.~i; eigene Übersetzung]{olsson_literature_2009} hinzugefügt werden können. Alle Daten mit einem Label zu versehen wäre jedoch zu "schwer, zeitaufwendig oder zu teuer"\citep[Abstract; eigene Übersetzung]{settles_active_2010}. Mit dem Ziel an den Menschen nur so wenig Anfragen (engl. Queries) wie nötig zu stellen\citep[Abstract]{olsson_literature_2009}, werden Algorithmen entworfen, die selbst wählen können, welche Datensätze gelabelt werden sollen.\citep[Abstract]{settles_active_2010}\newline
 Nach \citep[S.~4]{settles_active_2010} wird Active Learning beispielsweise in
 \begin{itemize}
 \item der Spracherkennung,
@@ -594,7 +594,7 @@ Nach \citep[S.~4]{settles_active_2010} wird Active Learning beispielsweise in
 \end{itemize}
 
 \section{Reinforcement Learning}\label{sec:rl1}
-"Beim Reinforcement Learning interagiert der Lerner" - also ein Programm - "mit seiner Umwelt"\citep[S.~45; eigene Übersetzung]{settles_active_2010}. Er "experimentiert" dabei, um eine Lösung auf das gestellte Problem zu finden und erhält je nach Ausgang seiner Aktion eine Belohnung oder eine Bestrafung.\citep[S.~331]{kubat_introduction_2017} Es wird also nicht direkt mit einem Output (Label) gearbeitet, sondern lediglich die Qualität des Outputs bewertet. Das Ziel ist, durch ein iteratives Vorgehen (siehe Abbildung \ref{fig:reinforcementLearning}), ein maximales Endergebnis (größer Reward) zu erreichen.\citep[S.~69]{swamynathan_mastering_2017}
+"Beim Reinforcement Learning interagiert der Lerner" - also ein Programm - "mit seiner Umwelt"\citep[S.~45; eigene Übersetzung]{settles_active_2010}. Er "experimentiert" dabei, um eine Lösung auf das gestellte Problem zu finden und erhält je nach Ausgang seiner Aktion eine Belohnung oder eine Bestrafung.\citep[S.~331]{kubat_introduction_2017} Es wird also nicht direkt mit einem Output (Label) gearbeitet, sondern lediglich die Qualität des Outputs bewertet. Das Ziel ist, durch ein iteratives Vorgehen (siehe Abbildung \ref{fig:reinforcementLearning}), ein maximales Endergebnis (größter Reward) zu erreichen.\citep[S.~69]{swamynathan_mastering_2017}
 \begin{figure}[H]
 \centering
 \frame{
@@ -603,9 +603,9 @@ Nach \citep[S.~4]{settles_active_2010} wird Active Learning beispielsweise in
 \label{fig:reinforcementLearning}
 \end{figure}
 Reinforcement Learning kommt in Szenarien zum Einsatz, in denen noch keine Daten zum Lernen zur Verfügung stehen oder erst nach und nach aktualisiert werden.\citep[S.~223]{ramasubramanian_machine_2017}\newline
-Ein prominentes Beispiel für ein System mit Reinforcement Learning ist Google DeepMinds AlphaGo. Es handelt sich dabei um ein Go (asiatisches Brettspiel) spielende Computersystem, dass seine Spielstärke durch spielen gegen sich selbst erreichte.\citep{silver_mastering_2017} AlphaGo besiegte 2015 den "legendären Mr Lee Sedol" (weitgehend als bester Spieler des Jahrzehnts geachtet) vor 200 Millionen Zuschauern.\citep{deepmind_alphago_2017}
+Ein prominentes Beispiel für ein System mit Reinforcement Learning ist Google DeepMinds AlphaGo. Es handelt sich dabei um ein Go (asiatisches Brettspiel) spielendes Computersystem, das seine Spielstärke durch spielen gegen sich selbst erreichte.\citep{silver_mastering_2017} AlphaGo besiegte 2015 den "legendären Mr Lee Sedol" (weitgehend als bester Spieler des Jahrzehnts geachtet) vor 200 Millionen Zuschauern.\citep{deepmind_alphago_2017}
 
-\chapter{Krypotwährungen}\label{sec:cryptocurrency2}
+\chapter{Kryptowährungen}\label{sec:cryptocurrency2}
 In der Motivation (siehe Abschnitt \ref{sec:cryptocurrency}) wurde bereits auf Kryptowährungen allgemein und auf Bitcoin im Speziellen eingegangen. Es wurde ebenfalls angemerkt, dass die zwei Währungen mit dem größten Marktvolumen Bitcoin (\gls{btc}) und Etherium (\gls{eth}) sind. Aus diesem Grund werden die Kurse dieser beiden Währungen analysiert. In diesem Abschnitt wird darauf verzichtet, weiter auf die allgemeine Technik hinter BTC und ETH einzugehen. In Punkt \ref{subsec:describe} - vor allem in den Tabellen \ref{tab:BTCextraData} und \ref{tab:ETHextraData} - tauchen bei der Beschreibung der Datensätze jedoch Begriffe auf, die einer genaueren Erklärung bedürfen:
 \begin{itemize}
 \item Die \textbf{Marktkapitalisierung} ist der aktuelle Marktwert einer Kryptowährung. Er ergibt sich aus dem Produkt des aktuellen Handelskurses und der totalen Anzahl der geschürften Währungseinheiten. Bei einem Kurs von 500 USD pro \gls{ether} und einem Volumen von 1000 Ether, ist die Marktkapitalisierung 500000 USD.
@@ -613,7 +613,7 @@ In der Motivation (siehe Abschnitt \ref{sec:cryptocurrency}) wurde bereits auf K
 \item Die \textbf{Blocksize} ist die Größe eines Blocks (meinst in Megabyte).
 \item \textbf{Stale Blocks} sind Blöcke der Blockchain, die korrekt sind, aber ihren Weg in die Blockchain nicht gefunden haben. Dies kann passieren, wenn zwei Blöcke gleichzeitig fertiggestellt werden, jedoch nur einer davon in die Blockchain aufgenommen werden kann.\citep{bitcoinproject_stale_2017} Im Ethereumnetzwerk heißen diese Blöcke '\textbf{Uncles}'. Entgegen dem Bitcoinnetzwerk werden dort Miner für Stale Blocks (Uncles) entlohnt.\citep{jdebunt_what_2017} Es besteht auch die Möglichkeit eines '\textbf{Orphaned}' Blocks. Das ist ein Block, über dessen Elternblöcke ein berechnender Knoten des Netzwerks keine Informationen hat und ihn deswegen nicht validieren kann.\citep{bitcoinproject_orphan_2017}
 \item Die Bestätigungszeit (engl. \textbf{confirmation time}) ist die Zeit, die zwischen einer Transaktion und ihrer Aufnahme in die Blockchain vergeht.\citep{kumar_cryptocurrency_2017}
-\item Bei der \textbf{Hashrate} handelt es sich um die Anzahl der Hashes eines Netzwerk pro Sekunde. Trifft man auf den Begriff im Kontext des Bitcoins, handelt es sich meist um Terahashes, bei Ethereum um Gigahashes (entspricht $ \frac{1}{1000}$ Terahash).\citep{kumar_cryptocurrency_2017}
+\item Bei der \textbf{Hashrate} handelt es sich um die Anzahl der Hashes eines Netzwerks pro Sekunde. Trifft man auf den Begriff im Kontext des Bitcoins, handelt es sich meist um Terahashes, bei Ethereum um Gigahashes (entspricht $ \frac{1}{1000}$ Terahash).\citep{kumar_cryptocurrency_2017}
 \item Miningschwierigkeit (\textbf{difficulty}) meint die Schwierigkeit, einen validen Block zu finden. Als Referenz dient die einfachste Möglichkeit einen Block zu finden mit der Schwierigkeit 1.\citep{bitcoinproject_difficulty_2017}
 \item Aufgebrachte Rechenleistung wird im Ethereumnetzwerk in \textbf{Gas} (engl. Aussprache) bemessen. Wie in Teil \ref{sec:cryptocurrency} bereits genannt, können im Netzwerk beispielsweise Smartcontracts ausgeführt werden. Die Kosten für die dort verbrauchte Leistung wird in Gas gezahlt. Wenn die Leistung vorher nicht abgemessen werden kann, wird ein Limit (\textbf{gas limit}) gesetzt, nach dessen Verbrauch eine Aktion abgebrochen wird.\citep[S.~4]{wood_ethereum:_2014}
 \end{itemize}
@@ -625,18 +625,18 @@ Im nun folgenden Abschnitt der Arbeit wird das Microsoft Azure ML Studio in drei
 \item Dann wird der Aufbau eines Projektes beschrieben und
 \item zuletzt die vorgefertigten Komponenten vorgestellt.
 \end{enumerate}
-Es sollte in diesem Teil beachtet werden, dass die Quellen hauptsächlich Microsoft-eigen sind, da außer einigen Blockartikeln wenig externe Literatur oder Meinungen verfügbar sind.
+Es sollte in diesem Teil beachtet werden, dass die Quellen hauptsächlich Microsoft-eigen sind, da außer einigen Blogartikeln wenig externe Literatur oder Meinungen verfügbar sind.
 \section{Allgemeine Beschreibung}\label{sec:ab1}
-Zum Ende des Abschnittest \ref{sec:SaaS} wurde die \textbf{S}oftware \textbf{a}s \textbf{a} \textbf{S}ervice (SaaS) Microsoft Azure Machine Learning Studio bereits angesprochen. Es handelt sich dabei um eine Cloud-basierte Web-\gls{ide} (\textbf{I}ntegrated \textbf{D}evelopment \textbf{E}nvironment). Der Kern der Anwendung ist ein "drag and-drop tool", das genutzt wird um "predictive analytics solutions" zu entwerfen und bereitzustellen.\citep{ericson_what_2017} Es können sowohl vorgefertigte Bausteine genutzt werden, als auch selbst entworfene Scripte (in \gls{r} und/oder \gls{py}).
+Zum Ende des Abschnittes \ref{sec:SaaS} wurde die \textbf{S}oftware \textbf{a}s \textbf{a} \textbf{S}ervice (SaaS) Microsoft Azure Machine Learning Studio bereits angesprochen. Es handelt sich dabei um eine Cloud-basierte Web-\gls{ide} (\textbf{I}ntegrated \textbf{D}evelopment \textbf{E}nvironment). Der Kern der Anwendung ist ein "drag and-drop tool", das genutzt wird, um "predictive analytics solutions" zu entwerfen und bereitzustellen.\citep{ericson_what_2017} Es können sowohl vorgefertigte Bausteine genutzt werden, als auch selbst entworfene Scripte (in \gls{r} und/oder \gls{py}).
 \section{Aufbau und Komponenten}\label{sec:auK1}
 Die strukturellen Hauptkomponenten sind Tabelle \ref{tab:azuremlcomponents} zu entnehmen. Die Tabelle basiert auf dem Artikel "What is Azure Machine Learning Studio?" von \citep{ericson_what_2017} und dem Machine Learning Studio selbst (https://studio.azureml.net/Home).
 \begin{longtable}[H]{|p{2,5cm}|p{14cm}|}
 \hline
 \textbf{Komponente} & \textbf{Beschreibung}\\ 
 \hhline{==}
-Settings & Hier finden sich Einstellmöglichkeiten zur Benutzerverwaltung (für kollaborative Arbeit im Studio), das Preismodell (10GB Workspace Storage sind in der kostenfreien Version enthalten) und zu den Authorisierungstoken. Die Settings sind in diesem Kontext nicht weiter interessant. \\
+Settings & Hier finden sich Einstellmöglichkeiten zur Benutzerverwaltung (für kollaborative Arbeit im Studio), das Preismodell (10GB Workspace Storage sind in der kostenfreien Version enthalten) und die Authorisierungstoken. Die Settings sind in diesem Kontext nicht weiter interessant. \\
 \hline
-Notebooks & Die Notebooks sind Verknüpfungen auf Jupyter Notebooks. Diese wiederum sind "Webanwendungen", die genutzt werden um "Dokumente, die live code, Gleichungen, Virtualisierungen und erzählenden Text" enthalten "zu erstellen und zu teilen". Genutzt werden sie unter andrem für 
+Notebooks & Die Notebooks sind Verknüpfungen auf Jupyter Notebooks. Diese wiederum sind "Webanwendungen", die genutzt werden, um "Dokumente, die live code, Gleichungen, Virtualisierungen und erzählenden Text" enthalten "zu erstellen und zu teilen". Genutzt werden sie unter anderem für 
 \begin{itemize}
 \item "data cleaning",
 \item "transformation,
@@ -647,9 +647,9 @@ Notebooks & Die Notebooks sind Verknüpfungen auf Jupyter Notebooks. Diese wiede
 \end{itemize}
 Project Jupyter ist non-profit und open-source.\citep{projectjupyter_about_2017} \\
 \hline
-Experiments & Experimente sind das Kernelemente des Azure ML Studios. Sie stellen den Rahmen für das erproben verschiedener Problemlösungen. Experimente sollten dabei mindestens ein Datenset (dazu gleich mehr) und ein Modul enthalten. Ist ein Experiment ausgereift, kann der Status von "training" to "predictive" geändert werden und als Web Service bereit gestellt werden (dazu ebenfalls nachfolgend mehr).\\
+Experiments & Experimente sind das Kernelement des Azure ML Studios. Sie stellen den Rahmen für das Erproben verschiedener Problemlösungen. Experimente sollten dabei mindestens ein Datenset (dazu gleich mehr) und ein Modul enthalten. Ist ein Experiment ausgereift, kann der Status von "training" to "predictive" geändert werden und als Web Service bereit gestellt werden (dazu ebenfalls nachfolgend mehr).\\
 \hline
-Datasets & Für das Experimentieren benötige Datensätze (z.B. .csv-, .tsv-, .arff-, .txt-, .zip-, oder .RData-Dateine) können in die Web-IDE geladen und als Datasets abgespeichert werden. So können die Dateien ohne erneutes hochladen wiederverwendet werden. Eine andere Möglichkeit, Daten im Studio zu benutzen, ist das Experiment Item "Import Data", das unter anderem auf Daten aus Azure Blob Storage, Azure Table Storage, Azure DocumentDB, Azure SQL Datenbanken, Hive Queries oder HTTP-Quellen zugreifen kann.\\
+Datasets & Für das Experimentieren benötigte Datensätze (z.B. .csv-, .tsv-, .arff-, .txt-, .zip-, oder .RData-Dateine) können in die Web-IDE geladen und als Datasets abgespeichert werden. So können die Dateien ohne erneutes Hochladen wiederverwendet werden. Eine andere Möglichkeit, Daten im Studio zu benutzen, ist das Experiment Item "Import Data", das unter anderem auf Daten aus Azure Blob Storage, Azure Table Storage, Azure DocumentDB, Azure SQL Datenbanken, Hive Queries oder HTTP-Quellen zugreifen kann.\\
 \hline
 Experiment Items & Die Sammlung aller drag-and-drop Elemente im Studio werden Experiment Items genannt. Sie umfassen Elemente für alle Prozessschritte, wie Input, Transformation, Selection, Machine Learning Module, Visualisierung, Scoring etc.\\
 \hline
@@ -657,7 +657,7 @@ Trained Models & Fertig trainierte Machine Learning Module können als eigenstä
 \hline
 Web Services & Ist ein Experiment auf dem Status "predictive", können die Input- und Output-Felder in Web Services umgewandelt werden, um sie in andere Anwendungen oder Systeme zu integrieren.\\
 \hline
-Projects & Projects dienen als Organisatorisches Strukturelement. Durch sie können Experimente, Datasets, Notebooks etc. gruppiert werden. \\
+Projects & Projects dienen als organisatorisches Strukturelement. Durch sie können Experimente, Datasets, Notebooks etc. gruppiert werden. \\
 \hline
 \caption{Hauptkomponenten des Azure Machine Learning Studios}
 \label{tab:azuremlcomponents}

@@ -1,5 +1,5 @@
 \chapter{Praxis: Durchführung der Analyse}\label{chap:praxis}
-Nachdem in den vorhergegangen Abschnitten alle Aspekte des Themas "Kursanalyse von Kryptowährungen mit Azure Machine Learning" betrachtet wurden, widmet sich dieser Abschnitt der praktischen Umsetzung. Jeder Themenblock hat seinen Teil zum Erstellen eines Kontextes beigetragen, in dem die Analyse durchgeführt werden kann (siehe Tabelle \ref{tab:themeblocks}).
+Nachdem in den vorhergegangenen Abschnitten alle Aspekte des Themas "Kursanalyse von Kryptowährungen mit Azure Machine Learning" betrachtet wurden, widmet sich dieser Abschnitt der praktischen Umsetzung. Jeder Themenblock hat seinen Teil zum Erstellen eines Kontextes beigetragen, in dem die Analyse durchgeführt werden kann (siehe Tabelle \ref{tab:themeblocks}).
 \begin{table}[H]
 \begin{tabular}{|p{3,5cm}|p{6cm}|p{7cm}|}
 \hline
@@ -21,7 +21,7 @@ Wie in Punkt \ref{sec:crispdmdec} angesprochen, wird als Hilfe für das Prozessm
  
 \section{Business Understanding}\label{sec:p1}
 \subsection{Festlegung der fachlichen Projektziele (Determine the Business Objectives)}
-In  gewöhnlichen Industrie- oder Forschungsprojekten ist es wichtig, die Stakeholder (vor allem Geldgeber) und den Reifegrad und die Akzeptanz des Data Mining im Projektumfeld zu analysieren. Dies rückt im vorliegenden Fall in den Hintergrund. Die Anderen Outputs sind jedoch ebenso wichtig.
+In gewöhnlichen Industrie- oder Forschungsprojekten ist es wichtig, die Stakeholder (vor allem Geldgeber) sowie den Reifegrad und die Akzeptanz des Data Mining im Projektumfeld zu analysieren. Dies rückt im vorliegenden Fall in den Hintergrund. Die anderen Outputs sind jedoch ebenso wichtig.
 
 \begin{centering} \begin{longtable}[H]{|p{4,5cm}|p{12cm}|}
 \hline
@@ -31,11 +31,11 @@ Background & Die Analyse wird im Rahmen einer Masterarbeit durchgeführt. Nur ei
 \hline
 Business objectives & Die Untersuchung hat zwei Hauptziele. Das eine ist die Analyse der Kryptowährungen an sich. Es soll herausgefunden werden, ob der Kurs mit Hilfe der Isolation von Einflussfaktoren und den Mitteln des Machine Learning vorausgesagt werden kann. Das andere Ziel ist die Einarbeitung in das Werkzeug Azure Machine Learning Studio. \\
 \hline
-Business success criteria & Die Erkenntnis, dass eine Vorhersage nicht möglich ist, oder dass wichtige Einflüsse nicht gefunden wurden, ist durchaus möglich und bedeutet keinesfalls ein Scheitern des Projekts. Hinsichtlich des Werkzeugs Azure ML, ist es beispielsweise interessant, welchen Restriktionen das Tool unterlegen ist. Das Betrifft sowohl Funktionen, die (noch) nicht vorhanden sind, oder technische Limitationen, wie Geschwindigkeit, Volumenbegrenzungen etc..\\
+Business success criteria & Die Erkenntnis, dass eine Vorhersage nicht möglich ist, oder dass wichtige Einflüsse nicht gefunden wurden, ist durchaus möglich und bedeutet keinesfalls ein Scheitern des Projekts. Hinsichtlich des Werkzeugs Azure ML ist es beispielsweise interessant, welchen Restriktionen das Tool unterlegen ist. Das betrifft sowohl Funktionen, die (noch) nicht vorhanden sind, als auch technische Limitierungen, wie Geschwindigkeit, Volumenbegrenzungen etc..\\
 \hline
 \caption{Output des Schrittes "Determine the Business Objectives"}
 \end{longtable} \end{centering}
-\subsection{Aufstellung der Projetressourcen und Einflussfaktoren (Assess the Situation)} \label{subsec:assesTheSituation}
+\subsection{Aufstellung der Projektressourcen und Einflussfaktoren (Assess the Situation)} \label{subsec:assesTheSituation}
 Dieser Teil befasst sich vor allem damit, welche Ressourcen zur Verfügung stehen (Hardware, Software, personell) und welche sonstigen Bedingungen erfüllt sein müssen oder das Projekt begrenzen. Dazu zählt auch das Finden von Daten, die für die Modellierung genutzt werden können. Anzumerken ist hierbei, dass es noch nicht um das tatsächliche Laden der Daten im Sinne von Dateien geht, sondern um das Finden von Quellen für Daten. Zusätzlich sollen noch eine Risiko- und eine Kosten-Nutzen-Analyse durchgeführt werden. Das Hauptaugenmerk liegt jedoch auf der Erschließung der Daten. 
 \newline
 An Stelle einer vollständigen Risikoanalyse (Kontext herstellen, Risiken identifizieren, analysieren, evaluieren, managen\citep[S.~43]{sowa_management_2017}), tritt eine Aufzählung der zwei Hauptrisiken. Dies geschieht einerseits aus Gründen der Verhältnismäßigkeit, andererseits liegt der Fokus der Arbeit auf einem anderen Thema. Ähnlich verhält es sich mit der Kosten-Nutzen-Analyse. Sie wird zur Bewertung der Wirtschaftlichkeit herangezogen, was in diesem Kontext nicht relevant ist. Deswegen wird auf sie vollständig verzichtet.
@@ -46,7 +46,7 @@ An Stelle einer vollständigen Risikoanalyse (Kontext herstellen, Risiken identi
 \hhline{==}
 Inventory of resources & Personal
 \begin{itemize}
-\item 1 Person mit Zugang zu den Recherche Ressourcen der Hochschule München (OPAC, DBIS, ZDB etc.\citep{hochschulemunchen_hochschule_2017})
+\item 1 Person mit Zugang zu den Recherche-Ressourcen der Hochschule München (OPAC, DBIS, ZDB etc.\citep{hochschulemunchen_hochschule_2017})
 \end{itemize}
 Hardware
 \begin{itemize}
@@ -69,7 +69,7 @@ Daten
 \end{itemize}
 \\
 \hline
-Requirements, assumptions, and constraints & Zu Bedenken ist, dass bei einer kostenlosen Subscription im Azure ML Studio nur 10GB Storage verfügbar sind. Zusätzlich müssen Daten, die analysiert werden sollen, in das Tool geladen werden. Bei einem Upload vom PC wird das durch die Upload-Bandbreite limitiert. Eventuell müssen Daten im Projektverlauf auch öfter Hochgeladen werden, was zu Verzögerungen führen könnte. Außerdem lässt sich in der freien Version nur jeweils ein Experiment gleichzeitig ausführen. Das parallele Trainieren von Modellen ist somit nicht möglich.\newline 
+Requirements, assumptions, and constraints & Zu bedenken ist, dass bei einer kostenlosen Subscription im Azure ML Studio nur 10GB Storage verfügbar sind. Zusätzlich müssen Daten, die analysiert werden sollen, in das Tool geladen werden. Bei einem Upload vom PC wird das durch die Upload-Bandbreite limitiert. Eventuell müssen Daten im Projektverlauf auch mehrfach hochgeladen werden, was zu Verzögerungen führen könnte. Außerdem lässt sich in der freien Version nur jeweils ein Experiment gleichzeitig ausführen. Das parallele Trainieren von Modellen ist somit nicht möglich.\newline 
 Obwohl zur Hilfe neben der Web-IDE auch RStudio genutzt werden kann, soll die Untersuchung hauptsächlich mit den Azure ML Studio Bordmitteln durchgeführt werden. \newline
 Schließlich sollen nur solche Daten genutzt werden, die entweder frei verfügbar sind oder mit dem Hochschulzugang zu beschaffen sind. Das schließt präparierte Datensätze von Bezahlseiten aus.\\
 \hline
@@ -85,11 +85,11 @@ Costs and benefits & --- \\
 \caption{Output des Schrittes "Assess the Situation"}
 \end{longtable} \end{centering}
 
-Die schwerste Aufgabe dieses Teils ist das Finden von Daten, die Einfluss auf den Kurs von Kryptowährungen haben (könnten). Forschungen in diesem Bereich identifizierten einerseits öffentliches Interesse (soziale Medien, Google Suchanfragen, etc.)\multicitep{kristoufek_bitcoin_2013; garcia_digital_2014} und andererseits auch wirtschaftliche Faktoren ("standard economic theory", also Angebot und Nachfrage, Investoren)\citep{kristoufek_what_2015} als Haupteinflussfaktoren. Anhand den Aussagen dieser Paper und zusätzlichen Überlegungen ergeben sich folgende Faktoren, die bei der Analyse bedacht werden (Tabellen \ref{tab:dataToAnalyseA} bis \ref{tab:dataToAnalyseE}).\newline Darüber hinaus wird die Quelle aufgeführt, über die die Daten bezogen werden. Bei monetären Strömen oder Kursen, wird immer der Kurs in USD herangezogen. 
+Die größte Herausforderung dieses Teils ist das Finden von Daten, die Einfluss auf den Kurs von Kryptowährungen haben (könnten). Forschungen in diesem Bereich identifizierten einerseits öffentliches Interesse (soziale Medien, Google Suchanfragen, etc.)\multicitep{kristoufek_bitcoin_2013; garcia_digital_2014} und andererseits auch wirtschaftliche Faktoren ("standard economic theory", also Angebot und Nachfrage, Investoren)\citep{kristoufek_what_2015} als Haupteinflussfaktoren. Anhand den Aussagen dieser Paper und zusätzlichen Überlegungen ergeben sich folgende Faktoren, die bei der Analyse bedacht werden (Tabellen \ref{tab:dataToAnalyseA} bis \ref{tab:dataToAnalyseE}).\newline Darüber hinaus wird die Quelle aufgeführt, über die die Daten bezogen werden. Bei monetären Strömen oder Kursen wird immer der Kurs in USD herangezogen. 
 \newline
-Damit eine Analyse der Kryptowährungen möglich ist, müssen zu diesen historische Kursdaten beschafft werden. Dieser, auf den ersten Blick simpel wirkende Schritt, ist jedoch nicht trivial. Kryptowährungen werden an dutzenden Portalen gleichzeitig gehandelt. Dabei erscheinen genauso schnell neue Börsen, wie alte verschwinden. Auch das Handelsvolumen und die Handelswährung unterscheidet sich. Hinzu kommt, dass an Bitcoin- oder Ethereum-Handelsportalen meist 24 Stunden täglich gehandelt werden kann. Aus diesem Grund sind solche Datenquellen ausgewählt worden, die entweder ihre Daten direkt von der Blockchain erhalten oder einen gewichteten Mittelwert über die größten Handelsplattformen berechnen.
+Damit eine Analyse der Kryptowährungen möglich ist, müssen zu diesen historische Kursdaten beschafft werden. Dieser, auf den ersten Blick simpel wirkende Schritt, ist jedoch nicht trivial. Kryptowährungen werden an dutzenden Portalen gleichzeitig gehandelt. Dabei erscheinen genauso schnell neue Börsen, wie alte verschwinden. Auch das Handelsvolumen und die Handelswährung unterscheiden sich. Hinzu kommt, dass an Bitcoin- oder Ethereum-Handelsportalen meist 24 Stunden täglich gehandelt werden kann. Aus diesem Grund sind solche Datenquellen ausgewählt worden, die entweder ihre Daten direkt von der Blockchain erhalten oder einen gewichteten Mittelwert über die größten Handelsplattformen berechnen.
 \newline
-Die nächste Schwierigkeit ist die Auswahl der Aktienindizes, die für die Analyse herangezogen werden. Es existiert keine allgemein gültige oder anerkannte Liste mit 'den wichtigsten Aktienindizes'. Aus diesem Grund wurden die Indizes ausgewählt, die die Website investing.com als "major world indices" deklariert.\citep{fusionmedialimited_major_2017} Es liegt dabei eine große Überschneidung mir anderen Stock Market-Seiten vor.\multicitep{liveindex.org_live_2017; yahoofinance_major_2017} Zusätzlich zu den Aktienindizes wird ein Financial Stress Index (FSI) herangezogen. Ein solcher "Index misst die aktuelle Belastung in einem finanzwirtschaftlichen System"\citep[S.~1; eigene Übersetzung]{vermeulen_financial_2014} In diesem Fall ist es der St. Louis Fed Financial Stress Index, der 18 Einzelfaktoren aus drei Kategorien bündelt.\citep{federal_reserve_bank_of_st._louis_st._2017}
+Die nächste Schwierigkeit ist die Auswahl der Aktienindizes, die für die Analyse herangezogen werden. Es existiert keine allgemein gültige oder anerkannte Liste mit 'den wichtigsten Aktienindizes'. Aus diesem Grund wurden die Indizes ausgewählt, die die Website investing.com als "major world indices" deklariert.\citep{fusionmedialimited_major_2017} Es liegt dabei eine große Überschneidung mit anderen Stock Market-Seiten vor.\multicitep{liveindex.org_live_2017; yahoofinance_major_2017} Zusätzlich zu den Aktienindizes wird ein Financial Stress Index (FSI) herangezogen. Ein solcher "Index misst die aktuelle Belastung in einem finanzwirtschaftlichen System"\citep[S.~1; eigene Übersetzung]{vermeulen_financial_2014} In diesem Fall ist es der St. Louis Fed Financial Stress Index, der 18 Einzelfaktoren aus drei Kategorien bündelt.\citep{federal_reserve_bank_of-st._louis_st._2017}
 \newline
 Ferner werden die Währungen der acht größten Volkswirtschaften\citep{the_international_monetary_fund_world_2017} und die Kurse für Gold, Silber und Rohöl mit einbezogen. Es werden die Wechselkurse zum Dollar betrachtet, sprich Fremdwährung/USD. Bei den Ölkursen wird Brent, das wichtigste Rohöl für den europäischen Markt \citep{wikimedia_brent_2016}, und West Texas Intermediate (WTI), das Pendant für den US-Markt, betrachtet\citep{wikimedia_west_2017}.
 
@@ -166,7 +166,7 @@ $ t_{n} : true \quad negative $ \newline
 $ f_{p} : false \quad positive $ \newline
 $ f_{n} : false \quad negative $
 \end{framed}
-Möglichkeiten für die Bewertung einer Regressionen sind:
+Möglichkeiten für die Bewertung einer Regression sind:
 \begin{itemize}
 \item Mean absolute error (MAE): durchschnittlicher, absoluter Unterschied zwischen vorhergesagten und tatsächlichen Werten; je kleiner desto besser\citep{mircosoft_evaluate_2017}
 \item Root mean squared error (RMSE): Macht eine Aussage darüber, "wie gut eine Funktionskurve an vorliegende Daten angepasst ist"; "je größer der RMSE [...], desto schlechter"\citep{statista_root_nodate}
@@ -179,7 +179,7 @@ $Regression \quad erklärt \quad nichts := 0$;
 \newline 
 kleine Werte sind normal, große sollten misstrauisch machen\citep{mircosoft_evaluate_2017}
 \end{itemize}
-Die Auswahl fällte auf den F1-Score für Klassifikationen, da er Recall und Precision inkludiert und im Gegensatz zum AUC zwischen mehreren Modellen direkt vergleichbar ist (Maximalwert 1 statt nach oben offen). Bei der Regression fällt die Wahl auf $ R^2 $, da er Modelle ebenfalls direkt vergleichbar macht.
+Die Auswahl fiel auf den F1-Score für Klassifikationen, da er Recall und Precision inkludiert und im Gegensatz zum AUC zwischen mehreren Modellen direkt vergleichbar ist (Maximalwert 1 statt nach oben offen). Bei der Regression fällt die Wahl auf $ R^2 $, da er Modelle ebenfalls direkt vergleichbar macht.
 
 \begin{centering} \footnotesize \begin{longtable}[!h]{|p{4,5cm}|p{12cm}|}
 \hline
@@ -201,13 +201,13 @@ Data mining success criteria &\begin{itemize}
 \end{longtable} \end{centering}
 
 \subsection{Aufstellung eines groben Projektplans und der genutzten Werkzeuge (Produce a Project Plan)} \label{subsec:projectPlan}
-Nach diesem sehr Daten-orientierten Teilschritt, befasst sich der nachfolgende Schritt einerseits mit der (groben) Planung des weiteren Projekts und andererseits mit einer anfänglichen Betrachtung der eingesetzten Werkzeuge. Grundsätzlich orientiert sich der Projektplan am Referenzmodell CRISP-DM. In einem komplexeren Projekt mit mehreren kollaborativ arbeitenden Personen, kommt diesem Schritt eine größere Rolle zu als im vorliegenden Fall. Wichtige Meilensteine, die zu bestimmten Zeitpunkten fertig vorliegen müssen, um einen unterbrechungsfreien Projektverlauf zu gewährleisten, stellen die Outputs jedes Prozessschrittes dar. Eine zeitliche Einschätzung ist dem Output "Project Plan" in Tabelle \ref{tab:projectPlan} zu entnehmen. Zu sehen ist dort der geschätzte Arbeitsaufwand in Tagen für jeden Schritt und der Anteil am Gesamtprojekt. Anzumerken ist hier, dass die Angaben durch Rückschritte in frühere Phasen verzerrt werden können. Auf das Deployment wird verzichtet.  \newline
-Bei der initialen Betrachtung der Werkzeuge werden laut Prozessmodell verschiedene alternativen gegeneinander abgewogen und ihr Zweck im Projekt festgelegt. Da das Werkzeug Azure Machine Learning Studio bereits vorgegeben ist, wird hier nur der Zweck der Werkzeuge im Projektverlauf betrachtet. Wird das Werkzeug R (bzw. RStudio) eingesetzt, so erhält es den Vorzug gegenüber seiner Konkurrenz (z.b. Python) aufgrund der Erfahrung des Entwicklers.
+Nach diesem sehr datenorientierten Teilschritt, befasst sich der nachfolgende Schritt einerseits mit der (groben) Planung des weiteren Projekts und andererseits mit einer anfänglichen Betrachtung der eingesetzten Werkzeuge. Grundsätzlich orientiert sich der Projektplan am Referenzmodell CRISP-DM. In einem komplexeren Projekt mit mehreren kollaborativ arbeitenden Personen, kommt diesem Schritt eine größere Rolle zu als im vorliegenden Fall. Wichtige Meilensteine, die zu bestimmten Zeitpunkten fertig vorliegen müssen, um einen unterbrechungsfreien Projektverlauf zu gewährleisten, stellen die Outputs jedes Prozessschrittes dar. Eine zeitliche Einschätzung ist dem Output "Project Plan" in Tabelle \ref{tab:projectPlan} zu entnehmen. Zu sehen ist dort der geschätzte Arbeitsaufwand in Tagen für jeden Schritt und der Anteil am Gesamtprojekt. Anzumerken ist hier, dass die Angaben durch Rückschritte in frühere Phasen verzerrt werden können. Auf das Deployment wird verzichtet.  \newline
+Bei der initialen Betrachtung der Werkzeuge werden laut Prozessmodell verschiedene Alternativen gegeneinander abgewogen und ihr Zweck im Projekt festgelegt. Da das Werkzeug Azure Machine Learning Studio bereits vorgegeben ist, wird hier nur der Zweck der Werkzeuge im Projektverlauf betrachtet. Wird das Werkzeug R (bzw. RStudio) eingesetzt, so erhält es den Vorzug gegenüber seiner Konkurrenz (z.b. Python) aufgrund der Erfahrung des Entwicklers.
 
 
 \begin{centering} \footnotesize \begin{longtable}[!h]{|p{6cm}|p{4cm}|p{3,5cm}|}
 \hline
-\textbf{Prozessschritt} & \textbf{geschätzte Zeit in Tagen} & \textbf{Prozentualer Anteil} \\
+\textbf{Prozessschritt} & \textbf{geschätzte Zeit in Tagen} & \textbf{prozentualer Anteil} \\
 \hhline{===}
 Business understanding gesamt & $ 5$ &  $11 \%$ \\ \hline
 Data understanding gesamt & $ 20$ &  $44 \%$ \\ \hline
@@ -223,9 +223,9 @@ Gesamt & $\sum 45$ & $ 99 \%$ \\ \hline
 \textbf{Werkzeug} & \textbf{Zweck im Projekt}\\ 
 \hhline{==}
 Microsoft Azure Machine Learning Studio & Vorgabe im Projekt; soll in jeder Phase genutzt werden, wo es möglich ist \\ \hline
-Juypter Notebooks & Integriert in Azure ML Studio; für R Code, der in der Cloud ausgeführt werden soll \\ \hline
+Jupyter Notebooks & Integriert in Azure ML Studio; für R Code, der in der Cloud ausgeführt werden soll \\ \hline
 R & zur Nutzung in Situationen für die Azure ML keine vorgefertigten Experiment Items bereitstellt \\ \hline
-RStudio & zum lokalen entwerfen von Scripten vor der Ausführung in der Cloud und zur Vorbereitung der Datensätze \\ \hline
+RStudio & zum lokalen Entwerfen von Scripten vor der Ausführung in der Cloud und zur Vorbereitung der Datensätze \\ \hline
 Excel & zur Betrachtung, Vorbereitung und Konvertierung von Daten vor dem Upload in die Cloud \\ \hline
 Notepad++ & zur Betrachtung, Vorbereitung und Konvertierung von Daten vor dem Upload in die Cloud \\ \hline
 \caption{Output "Initial assessment of tools and techniques" des Schrittes "Produce a Project Plan"}
@@ -233,8 +233,8 @@ Notepad++ & zur Betrachtung, Vorbereitung und Konvertierung von Daten vor dem Up
 
 \section{Data Understanding}\label{sec:p2}
 \subsection{Beschaffung der Daten und grobe Beschreibung (Collect the Initial Data)} \label{subsec:collection}
-In Schritt \ref{subsec:assesTheSituation} wurden Einflussfaktoren auf den Kurs festgehalten. Zusätzlich wurden bereits Quellen für Daten zu diesen Faktoren gesucht. In diesem Schritt werden nun die Daten tatsächlich (im Sinne von 'echten' Dateien) bezogen und bereits in Azure Machine Learning geladen. Ebenfalls Teil dieses Schrittes ist es, die Daten grob zu beschreiben. Im vorliegen Fall werden die Datumsspanne und weitere offensichtliche Merkmale beschrieben. Die Herkunft der Daten ist nicht weiter beschrieben, da dies bereits in \ref{subsec:assesTheSituation} abgehandelt wurde.\newline
-Alle gesammelten Daten enthalten Header-Informationen (Preis, Kurs, Datum etc.). Azure ML Studio kann diese Header auslesen und nutzt sie für einfache Select- oder Join-Befehle. Damit dies möglich ist, müssen die Daten als 'Genereic \gls{csv} File with a header (.csv)' oder 'Generic \gls{tsv} File with a header (.tsv)' vorliegen. In manchen Fällen ist es möglich, dass Microsoft Excel beim Speichern einer Datei als '.csv' statt Kommas, Strichpunkte zum Trennen nutzt. Hier ist darauf zu achten, dass tatsächlich Kommas als Trennzeichen genutzt werden, da Azure ML Studio diese sonst nicht interpretieren kann. Die Datei-Endung '.tsv' ist nicht zwingend erforderlich. Ein 'Tab seperated values'-File kann auch mit der Endung '.txt' hochgeladen und richtig interpretiert werden. Dies ist wichtig, da Excel als Endung für diese Dateien nicht '.tsv' sondern '.txt' wählt.\newline
+In Schritt \ref{subsec:assesTheSituation} wurden Einflussfaktoren auf den Kurs festgehalten. Zusätzlich wurden bereits Quellen für Daten zu diesen Faktoren gesucht. In diesem Schritt werden nun die Daten tatsächlich (im Sinne von 'echten' Dateien) bezogen und bereits in Azure Machine Learning geladen. Ebenfalls Teil dieses Schrittes ist es, die Daten grob zu beschreiben. Im vorliegenden Fall werden die Datumsspanne und weitere offensichtliche Merkmale beschrieben. Die Herkunft der Daten ist nicht weiter beschrieben, da dies bereits in \ref{subsec:assesTheSituation} abgehandelt wurde.\newline
+Alle gesammelten Daten enthalten Header-Informationen (Preis, Kurs, Datum etc.). Azure ML Studio kann diese Header auslesen und nutzt sie für einfache Select- oder Join-Befehle. Damit dies möglich ist, müssen die Daten als 'Generic \gls{csv} File with a header (.csv)' oder 'Generic \gls{tsv} File with a header (.tsv)' vorliegen. In manchen Fällen ist es möglich, dass Microsoft Excel beim Speichern einer Datei als '.csv' statt Kommas, Strichpunkte zum Trennen nutzt. Hier ist darauf zu achten, dass tatsächlich Kommas als Trennzeichen genutzt werden, da Azure ML Studio die Datensätze sonst falsch interpretiert. Die Datei-Endung '.tsv' ist nicht zwingend erforderlich. Ein 'Tab seperated values'-File kann auch mit der Endung '.txt' hochgeladen und richtig interpretiert werden. Dies ist wichtig, da Excel als Endung für diese Dateien nicht '.tsv' sondern '.txt' wählt.\newline
 Azure ML Studio bietet die Möglichkeit, mehrere Dateien gezippt in das Tool zu laden. Dies bietet sich an, wenn viele einzelne Dateien hochgeladen werden sollen. Leider kann das Zip-File pro Experiment nur einmal verwendet werden und nur eine Datei daraus kann entpackt werden. Dadurch ist diese Option im Falle dieser Arbeit nicht praktikabel. Es müssen also alle Dateien einzeln geladen werden.
 
 \begin{centering} \footnotesize \begin{longtable}[!h]{|p{4cm}|p{3cm}|p{8cm}|}
