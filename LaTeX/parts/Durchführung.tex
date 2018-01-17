@@ -204,7 +204,7 @@ Data mining success criteria &\begin{itemize}
 
 \subsection{Aufstellung eines groben Projektplans und der genutzten Werkzeuge (Produce a Project Plan)} \label{subsec:projectPlan}
 Nach diesem sehr datenorientierten Teilschritt, befasst sich der nachfolgende Schritt einerseits mit der (groben) Planung des weiteren Projekts und andererseits mit einer anfänglichen Betrachtung der eingesetzten Werkzeuge. Grundsätzlich orientiert sich der Projektplan am Referenzmodell CRISP-DM. In einem komplexeren Projekt mit mehreren kollaborativ arbeitenden Personen, kommt diesem Schritt eine größere Rolle zu als im vorliegenden Fall. Wichtige Meilensteine, die zu bestimmten Zeitpunkten fertig vorliegen müssen, um einen unterbrechungsfreien Projektverlauf zu gewährleisten, stellen die Outputs jedes Prozessschrittes dar. Eine zeitliche Einschätzung ist dem Output "Project Plan" in Tabelle \ref{tab:projectPlan} zu entnehmen. Zu sehen ist dort der geschätzte Arbeitsaufwand in Tagen für jeden Schritt und der Anteil am Gesamtprojekt. Anzumerken ist hier, dass die Angaben durch Rückschritte in frühere Phasen verzerrt werden können. Auf das Deployment wird verzichtet.  \par
-Bei der initialen Betrachtung der Werkzeuge werden laut Prozessmodell verschiedene Alternativen gegeneinander abgewogen und ihr Zweck im Projekt festgelegt. Da das Werkzeug Azure Machine Learning Studio bereits vorgegeben ist, wird hier nur der Zweck der Werkzeuge im Projektverlauf betrachtet. Wird das Werkzeug R (bzw. RStudio) eingesetzt, so erhält es den Vorzug gegenüber seiner Konkurrenz (z.b. Python) aufgrund der Erfahrung des Entwicklers.
+Bei der initialen Betrachtung der Werkzeuge werden laut Prozessmodell verschiedene Alternativen gegeneinander abgewogen und ihr Zweck im Projekt festgelegt. Da das Werkzeug Azure Machine Learning Studio bereits vorgegeben ist, wird hier nur der Zweck der Werkzeuge im Projektverlauf betrachtet. Wird das Werkzeug R (bzw. RStudio) eingesetzt, so erhält es den Vorzug gegenüber seiner Konkurrenz (z.B. Python) aufgrund der Erfahrung des Entwicklers.
 
 
 \begin{centering} \footnotesize \begin{longtable}[!h]{|p{6cm}|p{4cm}|p{3,5cm}|}
@@ -227,7 +227,7 @@ Gesamt & $\sum 45$ & $ 99 \%$ \\ \hline
 Microsoft Azure Machine Learning Studio & Vorgabe im Projekt; soll in jeder Phase genutzt werden, wo es möglich ist \\ \hline
 Jupyter Notebooks & Integriert in Azure ML Studio; für R Code, der in der Cloud ausgeführt werden soll \\ \hline
 R & zur Nutzung in Situationen für die Azure ML keine vorgefertigten Experiment Items bereitstellt \\ \hline
-RStudio & zum lokalen Entwerfen von Scripten vor der Ausführung in der Cloud und zur Vorbereitung der Datensätze \\ \hline
+RStudio & zum lokalen Entwerfen von Skripten vor der Ausführung in der Cloud und zur Vorbereitung der Datensätze \\ \hline
 Excel & zur Betrachtung, Vorbereitung und Konvertierung von Daten vor dem Upload in die Cloud \\ \hline
 Notepad++ & zur Betrachtung, Vorbereitung und Konvertierung von Daten vor dem Upload in die Cloud \\ \hline
 \caption{Output "Initial assessment of tools and techniques" des Schrittes "Produce a Project Plan"}
@@ -737,7 +737,7 @@ Die Schwierigkeit für das Ethereumining wird im Datensatz ethereumDataset anfan
 \end{longtable} \end{centering}
 
 \section{Data Preparation}\label{sec:p3}
-\subsection{Inkludieren und Expludieren von Daten (Select Data)}
+\subsection{Inkludieren und Exkludieren von Daten (Select Data)}
 Die Datensätze sind nun gut beschrieben und es wurde auf Herausforderungen und Probleme hingewiesen. Die folgenden Punkte befassen sich damit, die richtigen Daten und Features weiter zu reduzieren ("Select Data"), sie zu reinigen ("Clean Data") und schließlich zum endgültigen Analyse-Datensatz zusammenfassen ("Construct Data", "Integrate Data" und "Format Data").
 Ausgenommen der jetzt begründet ausgeschlossenen Daten, werden alle Vorgestellten zum bilden des \gls{model} genutzt. Tabelle \ref{tab:selecData} liefert einen Überblick.
 
@@ -814,7 +814,7 @@ Das Vorgehen ist dabei folgendes:
 \item Die bearbeiteten Daten werden ihrem Datenblock hinzugefügt. Das Ergebnis wird untersucht und eventuelle Unreinheiten beseitigt.
 \item Alle Blöcke werden in einen abschließenden Datensatz integriert. Dieser wird wiederum inspiziert und bereinigt.
 \end{itemize}
-Nachfolgend wird das Bereinigen und Zusammensetzten beschrieben. Zuerst werden die Aktienindizes bearbeitet (Listing \ref{list:indicesR}) und gejoint (Abbildung \ref{fig:indicesAzure_1}). 
+Nachfolgend wird das Bereinigen und Zusammensetzen beschrieben. Zuerst werden die Aktienindizes bearbeitet (Listing \ref{list:indicesR}) und gejoint (Abbildung \ref{fig:indicesAzure_1}). 
 \lstinputlisting[caption=Aufbereiten der Indizes-Datensätze,label=list:indicesR]{../R/processIndexSets/processDataSet_Indices.R}
 \begin{figure}[H]
 \centering
@@ -823,7 +823,7 @@ Nachfolgend wird das Bereinigen und Zusammensetzten beschrieben. Zuerst werden d
 \caption{Zusammenführen der Aktienindizes in Azure Machine Learning Studio}
 \label{fig:indicesAzure_1}
 \end{figure}
-Daraufhin werden sie nachbearbeitet (die Beschreibung bezieht sich auf Abbildung \ref{fig:indicesAzure_2}): In jedem Ursprungsdatensatz existiert eine Spalte, die die Zeilen durchnummeriert. Dies diente zum beheben von Fehlern und wird nun entfernt (1. Select Columns in Dataset). Ebenso enthält das Ergebnis noch 35 Datums-Spalten (von jedem Ursprungsdatensatz eine). Diese werden bis auf Eine entfernt (2. Select Columns in Dataset und Edit Metadata).
+Daraufhin werden sie nachbearbeitet (die Beschreibung bezieht sich auf Abbildung \ref{fig:indicesAzure_2}): In jedem Ursprungsdatensatz existiert eine Spalte, die die Zeilen durchnummeriert. Dies diente zum Beheben von Fehlern und wird nun entfernt (1. Select Columns in Dataset). Ebenso enthält das Ergebnis noch 35 Datums-Spalten (von jedem Ursprungsdatensatz eine). Diese werden bis auf Eine entfernt (2. Select Columns in Dataset und Edit Metadata).
 \begin{figure}[H]
 \centering
 \frame{
@@ -888,7 +888,7 @@ Alle erzeugten Blöcke und einzelnen Datensätze werden nun im Azure Machine Lea
 \caption{Erzeugen des finalen Datensatzes für das Machine Learning}
 \label{fig:azureFinalSet}
 \end{figure}
-Der letzte Schritt vor dem Machine Learning ist das Auswählen des Analysezeitraums und das bereinigen fehlender Daten (siebe Abbildung \ref{fig:azureDateAndCleaning}).
+Der letzte Schritt vor dem Machine Learning ist das Auswählen des Analysezeitraums und das bereinigen fehlender Daten (siehe Abbildung \ref{fig:azureDateAndCleaning}).
 \begin{figure}[H]
 \centering
 \frame{
@@ -1104,7 +1104,7 @@ Der Umgang mit Azure Machine Learning Studio wurde vertraut. Eine Aussage über 
 
 \subsection{Rückblick auf den CRISP-DM-Prozess (Review Process)}
 Neben der technischen Interpretation der Ergebnisse und dem beurteilen der business objectives, folgt ein Rückblick auf die Schritte des CRISP-DM Referenzmodells.
-In Tabelle \ref{tab:ProcessReview} wird der Projektplan (Tabelle \ref{tab:projectPlan}) aus Punkt \ref{subsec:projectPlan} aufgegriffen und mit dem tatsächlichen Verlauf verglichen. Abweichungen werden erläutert und Dinge, die beim nächsten mal verbessert werden können, werden festgehalten (Lessons Learned).
+In Tabelle \ref{tab:ProcessReview} wird der Projektplan (Tabelle \ref{tab:projectPlan}) aus Punkt \ref{subsec:projectPlan} aufgegriffen und mit dem tatsächlichen Verlauf verglichen. Abweichungen werden erläutert und Dinge, die beim nächsten Mal verbessert werden können, werden festgehalten (Lessons Learned).
 
 \begin{table}[H]
 \centering

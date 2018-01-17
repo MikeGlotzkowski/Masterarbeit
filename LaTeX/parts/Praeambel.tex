@@ -1,4 +1,4 @@
-\documentclass[fontsize=12pt, paper=a4, headinclude, twoside=false, parskip=half+, pagesize=auto, numbers=noenddot, plainheadsepline, open=right, toc=listof, toc=bibliography, chapteratlists=0pt]{scrreprt}
+\documentclass[fontsize=12pt, paper=a4, headinclude, twoside=true, parskip=half+, pagesize=auto, numbers=noenddot, plainheadsepline, open=right, toc=listof, toc=bibliography, chapteratlists=0pt]{scrbook}
 
 
 % Allgemeines
@@ -254,11 +254,17 @@
 %für Kästen
 \usepackage{framed}
 
+%Offset fürs Binden
+%\usepackage{geometry}
+%\geometry{bindingoffset=1cm}
+
 %glossar
 \usepackage[nomain,acronym,xindy,toc,nonumberlist]{glossaries} % nomain, if you define glossaries in a file, and you use \include{INP-00-glossary}
 \makeglossaries
 \usepackage[xindy]{imakeidx}
 \makeindex
 \input{Glossary}
+
+
 
 
