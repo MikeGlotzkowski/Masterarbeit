@@ -689,7 +689,7 @@ Betrachtet man das Interesse am Bitcoin (Google Websuchen und Google Newssuchen)
 \caption{Google Websuchen und Newssuchen für "Bitcoin" im zeitlichen Verlauf}
 \label{fig:PublicInterestBTC}
 \end{figure}
-Interpretiert man die Googlesuchen als Indikator für den Bekanntheitsgrad des Bitcoins, so lässt sich daraus schließen, dass die Währung bis 2011 sehr unbekannt und erst nach 2013 wirklich bekannt war. Zieht man nun den Bitcoinkurs heran (Listing \ref{list:PublicInterestBTC2}), so lässt sich ein Zusammenhang erkennen (Abbildung \ref{fig:PublicInterestBTC2}). 
+Interpretiert man die Googlesuchen als Indikator für den Bekanntheitsgrad des Bitcoins, so lässt sich daraus schließen, dass die Währung bis 2011 sehr unbekannt und erst nach 2013 wirklich bekannt wurde. Zieht man nun den Bitcoinkurs heran (Listing \ref{list:PublicInterestBTC2}), so lässt sich ein Zusammenhang erkennen (Abbildung \ref{fig:PublicInterestBTC2}). 
 \lstinputlisting[caption=Google Websuchen und Newssuchen für "Bitcoin" und Bitcoinkurs im zeitlichen Verlauf in R,label=list:PublicInterestBTC2]{../R/punlicInterestPlots/PublicInterestBTC2.R}
 \begin{figure}[H]
 \centering
@@ -707,7 +707,7 @@ Anders verhält es sich bei Ethereum (siehe Abbildung \ref{fig:PublicInterestETH
 \caption{Google Websuchen und Newssuchen für "Ethereum" im zeitlichen Verlauf}
 \label{fig:PublicInterestETH}
 \end{figure}
-Als Schlussfolgerung lässt sich daraus ableiten, dass es sehr unwahrscheinlich ist, dass Indikatoren wie Aktienindizes oder der Ölpreis den Kryptowährungskurs beeinflussen, wenn sie noch unbekannt ist. Deswegen empfiehlt sich für die Analyse der Zeitraum, seit die Währungen Bekanntheit erlangt haben. 
+Als Schlussfolgerung lässt sich daraus ableiten, dass es sehr unwahrscheinlich ist, dass Indikatoren wie Aktienindizes oder der Ölpreis den Kryptowährungskurs beeinflussen, wenn die Währung noch unbekannt ist. Deswegen empfiehlt sich für die Analyse der Zeitraum, seit die Währungen Bekanntheit erlangt haben. 
 
 \begin{centering} \begin{longtable}[H]{|p{4,5cm}|p{12cm}|}
 \hline
@@ -729,19 +729,19 @@ Die verschiedenen Datensätze haben unterschiedliche Datumsformate. Dies birgt R
 as.Date(data$DateColumn, format='%Y%m%d')
 \end{lstlisting}
 geschehen, solange das Datum in einem gültigen Format ist. \\ \hline
-Beim Zusammensetzen der Datensätze entstehen Lücken, da einige Datensätze (z.B. Kryptowährungs-eigene Eigenschaften) sieben Observations pro Woche festhalten, Andere (z.B. Aktienindizes) nur fünf. Außerdem gibt es Datensätze mit Feiertagen (z.B. Neujahr) oder solche mit nur einer Observation pro Woche (z.B. STLFSI). & Azure ML Studio bietet das Experiment Item 'Clean Missing Data' an. Neben den Möglichkeiten, fehlende Daten mit dem Modus, Median oder Mittelwert auszufüllen, kann das Verfahren \gls{mice}\citep{azur_multiple_2011} oder die Probablilistic PCA\citep{tipping_probabilistic_1999} genutzt werden. \\ \hline
+Beim Zusammensetzen der Datensätze entstehen Lücken, da einige Datensätze (z.B. Kryptowährungs-eigene Eigenschaften) sieben Observations pro Woche festhalten, andere (z.B. Aktienindizes) nur fünf. Außerdem gibt es Datensätze mit Feiertagen (z.B. Neujahr) oder solche mit nur einer Observation pro Woche (z.B. STLFSI). & Azure ML Studio bietet das Experiment Item 'Clean Missing Data' an. Neben den Möglichkeiten, fehlende Daten mit dem Modus, Median oder Mittelwert auszufüllen, kann das Verfahren \gls{mice}\citep{azur_multiple_2011} oder die Probablilistic PCA\citep{tipping_probabilistic_1999} genutzt werden. \\ \hline
 Durch die unterschiedlichen Formatierungen gibt es inkonsistente Separatoren (Komma, Semikolon, Tab), Dezimaltrennzeichen (Punkt, Komma) und Tausendertrennzeichen (Punkte, ohne Trennzeichen). & Vor dem Zusammenführen müssen die Separatoren und Trennzeichen untersucht und eventuell umgeändert werden. Dies kann mit Excel ('Speichern als...' oder Notepad++ ('Find and Replace') geschehen. Nach dem Joinen muss nachgeprüft werden. \\ \hline
-Die Schwierigkeit für das Ethereumining wird im Datensatz ethereumDataset anfangs mit kleiner als 1 angeben. Dies ist per Definition unmöglich. & Entweder es handelt sich hier um einen undokumentierte Sonderfall zu Beginn des Netzwerks oder es ist ein Fehler im Datensatz. Trotz dieser Unstimmigkeit, ist die Tatsache insignifikant und kann vernachlässigt werden. \\ \hline
+Die Schwierigkeit für das Ethereummining wird im Datensatz ethereumDataset anfangs mit kleiner als 1 angeben. Dies ist per Definition unmöglich. & Entweder es handelt sich hier um einen undokumentierten Sonderfall zu Beginn des Netzwerks oder es ist ein Fehler im Datensatz. Trotz dieser Unstimmigkeit, ist die Tatsache insignifikant und kann vernachlässigt werden. \\ \hline
 \caption{Data quality report des Schrittes "Verify data quality"}
 \label{tab:dataQual}
 \end{longtable} \end{centering}
 
 \section{Data Preparation}\label{sec:p3}
 \subsection{Inkludieren und Exkludieren von Daten (Select Data)}
-Die Datensätze sind nun gut beschrieben und es wurde auf Herausforderungen und Probleme hingewiesen. Die folgenden Punkte befassen sich damit, die richtigen Daten und Features weiter zu reduzieren ("Select Data"), sie zu reinigen ("Clean Data") und schließlich zum endgültigen Analyse-Datensatz zusammenfassen ("Construct Data", "Integrate Data" und "Format Data").
-Ausgenommen der jetzt begründet ausgeschlossenen Daten, werden alle Vorgestellten zum bilden des \gls{model} genutzt. Tabelle \ref{tab:selecData} liefert einen Überblick.
+Die Datensätze sind nun gut beschrieben und es wurde auf Herausforderungen und Probleme hingewiesen. Die folgenden Punkte befassen sich damit, die richtigen Daten und Features weiter zu reduzieren ("Select Data"), sie zu reinigen ("Clean Data") und schließlich zum endgültigen Analyse-Datensatz zusammenzufassen ("Construct Data", "Integrate Data" und "Format Data").
+Ausgenommen der jetzt begründet ausgeschlossenen Daten, werden alle Vorgestellten zum Bilden des \gls{model}s genutzt. Tabelle \ref{tab:selecData} liefert einen Überblick.
 
-In Punkt \ref{subsec:collection} wurde festgestellt, dass der Datensatz 'BTC \textunderscore Total \textunderscore Volume \textunderscore Daily \textunderscore Full' große Lücken enthält. Darüber hinaus enthält der Datensatz 'bitcoinDataset' ebenfalls die Anzahl der Bitcoins als Feature 'btc \textunderscore total \textunderscore bitcoins'. Ein stichprobenhafter Konsistenzcheck ergibt, dass die vorhanden Daten sich decken. Aus diesem Grund wird der Lückenhafte Datensatz exkludiert. 
+In Punkt \ref{subsec:collection} wurde festgestellt, dass der Datensatz 'BTC \textunderscore Total \textunderscore Volume \textunderscore Daily \textunderscore Full' große Lücken enthält. Darüber hinaus enthält der Datensatz 'bitcoinDataset' ebenfalls die Anzahl der Bitcoins als Feature 'btc \textunderscore total \textunderscore bitcoins'. Ein stichprobenhafter Konsistenzcheck ergibt, dass die vorhanden Daten sich decken. Aus diesem Grund wird der lückenhafte Datensatz exkludiert. 
 'BTC \textunderscore Difficulty \textunderscore Daily \textunderscore Full' enthält wie 'bitcoinDataset' die Miningschwierigkeit (siehe Punkt \ref{sec:cryptocurrency2}). Obwohl der einzelne Datensatz minimal genauere Werte enthält, fällt die Wahl erneut auf das 'bitcoinDataset', da es Daten über eine längere Zeitspanne enthält. Genauso verhält sich bei 'BTC \textunderscore Transaction \textunderscore Number \textunderscore Fully \textunderscore Daily' und 'BTC \textunderscore Price \textunderscore Multiple \textunderscore Daily'. 
 Analog wird bei den Ethereumdatensätzen vorgegangen. 'ETH \textunderscore Total \textunderscore Volume \textunderscore Daily \textunderscore Full' enthält die gleichen Daten wie 'ethereumDataset'. Allerdings um Faktor 100000 erhöht. Vermutlich handelt es sich hierbei um einen Konvertierungs- oder Kopierfehler, da das derzeit mögliche Maximum bei 100 Millionen Ether liegt \multicitep{buterin_lets_2016; hawksby-robinson_what_2017}. Die Werte für die Schwierigkeit und Anzahl der Transaktionen stimmen bei 'ETH \textunderscore Difficuly \textunderscore Daily \textunderscore Full' bzw. 'ETH \textunderscore Transaction \textunderscore Number \textunderscore Fully' mit 'ethereumDataset' genau überein. 
 Der Bitcoinkurs soll vom 1.1.2011 an analysiert werden. Für einige Aktienindizes liegen für diese Zeit noch keine Daten vor. Um die über 50 Indizes auszudünnen, werden nur solche für das Machine Learning genutzt, für die Daten vorhanden sind. Dadurch wird versucht, Datenlücken zu vermeiden. Damit der Arbeitsaufwand reduziert wird, wird die Auswahl für die Analyse des Ethereumpreises übernommen. Die Google Trends Daten werden beibehalten. Anders verhält es sich bei den Wikipedia-Seitenaufrufen. Für die Bitcoinanalyse ist die Zeitspanne des Datensatzes zu kurz (es fehlen 4 1/2 Jahre: von 1.1.2011 bis 1.7.2015). Eine mögliche Korrelation (siehe Abbildung \ref{fig:WikiBTC}) zwischen Seitenaufrufen und Bitcoinkurs müsste gesondert untersucht werden. 
@@ -760,8 +760,8 @@ Für die Ethereumkursanalyse werden die Seitenaufrufe herangezogen, da sich die 
 \caption{Wikipedia Seitenaufrufe "Ethereum" und der Ethereumkurs im zeitlichen Verlauf}
 \label{fig:WikiETH}
 \end{figure}
-Obwohl für den STLFSI nur wöchentlich - nicht täglich - berechnet wird, wird er beibehalten. Bei den Währungen wird nur der Kurs INR/USD exkludiert, da hier nur Daten ab dem 9.9.2014 vorliegen. Alle Daten zu natürlichen Ressourcen (Gold, Silber, Öl) werden inkludiert.
-Dem Datensatz 'ETH \textunderscore Price \textunderscore Volume \textunderscore Full \textunderscore Daily' fehlt die erste Woche an Daten, ist sonst aber reicher an Informationen über den Ethereum/USD-Kurs als das 'ethereumDataset', da es nicht nur den Durchschnittspreis eines Tages enthält, sondern sowohl den ersten und letzten Kurs in einem 24-Stunden-Fenster, als auch den Höchsten und den Niedrigsten. Dem 'BTC \textunderscore Price \textunderscore Volume \textunderscore Full \textunderscore Daily' hingegen fehlt das erste halbe Jahr an Daten und weist erst ab Ende (18.12.) 2011 keine Lücken mehr auf. In allen Datensätzen (Aktienindizes, Währungen, natürliche Ressourcen) wird das Feature '\%Change' gestrichen, da in \ref{subsec:describe} festgestellt wurde, dass es redundant ist.
+Obwohl der STLFSI nur wöchentlich - nicht täglich - berechnet wird, wird er beibehalten. Bei den Währungen wird nur der Kurs INR/USD exkludiert, da hier nur Daten ab dem 9.9.2014 vorliegen. Alle Daten zu natürlichen Ressourcen (Gold, Silber, Öl) werden inkludiert.
+Dem Datensatz 'ETH \textunderscore Price \textunderscore Volume \textunderscore Full \textunderscore Daily' fehlt die erste Woche an Daten. Er ist sonst aber reicher an Informationen über den Ethereum/USD-Kurs als das 'ethereumDataset', da es nicht nur den Durchschnittspreis eines Tages enthält, sondern sowohl den ersten und letzten Kurs in einem 24-Stunden-Fenster, als auch den Höchsten und den Niedrigsten. Dem 'BTC \textunderscore Price \textunderscore Volume \textunderscore Full \textunderscore Daily' hingegen fehlt das erste halbe Jahr an Daten und weist erst ab Ende (18.12.) 2011 keine Lücken mehr auf. In allen Datensätzen (Aktienindizes, Währungen, natürliche Ressourcen) wird das Feature '\%Change' gestrichen, da in \ref{subsec:describe} festgestellt wurde, dass es redundant ist.
 abcnews \textunderscore Date \textunderscore Text wird beibehalten. 
 Auch wenn die Datensätze an dieser Stelle aussortiert werden, war ihre Beschreibung keine Verschwendung. Sie hat dazu beigetragen, das Domainwissen zu vertiefen und die Plausibilität der Daten zu prüfen.
 
@@ -808,7 +808,7 @@ ethereumDataset & X & \\ \hline
 
 Die Schritte 'Clean Data', 'Construct Data', 'Integrate Data' und 'Format Data' gehen Hand in Hand. Deswegen werden die Punkte zusammengefasst. Bei der tatsächlichen Durchführung wurden die Schritte iterativ und inkrementell durchlaufen. \par
 Die Menge aller Daten für die Untersuchung ist heterogen. Es existieren jedoch Blöcke (z.B. alle Währungskurse oder alle natürlichen Ressourcen), die innerhalb eine homogene Struktur aufweisen. Aus diesem Grund ist es ratsam, zuerst die homogenen Daten zusammenzufassen und diese großen Blöcke dann zusammenzufügen. Durch dieses Buttom-Up-Zusammensetzen wird die Integration vereinfacht.
-Das Vorgehen ist dabei folgendes:
+Das Vorgehen ist dabei Folgendes:
 \begin{itemize}
 \item Die einzelnen Datensätze werden so bearbeitet, dass sie für die Zusammenführung in ihren Block bereit sind.
 \item Die bearbeiteten Daten werden ihrem Datenblock hinzugefügt. Das Ergebnis wird untersucht und eventuelle Unreinheiten beseitigt.
@@ -823,7 +823,7 @@ Nachfolgend wird das Bereinigen und Zusammensetzen beschrieben. Zuerst werden di
 \caption{Zusammenführen der Aktienindizes in Azure Machine Learning Studio}
 \label{fig:indicesAzure_1}
 \end{figure}
-Daraufhin werden sie nachbearbeitet (die Beschreibung bezieht sich auf Abbildung \ref{fig:indicesAzure_2}): In jedem Ursprungsdatensatz existiert eine Spalte, die die Zeilen durchnummeriert. Dies diente zum Beheben von Fehlern und wird nun entfernt (1. Select Columns in Dataset). Ebenso enthält das Ergebnis noch 35 Datums-Spalten (von jedem Ursprungsdatensatz eine). Diese werden bis auf Eine entfernt (2. Select Columns in Dataset und Edit Metadata).
+Daraufhin werden die Indizes nachbearbeitet (die Beschreibung bezieht sich auf Abbildung \ref{fig:indicesAzure_2}): In jedem Ursprungsdatensatz existiert eine Spalte, die die Zeilen durchnummeriert. Dies diente zur Eliminierung von Fehlern und wird nun entfernt (1. Select Columns in Dataset). Ebenso enthält das Ergebnis noch 35 Datums-Spalten (von jedem Ursprungsdatensatz eine). Diese werden bis auf Eine entfernt (2. Select Columns in Dataset und Edit Metadata).
 \begin{figure}[H]
 \centering
 \frame{
@@ -879,7 +879,7 @@ Joined \textunderscore Public & Google Suchen und Google Newssuchen in einem Dat
 \caption{Output: Merged data}
 \label{tab:integrateData}
 \end{longtable} \end{centering}
-Syntaktische Änderungen an den Datensätzen, also verändern der Spaltenreihenfolgen oder der Spaltenbezeichnungen sind Teil des Schrittes 'Format data'. Es kann beispielsweise in einem eingesetzten Werkzeug notwendig sein, dass die erste Spalte einer Tabelle ein eindeutiger Schlüssel sein muss \citep[S.~46]{chapman_crisp-dm_2000}. Obgleich dieser Fall hier nicht eintritt, werden syntaktische Änderungen vorgenommen: Wie oben bereits erwähnt, entstehen beim Zusammenführen der Tabellen doppelte Spalten. Werden zwei Tabellen gejoint, so existieren zwei Datumsspalten, die die gleichen Werte beinhalten (rechte Datumsspalte und linke Datumsspalte). Diese Redundanzen werden entfernt. Außerdem wird die beibehaltene Spalte in 'Date' umbenannt.\par
+Syntaktische Änderungen an den Datensätzen, also Verändern der Spaltenreihenfolgen oder der Spaltenbezeichnungen sind Teil des Schrittes 'Format data'. Es kann beispielsweise in einem eingesetzten Werkzeug notwendig sein, dass die erste Spalte einer Tabelle ein eindeutiger Schlüssel sein muss \citep[S.~46]{chapman_crisp-dm_2000}. Obgleich dieser Fall hier nicht eintritt, werden syntaktische Änderungen vorgenommen: Wie oben bereits erwähnt, entstehen beim Zusammenführen der Tabellen doppelte Spalten. Werden zwei Tabellen gejoint, so existieren zwei Datumsspalten, die die gleichen Werte beinhalten (rechte Datumsspalte und linke Datumsspalte). Diese Redundanzen werden entfernt. Außerdem wird die beibehaltene Spalte in 'Date' umbenannt.\par
 Alle erzeugten Blöcke und einzelnen Datensätze werden nun im Azure Machine Learning Studio zu einem Datensatz zusammengefasst. Für das Machine Learning werden aus diesem die benötigten Spalten für BTC bzw. ETH ausgewählt. Da das Joinen wie bisher verläuft, wird auf eine extra Beschreibung von Abbildung \ref{fig:azureFinalSet} verzichtet.
 \begin{figure}[H]
 \centering
@@ -888,12 +888,12 @@ Alle erzeugten Blöcke und einzelnen Datensätze werden nun im Azure Machine Lea
 \caption{Erzeugen des finalen Datensatzes für das Machine Learning}
 \label{fig:azureFinalSet}
 \end{figure}
-Der letzte Schritt vor dem Machine Learning ist das Auswählen des Analysezeitraums und das bereinigen fehlender Daten (siehe Abbildung \ref{fig:azureDateAndCleaning}).
+Der letzte Schritt vor dem Machine Learning ist das Auswählen des Analysezeitraums und das Bereinigen fehlender Daten (siehe Abbildung \ref{fig:azureDateAndCleaning}).
 \begin{figure}[H]
 \centering
 \frame{
 \includegraphics[width=\textwidth]{images/azureDateAndCleaning}}
-\caption{Auswahl des Analysezeitraums und bereinigen fehlender Daten in Azure Machine Learning Studio}
+\caption{Auswahl des Analysezeitraums und Bereinigen fehlender Daten in Azure Machine Learning Studio}
 \label{fig:azureDateAndCleaning}
 \end{figure}
 Um nur die Zeilen zur Analyse zu benutzen, die im ausgewählten Zeitintervall (siehe Punkt \ref{subsec:explore}) liegen, wird das Datenset noch aufgesplittet (Experiment Item 'Split Data' mit Relative Expression \textbackslash "Date" >= 2011-01-01T00:00:00 für BTC und \textbackslash "Date" >= 2015-07-30T00:00:00 für ETH). Daraufhin werden mit dem Item 'Clean Missing Data (Probabilistic PCA))' fehlende Daten ersetzt, die nicht unter die Kategorie MNAR fallen. Bei neun Spalten ist dies nicht möglich (keine Fehlermeldung in Azure Machine Learning; vermutlich zu wenige Werte für Probabilistic PCA). Diese werden mit einem erneuten 'Clean Missing Data (Remove entire column)' entfernt. Als Abschluss wird mit dem R-Script in Listing \ref{list:AzureIncrease} eine neue Spalte angefügt, die angibt, ob der Kurs zum Vortag gestiegen ist (Wert: 1) oder nicht (Wert: 0). Dieser wird im Nachfolgenden als Vorhersagewert genutzt.
@@ -926,22 +926,22 @@ Bei den Regressionen sind es:
 \item Ordinal Regression (*)
 \item Poisson Regression (*)
 \end{itemize}
-Ausgeschlossen (mit * gekennzeichnet) werden Ordinal Regression (nur geeignet, um Rangfolgen aufzustellen), Poisson Regression (nur geigten, um vorherzusagen, wie oft etwas passiert), Linear Regression (nur für sehr simple Modelle) und Ordinal Regression (zwar geeignet, nutzt aber andere Metriken und ist nicht vergleichbar).
+Ausgeschlossen (mit * gekennzeichnet) werden Ordinal Regression (nur geeignet, um Rangfolgen aufzustellen), Poisson Regression (nur geeignet, um vorherzusagen, wie oft etwas passiert), Linear Regression (nur für sehr simple Modelle) und Ordinal Regression (zwar geeignet, nutzt aber andere Metriken und ist nicht vergleichbar).
 Die Algorithmen besitzen konfigurierbare Parameter. Die Güte der erzeugten Modelle hängt unter anderem von diesen einstellbaren Werten ab. Azure bietet die Möglichkeit, die Parameter automatisch zu optimieren. Dazu wird das Experiment Item 'Tune Model Hyperparameter' eingesetzt. Es verbessert das Ergebnis des Models hinsichtlich eines bestimmten Wertes (Genauigkeit, Präzision etc.). Im vorliegenden Fall werden als Zielparameter die Metriken aus den Data Mining Goals (Punkt \ref{subsec:goals}) gewählt:
 F1-Score für Klassifikationen und Bestimmtheitsmaß (Coefficient of determination) für die Regressionen.
 
-\subsection{Festlegung des Verhältnis von Trainings- und Testdaten (Generate Test Design)}
+\subsection{Festlegung des Verhältnisses zwischen Trainings- und Testdaten (Generate Test Design)}
 Es muss überlegt werden, in welchem Verhältnis die zu analysierenden Daten aufgeteilt werden (Trainingsdaten : Testdaten). Es gibt kein allgemeingültiges, optimales Verhältnis. In der Praxis sind jedoch Verhältnisse wie 70:30 oder 80:20 üblich. Es existieren auch andere Ansätze, die wiederum auf Algorithmen basieren \citep{crowther_method_2005}. Beachtet werden muss jedoch, dass nicht einfach obere und untere Hälfte des Datensatzes genutzt werden, sondern die Aufteilung nach dem Zufallsprinzip geschieht. Da das Experiment Item 'Tune Model Hyperparameter' eingesetzt wird, gibt es die Möglichkeit, ein zusätzliches Validation Dataset zu nutzen. Das für diese Analyse gewählte Verhältnis (Training 56 : Validierung 14 : Test 30) ist in Abbildung \ref{fig:ratio} visualisiert.
 \begin{figure}[H]
 \centering
 \frame{
 \includegraphics[width=12cm]{images/ratio}}
-\caption{Verhältnis der Aufteilen in Trainings-, Test- und Validierungsdatensatz (Output Testdesign)}
+\caption{Verhältnis der Aufteilung in Trainings-, Test- und Validierungsdatensatz (Output Testdesign)}
 \label{fig:ratio}
 \end{figure}
 
 \subsection{Durchführung des Machine Learning (Build the Model)}
-Nachdem alle Vorbereitungen abgeschlossen sind, wird jetzt das eigentliche Machine Learning durchgeführt. Dazu werden vier Experimente in Azure Machine Learning Studio modelliert. Je eines für:
+Nachdem alle Vorbereitungen abgeschlossen sind, wird das eigentliche Machine Learning durchgeführt. Dazu werden vier Experimente in Azure Machine Learning Studio modelliert. Je eines für:
 \begin{itemize}
 \item die Kurspreisvorhersage für ETH (Regression für ETH),
 \item die Kurspreisvorhersage für BTC (Regression für BTC),
@@ -966,7 +966,7 @@ Die Experimente gleichen sich sehr, deswegen sind hier nur die Kurspreisvorhersa
 \label{fig:azureBTCClass}
 \end{figure}
 
-Mit den zwei 'Split Data' Experiment Items wird der Analysedatensatz, wie im vorherigen Punkt spezifiziert, in Trainings-, Validierungs- und Testdaten aufgeteilt. Zu sehen ist auch das Item 'Tune Model Hyperparameter (entire grid)', das sowohl das Training des Models, als auch das optimieren der Algorithmenparameter übernimmt (deshalb an dieser Stelle kein Output "Parameter Settings" wie im Referenzmodell verlangt). Die Option 'entire grid' beim Verbessern der Parameter ist eine inperformante Option, die aber sehr genau arbeitet. Dies ist verkraftbar, da die Gesamtlaufzeit des Experiments 30 Minuten nicht deutlich überschreitet.
+Mit den zwei 'Split Data' Experiment Items wird der Analysedatensatz, wie im vorherigen Punkt spezifiziert, in Trainings-, Validierungs- und Testdaten aufgeteilt. Zu sehen ist auch das Item 'Tune Model Hyperparameter (entire grid)', das sowohl das Training des Models, als auch das Optimieren der Algorithmenparameter übernimmt (deshalb an dieser Stelle kein Output "Parameter Settings" wie im Referenzmodell verlangt). Die Option 'entire grid' beim Verbessern der Parameter ist eine inperformante Option, die aber sehr genau arbeitet. Dies ist verkraftbar, da die Gesamtlaufzeit des Experiments 30 Minuten nicht deutlich überschreitet.
 
 \subsection{Betrachtung der Ergebnisse (Assess the Model)}
 Ein Durchlauf liefert folgende Ergebnisse:
@@ -1041,7 +1041,7 @@ Bayesian Linear Regression & 0.999946 & 2.273447 & 5.032831 & 0.005609 & 0.00005
 \label{tab:BTCReg}
 \end{table}
 
-Betrachtet man zuerst die beiden Regressionen (Tabellen \ref{tab:ETHREg} und \ref{tab:BTCReg}), so fällt auf, dass $ R^2 $ sehr hoch ist (Maximum ist $ R^2 = 1 $). Auf den ersten Blick zeugt das von einer nahezu perfekten Kurspreisvorhersage (Anmerkung: Ein $ R^2 $ von -0.105524 entspricht  $ R^2 = 1 - 0.105524 = 0.894476 $ ). Untersucht man das Ergebnis genauer, so sieht man, dass die vorhergesagten Werte sehr nahe an den Tatsächlichen liegen (siehe Tabelle \ref{tab:scoredReal}).
+Betrachtet man zuerst die beiden Regressionen (Tabellen \ref{tab:ETHREg} und \ref{tab:BTCReg}), so fällt auf, dass $ R^2 $ sehr hoch ist (Maximum ist $ R^2 = 1 $). Auf den ersten Blick erzeugt dies den Eindruck einer nahezu perfekten Kurspreisvorhersage (Anmerkung: Ein $ R^2 $ von -0.105524 entspricht  $ R^2 = 1 - 0.105524 = 0.894476 $ ). Untersucht man das Ergebnis genauer, so sieht man, dass die vorhergesagten Werte sehr nahe an den Tatsächlichen liegen (siehe Tabelle \ref{tab:scoredReal}).
 \begin{table}[H]
 \centering
 \begin{tabular}{|p{4cm}|p{4cm}|}
@@ -1093,17 +1093,17 @@ Two-Class Boosted Decision Tree & 0.668750 \\ \hline
 \caption{Rangliste der besten Bitcoin Two-Class Classification Algorithmen}
 \label{tab:BTCBest}
 \end{table}
-Anzumerken ist hier die interessante Tatsache, dass der Kurs sehr genau vorhergesagt wurde (wenn auch durch Fehler in Modell), eine Aussage darüber, ob der Kurs steigt oder nicht, jedoch kaum möglich ist. Der Bitcoinkurs scheint stärker von den Faktoren beeinflusst zu werden (höherer F1-Score).
+Anzumerken ist hier die interessante Tatsache, dass der Kurs sehr genau vorhergesagt wurde (wenn auch durch Fehler in Modell), eine Aussage darüber, ob der Kurs steigt oder nicht, jedoch kaum möglich ist. Im Allgemeinen scheint der Bitcoinkurs stärker von den Faktoren beeinflusst zu werden (höherer F1-Score).
 Nach der Ergebnisbetrachtung folgt nun die Bewertung hinsichtlich der business objectives und der business success criteria.
 
 \section{Evaluation}\label{sec:p5}
 \subsection{Bewertung der Ergebnisse (Evaluate Results)} \label{subsec:revRes}
-Es sollte einerseits geprüft werden, ob die Kurse von Kryptowährungen mit den Mitteln des Machine Learning vorhergesagt werden können. Andererseits sollte eine Einarbeitung in Azure Machine Learning Studio erfolgen und Herausgearbeitet werden, welchen Restriktionen das Werkzeug unterliegt.
+Es sollte einerseits geprüft werden, ob die Kurse von Kryptowährungen mit den Mitteln des Machine Learning vorhergesagt werden können. Andererseits sollte eine Einarbeitung in Azure Machine Learning Studio erfolgen und herausgearbeitet werden, welchen Restriktionen das Werkzeug unterliegt.
 Schlussfolgern lässt sich, dass der Kurspreis von Bitcoin und Ethereum mit den hier angewandten Mitteln nicht vorhersagbar ist. Es kann aber auch festgehalten werden, dass die Kursschwankungen nicht rein zufällig sind. Eine genauere Betrachtung mit den gewonnen Erkenntnissen (weniger Einflussfaktoren, eventuell eine Time-Series-Analysis) ist sinnvoll (siehe Punkt Punkt \ref{sec:BewertungML}).
 Der Umgang mit Azure Machine Learning Studio wurde vertraut. Eine Aussage über den Reifegrad und Grenzen des Tools kann gemacht werden (siehe Punkt \ref{sec:BeswertungAzure}).
 
 \subsection{Rückblick auf den CRISP-DM-Prozess (Review Process)}
-Neben der technischen Interpretation der Ergebnisse und dem beurteilen der business objectives, folgt ein Rückblick auf die Schritte des CRISP-DM Referenzmodells.
+Neben der technischen Interpretation der Ergebnisse und dem Beurteilen der business objectives, folgt ein Rückblick auf die Schritte des CRISP-DM Referenzmodells.
 In Tabelle \ref{tab:ProcessReview} wird der Projektplan (Tabelle \ref{tab:projectPlan}) aus Punkt \ref{subsec:projectPlan} aufgegriffen und mit dem tatsächlichen Verlauf verglichen. Abweichungen werden erläutert und Dinge, die beim nächsten Mal verbessert werden können, werden festgehalten (Lessons Learned).
 
 \begin{table}[H]
@@ -1113,7 +1113,7 @@ In Tabelle \ref{tab:ProcessReview} wird der Projektplan (Tabelle \ref{tab:projec
 \textbf{Prozessschritt} & \textbf{gesch. Aufwand} & \textbf{tats. Aufwand} & \textbf{Grund für Abweichung} & \textbf{Verbesserungen} \\ 
 \hhline{=====}
 Business understanding gesamt & 5 Tage & 5 Tage & - & Die Ziele genauer beschreiben. Bereits hier sollte sich mit Metriken beschäftigt werden. \\ \hline
-Data understanding gesamt & 20 Tage & 16 Tage & Die Struktur der Daten war eher homogen und selbsterklärend.\par Der Explorationsschritt war kurz. & Mehr Aufwand für das erforschen der Daten aufbringen und mehr Zusammenhänge suchen. \\ \hline
+Data understanding gesamt & 20 Tage & 16 Tage & Die Struktur der Daten war eher homogen und selbsterklärend.\par Der Explorationsschritt war kurz. & Mehr Aufwand für das Erforschen der Daten aufbringen und mehr Zusammenhänge suchen. \\ \hline
 Data preparation gesamt & 10 Tage & 29 Tage & Die Transformation erforderte Programmierung (Skripte) in einer nicht vertrauten Sprache. Viele Probleme sind erst beim tatsächlichen Durchführen aufgetaucht.\par Der Modellierungsaufwand im Azure ML Studio war nicht unerheblich. & Beim Sammeln der Daten auf Formatierung, Trennzeichen und Dateiformate achten.\par Stücke der Modellierung können als Vorlagen vorbereitet werden (Split Data, Tune Hyperparameter, Score, Evaluate). \\ \hline
 Modeling gesamt & 5 Tage & 10 Tage & Nicht alle Algorithmen können verwendet werden. Deswegen muss die Spezifikation gelesen und eingeschätzt werden.\par Die Durchlaufzeit der Experimente (vor allem das Modelltrainings) wurde unterschätzt. & Es sollte ein Modell und Modifikationen davon als Kopien erstellt und nachts trainiert werden.\par Dem Werkzeug nicht zu sehr vertrauen (schnelleres Abbrechen bei langen Laufzeiten). \\ \hline
 Evaluation gesamt & 5 Tage & 5 Tage & - & - \\ \hline
@@ -1128,13 +1128,13 @@ Die Übereinstimmung der Aufteilung nach Shearer mit dem tatsächlichen Aufwand 
 \centering
 \frame{
 \includegraphics[width=\textwidth]{images/phases2}}
-\caption{Tortendiagramme des Projektaufwands nach Shearer, nach Plan und des tatsächlicher Aufwands}
+\caption{Tortendiagramme des Projektaufwands nach Shearer, nach Plan und des tatsächlichen Aufwands}
 \label{fig:phases}
 \end{figure}
 
 \subsection{Umgang mit den Erkenntnissen (Determine Next Steps)}
-Im Referenzmodell folgt nach der Evaluation das Deployment. Im Falle dieser Untersuchung wird jedoch darauf verzichtet. Einerseits besitzen die erstellten Modelle noch nicht den Reifegrad, um genutzt zu werden, andererseits würde der Aufwand den Umfang der Arbeit übersteigen.
-Im weiteren wird wie oben (Punkt \ref{subsec:revRes}) angesprochen, das Werkzeug Azure Machine Learning Studio bewertet (Punkt \ref{sec:BeswertungAzure}), eine Aussage über das Referenzmodell CRIPS-DM getroffen (Punkt \ref{sec:BeswertungCrisp}) und die Ergebnisse des Machine Learning interpretiert (Punkt \ref{sec:BewertungML}).
+Im Referenzmodell folgt nach der Evaluation das Deployment. Im Falle dieser Untersuchung wird jedoch darauf verzichtet. Einerseits besitzen die erstellten Modelle noch nicht den Reifegrad, um genutzt zu werden, andererseits würde der Aufwand den Umfang der Arbeit sprengen.
+Im Weiteren wird wie oben (Punkt \ref{subsec:revRes}) angesprochen, das Werkzeug Azure Machine Learning Studio bewertet (Punkt \ref{sec:BeswertungAzure}), eine Aussage über das Referenzmodell CRIPS-DM getroffen (Punkt \ref{sec:BeswertungCrisp}) und die Ergebnisse des Machine Learning interpretiert (Punkt \ref{sec:BewertungML}).
 
 
 
