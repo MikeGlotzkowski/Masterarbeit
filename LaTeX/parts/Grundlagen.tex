@@ -1,8 +1,8 @@
 \chapter{Data Mining Frameworks}\label{sec:DataMiningFrameworks}
-Wie in Abschnitt \ref{sec:DataMining} bereits erwähnt, haben sich um das Data Mining drei bekannte Frameworks entwickelt. Zwei davon (\gls{kdd} und \gls{crisp}) werden im Nachfolgenden genauer beschrieben. Danach wird eines der beiden für die Untersuchung in der Arbeit ausgewählt. Da der \gls{semma}-Process dem CRIPS-DM Referenzmodell einerseits sehr ähnelt und andererseits genau genommen "keine Data Mining Methodik, sondern eher eine logische Organisation" des Data Mining "tool set[s]"\citep[eigene Übersetzung]{enterpriseminer_sas_2012} ist, wird er hier ausgeklammert. 
+Wie in Abschnitt \ref{sec:DataMining} bereits erwähnt, haben sich um das Data Mining drei bekannte Frameworks entwickelt. Zwei davon (\gls{kdd} und \gls{crisp}) werden im Nachfolgenden genauer beschrieben. Danach wird eines der beiden für die Untersuchung in der Arbeit ausgewählt. Da der \gls{semma}-Process dem CRIPS-DM Referenzmodell einerseits sehr ähnelt und andererseits genau genommen "keine Data Mining Methodik, sondern eher eine logische Organisation" des Data Mining "tool set[s]" \citep[eigene Übersetzung]{enterpriseminer_sas_2012} ist, wird er hier ausgeklammert. 
 
 \section{Knowledge Discovery in Databases (KDD) process model}\label{sec:kdd}
-Die Bezeichnung Knowledge Discovery in Databases wurde hauptsächlich von \citep{fayyad_data_1996} geprägt. Sie beschreiben in ihrer Arbeit ein Problem, das in den 1990er Jahren aufkam. Wie auch heute noch, stieg damals die Masse der gespeicherten Daten rapide an. Die manuelle Auswertung dieser Datensätze erforderte mehr Arbeitskraft als vorhanden war. \citep[S.~38]{fayyad_data_1996} beschreiben es als "data overload". Deswegen versuchte man, die Prozesse zur Findung von Erkenntnissen zu automatisieren. Daraus hat sich ein Standardvorgehen entwickelt, das das KDD-Prozessmodell darstellt (siehe Abbildung \ref{fig:kddprocess}).
+Die Bezeichnung Knowledge Discovery in Databases wurde hauptsächlich von Fayyad und seinen Mitstreitern geprägt \citep{fayyad_data_1996}. Sie beschreiben in ihrer Arbeit ein Problem, das in den 1990er Jahren aufkam. Wie auch heute noch, stieg damals die Masse der gespeicherten Daten rapide an. Die manuelle Auswertung dieser Datensätze erforderte mehr Arbeitskraft als vorhanden war. Fayyad beschreiben es als "data overload" \citep[S.~38]{fayyad_data_1996}. Deswegen versuchte man, die Prozesse zur Findung von Erkenntnissen zu automatisieren. Daraus hat sich ein Standardvorgehen entwickelt, das das KDD-Prozessmodell darstellt (siehe Abbildung \ref{fig:kddprocess}).
 \begin{figure}[H]
 \centering
 \frame{
@@ -12,14 +12,14 @@ Die Bezeichnung Knowledge Discovery in Databases wurde hauptsächlich von \citep
 \end{figure}
 
 \subsection{Selection}
-Bevor der erste eigentliche Schritt, die Selektion der Daten, erfolgen kann, ist es unabdingbar, ein "Verständnis für das Anwendungsgebiet zu entwickeln" \citep[S.~42; eigene Übersetzung]{fayyad_data_1996}. Dies inkludiert auch, Ziele zu setzen und Fragen zu formulieren, die durch das spätere Data Mining (Schritt \ref{subsubsec:DataMining}) beantwortet werden sollen. Ist das Verständnis vorhanden, kann ein "target data set"\citep[S.~42]{fayyad_data_1996} hergestellt werden. Dabei werden zuerst Daten aus unterschiedlichen - oft heterogenen - Quellen zusammengeführt und dann hinsichtlich des Ziels verdichtet \citep[S.~70]{swamynathan_mastering_2017}.
+Bevor der erste eigentliche Schritt, die Selektion der Daten, erfolgen kann, ist es unabdingbar, ein "Verständnis für das Anwendungsgebiet zu entwickeln" \citep[S.~42; eigene Übersetzung]{fayyad_data_1996}. Dies inkludiert auch, Ziele zu setzen und Fragen zu formulieren, die durch das spätere Data Mining (Schritt \ref{subsubsec:DataMining}) beantwortet werden sollen. Ist das Verständnis vorhanden, kann ein "target data set" \citep[S.~42]{fayyad_data_1996} hergestellt werden. Dabei werden zuerst Daten aus unterschiedlichen - oft heterogenen - Quellen zusammengeführt und dann hinsichtlich des Ziels verdichtet \citep[S.~70]{swamynathan_mastering_2017}.
 
 \subsection{Preprocessing}
 Die verbleibende Teilmenge der ursprünglichen Daten muss nun gesäubert und für die nächsten Schritte vorbereitet werden. Dies ist notwendig, da unbereinigte Daten sowohl den Data Mining-Prozess verschlechtern (unverlässliche oder falsche Ergebnisse), als auch die Zeit für das Mining deutlich verlängern können \citep[S.~70]{swamynathan_mastering_2017}.
-Um die Qualität der Daten und des Mining zu verbessern, werden unter anderem folgende Aspekte betrachtet\multicitep{fayyad_data_1996, S.~42; swamynathan_mastering_2017, S.~70}:
+Um die Qualität der Daten und des Mining zu verbessern, werden unter anderem folgende Aspekte betrachtet \multicitep{fayyad_data_1996, S.~42; swamynathan_mastering_2017, S.~70}:
 
 \subsubsection{Outliner treatment}
-Ein Ausreißer (engl. outliner) kann beispielsweise ein "Extremer Wert in einer Variablen" oder ein "Extremer Wert des Residuums bei einer sinnvollen Regression"\citep[S.~25; Teil 5b]{hertle_datenanalyse_2016} sein. Ein Vorgehen für Ausreißer kann folgendermaßen aussehen (nach \citep[S.~25; Teil 5b]{hertle_datenanalyse_2016}):
+Ein Ausreißer (engl. outliner) kann beispielsweise ein "Extremer Wert in einer Variablen" oder ein "Extremer Wert des Residuums bei einer sinnvollen Regression" \citep[S.~25; Teil 5b]{hertle_datenanalyse_2016} sein. Ein Vorgehen für Ausreißer kann folgendermaßen aussehen (nach \citep[S.~25; Teil 5b]{hertle_datenanalyse_2016}):
 \begin{enumerate}
 \item Identifizieren der Ausreißer (evtl. durch eine erste Regression)
 \item Interpretation im Sachzusammenhang (Messfehler oder wichtiger Teil der Population)
@@ -41,7 +41,7 @@ Je größer ein Datensatz ist, umso wahrscheinlicher enthält er Inkonsistenzen.
 Der letzte Punkt, der beim Preprocessing betrachtet werden muss, ist der Zusammenhang der Daten mit dem Erfassungszeitpunkt. So können sich im Laufe der Zeit die Messmethodik (z.B. andere Sensoren), die Messgenauigkeit (z.B. bessere Sensoren) oder die Abstände der Messungen verändern. Das wiederum kann zu ungleich verteilten Datensätzen oder inkonsistenter Genauigkeit führen.
 
 \subsection{Transformation}
-Der letzte Schritt vor dem eigentlichen Data Mining ist die Transformation. In diesem Prozessschritt geht es darum, "mit Dimensionsreduktions- oder -transformationsmethoden die effektive Anzahl an Variablen [...] zu reduzieren"\citep[S.~42; eigene Übersetzung]{fayyad_data_1996}. Dies geschieht beispielsweise durch das Identifizieren und Eliminieren invarianter Variablen. Ebenfalls wird versucht, solche Variablen zu finden, die mehrere Andere repräsentieren. Anschaulich dargestellt an einem Beispiel:\par
+Der letzte Schritt vor dem eigentlichen Data Mining ist die Transformation. In diesem Prozessschritt geht es darum, "mit Dimensionsreduktions- oder -transformationsmethoden die effektive Anzahl an Variablen [...] zu reduzieren" \citep[S.~42; eigene Übersetzung]{fayyad_data_1996}. Dies geschieht beispielsweise durch das Identifizieren und Eliminieren invarianter Variablen. Ebenfalls wird versucht, solche Variablen zu finden, die mehrere Andere repräsentieren. Anschaulich dargestellt an einem Beispiel:\par
 \begin{table}[H] \centering
 \begin{tabular}{|r|r|r|r|r|r|r|}
   \hline
@@ -122,7 +122,7 @@ Studium & 327.17 & 64.27 & 5.09 & 0.0038 **\\
 \label{tab:Regression3:output}
 \end{table}
 Zusammenfassend lässt sich für dieses Beispiel sagen, dass die Variablen im Datensatz um die Hälfte reduziert wurden, ohne die Aussagekraft deutlich zu verschlechtern. In einem realen Datensatz ist diese Arbeit zwar nicht so trivial und offensichtlich, jedoch gelten die gleichen Prinzipien.\par
-Nach \citep[S.~71; veränderte Version]{swamynathan_mastering_2017} gibt es zur Transformation folgende Möglichkeiten:
+Nach Swamynathan gibt es zur Transformation folgende Möglichkeiten \citep[S.~71; veränderte Version]{swamynathan_mastering_2017}:
 \begin{itemize}
 \item Smoothing (binning, clustering, regression, etc.)
 \item Aggregation (im Beispiel: das Zusammenfassen der Berufserfahrung)
@@ -135,7 +135,7 @@ Nach \citep[S.~71; veränderte Version]{swamynathan_mastering_2017} gibt es zur 
 
 
 \subsection{Data Mining}\label{subsubsec:DataMining}
-Ist der Datensatz präpariert, so findet das eigentliche Data Mining statt. Dabei muss sich der Anwender für eine oder auch mehrere Methoden für das Mining entscheiden, um die anfänglichen Ziele zu erreichen und die Fragestellungen zu beantworten. Zur Auswahl stehen beispielsweise\multicitep{fayyad_data_1996, S.~42; swamynathan_mastering_2017, S.~71}:
+Ist der Datensatz präpariert, so findet das eigentliche Data Mining statt. Dabei muss sich der Anwender für eine oder auch mehrere Methoden für das Mining entscheiden, um die anfänglichen Ziele zu erreichen und die Fragestellungen zu beantworten. Zur Auswahl stehen beispielsweise \multicitep{fayyad_data_1996, S.~42; swamynathan_mastering_2017, S.~71}:
 \begin{itemize}
 \item zusammenfassende und beschreibende Methoden: Mittelwert (arithmetisches Mittel), Median, Modus, Standardabweichung, Klassen-und Konzeptbeschreibungen, grafische Plots,
 \item Vorhersagende Modelle (engl. predictive models): Klassifikationen und Regressionen und
@@ -146,12 +146,12 @@ Anschließend erfolgt das (automatische) Mining der Daten. Je besser die vorherg
 
 \subsection{Interpretation/Evaluation}
 Zuletzt werden die gefundenen Muster und trainierten Modelle interpretiert. Ein Muster macht Aussagen über jeden Datenpunkt im betrachteten Raum. Ein Beispiel bei einem einfachen linearen \gls{model}: $$y = m \times x + t$$
-Zu obigem Fall: $$Gehalt = Studium \times 327,17 + ErfahrungGesamt \times 876,69 + 40107,10$$ Ein Muster (engl. pattern) beschreibt dagegen nur eine kleine "lokale Struktur", die "nur über einen begrenzten Bereich" Aussagen macht \citep[S.~71; eigene Übersetzung]{swamynathan_mastering_2017}. Im Fall des linearen Model, wäre es eine bestimmte Gleichung, zum Beispiel $$y = 2 \times x + 5$$ oder $$ 6 \times 327,17 + 5 \times 876,69 + 40107,10 =  46453,57$$\citep{kraker_towards_2013}. "Fayyad et al. benutzt patterns und models synonym" \citep{kraker_towards_2013}.\par
+Zu obigem Fall: $$Gehalt = Studium \times 327,17 + ErfahrungGesamt \times 876,69 + 40107,10$$ Ein Muster (engl. pattern) beschreibt dagegen nur eine kleine "lokale Struktur", die "nur über einen begrenzten Bereich" Aussagen macht \citep[S.~71; eigene Übersetzung]{swamynathan_mastering_2017}. Im Fall des linearen Model, wäre es eine bestimmte Gleichung, zum Beispiel $$y = 2 \times x + 5$$ oder $$ 6 \times 327,17 + 5 \times 876,69 + 40107,10 =  46453,57$$ \citep{kraker_towards_2013}. "Fayyad et al. benutzt patterns und models synonym" \citep{kraker_towards_2013}.\par
 Das Interpretieren der Ergebnisse beinhaltet ebenfalls das Zusammenfassen der Erkenntnisse und gegebenenfalls das Visualisieren \citep[S.~71]{swamynathan_mastering_2017}. Als Evaluieren wird das Eingliedern der Resultate in andere Systeme (zur Weiterverarbeitung oder Verbreitung), das Prüfen auf (und Lösen von) Konflikten mit anderen Untersuchungen und nicht zuletzt das Dokumentieren der Befunde bezeichnet \citep[S.~42]{fayyad_data_1996}. \par
 An dieser Stelle sei erneut angemerkt, dass das erste Ergebnis des KDD-Prozesses nicht das Endergebnis sein muss. Es kann durchaus viele Iterationen geben, die auch "loops between any two steps" beinhalten können \citep[S.~42]{fayyad_data_1996}.
 
 \section{CRoss Industrial Standard Process for Data Mining (CRISP – DM)}\label{sec:crispdm}
-Bei CRoss Industrial Standard Process for Data Mining handelt es sich - wie bei KDD - um ein Referenzmodell für Data Mining. Das Modell wurde von einem 1996 gegründeten Konsortium aus "Daimler-Benz (now DaimlerChrysler), Integral Solutions Ltd. (ISL) [jetzt SPSS], NCR, and OHRA"\citep[S.~13]{shearer_crisp-dm_2000} erarbeitet. Die Version 1.0 wurde 2000 vorgestellt \citep[S.~13]{shearer_crisp-dm_2000}. In Umfragen (1999, 2002, 2004, 2007) wird das Modell als führend in Bereich von "data mining/predictive analytics projects"\citep[S.~72]{swamynathan_mastering_2017} bezeichnet. Das Modell ist "nicht-proprietär, dokumentiert und frei verfügbar"\citep[S.~13; eigene Übersetzung]{shearer_crisp-dm_2000}. Es ist ebenfalls in vielen Bereichen nutzbar, da es weder industriesektor-, werkzeugs- noch anwendungsspezifisch ist. Grundsätzlich bekräftigt das Modell best practices und soll zu besseren und schnelleren Ergebnissen führen \citep[S.~13; eigene Übersetzung]{shearer_crisp-dm_2000}. 
+Bei CRoss Industrial Standard Process for Data Mining handelt es sich - wie bei KDD - um ein Referenzmodell für Data Mining. Das Modell wurde von einem 1996 gegründeten Konsortium aus "Daimler-Benz (now DaimlerChrysler), Integral Solutions Ltd. (ISL) [jetzt SPSS], NCR, and OHRA" \citep[S.~13]{shearer_crisp-dm_2000} erarbeitet. Die Version 1.0 wurde 2000 vorgestellt \citep[S.~13]{shearer_crisp-dm_2000}. In Umfragen (1999, 2002, 2004, 2007) wird das Modell als führend in Bereich von "data mining/predictive analytics projects" \citep[S.~72]{swamynathan_mastering_2017} bezeichnet. Das Modell ist "nicht-proprietär, dokumentiert und frei verfügbar" \citep[S.~13; eigene Übersetzung]{shearer_crisp-dm_2000}. Es ist ebenfalls in vielen Bereichen nutzbar, da es weder industriesektor-, werkzeugs- noch anwendungsspezifisch ist. Grundsätzlich bekräftigt das Modell best practices und soll zu besseren und schnelleren Ergebnissen führen \citep[S.~13; eigene Übersetzung]{shearer_crisp-dm_2000}. 
 
 \begin{figure}[H]
 \centering
@@ -172,16 +172,16 @@ Wie in Abbildung \ref{fig:CRISP_DM} zu sehen ist, umfasst das Referenzmodell sec
 \end{figure}
 
 \subsection{Business Understanding}
-Die erste und vielleicht wichtigste Phase\citep[S.~14]{shearer_crisp-dm_2000} des CRISP-DM Prozesses ist das "Business Understanding", oder auch "Research Understanding"\citep[Punkt 1.4.1.1]{larose_discovering_2014}. Die Aufgabe dieser Phase ist es, die "Ziele und Erwartungen"\citep[S.~73]{swamynathan_mastering_2017} des Projektes zu verstehen, dieses "Wissen in eine Machine Learning Problem Definition zu übersetzen" und schließlich einen "Vorläufigen Plan"\citep[S.~14]{shearer_crisp-dm_2000} aufzustellen: 
+Die erste und vielleicht wichtigste Phase \citep[S.~14]{shearer_crisp-dm_2000} des CRISP-DM Prozesses ist das "Business Understanding", oder auch "Research Understanding" \citep[Punkt 1.4.1.1]{larose_discovering_2014}. Die Aufgabe dieser Phase ist es, die "Ziele und Erwartungen" \citep[S.~73]{swamynathan_mastering_2017} des Projektes zu verstehen, dieses "Wissen in eine Machine Learning Problem Definition zu übersetzen" und schließlich einen "Vorläufigen Plan" \citep[S.~14]{shearer_crisp-dm_2000} aufzustellen: 
 \subsubsection{Determine the Business Objectives}
-Dieser Teilschritt soll hauptsächlich die Frage beantworten, warum die Analyse durchgeführt wird. Dies hat direkten Einfluss auf die Ziele des Projekts und soll verhindern, dass "viel Aufwand für das Finden von richtigen Antworten auf falsche Fragen"\citep[S.~14]{chapman_crisp-dm_2000} verschwendet wird.
+Dieser Teilschritt soll hauptsächlich die Frage beantworten, warum die Analyse durchgeführt wird. Dies hat direkten Einfluss auf die Ziele des Projekts und soll verhindern, dass "viel Aufwand für das Finden von richtigen Antworten auf falsche Fragen" \citep[S.~14]{chapman_crisp-dm_2000} verschwendet wird.
 \subsubsection{Assess the Situation}
 Um das Ziel der Analyse so genau wie möglich zu treffen, muss genau nachgeforscht werden, welche Ressourcen verfügbar sind, welchen Zwängen und Grenzen die Analyse unterlegen ist und unter welchen Annahmen sie stattfindet \citep[S.~14]{chapman_crisp-dm_2000}. Vereinfacht lässt sich sagen, dass hier die Fragen aus dem vorhergehenden Schritt detaillierter betrachtet werden.
 \subsubsection{Determine the Data Mining Goals}
 Die gefundenen Ziele sind meist in Geschäftssprache formuliert. Für die Analyse müssen die Ziele jedoch im Terminus technicus des Data Mining formuliert sein. Ein Beispiel dazu ist die Übersetzung von "Increase catalog sales to existing customers" in "Predict how many widgets a customer will buy, given their purchases over the
-past three years, demographic information (age, salary, city, etc.), and the price of the item."\citep[S.~16]{chapman_crisp-dm_2000}
+past three years, demographic information (age, salary, city, etc.), and the price of the item." \citep[S.~16]{chapman_crisp-dm_2000}
 \subsubsection{Produce a Project Plan}
-Der Projektplan (engl. Project Plan) liefert einen konkreten Plan, wie die gesetzten Ziele zu erreichen sind. Nach \citep[S.~15]{shearer_crisp-dm_2000} beinhaltet er:
+Der Projektplan (engl. Project Plan) liefert einen konkreten Plan, wie die gesetzten Ziele zu erreichen sind. Nach Shearer beinhaltet er \citep[S.~15]{shearer_crisp-dm_2000}:
 \begin{itemize}
 \item Die Schritte, die nacheinander durchzuführen sind.
 \item Eine Timeline für die Durchführung.
@@ -191,18 +191,18 @@ Der Projektplan (engl. Project Plan) liefert einen konkreten Plan, wie die geset
 
 
 \subsection{Data Understanding}
-In der vorhergegangenen Phase wurde festgelegt, welche Daten zum Erreichen der Ziele benötigt werden. Nun werden diese Daten gesammelt und untersucht. Im Fokus der Untersuchung liegt dabei\citep[S.~73]{swamynathan_mastering_2017}
+In der vorhergegangenen Phase wurde festgelegt, welche Daten zum Erreichen der Ziele benötigt werden. Nun werden diese Daten gesammelt und untersucht. Im Fokus der Untersuchung liegt dabei \citep[S.~73]{swamynathan_mastering_2017}
 \begin{itemize}
-\item Datenlücken zu  finden,
+\item Datenlücken zu finden,
 \item die Relevanz der erfassten Daten (hinsichtlich der Ziele) zu klären,
 \item die allgemeine Datenqualität festzustellen und
-\item "erste Einblicke in Daten" zu erhalten, um "geeignete Hypothesen"\citep[S.~73; eigene Übersetzung]{swamynathan_mastering_2017} zu formulieren.
+\item "erste Einblicke in Daten" zu erhalten, um "geeignete Hypothesen" \citep[S.~73; eigene Übersetzung]{swamynathan_mastering_2017} zu formulieren.
 \end{itemize}
-Im Zuge dessen können auch bereits "subsets" isoliert werden, die "actionable patters"\citep[Punkt 1.4.1.2.d]{larose_discovering_2014} (etwa: verfolgbare Muster) enthalten könnten. Mit jedem Fortschritt in dieser Phase ist es eventuell nötig, das Ergebnis der Business Understanding-Phase zu adjustieren. Durch dieses Vorgehen entsteht ein iterativer Prozess \citep[S.~73]{swamynathan_mastering_2017}. Larose empfiehlt den Einsatz von explorativer Datenanalyse (siehe Abschnitt \ref{sec:DataMining}) \citep[Punkt 1.4.1.2.b]{larose_discovering_2014}. 
+Im Zuge dessen können auch bereits "subsets" isoliert werden, die "actionable patters" \citep[Punkt 1.4.1.2.d]{larose_discovering_2014} (etwa: verfolgbare Muster) enthalten könnten. Mit jedem Fortschritt in dieser Phase ist es eventuell nötig, das Ergebnis der Business Understanding-Phase zu adjustieren. Durch dieses Vorgehen entsteht ein iterativer Prozess \citep[S.~73]{swamynathan_mastering_2017}. Larose empfiehlt den Einsatz von explorativer Datenanalyse (siehe Abschnitt \ref{sec:DataMining}) \citep[Punkt 1.4.1.2.b]{larose_discovering_2014}. 
 
 
 \subsubsection{Collect the Initial Data}
-Die Hauptaufgabe dieses ersten Schrittes ist es, die benötigten Daten zu beziehen. Dabei kann entweder der direkte Zugriff auf die Daten gemeint sein oder nur das Erhalten der Zugangsinformationen. Eventuell werden die Datensätze gleich in Systeme oder Werkzeuge geladen, die zur späteren Weiterverarbeitung genutzt werden. Die Integration inhomogener Daten (unterschiedliche Strukturen/Formate etc.) kann bereits hier erfolgen oder in der Data Preparation (siehe Punkt \ref{subsubsec:DataPreperation}). \citep[S.~18]{chapman_crisp-dm_2000}
+Die Hauptaufgabe dieses ersten Schrittes ist es, die benötigten Daten zu beziehen. Dabei kann entweder der direkte Zugriff auf die Daten gemeint sein oder nur das Erhalten der Zugangsinformationen. Eventuell werden die Datensätze gleich in Systeme oder Werkzeuge geladen, die zur späteren Weiterverarbeitung genutzt werden. Die Integration inhomogener Daten (unterschiedliche Strukturen/Formate etc.) kann bereits hier erfolgen oder in der Data Preparation (siehe Punkt \ref{subsubsec:DataPreperation}) \citep[S.~18]{chapman_crisp-dm_2000}.
 
 Sollten in diesem Schritt Probleme auftauchen, müssen sie - wenn möglich mit Lösung - gut dokumentiert werden, um den Projektverlauf reproduzierbar zu gestalten. Ein Beispiel können lange Antwortzeiten einiger Datenquellen sein \citep[S.~15]{shearer_crisp-dm_2000}.
 
@@ -259,7 +259,7 @@ Ebenfalls entnommen werden kann, dass es sich um demographische Angaben über Pe
 Zu sehen ist hier, dass es sich um einen Datensatz mit 13 Variablen und 856 Beobachtungen handelt (hier scheint ein falscher Zeichensatz vorzuliegen, da eine zusätzliche leere Spalte "X" angezeigt wird). Zusätzlich können die vorgeschlagenen Datentypen von R betrachtet werden. Bei den meisten Spalten handelt es sich um Ganzzahlen (int) oder Faktoren (manchmal auch als Enums bezeichnet) wie m/w für männlich und weiblich.
 
 \subsubsection{Explore the Data}
-Ist die grobe Sichtung der Daten abgeschlossen, wird enger an der Fragestellung des Data Mining gearbeitet. Dazu werden "Abfrage-, Visualisierungs- und Reporting[-Techniken]"\citep[S.~16; eigene Übersetzung]{shearer_crisp-dm_2000} eingesetzt. Um der Antwort auf die ursprüngliche Fragestellung näher zu kommen oder die Fragestellung zu verfeinern, werden beispielsweise folgende Eigenschaften betrachtet \citep[S.~18; eigene Übersetzung]{chapman_crisp-dm_2000}:
+Ist die grobe Sichtung der Daten abgeschlossen, wird enger an der Fragestellung des Data Mining gearbeitet. Dazu werden "Abfrage-, Visualisierungs- und Reporting[-Techniken]" \citep[S.~16; eigene Übersetzung]{shearer_crisp-dm_2000} eingesetzt. Um der Antwort auf die ursprüngliche Fragestellung näher zu kommen oder die Fragestellung zu verfeinern, werden beispielsweise folgende Eigenschaften betrachtet \citep[S.~18; eigene Übersetzung]{chapman_crisp-dm_2000}:
 \begin{itemize}
 \item Die Verteilung der Schlüsselattribute (zum Beispiel der Zielvariablen bei einer Vorhersage).
 \item Die Beziehungen zwischen Wertepaaren oder kleinen Attributgruppen.
@@ -277,9 +277,9 @@ Der letzte Schritt der zweiten Phase evaluiert die Qualität der Daten. \citep[S
 \item "If so, how are they represented, where do they occur, and how common
 are they?"
 \end{itemize}
-\citep[S.~16]{shearer_crisp-dm_2000} empfiehlt zusätzlich noch, zu prüfen, ob die Werte plausibel sind, wie die Schreibweisen sind, ob Attribute mit unterschiedlichen Werten aber gleicher Bedeutung vorhanden sind und schließlich ob es einen "conflict with common sense", wie "teenagers with high income"\citep[S.~16]{shearer_crisp-dm_2000} gibt. 
+Shearer empfiehlt zusätzlich noch, zu prüfen, ob die Werte plausibel sind, wie die Schreibweisen sind, ob Attribute mit unterschiedlichen Werten aber gleicher Bedeutung vorhanden sind \citep[S.~16]{shearer_crisp-dm_2000} und schließlich ob es einen "conflict with common sense", wie "teenagers with high income" \citep[S.~16]{shearer_crisp-dm_2000} gibt. 
 \subsection{Data Preparation}\label{subsubsec:DataPreperation}
-In der aufwendigsten Phase des ganzen Prozesses (siehe Abbildung \ref{fig:CRISP_DM_percent}) wird das "final data set"\multicitep{larose_discovering_2014, Punkt 1.4.1.3.a; shearer_crisp-dm_2000, S.~16} erzeugt. Dies geschieht durch\citep[S.~73]{swamynathan_mastering_2017}
+In der aufwendigsten Phase des ganzen Prozesses (siehe Abbildung \ref{fig:CRISP_DM_percent}) wird das "final data set" \multicitep{larose_discovering_2014, Punkt 1.4.1.3.a; shearer_crisp-dm_2000, S.~16} erzeugt. Dies geschieht durch \citep[S.~73]{swamynathan_mastering_2017}
 \begin{itemize}
 \item generelle Transformationen,
 \item Füllen der Datenlücken, die in vorangegangenen Schritten aufgedeckt wurden,
@@ -297,21 +297,21 @@ Wie bereits erwähnt, handelt es sich nicht nur um die Phase, die den meisten Au
 \end{figure}
 
 \subsubsection{Select Data}
-Genauer wird dabei im ersten Schritt ausgewählt, welche Daten Teil der Analyse bleiben und welche exkludiert werden. Kriterien sind dabei, die Relevanz hinsichtlich der Ziele, die Qualität der Daten und technische Grenzen\citep[S.~16]{shearer_crisp-dm_2000} (wie "data volume or data types"\citep[S.~21]{chapman_crisp-dm_2000}). Zusätzlich kann überlegt werden, ob einige Attribute wichtiger sind als andere. So kann beispielsweise bei einer landesweiten Kundenanalyse die Postleitzahl der Kunden ausreichen und Straße und Hausnummer vernachlässigt werden \citep[S.~16]{shearer_crisp-dm_2000}. Chapman und seine Kollegen merken an, dass diese Phase sowohl "attributes (columns)", als auch "records (rows)" umfasst \citep[S.21]{chapman_crisp-dm_2000}. Wie bereits in den vorhergehenden Schritten muss auch hier erklärt werden, warum Entscheidungen getroffen wurden und eine Dokumentation angefertigt werden \citep[S.~16]{shearer_crisp-dm_2000}.
+Genauer wird dabei im ersten Schritt ausgewählt, welche Daten Teil der Analyse bleiben und welche exkludiert werden. Kriterien sind dabei, die Relevanz hinsichtlich der Ziele, die Qualität der Daten und technische Grenzen \citep[S.~16]{shearer_crisp-dm_2000} (wie "data volume or data types" \citep[S.~21]{chapman_crisp-dm_2000}). Zusätzlich kann überlegt werden, ob einige Attribute wichtiger sind als andere. So kann beispielsweise bei einer landesweiten Kundenanalyse die Postleitzahl der Kunden ausreichen und Straße und Hausnummer vernachlässigt werden \citep[S.~16]{shearer_crisp-dm_2000}. Chapman und seine Kollegen merken an, dass diese Phase sowohl "attributes (columns)", als auch "records (rows)" umfasst \citep[S.21]{chapman_crisp-dm_2000}. Wie bereits in den vorhergehenden Schritten muss auch hier erklärt werden, warum Entscheidungen getroffen wurden und eine Dokumentation angefertigt werden \citep[S.~16]{shearer_crisp-dm_2000}.
 
 \subsubsection{Clean Data}
-Im Schritt "Verify Data Quality" wurde herausgearbeitet, wie die Qualität der Daten ist und wie mängelbehaftet sie sind. Jetzt werden Maßnahmen dagegen ergriffen. Neben trivialen Vorgehen wie "Auswahl von reinen Untermengen" oder "Einfügen von passenden Standardwerten" können "anspruchsvollere Techniken wie das Schätzen von fehlenden Werten"\citep[S.21; eigene Übersetzung]{chapman_crisp-dm_2000} zum Zuge kommen.
+Im Schritt "Verify Data Quality" wurde herausgearbeitet, wie die Qualität der Daten ist und wie mängelbehaftet sie sind. Jetzt werden Maßnahmen dagegen ergriffen. Neben trivialen Vorgehen wie "Auswahl von reinen Untermengen" oder "Einfügen von passenden Standardwerten" können "anspruchsvollere Techniken wie das Schätzen von fehlenden Werten" \citep[S.21; eigene Übersetzung]{chapman_crisp-dm_2000} zum Zuge kommen.
 
 \subsubsection{Construct Data}
-Die gereinigten Daten sind noch nicht fertig für die Modeling-Phase. Manchmal ist es notwendig, einem Datensatz neue Zeilen hinzuzufügen. Betrachtet man wieder eine Kundenanalyse, so ist es vielleicht nötig, für einen Kunden, der in einem Quartal keinen Einkauf getätigt hat, einen leeren Einkauf (null Euro) anzulegen, falls der eingesetzte Algorithmus dies erfordert \citep[S.~22]{chapman_crisp-dm_2000}. Er kann auch verlangen, dass abgeleitete  statt der Ursprungswerte benötigt werden. Dabei gibt es nach \citep[S.~16]{shearer_crisp-dm_2000} zwei Fälle:
+Die gereinigten Daten sind noch nicht fertig für die Modeling-Phase. Manchmal ist es notwendig, einem Datensatz neue Zeilen hinzuzufügen. Betrachtet man wieder eine Kundenanalyse, so ist es vielleicht nötig, für einen Kunden, der in einem Quartal keinen Einkauf getätigt hat, einen leeren Einkauf (null Euro) anzulegen, falls der eingesetzte Algorithmus dies erfordert \citep[S.~22]{chapman_crisp-dm_2000}. Er kann auch verlangen, dass abgeleitete  statt der Ursprungswerte benötigt werden. Dabei gibt es nach Shearer zwei Fälle \citep[S.~16]{shearer_crisp-dm_2000}:
 \begin{enumerate}
 \item Wenn zu einem Kunden ein Bewegungsprofil vorhanden ist (in welchem Geschäft er einkaufen war), so ist es möglicherweise sinnvoll, nicht das gesamte Profil zu betrachten, sondern lediglich die Fläche zu betrachten, in der er sich bewegt hat.
 \item Ebenfalls zielführend kann eine "single-attribute transformation" sein. Dabei wird beispielsweise das genaue Alter der Kunden in Altersspannen umgewandelt oder sprechende Werte wie '("definitely yes," "yes," "don't know," "no")' in numerische Werte übersetzt.
 \end{enumerate}
-\citep[S.~16; eigene Übersetzung]{shearer_crisp-dm_2000} merkt aber auch an, dass es nicht immer sinnvoll ist dies zu tun, auf jeden Fall "nicht nur um die Anzahl der Inputattribute zu reduzieren."
+Shearer merkt aber auch an, dass es nicht immer sinnvoll ist dies zu tun, auf jeden Fall "nicht nur um die Anzahl der Inputattribute zu reduzieren." \citep[S.~16; eigene Übersetzung]{shearer_crisp-dm_2000}
 
 \subsubsection{Integrate Data}
-Der vorletzte Schritt der Data Pereperation ist das Zusammenführen von mehreren Quellen oder Tabellen mit dem gleichen Thema. Dadurch können "neue Beobachtungen oder Werte"\citep[S.~22]{chapman_crisp-dm_2000} gewonnen werden. In Tabelle \ref{tab:integrateDataO} werden die zwei Hauptaufgaben\citep[S.~17]{shearer_crisp-dm_2000} genauer erläutert.
+Der vorletzte Schritt der Data Pereperation ist das Zusammenführen von mehreren Quellen oder Tabellen mit dem gleichen Thema. Dadurch können "neue Beobachtungen oder Werte" \citep[S.~22]{chapman_crisp-dm_2000} gewonnen werden. In Tabelle \ref{tab:integrateDataO} werden die zwei Hauptaufgaben \citep[S.~17]{shearer_crisp-dm_2000} genauer erläutert.
 \begin{table}[H] \centering
 \begin{tabular}{|p{2cm}|p{3.5cm}|p{10cm}|}
 \hline
@@ -325,7 +325,7 @@ Join & Mehrere Tabellen zum gleichen Thema werden zusammengeführt. & Die drei A
 \end{itemize}
 werden in 
 \begin{itemize}
-\item "a new table with one record for each store, combining fields from the source tables"\citep[S.~16]{shearer_crisp-dm_2000}
+\item "a new table with one record for each store, combining fields from the source tables" \citep[S.~16]{shearer_crisp-dm_2000}
 \end{itemize}
 zusammengeführt. \\ \hline
 Aggregation &  Errechnen neuer Werte aus Informationen verschiedener Tabellen. & Das Überführen von einer
@@ -349,17 +349,17 @@ percent of items under promotion, etc" \citep[S.~17]{shearer_crisp-dm_2000}.
 \end{table}
 
 \subsubsection{Format Data}
-Die Datenformatierung umfasst "hauptsächlich syntaktische Abänderungen" und "verändert nicht die Bedeutung"\citep[S.~22; eigene Übersetzung]{chapman_crisp-dm_2000} der Daten. Das kann zum Beispiel das "Entfernen von unerlaubten Zeichen in Zeichenketten"\citep[S.~17; eigene Übersetzung]{shearer_crisp-dm_2000} sein.\par
+Die Datenformatierung umfasst "hauptsächlich syntaktische Abänderungen" und "verändert nicht die Bedeutung" \citep[S.~22; eigene Übersetzung]{chapman_crisp-dm_2000} der Daten. Das kann zum Beispiel das "Entfernen von unerlaubten Zeichen in Zeichenketten" \citep[S.~17; eigene Übersetzung]{shearer_crisp-dm_2000} sein.\par
 Mit diesem Schritt ist die Data Preparation abgeschlossen und es kann mit dem Modeling begonnen werden.
 
 \subsection{Modeling}
 Die Phase des Modeling umfasst die Auswahl einer oder mehrerer Data Mining-Algorithmen, die Optimierung ihrer Parameter und Settings und die Evaluierung des erzeugten Models \multicitep{swamynathan_mastering_2017, S.~73; larose_discovering_2014, Punkt 1.4.1.4}. Eventuell muss der Datensatz noch angepasst werden, sodass die Data Preparation-Phase noch einmal durchlaufen werden muss \citep[Punkt 1.4.1.4]{larose_discovering_2014}.
 
 \subsubsection{Select the Modeling Technique}
-Wie der Name des ersten Schrittes bereits andeutet, wird mindestens eine Modellierungstechnik ausgewählt. Werden mehrere Techniken ausgewählt, so wird diese Phase mehrfach (parallel) durchlaufen. Wichtig ist hier, dass getroffene Annahmen (wie "alle Attribute sind stetig Gleichverteilt" oder "fehlende Werte sind nicht zugelassen"\citep[S.~24]{chapman_crisp-dm_2000}) dokumentiert werden \citep[S.~17]{shearer_crisp-dm_2000}.
+Wie der Name des ersten Schrittes bereits andeutet, wird mindestens eine Modellierungstechnik ausgewählt. Werden mehrere Techniken ausgewählt, so wird diese Phase mehrfach (parallel) durchlaufen. Wichtig ist hier, dass getroffene Annahmen (wie "alle Attribute sind stetig Gleichverteilt" oder "fehlende Werte sind nicht zugelassen" \citep[S.~24]{chapman_crisp-dm_2000}) dokumentiert werden \citep[S.~17]{shearer_crisp-dm_2000}.
 
 \subsubsection{Generate Test Design}
-Vor der eigentlichen Modellierung wird festgelegt, wie die "Qualität und Validität"\citep[S.~24]{chapman_crisp-dm_2000} festgestellt werden soll. Für "supervised data mining" werden dabei meist "error rates"\citep[S.~24]{chapman_crisp-dm_2000} herangezogen. Dazu wird das Modell mit einem Datensatz (\gls{train}) trainiert und mit einem anderen (\gls{test}) getestet \citep{shearer_crisp-dm_2000}.
+Vor der eigentlichen Modellierung wird festgelegt, wie die "Qualität und Validität" \citep[S.~24]{chapman_crisp-dm_2000} festgestellt werden soll. Für "supervised data mining" werden dabei meist "error rates" \citep[S.~24]{chapman_crisp-dm_2000} herangezogen. Dazu wird das Modell mit einem Datensatz (\gls{train}) trainiert und mit einem anderen (\gls{test}) getestet \citep{shearer_crisp-dm_2000}.
 
 \subsubsection{Build the Model}
 Der kürzeste Schritt dieser Phase ist "Build the Model". Hier wird das Model mit Hilfe eines - möglicherweise vorher bereits gewählten - Werkzeugs erzeugt \multicitep{chapman_crisp-dm_2000, S.~24; shearer_crisp-dm_2000, S.~17}. Wurden zwei Schritte zuvor mehrere Modellierungstechniken ausgewählt, so liegen an dieser Stelle mehrere Models vor.
@@ -376,20 +376,20 @@ In diesem Schritt werden die Modelle ein erstes Mal gedeutet. Eine genauere Ausw
 
 
 \subsection{Evaluation}
-Die Tatsache, dass es sich beim CRISP-DM-Referenzmodell um einen Prozess handelt und nicht um strikt getrennte Einzelschritte, wird besonders in der Evaluations-Phase deutlich. Erstens wird das Ranking aus dem vorherigen Schritt in einem "Benchmarking" über die "Models mit einer hohen Genauigkeit"\citep[S.~73; eigene Übersetzung]{swamynathan_mastering_2017} verfeinert. Zweitens werden die Models erneut mit frischen Daten (nicht aus Schritt "Generate Test Design") verifiziert und gegen die Business-Anforderungen aus Phase 1 geprüft \citep[S.~73]{swamynathan_mastering_2017}. Ziel dieser Phase ist vor allem, dem Projektleiter genug Wissen an die Hand zu geben, um zu entscheiden, wie mit den Ergebnissen des ganzen Prozesses weiter verfahren wird. 
+Die Tatsache, dass es sich beim CRISP-DM-Referenzmodell um einen Prozess handelt und nicht um strikt getrennte Einzelschritte, wird besonders in der Evaluations-Phase deutlich. Erstens wird das Ranking aus dem vorherigen Schritt in einem "Benchmarking" über die "Models mit einer hohen Genauigkeit" \citep[S.~73; eigene Übersetzung]{swamynathan_mastering_2017} verfeinert. Zweitens werden die Models erneut mit frischen Daten (nicht aus Schritt "Generate Test Design") verifiziert und gegen die Business-Anforderungen aus Phase 1 geprüft \citep[S.~73]{swamynathan_mastering_2017}. Ziel dieser Phase ist vor allem, dem Projektleiter genug Wissen an die Hand zu geben, um zu entscheiden, wie mit den Ergebnissen des ganzen Prozesses weiter verfahren wird. 
 
 \subsubsection{Evaluate Results}
-Während sich bisher hauptsächlich um die "Genauigkeit und Allgemeingültigkeit" der Modelle gekümmert wurde, wird jetzt auch betrachtet, ob es "irgendwelche Businessgründe gibt", durch die das Model "mangelhaft"\citep[S.~18; eigene Übersetzung]{shearer_crisp-dm_2000} wird. Falls "time und budget"\citep[S.~26]{chapman_crisp-dm_2000} es erlauben, können die Ergebnisse bereits in echte Systeme in Testumgebungen implementiert werden. Wie bereits angemerkt, werden in dieser Phase auch andere "findings" evaluiert, die beispielsweise auf zukünftige Herausforderungen hinweisen \citep[S.~18]{shearer_crisp-dm_2000}. Ist dies geschehen, "fasst der Data Analyst die Bewertungen der Ergebnisse hinsichtlich der geschäftlichen Erfolgskriterien zusammen" und gibt seine Wertung ab, "ob das Projekt bereits die initialen geschäftlichen Ziele erreicht"\citep[S.~18; eigene Übersetzung]{shearer_crisp-dm_2000}.
+Während sich bisher hauptsächlich um die "Genauigkeit und Allgemeingültigkeit" der Modelle gekümmert wurde, wird jetzt auch betrachtet, ob es "irgendwelche Businessgründe gibt", durch die das Model "mangelhaft" \citep[S.~18; eigene Übersetzung]{shearer_crisp-dm_2000} wird. Falls "time und budget" \citep[S.~26]{chapman_crisp-dm_2000} es erlauben, können die Ergebnisse bereits in echte Systeme in Testumgebungen implementiert werden. Wie bereits angemerkt, werden in dieser Phase auch andere "findings" evaluiert, die beispielsweise auf zukünftige Herausforderungen hinweisen \citep[S.~18]{shearer_crisp-dm_2000}. Ist dies geschehen, "fasst der Data Analyst die Bewertungen der Ergebnisse hinsichtlich der geschäftlichen Erfolgskriterien zusammen" und gibt seine Wertung ab, "ob das Projekt bereits die initialen geschäftlichen Ziele erreicht" \citep[S.~18; eigene Übersetzung]{shearer_crisp-dm_2000}.
 
 \subsubsection{Review Process}
 Im Review wird abgesichert, dass kein Faktor unbeachtet geblieben ist und keine Aufgabe vergessen wurde. Ebenfalls wird die Qualität gesichert (zum Beispiel Bugs in Softwarekomponenten gesucht) und rechtliche Überlegungen angestellt ("Dürfen wir diese Kundendaten produktiv für diese Analyse benutzen?") \multicitep{shearer_crisp-dm_2000, S.~18; chapman_crisp-dm_2000, S.~27}.
 
 \subsubsection{Determine Next Steps}
-Schließlich werden alle Bewertungen bis hierher genutzt, um zu entscheiden, ob eine weitere Prozessiteration durchlaufen wird, oder, ob in die Deployment-Phase übergegangen wird. Laut \citep[S.~18]{shearer_crisp-dm_2000} trifft diese Entscheidung der Projektleiter. \citep[S.~17]{chapman_crisp-dm_2000} sind hingegen der Meinung, dass das ganze Projektteam entscheiden sollte.
+Schließlich werden alle Bewertungen bis hierher genutzt, um zu entscheiden, ob eine weitere Prozessiteration durchlaufen wird, oder, ob in die Deployment-Phase übergegangen wird. Laut Shearer trifft diese Entscheidung der Projektleiter \citep[S.~18]{shearer_crisp-dm_2000}. Chapman und seine Kollegen sind hingegen der Meinung, dass das ganze Projektteam entscheiden sollte \citep[S.~17]{chapman_crisp-dm_2000}.
 
 \subsection{Deployment}
 Ist die Entscheidung für das Deployment gefallen, wird die letzte Phase initiiert. Zu Beginn des CRISP-DM-Prozesses wurden Ziele festgelegt, die begründen, weshalb das Data Mining durchgeführt werden soll. 
-Eine einfache Implementierung wäre das Erstellen eines Reports, eine komplexere dagegen, den Data Mining Prozess in eine andere Abteilung zu portieren\citep[Punkte 1.4.1.6.b und c]{larose_discovering_2014} oder "Echtzeit-Personalisierung von Webseiten"\citep[S.~18; eigene Übersetzung]{shearer_crisp-dm_2000} durchzuführen.\par
+Eine einfache Implementierung wäre das Erstellen eines Reports, eine komplexere dagegen, den Data Mining Prozess in eine andere Abteilung zu portieren \citep[Punkte 1.4.1.6.b und c]{larose_discovering_2014} oder "Echtzeit-Personalisierung von Webseiten" \citep[S.~18; eigene Übersetzung]{shearer_crisp-dm_2000} durchzuführen.\par
 Die Implementierung des Models in die produktiven Systeme befriedigt diese Ziele nicht alleine. Auch das Training jener Personen, die das Wissen im Geschäftsprozess anwenden, muss durchgeführt werden. Dies beinhaltet sowohl die Fähigkeit, die Ergebnisse zu interpretieren, als auch zu verstehen, wie sie die Entscheidungsfindung unterstützen können \citep[S.~73]{swamynathan_mastering_2017}. \par
 Da die weiteren Aufgaben oft nicht vom Data Analyst durchgeführt werden \citep[Punkt 1.4.1.6.d]{larose_discovering_2014}, muss der Anwender die Pflege eines Machine Learning-Models verstehen und übernehmen (z.B. in welchen Intervallen das Model trainiert wird) \citep[S.~74]{swamynathan_mastering_2017}.
 
@@ -400,24 +400,24 @@ Der Erste Schritt der Deploymentphase ist die Auswahl und Dokumentation einer ge
 Zusätzlich zum Rollout muss die Überwachung und Wartung bedacht und geplant werden. Das soll der Fehlbenutzung der Data Mining-Ergebnisse vorbeugen \multicitep{shearer_crisp-dm_2000, S.~18; chapman_crisp-dm_2000, S.~29}.
 
 \subsubsection{Produce Final Report}
-Ein nicht unbedingt Data-Mining-spezifischer Schritt, ist das Erstellen eines Abschlussberichts. Dieser kann sich je nach Projekttyp unterscheiden. Er kann die Form einer Zusammenfassung haben oder eine ausgedehnte und detaillierte Präsentation sein \multicitep{shearer_crisp-dm_2000, S.~18; chapman_crisp-dm_2000, S.~29}. Larose merkt an, dass es sich auch um Forschungsprojekte handeln kann \citep[Punkt 1.4.1.1]{larose_discovering_2014}. In diesem Fall ist der Report wahrscheinlich eine Veröffentlichung der Ergebnisse. Der Abschlussbericht "enthält alle bisher erzeugten Auslieferungsgegenstände und fasst [...] die Ergebnisse zusammen."\citep[S~18; eigene Übersetzung]{shearer_crisp-dm_2000}
+Ein nicht unbedingt Data-Mining-spezifischer Schritt, ist das Erstellen eines Abschlussberichts. Dieser kann sich je nach Projekttyp unterscheiden. Er kann die Form einer Zusammenfassung haben oder eine ausgedehnte und detaillierte Präsentation sein \multicitep{shearer_crisp-dm_2000, S.~18; chapman_crisp-dm_2000, S.~29}. Larose merkt an, dass es sich auch um Forschungsprojekte handeln kann \citep[Punkt 1.4.1.1]{larose_discovering_2014}. In diesem Fall ist der Report wahrscheinlich eine Veröffentlichung der Ergebnisse. Der Abschlussbericht "enthält alle bisher erzeugten Auslieferungsgegenstände und fasst [...] die Ergebnisse zusammen." \citep[S~18; eigene Übersetzung]{shearer_crisp-dm_2000}
 
 \subsubsection{Review Project}
 Den Schlussstrich zieht das Review des Projektes. Hier wird festgehalten, was im Projektverlauf gut und schlecht lief. Zusätzlich soll das Wissen konserviert werden, wie der Prozess optimiert werden könnte \multicitep{shearer_crisp-dm_2000, S.~18; chapman_crisp-dm_2000, S.~29}.
-\citep[S.~18; eigene Übersetzung]{shearer_crisp-dm_2000} empfiehlt "Interviews mit allen wichtigen Projektteilnehmern". In "idealen Projekten" umfasst das Review "alle Reports, die in vorhergehenden Projektphasen [...] verfasst wurden."\citep[S.~29; eigene Übersetzung]{chapman_crisp-dm_2000}
+Shearer empfiehlt "Interviews mit allen wichtigen Projektteilnehmern" \citep[S.~18; eigene Übersetzung]{shearer_crisp-dm_2000}. In "idealen Projekten" umfasst das Review "alle Reports, die in vorhergehenden Projektphasen [...] verfasst wurden." \citep[S.~29; eigene Übersetzung]{chapman_crisp-dm_2000}
 
 \section{Auswahl}\label{sec:crispdmdec}
-Wie zu sehen ist, handelt es sich sowohl bei KDD, als auch bei CRISP-DM um sehr umfangreiche Methodiken. Beide sind vollwertig und im Falle dieser Arbeit anwendbar. Da laut einer \gls{nuggets} Umfrage, CRISP-DM das mit Abstand häufigst eingesetzte Prozessmodell in "analytics, data mining or data science procjets" ist \citep{piatetsky_crisp-dm_2014} und es einen User Guide bereit stellt\citep[S.~7]{chapman_crisp-dm_2000}, orientiert sich der Praxisteil der Arbeit an ihm.
+Wie zu sehen ist, handelt es sich sowohl bei KDD, als auch bei CRISP-DM um sehr umfangreiche Methodiken. Beide sind vollwertig und im Falle dieser Arbeit anwendbar. Da laut einer \gls{nuggets} Umfrage, CRISP-DM das mit Abstand häufigst eingesetzte Prozessmodell in "analytics, data mining or data science procjets" ist \citep{piatetsky_crisp-dm_2014} und es einen User Guide bereit stellt \citep[S.~7]{chapman_crisp-dm_2000}, orientiert sich der Praxisteil der Arbeit an ihm.
 
 
 \chapter{Machine Learning}\label{sec:MachineLearning}
 Der nun folgende Abschnitt befasst sich mit Machine Learning. Zu Beginn der Arbeit wurde bereits erwähnt, dass maschinelles Lernen als "Sammlung von Algorithmen und Techniken" verstanden werden kann, die "genutzt werden, um Computersysteme zu erstellen, die aus Daten lernen, um Vorhersagen zu erstellen" \citep[S.~53; eigene Übersetzung]{swamynathan_mastering_2017}. Um diese Algorithmensammlung genauer zu betrachten, ist es sinnvoll sie in bestimmten Kategorien einzuordnen. 
 \begin{itemize}
-\item \citep{kubat_introduction_2017} unterscheidet in seinem Werk unter anderem nach verschiedenen Klassifikationen (Baysianisch, Nearest-Neighbor, Linear und Polynomial), künstlichen neuronalen Netzen (engl. artifical neural network, kurz: \gls{ann}), Entscheidungsbäumen, Unsupervised Learning, genetischen Algorithmen und Reinforcement Learning.
-\item Einen anderen Ansatz wählt \citep{swamynathan_mastering_2017}. Er gliedert die Algorithmen nach Supervised Learning (mit Regressionen und Klassifikationen), Unsupervised Learning (mit Clusteranalyse, Dimensionsreduzierung und Anomalie-Erkennung) und Reinforcement Learning (Markow-Entscheidungsprozess, Q-Learning, Temporal Difference- und Monte-Carlo Methoden). \citep{kim_matlab_2017} wählt die gleiche Kategorisierung in die drei Typen.
-\item \citep{paluszek_matlab_2017} sehen neben Supervised und Unsupervised Learning noch Semisupervised und Online Learning.
+\item Kubat unterscheidet in seinem Werk unter anderem nach verschiedenen Klassifikationen (Baysianisch, Nearest-Neighbor, Linear und Polynomial), künstlichen neuronalen Netzen (engl. artifical neural network, kurz: \gls{ann}), Entscheidungsbäumen, Unsupervised Learning, genetischen Algorithmen und Reinforcement Learning  \citep{kubat_introduction_2017}.
+\item Einen anderen Ansatz wählt Swamynathan. Er gliedert die Algorithmen nach Supervised Learning (mit Regressionen und Klassifikationen), Unsupervised Learning (mit Clusteranalyse, Dimensionsreduzierung und Anomalie-Erkennung) und Reinforcement Learning (Markow-Entscheidungsprozess, Q-Learning, Temporal Difference- und Monte-Carlo Methoden) \citep{swamynathan_mastering_2017}. Kim wählt die gleiche Kategorisierung in die drei Typen \citep{kim_matlab_2017}.
+\item Paluszek und Thomas sehen neben Supervised und Unsupervised Learning noch Semisupervised und Online Learning \citep{paluszek_matlab_2017}.
 \end{itemize}
-Diese unterschiedlichen Gliederungen erklären \citep[S.~222]{ramasubramanian_machine_2017} damit, dass entweder nach "Learning types" (siehe Abbildung \ref{fig:MachineLearningTypes_all}) oder "Subjective grouping" (siehe Tabelle \ref{tab:SebjectiveGrouping}) klassifiziert werden kann.
+Diese unterschiedlichen Gliederungen erklären Ramasubramanian und Singh damit, dass entweder nach "Learning types" (siehe Abbildung \ref{fig:MachineLearningTypes_all}) oder "Subjective grouping" (siehe Tabelle \ref{tab:SebjectiveGrouping}) klassifiziert werden kann \citep[S.~222]{ramasubramanian_machine_2017}.
 \begin{figure}[H]
 \centering
 \frame{
@@ -508,10 +508,10 @@ Text mining algorithms & Automatic summarization\\
 \label{tab:SebjectiveGrouping}
 \end{table}
 
-Da der Artikel "How to choose algorithms for Microsoft Azure Machine Learning" von \citep{ericson_microsoft_2017} nach "Supervised", "Unsupervised" und "Reinforcement learning" zurückgreift, wird nachfolgend diese Gliederung genutzt und um "Semi-supervised Learning" und "Active Learning" erweitert. \par
+Da der Artikel "How to choose algorithms for Microsoft Azure Machine Learning" von Ericson und Rohm nach "Supervised", "Unsupervised" und "Reinforcement learning" zurückgreift, wird nachfolgend diese Gliederung genutzt und um "Semi-supervised Learning" und "Active Learning" erweitert \citep{ericson_microsoft_2017}. \par
 
 \section{Supervised Learning}\label{subsec:sl}
-Die möglicherweise am einfachsten nachvollziehbare Gruppe des Machine Learning ist das Supervised Learning, da es "sehr ähnlich zu dem Prozess ist, in dem Menschen Dinge lernen"\citep[S.~13; eigene Übersetzung]{kim_matlab_2017}. Es existiert ein Datensatz, bei dem für jeden Input ein Output vorhanden ist. Ein Beispiel können Patientendaten sein, die als Output eine Variable besitzen, die angibt, ob ein Patient an Krebs erkrankt ist oder nicht \citep[S.~222]{ramasubramanian_machine_2017}. Diese "response variable" (Krebs oder nicht Krebs) wird als "label"\citep[S.~222]{ramasubramanian_machine_2017} bezeichnet. Die Aufgabe des Learning Prozesses ist es dann, einen Zusammenhang zwischen dem Input (Patientendaten) und dem Label (Krebs oder nicht Krebs) herzustellen. Dies geschieht mit sogenannten "training sets"\citep[S.~5]{paluszek_matlab_2017}. Der zweite Schritt ist dann das Überprüfen des entstandenen Models. Dabei wird das Model auf ein zweites gelabeltes "test set"\citep[S.~5]{paluszek_matlab_2017} angewandt und das Ergebnis überprüft.\par
+Die möglicherweise am einfachsten nachvollziehbare Gruppe des Machine Learning ist das Supervised Learning, da es "sehr ähnlich zu dem Prozess ist, in dem Menschen Dinge lernen" \citep[S.~13; eigene Übersetzung]{kim_matlab_2017}. Es existiert ein Datensatz, bei dem für jeden Input ein Output vorhanden ist. Ein Beispiel können Patientendaten sein, die als Output eine Variable besitzen, die angibt, ob ein Patient an Krebs erkrankt ist oder nicht \citep[S.~222]{ramasubramanian_machine_2017}. Diese "response variable" (Krebs oder nicht Krebs) wird als "label" \citep[S.~222]{ramasubramanian_machine_2017} bezeichnet. Die Aufgabe des Learning Prozesses ist es dann, einen Zusammenhang zwischen dem Input (Patientendaten) und dem Label (Krebs oder nicht Krebs) herzustellen. Dies geschieht mit sogenannten "training sets" \citep[S.~5]{paluszek_matlab_2017}. Der zweite Schritt ist dann das Überprüfen des entstandenen Models. Dabei wird das Model auf ein zweites gelabeltes "test set" \citep[S.~5]{paluszek_matlab_2017} angewandt und das Ergebnis überprüft.\par
 Die Algorithmen des Supervised Learning lassen sich erneut aufteilen:
 
 \subsection{Classification} \label{subsubsec:classification}
@@ -522,7 +522,7 @@ Betrachtet man die Labels und stellt fest, dass sie die Datensätze in Kategorie
 \item Spamfilter und
 \item medizinische Diagnosen \citep[S.~5]{kauchak_neural_2016}.
 \end{itemize}
-Weiterhin kann zwischen Klassifikationen mit nur zwei Labels ("two-class or binomial classification"\citep{ericson_how_2017}) (siehe Abbildung \ref{fig:classification}) oder mehr als zwei Labels ("multi-class classification"\citep{ericson_how_2017}) unterschieden werden.
+Weiterhin kann zwischen Klassifikationen mit nur zwei Labels ("two-class or binomial classification" \citep{ericson_how_2017}) (siehe Abbildung \ref{fig:classification}) oder mehr als zwei Labels ("multi-class classification" \citep{ericson_how_2017}) unterschieden werden.
 \begin{figure}[H]
 \centering
 \frame{
@@ -532,30 +532,30 @@ Weiterhin kann zwischen Klassifikationen mit nur zwei Labels ("two-class or bino
 \end{figure}
 
 \subsection{Regression}\label{subsubsec:regression}
-Wenn eine Unterteilung in Kategorien, wie gerade genannt, nicht möglich ist und die Outputvariable ein fortlaufender Wert (engl. continuous value) ist, werden Regressionen herangezogen. Dabei liegt der "Hauptfokus [...] darin, einen Zusammenhang zwischen einer abhängigen Variablen und einer oder mehreren unabhängigen [...] Variablen herzustellen"\citep[S.~60; eigene Übersetzung]{swamynathan_mastering_2017}. Neben dem bekanntesten Beispiel
+Wenn eine Unterteilung in Kategorien, wie gerade genannt, nicht möglich ist und die Outputvariable ein fortlaufender Wert (engl. continuous value) ist, werden Regressionen herangezogen. Dabei liegt der "Hauptfokus [...] darin, einen Zusammenhang zwischen einer abhängigen Variablen und einer oder mehreren unabhängigen [...] Variablen herzustellen" \citep[S.~60; eigene Übersetzung]{swamynathan_mastering_2017}. Neben dem bekanntesten Beispiel
 \begin{itemize}
 \item einen Kurs an der Börse vorherzusagen \multicitep{kauchak_neural_2016, S.~5; kubat_introduction_2017, S.~207; ericson_how_2017}, gibt es Anwendungsfälle in
 \item der Epidemiologie,
 \item der Auto- und Flugzeugnavigation und
-\item Analysen im zeitlichen Verlauf (Wetterveränderung im Verlauf der Zeit)\citep[S.~5]{kauchak_neural_2016}.
+\item Analysen im zeitlichen Verlauf (Wetterveränderung im Verlauf der Zeit) \citep[S.~5]{kauchak_neural_2016}.
 \end{itemize}
 
 \subsection{Anomaly detection}
-Im bereits mehrfach zitierten Artikel "How to choose algorithms for Microsoft Azure Machine Learning" von \citep{ericson_how_2017} wird noch eine zusätzliche Kategorie genannt: Anomaly detection. Bei \citep[S.~68]{swamynathan_mastering_2017} ist die Anomaly detection dem Unsupervised Learning zugeordnet. Dies rührt daher, dass es darauf ankommt, ob eine Outputvariable ("Label") vorhanden ist, oder nicht. Tatsächlich ist es so, dass es sowohl Szenarien für Supervised und Unsupervised Anomaly detection gibt, als auch für das später noch beschriebene Semi-supervised Learning \citep[S.~15:10]{chandola_anomaly_2009}.
+Im bereits mehrfach zitierten Artikel "How to choose algorithms for Microsoft Azure Machine Learning" von Ericson und Rohm wird noch eine zusätzliche Kategorie genannt: Anomaly detection \citep{ericson_how_2017}. Bei Swamynathan ist die Anomaly detection dem Unsupervised Learning zugeordnet \citep[S.~68]{swamynathan_mastering_2017}. Dies rührt daher, dass es darauf ankommt, ob eine Outputvariable ("Label") vorhanden ist, oder nicht. Tatsächlich ist es so, dass es sowohl Szenarien für Supervised und Unsupervised Anomaly detection gibt, als auch für das später noch beschriebene Semi-supervised Learning \citep[S.~15:10]{chandola_anomaly_2009}.
 Unabhängig davon beschreibt Anomaly detection das Finden von Mustern in Daten, die vom erwarteten Verhalten abweichen. Diese Pattern werden meist als Anomalie (engl. anomaly) oder Ausreißer (engl. outliner) bezeichnet \citep[S.~15:1]{chandola_anomaly_2009}.
-Die Anomaly detection kann für folgende Szenarien genutzt werden\citep[S.~15:2]{chandola_anomaly_2009}:
+Die Anomaly detection kann für folgende Szenarien genutzt werden \citep[S.~15:2]{chandola_anomaly_2009}:
 \begin{itemize}
 \item Kreditkartenbetrugserkennung
 \item Versicherungsbetrugserkennung
 \item Gesundheitsprüfungen
 \item Intrusion Detection
 \item Militärische Überwachungen
-\item Anwendungen in "der Welt des Internet der Dinge"[S.~68]\citep{swamynathan_mastering_2017}
+\item Anwendungen in "der Welt des Internet der Dinge" \citep[S.~68]{swamynathan_mastering_2017}
 \end{itemize}
 
 \section{Unsupervised Learning}\label{sec:us1}
-Der 'Glücksfall', dass der vorhandene Datensatz Label besitzt, tritt unter realen Umständen selten auf. Um aus diesen Daten trotzdem Schlüsse zu ziehen, werden Methoden des Unsupervised Learning herangezogen. Hier liegt der Fokus auf dem "Entdecken von aufschlussreichen Eigenschaften der verfügbaren Daten"\citep[S.277; eigene Übersetzung]{kubat_introduction_2017} und der "Untersuchung der Charakteristik der Daten"\citep[S.~13; eigene Übersetzung]{kim_matlab_2017}. Dies kann das Ziel haben, komplexe und vielschichtige Daten zu vereinfachen und zu strukturieren\citep{ericson_how_2017} oder die Daten in Gruppen aufzuteilen\citep[S.~22]{lison_introduction_2012}. Um diese Gruppen ähnlicher Daten - sogenannte Cluster - geht es im nächsten Abschnitt.\par
-Supervised Learning findet man nach \citep[S.~223]{ramasubramanian_machine_2017}
+Der 'Glücksfall', dass der vorhandene Datensatz Label besitzt, tritt unter realen Umständen selten auf. Um aus diesen Daten trotzdem Schlüsse zu ziehen, werden Methoden des Unsupervised Learning herangezogen. Hier liegt der Fokus auf dem "Entdecken von aufschlussreichen Eigenschaften der verfügbaren Daten" \citep[S.277; eigene Übersetzung]{kubat_introduction_2017} und der "Untersuchung der Charakteristik der Daten" \citep[S.~13; eigene Übersetzung]{kim_matlab_2017}. Dies kann das Ziel haben, komplexe und vielschichtige Daten zu vereinfachen und zu strukturieren \citep{ericson_how_2017} oder die Daten in Gruppen aufzuteilen \citep[S.~22]{lison_introduction_2012}. Um diese Gruppen ähnlicher Daten - sogenannte Cluster - geht es im nächsten Abschnitt.\par
+Supervised Learning findet man nach Ramasubramanian \citep[S.~223]{ramasubramanian_machine_2017}
 \begin{itemize}
 \item bei der Aufteilung von Kundendaten in Segmente,
 \item in Analysen von sozialen Netzwerken,
@@ -565,12 +565,12 @@ Supervised Learning findet man nach \citep[S.~223]{ramasubramanian_machine_2017}
 \end{itemize}
 
 \subsection{Clustering}
-Beim angesprochenen Clustering handelt es sich um das "Identifizieren von distinkten Gruppen [...] basierend auf irgendeiner Art der Ähnlichkeit innerhalb des vorliegenden Datensatzes"\citep[S.~195; eigene Übersetzung]{swamynathan_mastering_2017}. Damit die Objekte der gebildeten Cluster "aussagekräftig und sinnvoll" sind, sollen "die Objekte innerhalb eines Clusters [...] homogen sein" und "zu Objekten anderer Cluster"\citep[S.~337; eigene Übersetzung]{ramasubramanian_machine_2017} heterogen (siehe Abbildung \ref{fig:clustering}). Es kann jedoch auch sein, dass Objekte zu mehreren Clustern gehören. Dies nennt sich "Soft Clustering" - im Gegensatz zum "Hard Clustering"\citep[S.~339]{ramasubramanian_machine_2017}. Die Metrik für die Ähnlichkeit ist nicht festgelegt. Möglich sind 
+Beim angesprochenen Clustering handelt es sich um das "Identifizieren von distinkten Gruppen [...] basierend auf irgendeiner Art der Ähnlichkeit innerhalb des vorliegenden Datensatzes" \citep[S.~195; eigene Übersetzung]{swamynathan_mastering_2017}. Damit die Objekte der gebildeten Cluster "aussagekräftig und sinnvoll" sind, sollen "die Objekte innerhalb eines Clusters [...] homogen sein" und "zu Objekten anderer Cluster" \citep[S.~337; eigene Übersetzung]{ramasubramanian_machine_2017} heterogen (siehe Abbildung \ref{fig:clustering}). Es kann jedoch auch sein, dass Objekte zu mehreren Clustern gehören. Dies nennt sich "Soft Clustering" - im Gegensatz zum "Hard Clustering" \citep[S.~339]{ramasubramanian_machine_2017}. Die Metrik für die Ähnlichkeit ist nicht festgelegt. Möglich sind 
 \begin{itemize}
 \item die "Distanz [...] zwischen Beobachtungen", 
 \item die "Entfernung vom Mittelwert jeder Beobachtung/des Clusters",
 \item die "Signifikanz [einer] statistischen Verteilung" oder
-\item die "Dichte im Datenraum"\citep[S.~338; eigene Übersetzung]{ramasubramanian_machine_2017}.
+\item die "Dichte im Datenraum" \citep[S.~338; eigene Übersetzung]{ramasubramanian_machine_2017}.
 \end{itemize}
 \begin{figure}[H]
 \centering
@@ -581,20 +581,20 @@ Beim angesprochenen Clustering handelt es sich um das "Identifizieren von distin
 \end{figure}
 
 \section{Semi-supervised Learning}\label{sec:ssl1}
-Bis jetzt wurden zwei Extremfälle beschrieben: entweder es gibt keine Labels oder alle Daten sind gelabelt. Es existieren jedoch auch Abstufungen dazwischen. Besitzen die meisten Daten ein Label, so ist es eventuell möglich, die Datensätze ohne Label für das Learning zu entfernen und ein Model aus dem Supervised Learning heranzuziehen. Tritt aber ein Problem auf, bei dem nur sehr wenige Daten gelabelt sind, empfiehlt sich ein Vorgehen aus dem Semi-supervised Learning. Methoden dieser Familie des Machine Learning beruhen auf der Annahme, dass "die Daten wichtige Informationen über die Gruppenzugehörigkeit beinhalten", "obwohl die Gruppenzugehörigkeit [...] unbekannt ist"\citep[S.~223; eigene Übersetzung]{ramasubramanian_machine_2017}. Als umfassendes Werk für Semi-supervised Learning ist an dieser Stelle \citep{chapelle_semi-supervised_2006} zu nennen. \par
-Zur Anwendung kommt Semi-supervised Learning seit den 1990er Jahre in "natural language problems" und "text classification"\citep[S.~4]{chapelle_semi-supervised_2006}.
+Bis jetzt wurden zwei Extremfälle beschrieben: entweder es gibt keine Labels oder alle Daten sind gelabelt. Es existieren jedoch auch Abstufungen dazwischen. Besitzen die meisten Daten ein Label, so ist es eventuell möglich, die Datensätze ohne Label für das Learning zu entfernen und ein Model aus dem Supervised Learning heranzuziehen. Tritt aber ein Problem auf, bei dem nur sehr wenige Daten gelabelt sind, empfiehlt sich ein Vorgehen aus dem Semi-supervised Learning. Methoden dieser Familie des Machine Learning beruhen auf der Annahme, dass "die Daten wichtige Informationen über die Gruppenzugehörigkeit beinhalten", "obwohl die Gruppenzugehörigkeit [...] unbekannt ist" \citep[S.~223; eigene Übersetzung]{ramasubramanian_machine_2017}. Als umfassendes Werk für Semi-supervised Learning ist an dieser Stelle \citep{chapelle_semi-supervised_2006} zu nennen. \par
+Zur Anwendung kommt Semi-supervised Learning seit den 1990er Jahre in "natural language problems" und "text classification" \citep[S.~4]{chapelle_semi-supervised_2006}.
 
 \section{Active Learning}\label{sec:al1}
-Ein Sonderfall des Semi-Supervised Learning ist das Active Learning. Hier wird davon ausgegangen, dass nur wenige oder keine Labels vorhanden sind, diese jedoch durch einen "Menschen mit umfangreichem Wissen im Themengebiet"\citep[S.~i; eigene Übersetzung]{olsson_literature_2009} hinzugefügt werden können. Alle Daten mit einem Label zu versehen wäre jedoch zu "schwer, zeitaufwendig oder zu teuer"\citep[Abstract; eigene Übersetzung]{settles_active_2010}. Mit dem Ziel an den Menschen nur so wenig Anfragen (engl. Queries) wie nötig zu stellen\citep[Abstract]{olsson_literature_2009}, werden Algorithmen entworfen, die selbst wählen können, welche Datensätze gelabelt werden sollen \citep[Abstract]{settles_active_2010}.\par
-Nach \citep[S.~4]{settles_active_2010} wird Active Learning beispielsweise in
+Ein Sonderfall des Semi-Supervised Learning ist das Active Learning. Hier wird davon ausgegangen, dass nur wenige oder keine Labels vorhanden sind, diese jedoch durch einen "Menschen mit umfangreichem Wissen im Themengebiet" \citep[S.~i; eigene Übersetzung]{olsson_literature_2009} hinzugefügt werden können. Alle Daten mit einem Label zu versehen wäre jedoch zu "schwer, zeitaufwendig oder zu teuer" \citep[Abstract; eigene Übersetzung]{settles_active_2010}. Mit dem Ziel an den Menschen nur so wenig Anfragen (engl. Queries) wie nötig zu stellen \citep[Abstract]{olsson_literature_2009}, werden Algorithmen entworfen, die selbst wählen können, welche Datensätze gelabelt werden sollen \citep[Abstract]{settles_active_2010}.\par
+Nach Settles wird Active Learning beispielsweise in
 \begin{itemize}
 \item der Spracherkennung,
 \item der Informationsextraktion oder in
-\item der Klassifikation oder dem Filtern von Dokumenten oder Mediendateien eingesetzt.
+\item der Klassifikation oder dem Filtern von Dokumenten oder Mediendateien eingesetzt \citep[S.~4]{settles_active_2010}.
 \end{itemize}
 
 \section{Reinforcement Learning}\label{sec:rl1}
-"Beim Reinforcement Learning interagiert der Lerner" - also ein Programm - "mit seiner Umwelt"\citep[S.~45; eigene Übersetzung]{settles_active_2010}. Er "experimentiert" dabei, um eine Lösung auf das gestellte Problem zu finden und erhält je nach Ausgang seiner Aktion eine Belohnung oder eine Bestrafung \citep[S.~331]{kubat_introduction_2017}. Es wird also nicht direkt mit einem Output (Label) gearbeitet, sondern lediglich die Qualität des Outputs bewertet. Das Ziel ist, durch ein iteratives Vorgehen (siehe Abbildung \ref{fig:reinforcementLearning}), ein maximales Endergebnis (größter Reward) zu erreichen \citep[S.~69]{swamynathan_mastering_2017}.
+"Beim Reinforcement Learning interagiert der Lerner" - also ein Programm - "mit seiner Umwelt" \citep[S.~45; eigene Übersetzung]{settles_active_2010}. Er "experimentiert" dabei, um eine Lösung auf das gestellte Problem zu finden und erhält je nach Ausgang seiner Aktion eine Belohnung oder eine Bestrafung \citep[S.~331]{kubat_introduction_2017}. Es wird also nicht direkt mit einem Output (Label) gearbeitet, sondern lediglich die Qualität des Outputs bewertet. Das Ziel ist, durch ein iteratives Vorgehen (siehe Abbildung \ref{fig:reinforcementLearning}), ein maximales Endergebnis (größter Reward) zu erreichen \citep[S.~69]{swamynathan_mastering_2017}.
 \begin{figure}[H]
 \centering
 \frame{
@@ -629,7 +629,7 @@ Es sollte in diesem Teil beachtet werden, dass die Quellen hauptsächlich Micros
 \section{Allgemeine Beschreibung}\label{sec:ab1}
 Zum Ende des Abschnittes \ref{sec:SaaS} wurde die \textbf{S}oftware \textbf{a}s \textbf{a} \textbf{S}ervice (SaaS) Microsoft Azure Machine Learning Studio bereits angesprochen. Es handelt sich dabei um eine Cloud-basierte Web-\gls{ide} (\textbf{I}ntegrated \textbf{D}evelopment \textbf{E}nvironment). Der Kern der Anwendung ist ein "drag and-drop tool", das genutzt wird, um "predictive analytics solutions" zu entwerfen und bereitzustellen \citep{ericson_what_2017}. Es können sowohl vorgefertigte Bausteine genutzt werden, als auch selbst entworfene Skripte (in \gls{r} und/oder \gls{py}).
 \section{Aufbau und Komponenten}\label{sec:auK1}
-Die strukturellen Hauptkomponenten sind Tabelle \ref{tab:azuremlcomponents} zu entnehmen. Die Tabelle basiert auf dem Artikel "What is Azure Machine Learning Studio?" von \citep{ericson_what_2017} und dem Machine Learning Studio selbst (https://studio.azureml.net/Home).
+Die strukturellen Hauptkomponenten sind Tabelle \ref{tab:azuremlcomponents} zu entnehmen. Die Tabelle basiert auf dem Artikel "What is Azure Machine Learning Studio?" von Ericson und Rohm und dem Machine Learning Studio selbst \citep{ericson_what_2017} (https://studio.azureml.net/Home).
 \begin{longtable}[H]{|p{2,5cm}|p{14cm}|}
 \hline
 \textbf{Komponente} & \textbf{Beschreibung}\\ 
@@ -643,7 +643,7 @@ Notebooks & Die Notebooks sind Verknüpfungen auf Jupyter Notebooks. Diese wiede
 \item numerical simulation,
 \item statistical modeling,
 \item data visualization" und
-\item "machine learning"\citep{projectjupyter_jupyter_2017}.
+\item "machine learning" \citep{projectjupyter_jupyter_2017}.
 \end{itemize}
 Project Jupyter ist non-profit und open-source \citep{projectjupyter_about_2017}. \\
 \hline
